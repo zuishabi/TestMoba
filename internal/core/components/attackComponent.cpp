@@ -17,7 +17,7 @@ void AttackComponent::Update() {
 }
 
 
-void AttackComponent::Attack(ComponentManager *targetComponent) {
+void AttackComponent::Attack(const std::shared_ptr<ComponentManager>& targetComponent) {
     if (Enable && targetComponent != nullptr) {
         target = targetComponent;
         auto attackSpeed = Manager->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);

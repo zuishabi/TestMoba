@@ -12,6 +12,7 @@ enum class SyncerType {
     ManaSyncer,
     SpeedSyncer,
     AttackSpeedSyncer,
+    StraightBulletSkillSyncer,
 };
 
 
@@ -168,6 +169,49 @@ public:
     }
 private:
     float coolDown;
+};
+
+
+struct StraightBulletSkillInfo {
+    uint64_t id;
+    b2BodyId bodyID;
+    b2ShapeId shapeID;
+};
+
+
+class StraightBulletSkillSyncer:public Syncer {
+public:
+    StraightBulletSkillSyncer(uint32_t uid,int pos):Syncer(uid,SyncerType::StraightBulletSkillSyncer),pos(pos) {
+        updated = true;
+    }
+public:
+    std::shared_ptr<Packet>getSync() override {
+        std::shared_ptr<Packet> packet = std::make_shared<Packet>();
+        auto sync = packet->mutable_sync_skill();
+        sync->set_pos(pos);
+        sync->set_uid(uid);
+        auto skills = sync->mutable_straight_bullet_skill();
+        for (int i = 0;i < infos.size();i ++) {
+            b2BodyId body = infos[i].bodyID;
+            b2Vec2 p = b2Body_GetPosition(body);
+            skills->add_id(infos[i].id);
+            skills->add_angle(b2Rot_GetAngle(b2Body_GetRotation(body)));
+            skills->add_pos_x(p.x);
+            skills->add_pos_y(p.y);
+            skills->add_destroyed(false);
+        }
+        for (auto &p : destroyedInfos) {
+            skills->add_id(p.id);
+            skills->add_destroyed(true);
+        }
+        destroyedInfos.clear();
+        return packet;
+    }
+public:
+    std::vector<StraightBulletSkillInfo> infos;
+    std::list<StraightBulletSkillInfo> destroyedInfos;
+private:
+    int pos;
 };
 
 

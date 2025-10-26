@@ -10,7 +10,7 @@
 // 移动组件
 class MovingComponent :public Component{
 public:
-    MovingComponent(int speed,b2BodyId bodyID,ComponentManager* mgr,SyncerManager* syncerManager,std::shared_ptr<MoveSyncer> moveSyncer):
+    MovingComponent(int speed,b2BodyId bodyID,std::shared_ptr<ComponentManager> mgr,SyncerManager* syncerManager,std::shared_ptr<MoveSyncer> moveSyncer):
     Component(ComponentType::MovingComponentType,mgr),Speed(speed),BodyID(bodyID),moveSyncer(moveSyncer){
         syncerManager->AddSyncer(moveSyncer);
         moveSyncer->SetPos({200,200});
@@ -34,14 +34,14 @@ private:
 
 class AttackComponent :public Component {
 public:
-    explicit AttackComponent(ComponentManager* mgr)
+    explicit AttackComponent(std::shared_ptr<ComponentManager> mgr)
     :Component(ComponentType::AttackComponentType,mgr) {
 
     }
 public:
     void Update() override;
 
-    void Attack(ComponentManager* targetComponent);
+    void Attack(const std::shared_ptr<ComponentManager>& targetComponent);
 
     void Interrupt();
 public:
@@ -49,13 +49,13 @@ public:
     bool isShooting = false;
     float scale = 100;
     std::chrono::time_point<std::chrono::steady_clock, std::chrono::duration<double, std::ratio<1, 1000000000>>> nextPoint;
-    ComponentManager* target = nullptr;
+    std::shared_ptr<ComponentManager> target = nullptr;
 };
 
 
 class AttributeComponent:public Component {
 public:
-    AttributeComponent(ComponentManager* mgr,SyncerManager* syncerManager,std::shared_ptr<HealthSyncer> healthSyncer,
+    AttributeComponent(std::shared_ptr<ComponentManager> mgr,SyncerManager* syncerManager,std::shared_ptr<HealthSyncer> healthSyncer,
         std::shared_ptr<ManaSyncer> manaSyncer,std::shared_ptr<AttackSpeedSyncer> attackSpeedSyncer):
     Component(ComponentType::AttributeComponentType,mgr),manaSyncer(manaSyncer),healthSyncer(healthSyncer),attackSpeedSyncer(attackSpeedSyncer) {
         syncerManager->AddSyncer(this->healthSyncer);
@@ -100,9 +100,23 @@ private:
 
 class HitComponent:public Component{
 public:
-    HitComponent(ComponentManager* mgr):Component(ComponentType::HitComponentType,mgr) {}
+    HitComponent(std::shared_ptr<ComponentManager> mgr):Component(ComponentType::HitComponentType,mgr) {}
 public:
-    void Hit(ComponentManager* target);
+    void Hit(std::shared_ptr<ComponentManager> target);
 };
+
+
+class SkillComponent:public Component {
+public:
+    SkillComponent(std::shared_ptr<ComponentManager> mgr,std::array<std::unique_ptr<Skill>,4> skills):
+    Component(ComponentType::SkillComponentType,mgr),skills(std::move(skills)) {
+    }
+    void Update() override;
+public:
+    void ExecuteSkill(int pos,SkillInfo info);
+private:
+    std::array<std::unique_ptr<Skill>,4> skills;
+};
+
 
 #endif //TESTSERVER_COMPONENTS_H

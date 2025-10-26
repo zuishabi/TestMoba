@@ -4,8 +4,8 @@
 
 #include "components.h"
 
-void HitComponent::Hit(ComponentManager *target) {
+void HitComponent::Hit(std::shared_ptr<ComponentManager> target) {
     auto selfAttribute = Manager->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);
-    auto targetAttribute = Manager->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);
+    auto targetAttribute = target->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);
     targetAttribute->SetHealth(targetAttribute->GetHealth() - 10);
 }

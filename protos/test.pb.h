@@ -51,6 +51,9 @@ struct TableStruct_test_2eproto {
 };
 extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_test_2eproto;
+class ExecuteSkillMessage;
+struct ExecuteSkillMessageDefaultTypeInternal;
+extern ExecuteSkillMessageDefaultTypeInternal _ExecuteSkillMessage_default_instance_;
 class InputPacket;
 struct InputPacketDefaultTypeInternal;
 extern InputPacketDefaultTypeInternal _InputPacket_default_instance_;
@@ -87,6 +90,12 @@ extern PlayerPositionSyncMessageDefaultTypeInternal _PlayerPositionSyncMessage_d
 class PlayerUseSkillMessage;
 struct PlayerUseSkillMessageDefaultTypeInternal;
 extern PlayerUseSkillMessageDefaultTypeInternal _PlayerUseSkillMessage_default_instance_;
+class StraightBulletSkillInfoMessage;
+struct StraightBulletSkillInfoMessageDefaultTypeInternal;
+extern StraightBulletSkillInfoMessageDefaultTypeInternal _StraightBulletSkillInfoMessage_default_instance_;
+class SyncSkillMessage;
+struct SyncSkillMessageDefaultTypeInternal;
+extern SyncSkillMessageDefaultTypeInternal _SyncSkillMessage_default_instance_;
 namespace google {
 namespace protobuf {
 }  // namespace protobuf
@@ -96,6 +105,285 @@ namespace protobuf {
 // ===================================================================
 
 
+// -------------------------------------------------------------------
+
+class StraightBulletSkillInfoMessage final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:StraightBulletSkillInfoMessage) */ {
+ public:
+  inline StraightBulletSkillInfoMessage() : StraightBulletSkillInfoMessage(nullptr) {}
+  ~StraightBulletSkillInfoMessage() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(StraightBulletSkillInfoMessage* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(StraightBulletSkillInfoMessage));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR StraightBulletSkillInfoMessage(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline StraightBulletSkillInfoMessage(const StraightBulletSkillInfoMessage& from) : StraightBulletSkillInfoMessage(nullptr, from) {}
+  inline StraightBulletSkillInfoMessage(StraightBulletSkillInfoMessage&& from) noexcept
+      : StraightBulletSkillInfoMessage(nullptr, std::move(from)) {}
+  inline StraightBulletSkillInfoMessage& operator=(const StraightBulletSkillInfoMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StraightBulletSkillInfoMessage& operator=(StraightBulletSkillInfoMessage&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StraightBulletSkillInfoMessage& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StraightBulletSkillInfoMessage* internal_default_instance() {
+    return reinterpret_cast<const StraightBulletSkillInfoMessage*>(
+        &_StraightBulletSkillInfoMessage_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 14;
+  friend void swap(StraightBulletSkillInfoMessage& a, StraightBulletSkillInfoMessage& b) { a.Swap(&b); }
+  inline void Swap(StraightBulletSkillInfoMessage* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StraightBulletSkillInfoMessage* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StraightBulletSkillInfoMessage* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<StraightBulletSkillInfoMessage>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const StraightBulletSkillInfoMessage& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const StraightBulletSkillInfoMessage& from) { StraightBulletSkillInfoMessage::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(StraightBulletSkillInfoMessage* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "StraightBulletSkillInfoMessage"; }
+
+ protected:
+  explicit StraightBulletSkillInfoMessage(::google::protobuf::Arena* arena);
+  StraightBulletSkillInfoMessage(::google::protobuf::Arena* arena, const StraightBulletSkillInfoMessage& from);
+  StraightBulletSkillInfoMessage(::google::protobuf::Arena* arena, StraightBulletSkillInfoMessage&& from) noexcept
+      : StraightBulletSkillInfoMessage(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kIdFieldNumber = 1,
+    kPosXFieldNumber = 2,
+    kPosYFieldNumber = 3,
+    kAngleFieldNumber = 4,
+    kDestroyedFieldNumber = 5,
+  };
+  // repeated uint64 id = 1;
+  int id_size() const;
+  private:
+  int _internal_id_size() const;
+
+  public:
+  void clear_id() ;
+  ::uint64_t id(int index) const;
+  void set_id(int index, ::uint64_t value);
+  void add_id(::uint64_t value);
+  const ::google::protobuf::RepeatedField<::uint64_t>& id() const;
+  ::google::protobuf::RepeatedField<::uint64_t>* mutable_id();
+
+  private:
+  const ::google::protobuf::RepeatedField<::uint64_t>& _internal_id() const;
+  ::google::protobuf::RepeatedField<::uint64_t>* _internal_mutable_id();
+
+  public:
+  // repeated float pos_x = 2;
+  int pos_x_size() const;
+  private:
+  int _internal_pos_x_size() const;
+
+  public:
+  void clear_pos_x() ;
+  float pos_x(int index) const;
+  void set_pos_x(int index, float value);
+  void add_pos_x(float value);
+  const ::google::protobuf::RepeatedField<float>& pos_x() const;
+  ::google::protobuf::RepeatedField<float>* mutable_pos_x();
+
+  private:
+  const ::google::protobuf::RepeatedField<float>& _internal_pos_x() const;
+  ::google::protobuf::RepeatedField<float>* _internal_mutable_pos_x();
+
+  public:
+  // repeated float pos_y = 3;
+  int pos_y_size() const;
+  private:
+  int _internal_pos_y_size() const;
+
+  public:
+  void clear_pos_y() ;
+  float pos_y(int index) const;
+  void set_pos_y(int index, float value);
+  void add_pos_y(float value);
+  const ::google::protobuf::RepeatedField<float>& pos_y() const;
+  ::google::protobuf::RepeatedField<float>* mutable_pos_y();
+
+  private:
+  const ::google::protobuf::RepeatedField<float>& _internal_pos_y() const;
+  ::google::protobuf::RepeatedField<float>* _internal_mutable_pos_y();
+
+  public:
+  // repeated float angle = 4;
+  int angle_size() const;
+  private:
+  int _internal_angle_size() const;
+
+  public:
+  void clear_angle() ;
+  float angle(int index) const;
+  void set_angle(int index, float value);
+  void add_angle(float value);
+  const ::google::protobuf::RepeatedField<float>& angle() const;
+  ::google::protobuf::RepeatedField<float>* mutable_angle();
+
+  private:
+  const ::google::protobuf::RepeatedField<float>& _internal_angle() const;
+  ::google::protobuf::RepeatedField<float>* _internal_mutable_angle();
+
+  public:
+  // repeated bool destroyed = 5;
+  int destroyed_size() const;
+  private:
+  int _internal_destroyed_size() const;
+
+  public:
+  void clear_destroyed() ;
+  bool destroyed(int index) const;
+  void set_destroyed(int index, bool value);
+  void add_destroyed(bool value);
+  const ::google::protobuf::RepeatedField<bool>& destroyed() const;
+  ::google::protobuf::RepeatedField<bool>* mutable_destroyed();
+
+  private:
+  const ::google::protobuf::RepeatedField<bool>& _internal_destroyed() const;
+  ::google::protobuf::RepeatedField<bool>* _internal_mutable_destroyed();
+
+  public:
+  // @@protoc_insertion_point(class_scope:StraightBulletSkillInfoMessage)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 5, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const StraightBulletSkillInfoMessage& from_msg);
+    ::google::protobuf::RepeatedField<::uint64_t> id_;
+    ::google::protobuf::internal::CachedSize _id_cached_byte_size_;
+    ::google::protobuf::RepeatedField<float> pos_x_;
+    ::google::protobuf::RepeatedField<float> pos_y_;
+    ::google::protobuf::RepeatedField<float> angle_;
+    ::google::protobuf::RepeatedField<bool> destroyed_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_test_2eproto;
+};
 // -------------------------------------------------------------------
 
 class PlayerUseSkillMessage final : public ::google::protobuf::Message
@@ -2166,6 +2454,469 @@ class MoveMessage final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class ExecuteSkillMessage final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ExecuteSkillMessage) */ {
+ public:
+  inline ExecuteSkillMessage() : ExecuteSkillMessage(nullptr) {}
+  ~ExecuteSkillMessage() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ExecuteSkillMessage* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ExecuteSkillMessage));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ExecuteSkillMessage(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ExecuteSkillMessage(const ExecuteSkillMessage& from) : ExecuteSkillMessage(nullptr, from) {}
+  inline ExecuteSkillMessage(ExecuteSkillMessage&& from) noexcept
+      : ExecuteSkillMessage(nullptr, std::move(from)) {}
+  inline ExecuteSkillMessage& operator=(const ExecuteSkillMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ExecuteSkillMessage& operator=(ExecuteSkillMessage&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ExecuteSkillMessage& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ExecuteSkillMessage* internal_default_instance() {
+    return reinterpret_cast<const ExecuteSkillMessage*>(
+        &_ExecuteSkillMessage_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 12;
+  friend void swap(ExecuteSkillMessage& a, ExecuteSkillMessage& b) { a.Swap(&b); }
+  inline void Swap(ExecuteSkillMessage* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ExecuteSkillMessage* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ExecuteSkillMessage* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ExecuteSkillMessage>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ExecuteSkillMessage& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ExecuteSkillMessage& from) { ExecuteSkillMessage::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(ExecuteSkillMessage* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ExecuteSkillMessage"; }
+
+ protected:
+  explicit ExecuteSkillMessage(::google::protobuf::Arena* arena);
+  ExecuteSkillMessage(::google::protobuf::Arena* arena, const ExecuteSkillMessage& from);
+  ExecuteSkillMessage(::google::protobuf::Arena* arena, ExecuteSkillMessage&& from) noexcept
+      : ExecuteSkillMessage(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kDirectionXFieldNumber = 1,
+    kDirectionYFieldNumber = 2,
+    kPosXFieldNumber = 3,
+    kPosYFieldNumber = 4,
+  };
+  // float direction_x = 1;
+  void clear_direction_x() ;
+  float direction_x() const;
+  void set_direction_x(float value);
+
+  private:
+  float _internal_direction_x() const;
+  void _internal_set_direction_x(float value);
+
+  public:
+  // float direction_y = 2;
+  void clear_direction_y() ;
+  float direction_y() const;
+  void set_direction_y(float value);
+
+  private:
+  float _internal_direction_y() const;
+  void _internal_set_direction_y(float value);
+
+  public:
+  // float pos_x = 3;
+  void clear_pos_x() ;
+  float pos_x() const;
+  void set_pos_x(float value);
+
+  private:
+  float _internal_pos_x() const;
+  void _internal_set_pos_x(float value);
+
+  public:
+  // float pos_y = 4;
+  void clear_pos_y() ;
+  float pos_y() const;
+  void set_pos_y(float value);
+
+  private:
+  float _internal_pos_y() const;
+  void _internal_set_pos_y(float value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ExecuteSkillMessage)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 4, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ExecuteSkillMessage& from_msg);
+    float direction_x_;
+    float direction_y_;
+    float pos_x_;
+    float pos_y_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_test_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SyncSkillMessage final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:SyncSkillMessage) */ {
+ public:
+  inline SyncSkillMessage() : SyncSkillMessage(nullptr) {}
+  ~SyncSkillMessage() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(SyncSkillMessage* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(SyncSkillMessage));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR SyncSkillMessage(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline SyncSkillMessage(const SyncSkillMessage& from) : SyncSkillMessage(nullptr, from) {}
+  inline SyncSkillMessage(SyncSkillMessage&& from) noexcept
+      : SyncSkillMessage(nullptr, std::move(from)) {}
+  inline SyncSkillMessage& operator=(const SyncSkillMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SyncSkillMessage& operator=(SyncSkillMessage&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SyncSkillMessage& default_instance() {
+    return *internal_default_instance();
+  }
+  enum InfosCase {
+    kStraightBulletSkill = 3,
+    INFOS_NOT_SET = 0,
+  };
+  static inline const SyncSkillMessage* internal_default_instance() {
+    return reinterpret_cast<const SyncSkillMessage*>(
+        &_SyncSkillMessage_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 13;
+  friend void swap(SyncSkillMessage& a, SyncSkillMessage& b) { a.Swap(&b); }
+  inline void Swap(SyncSkillMessage* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SyncSkillMessage* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SyncSkillMessage* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<SyncSkillMessage>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const SyncSkillMessage& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const SyncSkillMessage& from) { SyncSkillMessage::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(SyncSkillMessage* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "SyncSkillMessage"; }
+
+ protected:
+  explicit SyncSkillMessage(::google::protobuf::Arena* arena);
+  SyncSkillMessage(::google::protobuf::Arena* arena, const SyncSkillMessage& from);
+  SyncSkillMessage(::google::protobuf::Arena* arena, SyncSkillMessage&& from) noexcept
+      : SyncSkillMessage(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kUidFieldNumber = 1,
+    kPosFieldNumber = 2,
+    kStraightBulletSkillFieldNumber = 3,
+  };
+  // uint32 uid = 1;
+  void clear_uid() ;
+  ::uint32_t uid() const;
+  void set_uid(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_uid() const;
+  void _internal_set_uid(::uint32_t value);
+
+  public:
+  // int32 pos = 2;
+  void clear_pos() ;
+  ::int32_t pos() const;
+  void set_pos(::int32_t value);
+
+  private:
+  ::int32_t _internal_pos() const;
+  void _internal_set_pos(::int32_t value);
+
+  public:
+  // .StraightBulletSkillInfoMessage straight_bullet_skill = 3;
+  bool has_straight_bullet_skill() const;
+  private:
+  bool _internal_has_straight_bullet_skill() const;
+
+  public:
+  void clear_straight_bullet_skill() ;
+  const ::StraightBulletSkillInfoMessage& straight_bullet_skill() const;
+  PROTOBUF_NODISCARD ::StraightBulletSkillInfoMessage* release_straight_bullet_skill();
+  ::StraightBulletSkillInfoMessage* mutable_straight_bullet_skill();
+  void set_allocated_straight_bullet_skill(::StraightBulletSkillInfoMessage* value);
+  void unsafe_arena_set_allocated_straight_bullet_skill(::StraightBulletSkillInfoMessage* value);
+  ::StraightBulletSkillInfoMessage* unsafe_arena_release_straight_bullet_skill();
+
+  private:
+  const ::StraightBulletSkillInfoMessage& _internal_straight_bullet_skill() const;
+  ::StraightBulletSkillInfoMessage* _internal_mutable_straight_bullet_skill();
+
+  public:
+  void clear_infos();
+  InfosCase infos_case() const;
+  // @@protoc_insertion_point(class_scope:SyncSkillMessage)
+ private:
+  class _Internal;
+  void set_has_straight_bullet_skill();
+  inline bool has_infos() const;
+  inline void clear_has_infos();
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 3, 1,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const SyncSkillMessage& from_msg);
+    ::uint32_t uid_;
+    ::int32_t pos_;
+    union InfosUnion {
+      constexpr InfosUnion() : _constinit_{} {}
+      ::google::protobuf::internal::ConstantInitialized _constinit_;
+      ::StraightBulletSkillInfoMessage* straight_bullet_skill_;
+    } infos_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t _oneof_case_[1];
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_test_2eproto;
+};
+// -------------------------------------------------------------------
+
 class InputPacket final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:InputPacket) */ {
  public:
@@ -2224,6 +2975,7 @@ class InputPacket final : public ::google::protobuf::Message
   enum InputCase {
     kMove = 1,
     kPlayerAttack = 2,
+    kExecuteSkill = 3,
     INPUT_NOT_SET = 0,
   };
   static inline const InputPacket* internal_default_instance() {
@@ -2319,6 +3071,7 @@ class InputPacket final : public ::google::protobuf::Message
   enum : int {
     kMoveFieldNumber = 1,
     kPlayerAttackFieldNumber = 2,
+    kExecuteSkillFieldNumber = 3,
   };
   // .MoveMessage move = 1;
   bool has_move() const;
@@ -2358,6 +3111,25 @@ class InputPacket final : public ::google::protobuf::Message
   ::PlayerAttackMessage* _internal_mutable_player_attack();
 
   public:
+  // .ExecuteSkillMessage execute_skill = 3;
+  bool has_execute_skill() const;
+  private:
+  bool _internal_has_execute_skill() const;
+
+  public:
+  void clear_execute_skill() ;
+  const ::ExecuteSkillMessage& execute_skill() const;
+  PROTOBUF_NODISCARD ::ExecuteSkillMessage* release_execute_skill();
+  ::ExecuteSkillMessage* mutable_execute_skill();
+  void set_allocated_execute_skill(::ExecuteSkillMessage* value);
+  void unsafe_arena_set_allocated_execute_skill(::ExecuteSkillMessage* value);
+  ::ExecuteSkillMessage* unsafe_arena_release_execute_skill();
+
+  private:
+  const ::ExecuteSkillMessage& _internal_execute_skill() const;
+  ::ExecuteSkillMessage* _internal_mutable_execute_skill();
+
+  public:
   void clear_input();
   InputCase input_case() const;
   // @@protoc_insertion_point(class_scope:InputPacket)
@@ -2365,11 +3137,12 @@ class InputPacket final : public ::google::protobuf::Message
   class _Internal;
   void set_has_move();
   void set_has_player_attack();
+  void set_has_execute_skill();
   inline bool has_input() const;
   inline void clear_has_input();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 2, 2,
+      0, 3, 3,
       0, 2>
       _table_;
 
@@ -2392,6 +3165,7 @@ class InputPacket final : public ::google::protobuf::Message
       ::google::protobuf::internal::ConstantInitialized _constinit_;
       ::MoveMessage* move_;
       ::PlayerAttackMessage* player_attack_;
+      ::ExecuteSkillMessage* execute_skill_;
     } input_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
@@ -2466,6 +3240,7 @@ class Packet final : public ::google::protobuf::Message
     kPlayerAttackSync = 7,
     kPlayerManaSync = 8,
     kPlayerAttackSpeedSync = 9,
+    kSyncSkill = 10,
     MSG_NOT_SET = 0,
   };
   static inline const Packet* internal_default_instance() {
@@ -2568,6 +3343,7 @@ class Packet final : public ::google::protobuf::Message
     kPlayerAttackSyncFieldNumber = 7,
     kPlayerManaSyncFieldNumber = 8,
     kPlayerAttackSpeedSyncFieldNumber = 9,
+    kSyncSkillFieldNumber = 10,
   };
   // uint32 uid = 1;
   void clear_uid() ;
@@ -2731,6 +3507,25 @@ class Packet final : public ::google::protobuf::Message
   ::PlayerAttackSpeedSyncMessage* _internal_mutable_player_attack_speed_sync();
 
   public:
+  // .SyncSkillMessage sync_skill = 10;
+  bool has_sync_skill() const;
+  private:
+  bool _internal_has_sync_skill() const;
+
+  public:
+  void clear_sync_skill() ;
+  const ::SyncSkillMessage& sync_skill() const;
+  PROTOBUF_NODISCARD ::SyncSkillMessage* release_sync_skill();
+  ::SyncSkillMessage* mutable_sync_skill();
+  void set_allocated_sync_skill(::SyncSkillMessage* value);
+  void unsafe_arena_set_allocated_sync_skill(::SyncSkillMessage* value);
+  ::SyncSkillMessage* unsafe_arena_release_sync_skill();
+
+  private:
+  const ::SyncSkillMessage& _internal_sync_skill() const;
+  ::SyncSkillMessage* _internal_mutable_sync_skill();
+
+  public:
   void clear_msg();
   MsgCase msg_case() const;
   // @@protoc_insertion_point(class_scope:Packet)
@@ -2744,11 +3539,12 @@ class Packet final : public ::google::protobuf::Message
   void set_has_player_attack_sync();
   void set_has_player_mana_sync();
   void set_has_player_attack_speed_sync();
+  void set_has_sync_skill();
   inline bool has_msg() const;
   inline void clear_has_msg();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 9, 8,
+      0, 10, 9,
       0, 2>
       _table_;
 
@@ -2778,6 +3574,7 @@ class Packet final : public ::google::protobuf::Message
       ::PlayerAttackSyncMessage* player_attack_sync_;
       ::PlayerManaSyncMessage* player_mana_sync_;
       ::PlayerAttackSpeedSyncMessage* player_attack_speed_sync_;
+      ::SyncSkillMessage* sync_skill_;
     } msg_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
@@ -3457,6 +4254,85 @@ inline ::PlayerAttackSpeedSyncMessage* Packet::mutable_player_attack_speed_sync(
   return _msg;
 }
 
+// .SyncSkillMessage sync_skill = 10;
+inline bool Packet::has_sync_skill() const {
+  return msg_case() == kSyncSkill;
+}
+inline bool Packet::_internal_has_sync_skill() const {
+  return msg_case() == kSyncSkill;
+}
+inline void Packet::set_has_sync_skill() {
+  _impl_._oneof_case_[0] = kSyncSkill;
+}
+inline void Packet::clear_sync_skill() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (msg_case() == kSyncSkill) {
+    if (GetArena() == nullptr) {
+      delete _impl_.msg_.sync_skill_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.sync_skill_);
+    }
+    clear_has_msg();
+  }
+}
+inline ::SyncSkillMessage* Packet::release_sync_skill() {
+  // @@protoc_insertion_point(field_release:Packet.sync_skill)
+  if (msg_case() == kSyncSkill) {
+    clear_has_msg();
+    auto* temp = _impl_.msg_.sync_skill_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.msg_.sync_skill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::SyncSkillMessage& Packet::_internal_sync_skill() const {
+  return msg_case() == kSyncSkill ? *_impl_.msg_.sync_skill_ : reinterpret_cast<::SyncSkillMessage&>(::_SyncSkillMessage_default_instance_);
+}
+inline const ::SyncSkillMessage& Packet::sync_skill() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:Packet.sync_skill)
+  return _internal_sync_skill();
+}
+inline ::SyncSkillMessage* Packet::unsafe_arena_release_sync_skill() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Packet.sync_skill)
+  if (msg_case() == kSyncSkill) {
+    clear_has_msg();
+    auto* temp = _impl_.msg_.sync_skill_;
+    _impl_.msg_.sync_skill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Packet::unsafe_arena_set_allocated_sync_skill(::SyncSkillMessage* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_msg();
+  if (value) {
+    set_has_sync_skill();
+    _impl_.msg_.sync_skill_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Packet.sync_skill)
+}
+inline ::SyncSkillMessage* Packet::_internal_mutable_sync_skill() {
+  if (msg_case() != kSyncSkill) {
+    clear_msg();
+    set_has_sync_skill();
+    _impl_.msg_.sync_skill_ =
+        ::google::protobuf::Message::DefaultConstruct<::SyncSkillMessage>(GetArena());
+  }
+  return _impl_.msg_.sync_skill_;
+}
+inline ::SyncSkillMessage* Packet::mutable_sync_skill() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::SyncSkillMessage* _msg = _internal_mutable_sync_skill();
+  // @@protoc_insertion_point(field_mutable:Packet.sync_skill)
+  return _msg;
+}
+
 inline bool Packet::has_msg() const {
   return msg_case() != MSG_NOT_SET;
 }
@@ -3625,6 +4501,85 @@ inline ::PlayerAttackMessage* InputPacket::_internal_mutable_player_attack() {
 inline ::PlayerAttackMessage* InputPacket::mutable_player_attack() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::PlayerAttackMessage* _msg = _internal_mutable_player_attack();
   // @@protoc_insertion_point(field_mutable:InputPacket.player_attack)
+  return _msg;
+}
+
+// .ExecuteSkillMessage execute_skill = 3;
+inline bool InputPacket::has_execute_skill() const {
+  return input_case() == kExecuteSkill;
+}
+inline bool InputPacket::_internal_has_execute_skill() const {
+  return input_case() == kExecuteSkill;
+}
+inline void InputPacket::set_has_execute_skill() {
+  _impl_._oneof_case_[0] = kExecuteSkill;
+}
+inline void InputPacket::clear_execute_skill() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (input_case() == kExecuteSkill) {
+    if (GetArena() == nullptr) {
+      delete _impl_.input_.execute_skill_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.input_.execute_skill_);
+    }
+    clear_has_input();
+  }
+}
+inline ::ExecuteSkillMessage* InputPacket::release_execute_skill() {
+  // @@protoc_insertion_point(field_release:InputPacket.execute_skill)
+  if (input_case() == kExecuteSkill) {
+    clear_has_input();
+    auto* temp = _impl_.input_.execute_skill_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.input_.execute_skill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ExecuteSkillMessage& InputPacket::_internal_execute_skill() const {
+  return input_case() == kExecuteSkill ? *_impl_.input_.execute_skill_ : reinterpret_cast<::ExecuteSkillMessage&>(::_ExecuteSkillMessage_default_instance_);
+}
+inline const ::ExecuteSkillMessage& InputPacket::execute_skill() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:InputPacket.execute_skill)
+  return _internal_execute_skill();
+}
+inline ::ExecuteSkillMessage* InputPacket::unsafe_arena_release_execute_skill() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:InputPacket.execute_skill)
+  if (input_case() == kExecuteSkill) {
+    clear_has_input();
+    auto* temp = _impl_.input_.execute_skill_;
+    _impl_.input_.execute_skill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void InputPacket::unsafe_arena_set_allocated_execute_skill(::ExecuteSkillMessage* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_input();
+  if (value) {
+    set_has_execute_skill();
+    _impl_.input_.execute_skill_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:InputPacket.execute_skill)
+}
+inline ::ExecuteSkillMessage* InputPacket::_internal_mutable_execute_skill() {
+  if (input_case() != kExecuteSkill) {
+    clear_input();
+    set_has_execute_skill();
+    _impl_.input_.execute_skill_ =
+        ::google::protobuf::Message::DefaultConstruct<::ExecuteSkillMessage>(GetArena());
+  }
+  return _impl_.input_.execute_skill_;
+}
+inline ::ExecuteSkillMessage* InputPacket::mutable_execute_skill() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::ExecuteSkillMessage* _msg = _internal_mutable_execute_skill();
+  // @@protoc_insertion_point(field_mutable:InputPacket.execute_skill)
   return _msg;
 }
 
@@ -4203,6 +5158,463 @@ inline float PlayerAttackSpeedSyncMessage::_internal_speed() const {
 inline void PlayerAttackSpeedSyncMessage::_internal_set_speed(float value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.speed_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ExecuteSkillMessage
+
+// float direction_x = 1;
+inline void ExecuteSkillMessage::clear_direction_x() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.direction_x_ = 0;
+}
+inline float ExecuteSkillMessage::direction_x() const {
+  // @@protoc_insertion_point(field_get:ExecuteSkillMessage.direction_x)
+  return _internal_direction_x();
+}
+inline void ExecuteSkillMessage::set_direction_x(float value) {
+  _internal_set_direction_x(value);
+  // @@protoc_insertion_point(field_set:ExecuteSkillMessage.direction_x)
+}
+inline float ExecuteSkillMessage::_internal_direction_x() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.direction_x_;
+}
+inline void ExecuteSkillMessage::_internal_set_direction_x(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.direction_x_ = value;
+}
+
+// float direction_y = 2;
+inline void ExecuteSkillMessage::clear_direction_y() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.direction_y_ = 0;
+}
+inline float ExecuteSkillMessage::direction_y() const {
+  // @@protoc_insertion_point(field_get:ExecuteSkillMessage.direction_y)
+  return _internal_direction_y();
+}
+inline void ExecuteSkillMessage::set_direction_y(float value) {
+  _internal_set_direction_y(value);
+  // @@protoc_insertion_point(field_set:ExecuteSkillMessage.direction_y)
+}
+inline float ExecuteSkillMessage::_internal_direction_y() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.direction_y_;
+}
+inline void ExecuteSkillMessage::_internal_set_direction_y(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.direction_y_ = value;
+}
+
+// float pos_x = 3;
+inline void ExecuteSkillMessage::clear_pos_x() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pos_x_ = 0;
+}
+inline float ExecuteSkillMessage::pos_x() const {
+  // @@protoc_insertion_point(field_get:ExecuteSkillMessage.pos_x)
+  return _internal_pos_x();
+}
+inline void ExecuteSkillMessage::set_pos_x(float value) {
+  _internal_set_pos_x(value);
+  // @@protoc_insertion_point(field_set:ExecuteSkillMessage.pos_x)
+}
+inline float ExecuteSkillMessage::_internal_pos_x() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.pos_x_;
+}
+inline void ExecuteSkillMessage::_internal_set_pos_x(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pos_x_ = value;
+}
+
+// float pos_y = 4;
+inline void ExecuteSkillMessage::clear_pos_y() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pos_y_ = 0;
+}
+inline float ExecuteSkillMessage::pos_y() const {
+  // @@protoc_insertion_point(field_get:ExecuteSkillMessage.pos_y)
+  return _internal_pos_y();
+}
+inline void ExecuteSkillMessage::set_pos_y(float value) {
+  _internal_set_pos_y(value);
+  // @@protoc_insertion_point(field_set:ExecuteSkillMessage.pos_y)
+}
+inline float ExecuteSkillMessage::_internal_pos_y() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.pos_y_;
+}
+inline void ExecuteSkillMessage::_internal_set_pos_y(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pos_y_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SyncSkillMessage
+
+// uint32 uid = 1;
+inline void SyncSkillMessage::clear_uid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.uid_ = 0u;
+}
+inline ::uint32_t SyncSkillMessage::uid() const {
+  // @@protoc_insertion_point(field_get:SyncSkillMessage.uid)
+  return _internal_uid();
+}
+inline void SyncSkillMessage::set_uid(::uint32_t value) {
+  _internal_set_uid(value);
+  // @@protoc_insertion_point(field_set:SyncSkillMessage.uid)
+}
+inline ::uint32_t SyncSkillMessage::_internal_uid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.uid_;
+}
+inline void SyncSkillMessage::_internal_set_uid(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.uid_ = value;
+}
+
+// int32 pos = 2;
+inline void SyncSkillMessage::clear_pos() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pos_ = 0;
+}
+inline ::int32_t SyncSkillMessage::pos() const {
+  // @@protoc_insertion_point(field_get:SyncSkillMessage.pos)
+  return _internal_pos();
+}
+inline void SyncSkillMessage::set_pos(::int32_t value) {
+  _internal_set_pos(value);
+  // @@protoc_insertion_point(field_set:SyncSkillMessage.pos)
+}
+inline ::int32_t SyncSkillMessage::_internal_pos() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.pos_;
+}
+inline void SyncSkillMessage::_internal_set_pos(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pos_ = value;
+}
+
+// .StraightBulletSkillInfoMessage straight_bullet_skill = 3;
+inline bool SyncSkillMessage::has_straight_bullet_skill() const {
+  return infos_case() == kStraightBulletSkill;
+}
+inline bool SyncSkillMessage::_internal_has_straight_bullet_skill() const {
+  return infos_case() == kStraightBulletSkill;
+}
+inline void SyncSkillMessage::set_has_straight_bullet_skill() {
+  _impl_._oneof_case_[0] = kStraightBulletSkill;
+}
+inline void SyncSkillMessage::clear_straight_bullet_skill() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (infos_case() == kStraightBulletSkill) {
+    if (GetArena() == nullptr) {
+      delete _impl_.infos_.straight_bullet_skill_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.infos_.straight_bullet_skill_);
+    }
+    clear_has_infos();
+  }
+}
+inline ::StraightBulletSkillInfoMessage* SyncSkillMessage::release_straight_bullet_skill() {
+  // @@protoc_insertion_point(field_release:SyncSkillMessage.straight_bullet_skill)
+  if (infos_case() == kStraightBulletSkill) {
+    clear_has_infos();
+    auto* temp = _impl_.infos_.straight_bullet_skill_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.infos_.straight_bullet_skill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::StraightBulletSkillInfoMessage& SyncSkillMessage::_internal_straight_bullet_skill() const {
+  return infos_case() == kStraightBulletSkill ? *_impl_.infos_.straight_bullet_skill_ : reinterpret_cast<::StraightBulletSkillInfoMessage&>(::_StraightBulletSkillInfoMessage_default_instance_);
+}
+inline const ::StraightBulletSkillInfoMessage& SyncSkillMessage::straight_bullet_skill() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:SyncSkillMessage.straight_bullet_skill)
+  return _internal_straight_bullet_skill();
+}
+inline ::StraightBulletSkillInfoMessage* SyncSkillMessage::unsafe_arena_release_straight_bullet_skill() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:SyncSkillMessage.straight_bullet_skill)
+  if (infos_case() == kStraightBulletSkill) {
+    clear_has_infos();
+    auto* temp = _impl_.infos_.straight_bullet_skill_;
+    _impl_.infos_.straight_bullet_skill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void SyncSkillMessage::unsafe_arena_set_allocated_straight_bullet_skill(::StraightBulletSkillInfoMessage* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_infos();
+  if (value) {
+    set_has_straight_bullet_skill();
+    _impl_.infos_.straight_bullet_skill_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:SyncSkillMessage.straight_bullet_skill)
+}
+inline ::StraightBulletSkillInfoMessage* SyncSkillMessage::_internal_mutable_straight_bullet_skill() {
+  if (infos_case() != kStraightBulletSkill) {
+    clear_infos();
+    set_has_straight_bullet_skill();
+    _impl_.infos_.straight_bullet_skill_ =
+        ::google::protobuf::Message::DefaultConstruct<::StraightBulletSkillInfoMessage>(GetArena());
+  }
+  return _impl_.infos_.straight_bullet_skill_;
+}
+inline ::StraightBulletSkillInfoMessage* SyncSkillMessage::mutable_straight_bullet_skill() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::StraightBulletSkillInfoMessage* _msg = _internal_mutable_straight_bullet_skill();
+  // @@protoc_insertion_point(field_mutable:SyncSkillMessage.straight_bullet_skill)
+  return _msg;
+}
+
+inline bool SyncSkillMessage::has_infos() const {
+  return infos_case() != INFOS_NOT_SET;
+}
+inline void SyncSkillMessage::clear_has_infos() {
+  _impl_._oneof_case_[0] = INFOS_NOT_SET;
+}
+inline SyncSkillMessage::InfosCase SyncSkillMessage::infos_case() const {
+  return SyncSkillMessage::InfosCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// StraightBulletSkillInfoMessage
+
+// repeated uint64 id = 1;
+inline int StraightBulletSkillInfoMessage::_internal_id_size() const {
+  return _internal_id().size();
+}
+inline int StraightBulletSkillInfoMessage::id_size() const {
+  return _internal_id_size();
+}
+inline void StraightBulletSkillInfoMessage::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_.Clear();
+}
+inline ::uint64_t StraightBulletSkillInfoMessage::id(int index) const {
+  // @@protoc_insertion_point(field_get:StraightBulletSkillInfoMessage.id)
+  return _internal_id().Get(index);
+}
+inline void StraightBulletSkillInfoMessage::set_id(int index, ::uint64_t value) {
+  _internal_mutable_id()->Set(index, value);
+  // @@protoc_insertion_point(field_set:StraightBulletSkillInfoMessage.id)
+}
+inline void StraightBulletSkillInfoMessage::add_id(::uint64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_id()->Add(value);
+  // @@protoc_insertion_point(field_add:StraightBulletSkillInfoMessage.id)
+}
+inline const ::google::protobuf::RepeatedField<::uint64_t>& StraightBulletSkillInfoMessage::id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:StraightBulletSkillInfoMessage.id)
+  return _internal_id();
+}
+inline ::google::protobuf::RepeatedField<::uint64_t>* StraightBulletSkillInfoMessage::mutable_id()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:StraightBulletSkillInfoMessage.id)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_id();
+}
+inline const ::google::protobuf::RepeatedField<::uint64_t>&
+StraightBulletSkillInfoMessage::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline ::google::protobuf::RepeatedField<::uint64_t>* StraightBulletSkillInfoMessage::_internal_mutable_id() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.id_;
+}
+
+// repeated float pos_x = 2;
+inline int StraightBulletSkillInfoMessage::_internal_pos_x_size() const {
+  return _internal_pos_x().size();
+}
+inline int StraightBulletSkillInfoMessage::pos_x_size() const {
+  return _internal_pos_x_size();
+}
+inline void StraightBulletSkillInfoMessage::clear_pos_x() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pos_x_.Clear();
+}
+inline float StraightBulletSkillInfoMessage::pos_x(int index) const {
+  // @@protoc_insertion_point(field_get:StraightBulletSkillInfoMessage.pos_x)
+  return _internal_pos_x().Get(index);
+}
+inline void StraightBulletSkillInfoMessage::set_pos_x(int index, float value) {
+  _internal_mutable_pos_x()->Set(index, value);
+  // @@protoc_insertion_point(field_set:StraightBulletSkillInfoMessage.pos_x)
+}
+inline void StraightBulletSkillInfoMessage::add_pos_x(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_pos_x()->Add(value);
+  // @@protoc_insertion_point(field_add:StraightBulletSkillInfoMessage.pos_x)
+}
+inline const ::google::protobuf::RepeatedField<float>& StraightBulletSkillInfoMessage::pos_x() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:StraightBulletSkillInfoMessage.pos_x)
+  return _internal_pos_x();
+}
+inline ::google::protobuf::RepeatedField<float>* StraightBulletSkillInfoMessage::mutable_pos_x()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:StraightBulletSkillInfoMessage.pos_x)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_pos_x();
+}
+inline const ::google::protobuf::RepeatedField<float>&
+StraightBulletSkillInfoMessage::_internal_pos_x() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.pos_x_;
+}
+inline ::google::protobuf::RepeatedField<float>* StraightBulletSkillInfoMessage::_internal_mutable_pos_x() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.pos_x_;
+}
+
+// repeated float pos_y = 3;
+inline int StraightBulletSkillInfoMessage::_internal_pos_y_size() const {
+  return _internal_pos_y().size();
+}
+inline int StraightBulletSkillInfoMessage::pos_y_size() const {
+  return _internal_pos_y_size();
+}
+inline void StraightBulletSkillInfoMessage::clear_pos_y() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.pos_y_.Clear();
+}
+inline float StraightBulletSkillInfoMessage::pos_y(int index) const {
+  // @@protoc_insertion_point(field_get:StraightBulletSkillInfoMessage.pos_y)
+  return _internal_pos_y().Get(index);
+}
+inline void StraightBulletSkillInfoMessage::set_pos_y(int index, float value) {
+  _internal_mutable_pos_y()->Set(index, value);
+  // @@protoc_insertion_point(field_set:StraightBulletSkillInfoMessage.pos_y)
+}
+inline void StraightBulletSkillInfoMessage::add_pos_y(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_pos_y()->Add(value);
+  // @@protoc_insertion_point(field_add:StraightBulletSkillInfoMessage.pos_y)
+}
+inline const ::google::protobuf::RepeatedField<float>& StraightBulletSkillInfoMessage::pos_y() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:StraightBulletSkillInfoMessage.pos_y)
+  return _internal_pos_y();
+}
+inline ::google::protobuf::RepeatedField<float>* StraightBulletSkillInfoMessage::mutable_pos_y()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:StraightBulletSkillInfoMessage.pos_y)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_pos_y();
+}
+inline const ::google::protobuf::RepeatedField<float>&
+StraightBulletSkillInfoMessage::_internal_pos_y() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.pos_y_;
+}
+inline ::google::protobuf::RepeatedField<float>* StraightBulletSkillInfoMessage::_internal_mutable_pos_y() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.pos_y_;
+}
+
+// repeated float angle = 4;
+inline int StraightBulletSkillInfoMessage::_internal_angle_size() const {
+  return _internal_angle().size();
+}
+inline int StraightBulletSkillInfoMessage::angle_size() const {
+  return _internal_angle_size();
+}
+inline void StraightBulletSkillInfoMessage::clear_angle() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.angle_.Clear();
+}
+inline float StraightBulletSkillInfoMessage::angle(int index) const {
+  // @@protoc_insertion_point(field_get:StraightBulletSkillInfoMessage.angle)
+  return _internal_angle().Get(index);
+}
+inline void StraightBulletSkillInfoMessage::set_angle(int index, float value) {
+  _internal_mutable_angle()->Set(index, value);
+  // @@protoc_insertion_point(field_set:StraightBulletSkillInfoMessage.angle)
+}
+inline void StraightBulletSkillInfoMessage::add_angle(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_angle()->Add(value);
+  // @@protoc_insertion_point(field_add:StraightBulletSkillInfoMessage.angle)
+}
+inline const ::google::protobuf::RepeatedField<float>& StraightBulletSkillInfoMessage::angle() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:StraightBulletSkillInfoMessage.angle)
+  return _internal_angle();
+}
+inline ::google::protobuf::RepeatedField<float>* StraightBulletSkillInfoMessage::mutable_angle()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:StraightBulletSkillInfoMessage.angle)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_angle();
+}
+inline const ::google::protobuf::RepeatedField<float>&
+StraightBulletSkillInfoMessage::_internal_angle() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.angle_;
+}
+inline ::google::protobuf::RepeatedField<float>* StraightBulletSkillInfoMessage::_internal_mutable_angle() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.angle_;
+}
+
+// repeated bool destroyed = 5;
+inline int StraightBulletSkillInfoMessage::_internal_destroyed_size() const {
+  return _internal_destroyed().size();
+}
+inline int StraightBulletSkillInfoMessage::destroyed_size() const {
+  return _internal_destroyed_size();
+}
+inline void StraightBulletSkillInfoMessage::clear_destroyed() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.destroyed_.Clear();
+}
+inline bool StraightBulletSkillInfoMessage::destroyed(int index) const {
+  // @@protoc_insertion_point(field_get:StraightBulletSkillInfoMessage.destroyed)
+  return _internal_destroyed().Get(index);
+}
+inline void StraightBulletSkillInfoMessage::set_destroyed(int index, bool value) {
+  _internal_mutable_destroyed()->Set(index, value);
+  // @@protoc_insertion_point(field_set:StraightBulletSkillInfoMessage.destroyed)
+}
+inline void StraightBulletSkillInfoMessage::add_destroyed(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_destroyed()->Add(value);
+  // @@protoc_insertion_point(field_add:StraightBulletSkillInfoMessage.destroyed)
+}
+inline const ::google::protobuf::RepeatedField<bool>& StraightBulletSkillInfoMessage::destroyed() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:StraightBulletSkillInfoMessage.destroyed)
+  return _internal_destroyed();
+}
+inline ::google::protobuf::RepeatedField<bool>* StraightBulletSkillInfoMessage::mutable_destroyed()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:StraightBulletSkillInfoMessage.destroyed)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_destroyed();
+}
+inline const ::google::protobuf::RepeatedField<bool>&
+StraightBulletSkillInfoMessage::_internal_destroyed() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.destroyed_;
+}
+inline ::google::protobuf::RepeatedField<bool>* StraightBulletSkillInfoMessage::_internal_mutable_destroyed() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.destroyed_;
 }
 
 #ifdef __GNUC__

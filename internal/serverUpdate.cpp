@@ -6,6 +6,6 @@
 
 void CustomServer::UpdatePlayer() {
     for (auto& p :playerMap) {
-        p.second->ComponentManager.Update();
+        p.second->ComponentManager->Update();
     }
 }

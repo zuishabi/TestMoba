@@ -25,6 +25,36 @@ namespace _pb = ::google::protobuf;
 namespace _pbi = ::google::protobuf::internal;
 namespace _fl = ::google::protobuf::internal::field_layout;
 
+inline constexpr StraightBulletSkillInfoMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : id_{},
+        _id_cached_byte_size_{0},
+        pos_x_{},
+        pos_y_{},
+        angle_{},
+        destroyed_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR StraightBulletSkillInfoMessage::StraightBulletSkillInfoMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct StraightBulletSkillInfoMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StraightBulletSkillInfoMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StraightBulletSkillInfoMessageDefaultTypeInternal() {}
+  union {
+    StraightBulletSkillInfoMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StraightBulletSkillInfoMessageDefaultTypeInternal _StraightBulletSkillInfoMessage_default_instance_;
+
 inline constexpr PlayerUseSkillMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : skill_pos_{0u},
@@ -289,6 +319,62 @@ struct MoveMessageDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MoveMessageDefaultTypeInternal _MoveMessage_default_instance_;
 
+inline constexpr ExecuteSkillMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : direction_x_{0},
+        direction_y_{0},
+        pos_x_{0},
+        pos_y_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ExecuteSkillMessage::ExecuteSkillMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ExecuteSkillMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ExecuteSkillMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ExecuteSkillMessageDefaultTypeInternal() {}
+  union {
+    ExecuteSkillMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExecuteSkillMessageDefaultTypeInternal _ExecuteSkillMessage_default_instance_;
+
+inline constexpr SyncSkillMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : uid_{0u},
+        pos_{0},
+        infos_{},
+        _cached_size_{0},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR SyncSkillMessage::SyncSkillMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct SyncSkillMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SyncSkillMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SyncSkillMessageDefaultTypeInternal() {}
+  union {
+    SyncSkillMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SyncSkillMessageDefaultTypeInternal _SyncSkillMessage_default_instance_;
+
 inline constexpr InputPacket::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : input_{},
@@ -365,6 +451,7 @@ const ::uint32_t
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
         PROTOBUF_FIELD_OFFSET(::Packet, _impl_.msg_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::InputPacket, _internal_metadata_),
@@ -374,6 +461,7 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
+        ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
         PROTOBUF_FIELD_OFFSET(::InputPacket, _impl_.input_),
@@ -481,22 +569,62 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::PlayerAttackSpeedSyncMessage, _impl_.uid_),
         PROTOBUF_FIELD_OFFSET(::PlayerAttackSpeedSyncMessage, _impl_.speed_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.direction_x_),
+        PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.direction_y_),
+        PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.pos_x_),
+        PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.pos_y_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _internal_metadata_),
+        ~0u,  // no _extensions_
+        PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_._oneof_case_[0]),
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.pos_),
+        ::_pbi::kInvalidFieldOffsetTag,
+        PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.infos_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.pos_x_),
+        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.pos_y_),
+        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.angle_),
+        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.destroyed_),
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::Packet)},
-        {18, -1, -1, sizeof(::InputPacket)},
-        {29, -1, -1, sizeof(::MoveMessage)},
-        {39, -1, -1, sizeof(::PlayerAttackMessage)},
-        {48, -1, -1, sizeof(::PlayerUseSkillMessage)},
-        {60, -1, -1, sizeof(::PlayerEnterSyncMessage)},
-        {70, -1, -1, sizeof(::PlayerExitSyncMessage)},
-        {79, -1, -1, sizeof(::PlayerPositionSyncMessage)},
-        {90, -1, -1, sizeof(::PlayerHealthSyncMessage)},
-        {101, -1, -1, sizeof(::PlayerAttackSyncMessage)},
-        {112, -1, -1, sizeof(::PlayerManaSyncMessage)},
-        {123, -1, -1, sizeof(::PlayerAttackSpeedSyncMessage)},
+        {19, -1, -1, sizeof(::InputPacket)},
+        {31, -1, -1, sizeof(::MoveMessage)},
+        {41, -1, -1, sizeof(::PlayerAttackMessage)},
+        {50, -1, -1, sizeof(::PlayerUseSkillMessage)},
+        {62, -1, -1, sizeof(::PlayerEnterSyncMessage)},
+        {72, -1, -1, sizeof(::PlayerExitSyncMessage)},
+        {81, -1, -1, sizeof(::PlayerPositionSyncMessage)},
+        {92, -1, -1, sizeof(::PlayerHealthSyncMessage)},
+        {103, -1, -1, sizeof(::PlayerAttackSyncMessage)},
+        {114, -1, -1, sizeof(::PlayerManaSyncMessage)},
+        {125, -1, -1, sizeof(::PlayerAttackSpeedSyncMessage)},
+        {135, -1, -1, sizeof(::ExecuteSkillMessage)},
+        {147, -1, -1, sizeof(::SyncSkillMessage)},
+        {159, -1, -1, sizeof(::StraightBulletSkillInfoMessage)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::_Packet_default_instance_._instance,
@@ -511,10 +639,13 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::_PlayerAttackSyncMessage_default_instance_._instance,
     &::_PlayerManaSyncMessage_default_instance_._instance,
     &::_PlayerAttackSpeedSyncMessage_default_instance_._instance,
+    &::_ExecuteSkillMessage_default_instance_._instance,
+    &::_SyncSkillMessage_default_instance_._instance,
+    &::_StraightBulletSkillInfoMessage_default_instance_._instance,
 };
 const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
-    "\n\ntest.proto\"\310\003\n\006Packet\022\013\n\003uid\030\001 \001(\r\022\035\n\005"
+    "\n\ntest.proto\"\361\003\n\006Packet\022\013\n\003uid\030\001 \001(\r\022\035\n\005"
     "input\030\002 \001(\0132\014.InputPacketH\000\022:\n\024player_po"
     "sition_sync\030\003 \001(\0132\032.PlayerPositionSyncMe"
     "ssageH\000\0224\n\021player_enter_sync\030\004 \001(\0132\027.Pla"
@@ -525,37 +656,48 @@ const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIA
     "PlayerAttackSyncMessageH\000\0222\n\020player_mana"
     "_sync\030\010 \001(\0132\026.PlayerManaSyncMessageH\000\022A\n"
     "\030player_attack_speed_sync\030\t \001(\0132\035.Player"
-    "AttackSpeedSyncMessageH\000B\005\n\003msg\"c\n\013Input"
-    "Packet\022\034\n\004move\030\001 \001(\0132\014.MoveMessageH\000\022-\n\r"
-    "player_attack\030\002 \001(\0132\024.PlayerAttackMessag"
-    "eH\000B\007\n\005input\"#\n\013MoveMessage\022\t\n\001x\030\001 \001(\002\022\t"
-    "\n\001y\030\002 \001(\002\"\"\n\023PlayerAttackMessage\022\013\n\003uid\030"
-    "\001 \001(\r\"W\n\025PlayerUseSkillMessage\022\021\n\tskill_"
-    "pos\030\001 \001(\r\022\025\n\rtarget_player\030\002 \001(\r\022\t\n\001x\030\003 "
-    "\001(\002\022\t\n\001y\030\004 \001(\002\"3\n\026PlayerEnterSyncMessage"
-    "\022\013\n\003uid\030\001 \001(\r\022\014\n\004self\030\002 \001(\010\"$\n\025PlayerExi"
-    "tSyncMessage\022\013\n\003uid\030\001 \001(\r\"F\n\031PlayerPosit"
-    "ionSyncMessage\022\013\n\003uid\030\001 \001(\r\022\r\n\005pos_x\030\002 \001"
-    "(\002\022\r\n\005pos_y\030\003 \001(\002\"J\n\027PlayerHealthSyncMes"
-    "sage\022\013\n\003uid\030\001 \001(\r\022\016\n\006health\030\002 \001(\005\022\022\n\nmax"
-    "_health\030\003 \001(\005\"F\n\027PlayerAttackSyncMessage"
-    "\022\014\n\004from\030\001 \001(\r\022\n\n\002to\030\002 \001(\r\022\021\n\tcool_down\030"
-    "\003 \001(\002\"D\n\025PlayerManaSyncMessage\022\013\n\003uid\030\001 "
-    "\001(\r\022\014\n\004mana\030\002 \001(\005\022\020\n\010max_mana\030\003 \001(\005\":\n\034P"
-    "layerAttackSpeedSyncMessage\022\013\n\003uid\030\001 \001(\r"
-    "\022\r\n\005speed\030\002 \001(\002B\rZ\013pkg/packetsb\006proto3"
+    "AttackSpeedSyncMessageH\000\022\'\n\nsync_skill\030\n"
+    " \001(\0132\021.SyncSkillMessageH\000B\005\n\003msg\"\222\001\n\013Inp"
+    "utPacket\022\034\n\004move\030\001 \001(\0132\014.MoveMessageH\000\022-"
+    "\n\rplayer_attack\030\002 \001(\0132\024.PlayerAttackMess"
+    "ageH\000\022-\n\rexecute_skill\030\003 \001(\0132\024.ExecuteSk"
+    "illMessageH\000B\007\n\005input\"#\n\013MoveMessage\022\t\n\001"
+    "x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"\"\n\023PlayerAttackMessag"
+    "e\022\013\n\003uid\030\001 \001(\r\"W\n\025PlayerUseSkillMessage\022"
+    "\021\n\tskill_pos\030\001 \001(\r\022\025\n\rtarget_player\030\002 \001("
+    "\r\022\t\n\001x\030\003 \001(\002\022\t\n\001y\030\004 \001(\002\"3\n\026PlayerEnterSy"
+    "ncMessage\022\013\n\003uid\030\001 \001(\r\022\014\n\004self\030\002 \001(\010\"$\n\025"
+    "PlayerExitSyncMessage\022\013\n\003uid\030\001 \001(\r\"F\n\031Pl"
+    "ayerPositionSyncMessage\022\013\n\003uid\030\001 \001(\r\022\r\n\005"
+    "pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\"J\n\027PlayerHeal"
+    "thSyncMessage\022\013\n\003uid\030\001 \001(\r\022\016\n\006health\030\002 \001"
+    "(\005\022\022\n\nmax_health\030\003 \001(\005\"F\n\027PlayerAttackSy"
+    "ncMessage\022\014\n\004from\030\001 \001(\r\022\n\n\002to\030\002 \001(\r\022\021\n\tc"
+    "ool_down\030\003 \001(\002\"D\n\025PlayerManaSyncMessage\022"
+    "\013\n\003uid\030\001 \001(\r\022\014\n\004mana\030\002 \001(\005\022\020\n\010max_mana\030\003"
+    " \001(\005\":\n\034PlayerAttackSpeedSyncMessage\022\013\n\003"
+    "uid\030\001 \001(\r\022\r\n\005speed\030\002 \001(\002\"]\n\023ExecuteSkill"
+    "Message\022\023\n\013direction_x\030\001 \001(\002\022\023\n\013directio"
+    "n_y\030\002 \001(\002\022\r\n\005pos_x\030\003 \001(\002\022\r\n\005pos_y\030\004 \001(\002\""
+    "w\n\020SyncSkillMessage\022\013\n\003uid\030\001 \001(\r\022\013\n\003pos\030"
+    "\002 \001(\005\022@\n\025straight_bullet_skill\030\003 \001(\0132\037.S"
+    "traightBulletSkillInfoMessageH\000B\007\n\005infos"
+    "\"l\n\036StraightBulletSkillInfoMessage\022\n\n\002id"
+    "\030\001 \003(\004\022\r\n\005pos_x\030\002 \003(\002\022\r\n\005pos_y\030\003 \003(\002\022\r\n\005"
+    "angle\030\004 \003(\002\022\021\n\tdestroyed\030\005 \003(\010B\rZ\013pkg/pa"
+    "cketsb\006proto3"
 };
 static ::absl::once_flag descriptor_table_test_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_test_2eproto = {
     false,
     false,
-    1198,
+    1613,
     descriptor_table_protodef_test_2eproto,
     "test.proto",
     &descriptor_table_test_2eproto_once,
     nullptr,
     0,
-    12,
+    15,
     schemas,
     file_default_instances,
     TableStruct_test_2eproto::offsets,
@@ -674,6 +816,19 @@ void Packet::set_allocated_player_attack_speed_sync(::PlayerAttackSpeedSyncMessa
   }
   // @@protoc_insertion_point(field_set_allocated:Packet.player_attack_speed_sync)
 }
+void Packet::set_allocated_sync_skill(::SyncSkillMessage* sync_skill) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_msg();
+  if (sync_skill) {
+    ::google::protobuf::Arena* submessage_arena = sync_skill->GetArena();
+    if (message_arena != submessage_arena) {
+      sync_skill = ::google::protobuf::internal::GetOwnedMessage(message_arena, sync_skill, submessage_arena);
+    }
+    set_has_sync_skill();
+    _impl_.msg_.sync_skill_ = sync_skill;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Packet.sync_skill)
+}
 Packet::Packet(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
@@ -730,6 +885,9 @@ Packet::Packet(
         break;
       case kPlayerAttackSpeedSync:
         _impl_.msg_.player_attack_speed_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerAttackSpeedSyncMessage>(arena, *from._impl_.msg_.player_attack_speed_sync_);
+        break;
+      case kSyncSkill:
+        _impl_.msg_.sync_skill_ = ::google::protobuf::Message::CopyConstruct<::SyncSkillMessage>(arena, *from._impl_.msg_.sync_skill_);
         break;
   }
 
@@ -828,6 +986,14 @@ void Packet::clear_msg() {
       }
       break;
     }
+    case kSyncSkill: {
+      if (GetArena() == nullptr) {
+        delete _impl_.msg_.sync_skill_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.sync_skill_);
+      }
+      break;
+    }
     case MSG_NOT_SET: {
       break;
     }
@@ -872,16 +1038,16 @@ const ::google::protobuf::internal::ClassData* Packet::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 9, 8, 0, 2> Packet::_table_ = {
+const ::_pbi::TcParseTable<0, 10, 9, 0, 2> Packet::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    9, 0,  // max_field_number, fast_idx_mask
+    10, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294966784,  // skipmap
+    4294966272,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    9,  // num_field_entries
-    8,  // num_aux_entries
+    10,  // num_field_entries
+    9,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -923,6 +1089,9 @@ const ::_pbi::TcParseTable<0, 9, 8, 0, 2> Packet::_table_ = {
     // .PlayerAttackSpeedSyncMessage player_attack_speed_sync = 9;
     {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_attack_speed_sync_), _Internal::kOneofCaseOffset + 0, 7,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .SyncSkillMessage sync_skill = 10;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.sync_skill_), _Internal::kOneofCaseOffset + 0, 8,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::InputPacket>()},
     {::_pbi::TcParser::GetTable<::PlayerPositionSyncMessage>()},
@@ -932,6 +1101,7 @@ const ::_pbi::TcParseTable<0, 9, 8, 0, 2> Packet::_table_ = {
     {::_pbi::TcParser::GetTable<::PlayerAttackSyncMessage>()},
     {::_pbi::TcParser::GetTable<::PlayerManaSyncMessage>()},
     {::_pbi::TcParser::GetTable<::PlayerAttackSpeedSyncMessage>()},
+    {::_pbi::TcParser::GetTable<::SyncSkillMessage>()},
   }}, {{
   }},
 };
@@ -1019,6 +1189,12 @@ PROTOBUF_NOINLINE void Packet::Clear() {
                   stream);
               break;
             }
+            case kSyncSkill: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  10, *this_._impl_.msg_.sync_skill_, this_._impl_.msg_.sync_skill_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
             default:
               break;
           }
@@ -1099,6 +1275,12 @@ PROTOBUF_NOINLINE void Packet::Clear() {
             case kPlayerAttackSpeedSync: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_attack_speed_sync_);
+              break;
+            }
+            // .SyncSkillMessage sync_skill = 10;
+            case kSyncSkill: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.sync_skill_);
               break;
             }
             case MSG_NOT_SET: {
@@ -1204,6 +1386,15 @@ void Packet::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         }
         break;
       }
+      case kSyncSkill: {
+        if (oneof_needs_init) {
+          _this->_impl_.msg_.sync_skill_ =
+              ::google::protobuf::Message::CopyConstruct<::SyncSkillMessage>(arena, *from._impl_.msg_.sync_skill_);
+        } else {
+          _this->_impl_.msg_.sync_skill_->MergeFrom(from._internal_sync_skill());
+        }
+        break;
+      }
       case MSG_NOT_SET:
         break;
     }
@@ -1264,6 +1455,19 @@ void InputPacket::set_allocated_player_attack(::PlayerAttackMessage* player_atta
   }
   // @@protoc_insertion_point(field_set_allocated:InputPacket.player_attack)
 }
+void InputPacket::set_allocated_execute_skill(::ExecuteSkillMessage* execute_skill) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_input();
+  if (execute_skill) {
+    ::google::protobuf::Arena* submessage_arena = execute_skill->GetArena();
+    if (message_arena != submessage_arena) {
+      execute_skill = ::google::protobuf::internal::GetOwnedMessage(message_arena, execute_skill, submessage_arena);
+    }
+    set_has_execute_skill();
+    _impl_.input_.execute_skill_ = execute_skill;
+  }
+  // @@protoc_insertion_point(field_set_allocated:InputPacket.execute_skill)
+}
 InputPacket::InputPacket(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
@@ -1301,6 +1505,9 @@ InputPacket::InputPacket(
         break;
       case kPlayerAttack:
         _impl_.input_.player_attack_ = ::google::protobuf::Message::CopyConstruct<::PlayerAttackMessage>(arena, *from._impl_.input_.player_attack_);
+        break;
+      case kExecuteSkill:
+        _impl_.input_.execute_skill_ = ::google::protobuf::Message::CopyConstruct<::ExecuteSkillMessage>(arena, *from._impl_.input_.execute_skill_);
         break;
   }
 
@@ -1350,6 +1557,14 @@ void InputPacket::clear_input() {
       }
       break;
     }
+    case kExecuteSkill: {
+      if (GetArena() == nullptr) {
+        delete _impl_.input_.execute_skill_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.input_.execute_skill_);
+      }
+      break;
+    }
     case INPUT_NOT_SET: {
       break;
     }
@@ -1394,16 +1609,16 @@ const ::google::protobuf::internal::ClassData* InputPacket::GetClassData() const
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 2, 2, 0, 2> InputPacket::_table_ = {
+const ::_pbi::TcParseTable<0, 3, 3, 0, 2> InputPacket::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 0,  // max_field_number, fast_idx_mask
+    3, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    2,  // num_aux_entries
+    3,  // num_field_entries
+    3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1422,9 +1637,13 @@ const ::_pbi::TcParseTable<0, 2, 2, 0, 2> InputPacket::_table_ = {
     // .PlayerAttackMessage player_attack = 2;
     {PROTOBUF_FIELD_OFFSET(InputPacket, _impl_.input_.player_attack_), _Internal::kOneofCaseOffset + 0, 1,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .ExecuteSkillMessage execute_skill = 3;
+    {PROTOBUF_FIELD_OFFSET(InputPacket, _impl_.input_.execute_skill_), _Internal::kOneofCaseOffset + 0, 2,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::MoveMessage>()},
     {::_pbi::TcParser::GetTable<::PlayerAttackMessage>()},
+    {::_pbi::TcParser::GetTable<::ExecuteSkillMessage>()},
   }}, {{
   }},
 };
@@ -1468,6 +1687,12 @@ PROTOBUF_NOINLINE void InputPacket::Clear() {
                   stream);
               break;
             }
+            case kExecuteSkill: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  3, *this_._impl_.input_.execute_skill_, this_._impl_.input_.execute_skill_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
             default:
               break;
           }
@@ -1505,6 +1730,12 @@ PROTOBUF_NOINLINE void InputPacket::Clear() {
             case kPlayerAttack: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.input_.player_attack_);
+              break;
+            }
+            // .ExecuteSkillMessage execute_skill = 3;
+            case kExecuteSkill: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.input_.execute_skill_);
               break;
             }
             case INPUT_NOT_SET: {
@@ -1550,6 +1781,15 @@ void InputPacket::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
               ::google::protobuf::Message::CopyConstruct<::PlayerAttackMessage>(arena, *from._impl_.input_.player_attack_);
         } else {
           _this->_impl_.input_.player_attack_->MergeFrom(from._internal_player_attack());
+        }
+        break;
+      }
+      case kExecuteSkill: {
+        if (oneof_needs_init) {
+          _this->_impl_.input_.execute_skill_ =
+              ::google::protobuf::Message::CopyConstruct<::ExecuteSkillMessage>(arena, *from._impl_.input_.execute_skill_);
+        } else {
+          _this->_impl_.input_.execute_skill_->MergeFrom(from._internal_execute_skill());
         }
         break;
       }
@@ -4039,6 +4279,1011 @@ void PlayerAttackSpeedSyncMessage::InternalSwap(PlayerAttackSpeedSyncMessage* PR
 }
 
 ::google::protobuf::Metadata PlayerAttackSpeedSyncMessage::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ExecuteSkillMessage::_Internal {
+ public:
+};
+
+ExecuteSkillMessage::ExecuteSkillMessage(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ExecuteSkillMessage)
+}
+ExecuteSkillMessage::ExecuteSkillMessage(
+    ::google::protobuf::Arena* arena, const ExecuteSkillMessage& from)
+    : ExecuteSkillMessage(arena) {
+  MergeFrom(from);
+}
+inline PROTOBUF_NDEBUG_INLINE ExecuteSkillMessage::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void ExecuteSkillMessage::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, direction_x_),
+           0,
+           offsetof(Impl_, pos_y_) -
+               offsetof(Impl_, direction_x_) +
+               sizeof(Impl_::pos_y_));
+}
+ExecuteSkillMessage::~ExecuteSkillMessage() {
+  // @@protoc_insertion_point(destructor:ExecuteSkillMessage)
+  SharedDtor(*this);
+}
+inline void ExecuteSkillMessage::SharedDtor(MessageLite& self) {
+  ExecuteSkillMessage& this_ = static_cast<ExecuteSkillMessage&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* ExecuteSkillMessage::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) ExecuteSkillMessage(arena);
+}
+constexpr auto ExecuteSkillMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(ExecuteSkillMessage),
+                                            alignof(ExecuteSkillMessage));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull ExecuteSkillMessage::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_ExecuteSkillMessage_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &ExecuteSkillMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ExecuteSkillMessage>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &ExecuteSkillMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ExecuteSkillMessage>(), &ExecuteSkillMessage::ByteSizeLong,
+            &ExecuteSkillMessage::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_._cached_size_),
+        false,
+    },
+    &ExecuteSkillMessage::kDescriptorMethods,
+    &descriptor_table_test_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* ExecuteSkillMessage::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 0, 0, 2> ExecuteSkillMessage::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ExecuteSkillMessage>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // float pos_y = 4;
+    {::_pbi::TcParser::FastF32S1,
+     {37, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_y_)}},
+    // float direction_x = 1;
+    {::_pbi::TcParser::FastF32S1,
+     {13, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_x_)}},
+    // float direction_y = 2;
+    {::_pbi::TcParser::FastF32S1,
+     {21, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_y_)}},
+    // float pos_x = 3;
+    {::_pbi::TcParser::FastF32S1,
+     {29, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_x_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // float direction_x = 1;
+    {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_x_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+    // float direction_y = 2;
+    {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_y_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+    // float pos_x = 3;
+    {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_x_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+    // float pos_y = 4;
+    {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_y_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+PROTOBUF_NOINLINE void ExecuteSkillMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:ExecuteSkillMessage)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.direction_x_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.pos_y_) -
+      reinterpret_cast<char*>(&_impl_.direction_x_)) + sizeof(_impl_.pos_y_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* ExecuteSkillMessage::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const ExecuteSkillMessage& this_ = static_cast<const ExecuteSkillMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* ExecuteSkillMessage::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const ExecuteSkillMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:ExecuteSkillMessage)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // float direction_x = 1;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_direction_x()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                1, this_._internal_direction_x(), target);
+          }
+
+          // float direction_y = 2;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_direction_y()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                2, this_._internal_direction_y(), target);
+          }
+
+          // float pos_x = 3;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_pos_x()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                3, this_._internal_pos_x(), target);
+          }
+
+          // float pos_y = 4;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_pos_y()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                4, this_._internal_pos_y(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:ExecuteSkillMessage)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t ExecuteSkillMessage::ByteSizeLong(const MessageLite& base) {
+          const ExecuteSkillMessage& this_ = static_cast<const ExecuteSkillMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t ExecuteSkillMessage::ByteSizeLong() const {
+          const ExecuteSkillMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:ExecuteSkillMessage)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // float direction_x = 1;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_direction_x()) != 0) {
+              total_size += 5;
+            }
+            // float direction_y = 2;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_direction_y()) != 0) {
+              total_size += 5;
+            }
+            // float pos_x = 3;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_pos_x()) != 0) {
+              total_size += 5;
+            }
+            // float pos_y = 4;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_pos_y()) != 0) {
+              total_size += 5;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void ExecuteSkillMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ExecuteSkillMessage*>(&to_msg);
+  auto& from = static_cast<const ExecuteSkillMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ExecuteSkillMessage)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (::absl::bit_cast<::uint32_t>(from._internal_direction_x()) != 0) {
+    _this->_impl_.direction_x_ = from._impl_.direction_x_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_direction_y()) != 0) {
+    _this->_impl_.direction_y_ = from._impl_.direction_y_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_pos_x()) != 0) {
+    _this->_impl_.pos_x_ = from._impl_.pos_x_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_pos_y()) != 0) {
+    _this->_impl_.pos_y_ = from._impl_.pos_y_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ExecuteSkillMessage::CopyFrom(const ExecuteSkillMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ExecuteSkillMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ExecuteSkillMessage::InternalSwap(ExecuteSkillMessage* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_y_)
+      + sizeof(ExecuteSkillMessage::_impl_.pos_y_)
+      - PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_x_)>(
+          reinterpret_cast<char*>(&_impl_.direction_x_),
+          reinterpret_cast<char*>(&other->_impl_.direction_x_));
+}
+
+::google::protobuf::Metadata ExecuteSkillMessage::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class SyncSkillMessage::_Internal {
+ public:
+  static constexpr ::int32_t kOneofCaseOffset =
+      PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_._oneof_case_);
+};
+
+void SyncSkillMessage::set_allocated_straight_bullet_skill(::StraightBulletSkillInfoMessage* straight_bullet_skill) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_infos();
+  if (straight_bullet_skill) {
+    ::google::protobuf::Arena* submessage_arena = straight_bullet_skill->GetArena();
+    if (message_arena != submessage_arena) {
+      straight_bullet_skill = ::google::protobuf::internal::GetOwnedMessage(message_arena, straight_bullet_skill, submessage_arena);
+    }
+    set_has_straight_bullet_skill();
+    _impl_.infos_.straight_bullet_skill_ = straight_bullet_skill;
+  }
+  // @@protoc_insertion_point(field_set_allocated:SyncSkillMessage.straight_bullet_skill)
+}
+SyncSkillMessage::SyncSkillMessage(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SyncSkillMessage)
+}
+inline PROTOBUF_NDEBUG_INLINE SyncSkillMessage::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::SyncSkillMessage& from_msg)
+      : infos_{},
+        _cached_size_{0},
+        _oneof_case_{from._oneof_case_[0]} {}
+
+SyncSkillMessage::SyncSkillMessage(
+    ::google::protobuf::Arena* arena,
+    const SyncSkillMessage& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SyncSkillMessage* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, uid_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, uid_),
+           offsetof(Impl_, pos_) -
+               offsetof(Impl_, uid_) +
+               sizeof(Impl_::pos_));
+  switch (infos_case()) {
+    case INFOS_NOT_SET:
+      break;
+      case kStraightBulletSkill:
+        _impl_.infos_.straight_bullet_skill_ = ::google::protobuf::Message::CopyConstruct<::StraightBulletSkillInfoMessage>(arena, *from._impl_.infos_.straight_bullet_skill_);
+        break;
+  }
+
+  // @@protoc_insertion_point(copy_constructor:SyncSkillMessage)
+}
+inline PROTOBUF_NDEBUG_INLINE SyncSkillMessage::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : infos_{},
+        _cached_size_{0},
+        _oneof_case_{} {}
+
+inline void SyncSkillMessage::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, uid_),
+           0,
+           offsetof(Impl_, pos_) -
+               offsetof(Impl_, uid_) +
+               sizeof(Impl_::pos_));
+}
+SyncSkillMessage::~SyncSkillMessage() {
+  // @@protoc_insertion_point(destructor:SyncSkillMessage)
+  SharedDtor(*this);
+}
+inline void SyncSkillMessage::SharedDtor(MessageLite& self) {
+  SyncSkillMessage& this_ = static_cast<SyncSkillMessage&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  if (this_.has_infos()) {
+    this_.clear_infos();
+  }
+  this_._impl_.~Impl_();
+}
+
+void SyncSkillMessage::clear_infos() {
+// @@protoc_insertion_point(one_of_clear_start:SyncSkillMessage)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  switch (infos_case()) {
+    case kStraightBulletSkill: {
+      if (GetArena() == nullptr) {
+        delete _impl_.infos_.straight_bullet_skill_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.infos_.straight_bullet_skill_);
+      }
+      break;
+    }
+    case INFOS_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = INFOS_NOT_SET;
+}
+
+
+inline void* SyncSkillMessage::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) SyncSkillMessage(arena);
+}
+constexpr auto SyncSkillMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(SyncSkillMessage),
+                                            alignof(SyncSkillMessage));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull SyncSkillMessage::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_SyncSkillMessage_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &SyncSkillMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<SyncSkillMessage>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &SyncSkillMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<SyncSkillMessage>(), &SyncSkillMessage::ByteSizeLong,
+            &SyncSkillMessage::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_._cached_size_),
+        false,
+    },
+    &SyncSkillMessage::kDescriptorMethods,
+    &descriptor_table_test_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* SyncSkillMessage::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 3, 1, 0, 2> SyncSkillMessage::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::SyncSkillMessage>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // int32 pos = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SyncSkillMessage, _impl_.pos_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.pos_)}},
+    // uint32 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SyncSkillMessage, _impl_.uid_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 uid = 1;
+    {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // int32 pos = 2;
+    {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.pos_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // .StraightBulletSkillInfoMessage straight_bullet_skill = 3;
+    {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.infos_.straight_bullet_skill_), _Internal::kOneofCaseOffset + 0, 0,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::StraightBulletSkillInfoMessage>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:SyncSkillMessage)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.uid_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.pos_) -
+      reinterpret_cast<char*>(&_impl_.uid_)) + sizeof(_impl_.pos_));
+  clear_infos();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* SyncSkillMessage::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const SyncSkillMessage& this_ = static_cast<const SyncSkillMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* SyncSkillMessage::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const SyncSkillMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:SyncSkillMessage)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // uint32 uid = 1;
+          if (this_._internal_uid() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+                1, this_._internal_uid(), target);
+          }
+
+          // int32 pos = 2;
+          if (this_._internal_pos() != 0) {
+            target = ::google::protobuf::internal::WireFormatLite::
+                WriteInt32ToArrayWithField<2>(
+                    stream, this_._internal_pos(), target);
+          }
+
+          // .StraightBulletSkillInfoMessage straight_bullet_skill = 3;
+          if (this_.infos_case() == kStraightBulletSkill) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                3, *this_._impl_.infos_.straight_bullet_skill_, this_._impl_.infos_.straight_bullet_skill_->GetCachedSize(), target,
+                stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:SyncSkillMessage)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t SyncSkillMessage::ByteSizeLong(const MessageLite& base) {
+          const SyncSkillMessage& this_ = static_cast<const SyncSkillMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t SyncSkillMessage::ByteSizeLong() const {
+          const SyncSkillMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:SyncSkillMessage)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // uint32 uid = 1;
+            if (this_._internal_uid() != 0) {
+              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+                  this_._internal_uid());
+            }
+            // int32 pos = 2;
+            if (this_._internal_pos() != 0) {
+              total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+                  this_._internal_pos());
+            }
+          }
+          switch (this_.infos_case()) {
+            // .StraightBulletSkillInfoMessage straight_bullet_skill = 3;
+            case kStraightBulletSkill: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.infos_.straight_bullet_skill_);
+              break;
+            }
+            case INFOS_NOT_SET: {
+              break;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void SyncSkillMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<SyncSkillMessage*>(&to_msg);
+  auto& from = static_cast<const SyncSkillMessage&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:SyncSkillMessage)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_uid() != 0) {
+    _this->_impl_.uid_ = from._impl_.uid_;
+  }
+  if (from._internal_pos() != 0) {
+    _this->_impl_.pos_ = from._impl_.pos_;
+  }
+  if (const uint32_t oneof_from_case = from._impl_._oneof_case_[0]) {
+    const uint32_t oneof_to_case = _this->_impl_._oneof_case_[0];
+    const bool oneof_needs_init = oneof_to_case != oneof_from_case;
+    if (oneof_needs_init) {
+      if (oneof_to_case != 0) {
+        _this->clear_infos();
+      }
+      _this->_impl_._oneof_case_[0] = oneof_from_case;
+    }
+
+    switch (oneof_from_case) {
+      case kStraightBulletSkill: {
+        if (oneof_needs_init) {
+          _this->_impl_.infos_.straight_bullet_skill_ =
+              ::google::protobuf::Message::CopyConstruct<::StraightBulletSkillInfoMessage>(arena, *from._impl_.infos_.straight_bullet_skill_);
+        } else {
+          _this->_impl_.infos_.straight_bullet_skill_->MergeFrom(from._internal_straight_bullet_skill());
+        }
+        break;
+      }
+      case INFOS_NOT_SET:
+        break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SyncSkillMessage::CopyFrom(const SyncSkillMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SyncSkillMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void SyncSkillMessage::InternalSwap(SyncSkillMessage* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.pos_)
+      + sizeof(SyncSkillMessage::_impl_.pos_)
+      - PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_)>(
+          reinterpret_cast<char*>(&_impl_.uid_),
+          reinterpret_cast<char*>(&other->_impl_.uid_));
+  swap(_impl_.infos_, other->_impl_.infos_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::google::protobuf::Metadata SyncSkillMessage::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class StraightBulletSkillInfoMessage::_Internal {
+ public:
+};
+
+StraightBulletSkillInfoMessage::StraightBulletSkillInfoMessage(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:StraightBulletSkillInfoMessage)
+}
+inline PROTOBUF_NDEBUG_INLINE StraightBulletSkillInfoMessage::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::StraightBulletSkillInfoMessage& from_msg)
+      : id_{visibility, arena, from.id_},
+        _id_cached_byte_size_{0},
+        pos_x_{visibility, arena, from.pos_x_},
+        pos_y_{visibility, arena, from.pos_y_},
+        angle_{visibility, arena, from.angle_},
+        destroyed_{visibility, arena, from.destroyed_},
+        _cached_size_{0} {}
+
+StraightBulletSkillInfoMessage::StraightBulletSkillInfoMessage(
+    ::google::protobuf::Arena* arena,
+    const StraightBulletSkillInfoMessage& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  StraightBulletSkillInfoMessage* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:StraightBulletSkillInfoMessage)
+}
+inline PROTOBUF_NDEBUG_INLINE StraightBulletSkillInfoMessage::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : id_{visibility, arena},
+        _id_cached_byte_size_{0},
+        pos_x_{visibility, arena},
+        pos_y_{visibility, arena},
+        angle_{visibility, arena},
+        destroyed_{visibility, arena},
+        _cached_size_{0} {}
+
+inline void StraightBulletSkillInfoMessage::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+StraightBulletSkillInfoMessage::~StraightBulletSkillInfoMessage() {
+  // @@protoc_insertion_point(destructor:StraightBulletSkillInfoMessage)
+  SharedDtor(*this);
+}
+inline void StraightBulletSkillInfoMessage::SharedDtor(MessageLite& self) {
+  StraightBulletSkillInfoMessage& this_ = static_cast<StraightBulletSkillInfoMessage&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* StraightBulletSkillInfoMessage::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) StraightBulletSkillInfoMessage(arena);
+}
+constexpr auto StraightBulletSkillInfoMessage::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.id_) +
+          decltype(StraightBulletSkillInfoMessage::_impl_.id_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_x_) +
+          decltype(StraightBulletSkillInfoMessage::_impl_.pos_x_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_y_) +
+          decltype(StraightBulletSkillInfoMessage::_impl_.pos_y_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.angle_) +
+          decltype(StraightBulletSkillInfoMessage::_impl_.angle_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.destroyed_) +
+          decltype(StraightBulletSkillInfoMessage::_impl_.destroyed_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+        sizeof(StraightBulletSkillInfoMessage), alignof(StraightBulletSkillInfoMessage), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&StraightBulletSkillInfoMessage::PlacementNew_,
+                                 sizeof(StraightBulletSkillInfoMessage),
+                                 alignof(StraightBulletSkillInfoMessage));
+  }
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull StraightBulletSkillInfoMessage::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_StraightBulletSkillInfoMessage_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &StraightBulletSkillInfoMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<StraightBulletSkillInfoMessage>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &StraightBulletSkillInfoMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<StraightBulletSkillInfoMessage>(), &StraightBulletSkillInfoMessage::ByteSizeLong,
+            &StraightBulletSkillInfoMessage::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_._cached_size_),
+        false,
+    },
+    &StraightBulletSkillInfoMessage::kDescriptorMethods,
+    &descriptor_table_test_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* StraightBulletSkillInfoMessage::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 0, 0, 2> StraightBulletSkillInfoMessage::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    5, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::StraightBulletSkillInfoMessage>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // repeated uint64 id = 1;
+    {::_pbi::TcParser::FastV64P1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.id_)}},
+    // repeated float pos_x = 2;
+    {::_pbi::TcParser::FastF32P1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_x_)}},
+    // repeated float pos_y = 3;
+    {::_pbi::TcParser::FastF32P1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_y_)}},
+    // repeated float angle = 4;
+    {::_pbi::TcParser::FastF32P1,
+     {34, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.angle_)}},
+    // repeated bool destroyed = 5;
+    {::_pbi::TcParser::FastV8P1,
+     {42, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.destroyed_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated uint64 id = 1;
+    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt64)},
+    // repeated float pos_x = 2;
+    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_x_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kPackedFloat)},
+    // repeated float pos_y = 3;
+    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_y_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kPackedFloat)},
+    // repeated float angle = 4;
+    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.angle_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kPackedFloat)},
+    // repeated bool destroyed = 5;
+    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.destroyed_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kPackedBool)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+PROTOBUF_NOINLINE void StraightBulletSkillInfoMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:StraightBulletSkillInfoMessage)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.id_.Clear();
+  _impl_.pos_x_.Clear();
+  _impl_.pos_y_.Clear();
+  _impl_.angle_.Clear();
+  _impl_.destroyed_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* StraightBulletSkillInfoMessage::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const StraightBulletSkillInfoMessage& this_ = static_cast<const StraightBulletSkillInfoMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* StraightBulletSkillInfoMessage::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const StraightBulletSkillInfoMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:StraightBulletSkillInfoMessage)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // repeated uint64 id = 1;
+          {
+            int byte_size = this_._impl_._id_cached_byte_size_.Get();
+            if (byte_size > 0) {
+              target = stream->WriteUInt64Packed(
+                  1, this_._internal_id(), byte_size, target);
+            }
+          }
+
+          // repeated float pos_x = 2;
+          if (this_._internal_pos_x_size() > 0) {
+            target = stream->WriteFixedPacked(2, this_._internal_pos_x(), target);
+          }
+
+          // repeated float pos_y = 3;
+          if (this_._internal_pos_y_size() > 0) {
+            target = stream->WriteFixedPacked(3, this_._internal_pos_y(), target);
+          }
+
+          // repeated float angle = 4;
+          if (this_._internal_angle_size() > 0) {
+            target = stream->WriteFixedPacked(4, this_._internal_angle(), target);
+          }
+
+          // repeated bool destroyed = 5;
+          if (this_._internal_destroyed_size() > 0) {
+            target = stream->WriteFixedPacked(5, this_._internal_destroyed(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:StraightBulletSkillInfoMessage)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t StraightBulletSkillInfoMessage::ByteSizeLong(const MessageLite& base) {
+          const StraightBulletSkillInfoMessage& this_ = static_cast<const StraightBulletSkillInfoMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t StraightBulletSkillInfoMessage::ByteSizeLong() const {
+          const StraightBulletSkillInfoMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:StraightBulletSkillInfoMessage)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // repeated uint64 id = 1;
+            {
+              total_size +=
+                  ::_pbi::WireFormatLite::UInt64SizeWithPackedTagSize(
+                      this_._internal_id(), 1,
+                      this_._impl_._id_cached_byte_size_);
+            }
+            // repeated float pos_x = 2;
+            {
+              std::size_t data_size = std::size_t{4} *
+                  ::_pbi::FromIntSize(this_._internal_pos_x_size());
+              std::size_t tag_size = data_size == 0
+                  ? 0
+                  : 1 + ::_pbi::WireFormatLite::Int32Size(
+                                      static_cast<int32_t>(data_size));
+              total_size += tag_size + data_size;
+            }
+            // repeated float pos_y = 3;
+            {
+              std::size_t data_size = std::size_t{4} *
+                  ::_pbi::FromIntSize(this_._internal_pos_y_size());
+              std::size_t tag_size = data_size == 0
+                  ? 0
+                  : 1 + ::_pbi::WireFormatLite::Int32Size(
+                                      static_cast<int32_t>(data_size));
+              total_size += tag_size + data_size;
+            }
+            // repeated float angle = 4;
+            {
+              std::size_t data_size = std::size_t{4} *
+                  ::_pbi::FromIntSize(this_._internal_angle_size());
+              std::size_t tag_size = data_size == 0
+                  ? 0
+                  : 1 + ::_pbi::WireFormatLite::Int32Size(
+                                      static_cast<int32_t>(data_size));
+              total_size += tag_size + data_size;
+            }
+            // repeated bool destroyed = 5;
+            {
+              std::size_t data_size = std::size_t{1} *
+                  ::_pbi::FromIntSize(this_._internal_destroyed_size());
+              std::size_t tag_size = data_size == 0
+                  ? 0
+                  : 1 + ::_pbi::WireFormatLite::Int32Size(
+                                      static_cast<int32_t>(data_size));
+              total_size += tag_size + data_size;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void StraightBulletSkillInfoMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<StraightBulletSkillInfoMessage*>(&to_msg);
+  auto& from = static_cast<const StraightBulletSkillInfoMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:StraightBulletSkillInfoMessage)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_id()->MergeFrom(from._internal_id());
+  _this->_internal_mutable_pos_x()->MergeFrom(from._internal_pos_x());
+  _this->_internal_mutable_pos_y()->MergeFrom(from._internal_pos_y());
+  _this->_internal_mutable_angle()->MergeFrom(from._internal_angle());
+  _this->_internal_mutable_destroyed()->MergeFrom(from._internal_destroyed());
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void StraightBulletSkillInfoMessage::CopyFrom(const StraightBulletSkillInfoMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:StraightBulletSkillInfoMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void StraightBulletSkillInfoMessage::InternalSwap(StraightBulletSkillInfoMessage* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.id_.InternalSwap(&other->_impl_.id_);
+  _impl_.pos_x_.InternalSwap(&other->_impl_.pos_x_);
+  _impl_.pos_y_.InternalSwap(&other->_impl_.pos_y_);
+  _impl_.angle_.InternalSwap(&other->_impl_.angle_);
+  _impl_.destroyed_.InternalSwap(&other->_impl_.destroyed_);
+}
+
+::google::protobuf::Metadata StraightBulletSkillInfoMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

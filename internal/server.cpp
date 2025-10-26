@@ -2,6 +2,7 @@
 // Created by 张俏悦 on 2025/9/25.
 //
 #include "server.h"
+#include "objects/worldManager.h"
 
 void CustomServer::OnMessage(olc::net::message &msg,uint32_t id) {
     Packet p;
@@ -50,7 +51,7 @@ void CustomServer::GameLogic() {
         ProcessInput();
         // 更新玩家
         UpdatePlayer();
-        b2World_Step(world_,timeStep,subStepCount);
+        b2World_Step(World,timeStep,subStepCount);
         // 同步玩家状态
         SyncPlayersStats();
 
@@ -77,7 +78,7 @@ void CustomServer::CreatePlayer() {
         b2BodyDef bodyDef = b2DefaultBodyDef();
         bodyDef.type = b2_dynamicBody;
         bodyDef.position = (b2Vec2){200,200};
-        b2BodyId myBodyId = b2CreateBody(world_,&bodyDef);
+        b2BodyId myBodyId = b2CreateBody(World,&bodyDef);
 
 
         b2Circle circle;
@@ -93,13 +94,14 @@ void CustomServer::CreatePlayer() {
         shapeDef.filter.categoryBits = CATEGORY_PLAYER;
         shapeDef.filter.maskBits = MASK_PLAYER;
         shapeDef.enableSensorEvents = true;
-        b2ShapeId bodyShape = b2CreateCircleShape(myBodyId, &shapeDef, &circle);
+        b2CreateCircleShape(myBodyId, &shapeDef, &circle);
 
 
         std::cout << "Client Connect" << std::endl;
-        std::shared_ptr<Player> player = std::make_shared<Player>(t.client->id,t.client,myBodyId);
+        std::shared_ptr<Player> player = std::make_shared<Player>(t.client->id,t.client,myBodyId,ManagerMap);
         playerMap[player->GetUID()] = player;
         BodyMap[player->BodyID.index1] = player;
+        ManagerMap[player->BodyID.index1] = player->ComponentManager;
         auto packet = std::make_shared<Packet>();
         PlayerEnterSyncMessage *player_enter = packet->mutable_player_enter_sync();
 
@@ -124,10 +126,6 @@ void CustomServer::DeletePlayer() {
         DisconnectTask t = DisconnectTaskQueue.back();
         std::cout << "Client Disconnect" << std::endl;
 
-        if (t.client == nullptr) {
-            std::cout << "erorrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr" << std::endl;
-            continue;
-        }
         // 清除玩家碰撞体
         auto player = playerMap[t.client->GetID()];
         b2DestroyBody(player->BodyID);

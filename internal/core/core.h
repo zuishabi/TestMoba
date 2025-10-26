@@ -13,6 +13,7 @@
 #include <box2d/math_functions.h>
 #include <chrono>
 #include "../utils/syncer.h"
+#include <unordered_map>
 
 class ComponentManager;
 
@@ -21,6 +22,7 @@ enum class ComponentType{
     AttackComponentType,
     AttributeComponentType,
     HitComponentType,
+    SkillComponentType,
 };
 
 
@@ -28,8 +30,8 @@ class Component {
 public:
     virtual ~Component() = default;
 
-    explicit Component(ComponentType type,ComponentManager* mgr)
-        :Type(type) ,Manager(mgr){}
+    explicit Component(ComponentType type,std::shared_ptr<ComponentManager> mgr)
+        :Type(type) ,Manager(std::move(mgr)){}
 public:
     virtual void Update() {
 
@@ -38,7 +40,7 @@ public:
     const ComponentType Type;
     bool Enable = true;
 protected:
-    ComponentManager* Manager = nullptr;
+    std::shared_ptr<ComponentManager> Manager = nullptr;
 };
 
 
@@ -48,7 +50,9 @@ public:
     ComponentManager(const ComponentManager&) = delete;
     ComponentManager& operator=(const ComponentManager&) = delete;
 
-    ComponentManager() = default;
+    ComponentManager() = delete;
+    explicit ComponentManager(const std::unordered_map<int32_t,std::shared_ptr<ComponentManager>>& m) :
+    ManagerMap(m){}
 
     template<typename T>
     T* GetComponent(ComponentType type) {
@@ -75,10 +79,48 @@ public:
             }
         }
     }
+
 private:
     std::vector<std::unique_ptr<Component>> componentList;
 public:
+    const std::unordered_map<int32_t,std::shared_ptr<ComponentManager>>& ManagerMap;
     SyncerManager SyncerManager;
 };
+
+
+struct SkillInfo {
+    b2Vec2 pos;
+    b2Vec2 direction;
+};
+
+
+class Skill {
+public:
+    virtual ~Skill() = default;
+
+    Skill(std::shared_ptr<ComponentManager> from):from(std::move(from)){}
+
+    virtual void Execute(SkillInfo info) = 0;
+
+    virtual void Update() = 0;
+
+protected:
+    std::shared_ptr<ComponentManager> from;
+
+    [[nodiscard]] virtual bool CanExecute(int currentMana) const {
+        if (!canExecute) {
+            return false;
+        }
+        if (cost > currentMana) {
+            return false;
+        }
+        return canExecute;
+    }
+private:
+    uint32_t id;
+    int cost;
+    bool canExecute;
+};
+
 
 #endif //TESTSERVER_COMPONENT_H

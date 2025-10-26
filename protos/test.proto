@@ -12,6 +12,7 @@ message Packet{
     PlayerAttackSyncMessage player_attack_sync = 7;
     PlayerManaSyncMessage player_mana_sync = 8;
     PlayerAttackSpeedSyncMessage player_attack_speed_sync = 9;
+    SyncSkillMessage sync_skill = 10;
   }
 }
 
@@ -19,6 +20,7 @@ message InputPacket{
   oneof input{
     MoveMessage move = 1;
     PlayerAttackMessage player_attack = 2;
+    ExecuteSkillMessage execute_skill = 3;
   }
 }
 
@@ -74,4 +76,27 @@ message PlayerManaSyncMessage{
 message PlayerAttackSpeedSyncMessage{
   uint32 uid = 1;
   float speed = 2;
+}
+
+message ExecuteSkillMessage{
+  float direction_x = 1;
+  float direction_y = 2;
+  float pos_x = 3;
+  float pos_y = 4;
+}
+
+message SyncSkillMessage{
+  uint32 uid = 1;
+  int32 pos = 2;
+  oneof infos{
+    StraightBulletSkillInfoMessage straight_bullet_skill = 3;
+  }
+}
+
+message StraightBulletSkillInfoMessage{
+  repeated uint64 id = 1;
+  repeated float pos_x = 2;
+  repeated float pos_y = 3;
+  repeated float angle = 4;
+  repeated bool destroyed = 5;
 }

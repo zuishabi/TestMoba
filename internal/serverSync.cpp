@@ -9,7 +9,7 @@ void CustomServer::SyncPlayersStats() {
         // p.second->position.x += p.second->currentDirection.x * 10;
         // p.second->position.y += p.second->currentDirection.y * 10;
         auto player = p.second;
-        auto syncers = player->ComponentManager.SyncerManager.GetSyncers();
+        auto syncers = player->ComponentManager->SyncerManager.GetSyncers();
         for (auto& s : syncers) {
             if (s.second->IsUpdated()) {
                 BroadcastMessage(s.second->getSync());

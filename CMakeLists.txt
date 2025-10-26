@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 4.0)
-project(testServer)
+project(testMoba)
 
 set(CMAKE_CXX_STANDARD 20)
 include_directories(C:/projects/C++/NetFrameWork)
 add_definitions(-D_WIN32_WINNT=0x0601)
 
-add_executable(testServer main.cpp protos/test.pb.cc
+add_executable(testMoba main.cpp protos/test.pb.cc
         internal/server.cpp
         internal/server.h
         internal/containers/containers.h
@@ -24,11 +24,15 @@ add_executable(testServer main.cpp protos/test.pb.cc
         internal/objects/bullet.h
         internal/core/components/components.h
         internal/core/components/hitComponent.cpp
+        internal/core/components/skillComponent.cpp
+        internal/core/skills/skill.h
+        internal/core/skills/ezQ.cpp
+        internal/objects/worldManager.h
 )
-target_link_directories(testServer PRIVATE C:/projects/C++/testServer/libs)
+target_link_directories(testMoba PRIVATE C:/projects/TestMoba/libs)
 
-target_link_libraries(testServer PRIVATE NetFrameWork)
-target_link_libraries(testServer PRIVATE ws2_32 Mswsock)
+target_link_libraries(testMoba PRIVATE NetFrameWork)
+target_link_libraries(testMoba PRIVATE ws2_32 Mswsock)
 
 
 set(protobuf_DIR "C:/dev/vcpkg/installed/x64-mingw-static/share/protobuf")
@@ -37,11 +41,11 @@ set(utf8_range_DIR "C:/dev/vcpkg/installed/x64-mingw-static/share/utf8_range")
 
 find_package(protobuf CONFIG REQUIRED)
 find_package(absl REQUIRED)
-target_link_libraries(testServer PRIVATE protobuf::libprotobuf)
+target_link_libraries(testMoba PRIVATE protobuf::libprotobuf)
 set(asio_DIR "C:/dev/vcpkg/installed/x64-mingw-dynamic/share/asio")
 find_package(asio REQUIRED)
-target_link_libraries(testServer PRIVATE asio::asio)
+target_link_libraries(testMoba PRIVATE asio::asio)
 
 set(box2d_DIR  "C:/dev/vcpkg/installed/x64-mingw-static/share/box2d")
 find_package(box2d CONFIG REQUIRED)
-target_link_libraries(testServer PRIVATE box2d::box2d)
+target_link_libraries(testMoba PRIVATE box2d::box2d)
