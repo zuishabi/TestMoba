@@ -26,7 +26,7 @@ void CustomServer::InitializeWorld() {
         b2BodyDef bd = b2DefaultBodyDef();
         bd.type = b2_staticBody;
         bd.position = b2Vec2{ worldWidth * 0.5f, -wallThickness * 0.5f };
-        b2BodyId body = b2CreateBody(World, &bd);
+        b2BodyId body = b2CreateBody(GameWorld::World, &bd);
         b2Polygon box = b2MakeBox(worldWidth * 0.5f, wallThickness * 0.5f); // half-width, half-height
         b2CreatePolygonShape(body, &shapeDef, &box);
         std::cout << "top pos:" << bd.position.x << "," << bd.position.y << std::endl;
@@ -37,7 +37,7 @@ void CustomServer::InitializeWorld() {
         b2BodyDef bd = b2DefaultBodyDef();
         bd.type = b2_staticBody;
         bd.position = b2Vec2{ worldWidth * 0.5f, worldHeight + wallThickness * 0.5f };
-        b2BodyId body = b2CreateBody(World, &bd);
+        b2BodyId body = b2CreateBody(GameWorld::World, &bd);
         b2Polygon box = b2MakeBox(worldWidth * 0.5f, wallThickness * 0.5f);
         b2CreatePolygonShape(body, &shapeDef, &box);
         std::cout << "bottom pos:" << bd.position.x << "," << bd.position.y << std::endl;
@@ -48,7 +48,7 @@ void CustomServer::InitializeWorld() {
         b2BodyDef bd = b2DefaultBodyDef();
         bd.type = b2_staticBody;
         bd.position = b2Vec2{ -wallThickness * 0.5f, worldHeight * 0.5f };
-        b2BodyId body = b2CreateBody(World, &bd);
+        b2BodyId body = b2CreateBody(GameWorld::World, &bd);
         b2Polygon box = b2MakeBox(wallThickness * 0.5f, worldHeight * 0.5f);
         b2CreatePolygonShape(body, &shapeDef, &box);
         std::cout << "left pos:" << bd.position.x << "," << bd.position.y << std::endl;
@@ -59,7 +59,7 @@ void CustomServer::InitializeWorld() {
         b2BodyDef bd = b2DefaultBodyDef();
         bd.type = b2_staticBody;
         bd.position = b2Vec2{ worldWidth + wallThickness * 0.5f, worldHeight * 0.5f };
-        b2BodyId body = b2CreateBody(World, &bd);
+        b2BodyId body = b2CreateBody(GameWorld::World, &bd);
         b2Polygon box = b2MakeBox(wallThickness * 0.5f, worldHeight * 0.5f);
         b2CreatePolygonShape(body, &shapeDef, &box);
         std::cout << "right pos:" << bd.position.x << "," << bd.position.y << std::endl;
@@ -71,7 +71,7 @@ void CustomServer::InitializeWorld() {
     b2BodyDef bd = b2DefaultBodyDef();
     bd.type = b2_staticBody;
     bd.position = b2Vec2(296,328);
-    b2BodyId body = b2CreateBody(World, &bd);
+    b2BodyId body = b2CreateBody(GameWorld::World, &bd);
     b2Polygon box = b2MakeBox(24,24);
     b2CreatePolygonShape(body,&shapeDef,&box);
 }

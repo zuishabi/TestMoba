@@ -8,12 +8,9 @@
 #include <memory>
 #include <utility>
 #include <vector>
-#include <box2d/box2d.h>
-#include <box2d/id.h>
 #include <box2d/math_functions.h>
-#include <chrono>
 #include "../utils/syncer.h"
-#include <unordered_map>
+#include "../objects/worldManager.h"
 
 class ComponentManager;
 
@@ -23,6 +20,13 @@ enum class ComponentType{
     AttributeComponentType,
     HitComponentType,
     SkillComponentType,
+    SkillObjectCoreComponentType,
+};
+
+
+enum class ManagerType {
+    Player,
+    Skill,
 };
 
 
@@ -30,8 +34,8 @@ class Component {
 public:
     virtual ~Component() = default;
 
-    explicit Component(ComponentType type,std::shared_ptr<ComponentManager> mgr)
-        :Type(type) ,Manager(std::move(mgr)){}
+    explicit Component(ComponentType type,uint64_t id)
+        :Type(type),id(id),manager(GameWorld::GetComponentManager(id)) {}
 public:
     virtual void Update() {
 
@@ -39,8 +43,8 @@ public:
 public:
     const ComponentType Type;
     bool Enable = true;
-protected:
-    std::shared_ptr<ComponentManager> Manager = nullptr;
+    uint64_t id;
+    ComponentManager* manager;
 };
 
 
@@ -51,8 +55,10 @@ public:
     ComponentManager& operator=(const ComponentManager&) = delete;
 
     ComponentManager() = delete;
-    explicit ComponentManager(const std::unordered_map<int32_t,std::shared_ptr<ComponentManager>>& m) :
-    ManagerMap(m){}
+
+    explicit ComponentManager(uint64_t id,ManagerType type):id(id),Type(type) {
+
+    }
 
     template<typename T>
     T* GetComponent(ComponentType type) {
@@ -83,14 +89,16 @@ public:
 private:
     std::vector<std::unique_ptr<Component>> componentList;
 public:
-    const std::unordered_map<int32_t,std::shared_ptr<ComponentManager>>& ManagerMap;
     SyncerManager SyncerManager;
+    uint64_t id;
+    ManagerType Type;
+    bool destroyed = false;
 };
 
 
 struct SkillInfo {
     b2Vec2 pos;
-    b2Vec2 direction;
+    float rotate;
 };
 
 
@@ -98,14 +106,13 @@ class Skill {
 public:
     virtual ~Skill() = default;
 
-    Skill(std::shared_ptr<ComponentManager> from):from(std::move(from)){}
+    Skill(uint64_t id):from(id){}
 
     virtual void Execute(SkillInfo info) = 0;
 
     virtual void Update() = 0;
 
 protected:
-    std::shared_ptr<ComponentManager> from;
 
     [[nodiscard]] virtual bool CanExecute(int currentMana) const {
         if (!canExecute) {
@@ -116,8 +123,8 @@ protected:
         }
         return canExecute;
     }
-private:
-    uint32_t id;
+protected:
+    uint64_t from;
     int cost;
     bool canExecute;
 };

@@ -5,11 +5,12 @@
 #include "server.h"
 
 void CustomServer::SyncPlayersStats() {
-    for (auto& p : playerMap) {
+    for (auto& p : GameWorld::objectsMap) {
         // p.second->position.x += p.second->currentDirection.x * 10;
         // p.second->position.y += p.second->currentDirection.y * 10;
-        auto player = p.second;
-        auto syncers = player->ComponentManager->SyncerManager.GetSyncers();
+        auto objectID = p.second->id;
+        ComponentManager* manager = GameWorld::GetComponentManager(objectID);
+        auto syncers = manager->SyncerManager.GetSyncers();
         for (auto& s : syncers) {
             if (s.second->IsUpdated()) {
                 BroadcastMessage(s.second->getSync());

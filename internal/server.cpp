@@ -50,8 +50,8 @@ void CustomServer::GameLogic() {
         // 处理玩家输入
         ProcessInput();
         // 更新玩家
-        UpdatePlayer();
-        b2World_Step(World,timeStep,subStepCount);
+        UpdateObjects();
+        b2World_Step(GameWorld::World,timeStep,subStepCount);
         // 同步玩家状态
         SyncPlayersStats();
 
@@ -69,6 +69,16 @@ void CustomServer::BigGameLogic() {
 }
 
 
+std::vector<std::shared_ptr<Packet>> GetAllSyncers(uint64_t id) {
+    auto syncers = GameWorld::objectsMap[id]->SyncerManager.GetSyncers();
+    auto syncerMessages = std::vector<std::shared_ptr<Packet>>(syncers.size());
+    int cur = 0;
+    for (auto& p : syncers) {
+        syncerMessages[cur] = p.second->getSync();
+    }
+    return syncerMessages;
+}
+
 
 void CustomServer::CreatePlayer() {
     while (!ConnectTaskQueue.empty()) {
@@ -78,18 +88,14 @@ void CustomServer::CreatePlayer() {
         b2BodyDef bodyDef = b2DefaultBodyDef();
         bodyDef.type = b2_dynamicBody;
         bodyDef.position = (b2Vec2){200,200};
-        b2BodyId myBodyId = b2CreateBody(World,&bodyDef);
-
-
+        b2BodyId myBodyId = b2CreateBody(GameWorld::World,&bodyDef);
         b2Circle circle;
         circle.center = {0,0};
         circle.radius = 5.0f;
-
         b2ShapeDef shapeDef = b2DefaultShapeDef();
         shapeDef.density = 1.0f;
         shapeDef.material.friction = 0.3f;
         shapeDef.material.restitution = 0;
-
         // 设置碰撞层级
         shapeDef.filter.categoryBits = CATEGORY_PLAYER;
         shapeDef.filter.maskBits = MASK_PLAYER;
@@ -98,26 +104,31 @@ void CustomServer::CreatePlayer() {
 
 
         std::cout << "Client Connect" << std::endl;
-        std::shared_ptr<Player> player = std::make_shared<Player>(t.client->id,t.client,myBodyId,ManagerMap);
-        playerMap[player->GetUID()] = player;
-        BodyMap[player->BodyID.index1] = player;
-        ManagerMap[player->BodyID.index1] = player->ComponentManager;
+        uint64_t id = b2StoreBodyId(myBodyId);
+        std::cout << "create id " << id <<std::endl;
+        GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Player));
+        std::shared_ptr<Player> player = std::make_shared<Player>(t.client,id);
+
+
         auto packet = std::make_shared<Packet>();
-        PlayerEnterSyncMessage *player_enter = packet->mutable_player_enter_sync();
-
-
-        // 向登录的玩家发送自身的登录消息以及
+        PlayerSyncMessage *playerSync = packet->mutable_player_sync();
+        // 向登录的玩家发送自身的登录消息以及已登录的玩家信息
         for (auto& p:playerMap) {
-            player_enter->set_uid(p.second->GetUID());
-            player_enter->set_self(p.first == t.client->GetID());
+            playerSync->set_uid(p.second->GetID());
+            playerSync->set_self(p.first == t.client->GetID());
             SendMessageA(t.client,packet);
+            for (auto packs : GetAllSyncers(p.second->GetID())) {
+                SendMessageA(t.client,packs);
+            }
         }
-
-
-        // 向其他玩家广播加入消息
-        player_enter->set_uid(t.client->GetID());
-        player_enter->set_self(false);
+        playerMap[player->client->GetID()] = player;
+        // 向其他玩家广播加入消息，并同步玩家状态
+        playerSync->set_uid(player->GetID());
+        playerSync->set_self(false);
         BroadcastMessage(packet,t.client->GetID());
+        for (auto packs : GetAllSyncers(id)) {
+            BroadcastMessage(packs);
+        }
     }
 }
 
@@ -127,17 +138,7 @@ void CustomServer::DeletePlayer() {
         std::cout << "Client Disconnect" << std::endl;
 
         // 清除玩家碰撞体
-        auto player = playerMap[t.client->GetID()];
-        b2DestroyBody(player->BodyID);
         DisconnectTaskQueue.pop_back();
-
         playerMap.erase(t.client->id);
-        BodyMap.erase(player->BodyID.index1);
-
-        // 向所有玩家发送离开信息
-        auto packet = std::make_shared<Packet>();
-        PlayerExitSyncMessage *playerExit = packet->mutable_player_exit_sync();
-        playerExit->set_uid(t.client->GetID());
-        BroadcastMessage(packet);
     }
 }

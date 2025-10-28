@@ -11,16 +11,12 @@
 
 class ezQ:public Skill {
 public:
-    explicit ezQ(std::shared_ptr<ComponentManager> mgr,std::shared_ptr<StraightBulletSkillSyncer> skills):
-    Skill(std::move(mgr)),skills(std::move(skills)) {
-        from->SyncerManager.AddSyncer(this->skills);
-    }
+    explicit ezQ(uint64_t from):Skill(from) {}
 public:
     void Update() override;
 
     void Execute(SkillInfo info) override;
 private:
-    std::shared_ptr<StraightBulletSkillSyncer> skills;
 };
 
 

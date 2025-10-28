@@ -3,9 +3,10 @@
 //
 
 #include "components.h"
+#include "../../objects/worldManager.h"
 
-void HitComponent::Hit(std::shared_ptr<ComponentManager> target) {
-    auto selfAttribute = Manager->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);
+void HitComponent::Hit(uint64_t targetID) {
+    ComponentManager* target = GameWorld::GetComponentManager(targetID);
     auto targetAttribute = target->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);
     targetAttribute->SetHealth(targetAttribute->GetHealth() - 10);
 }

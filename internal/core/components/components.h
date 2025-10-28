@@ -10,9 +10,9 @@
 // 移动组件
 class MovingComponent :public Component{
 public:
-    MovingComponent(int speed,b2BodyId bodyID,std::shared_ptr<ComponentManager> mgr,SyncerManager* syncerManager,std::shared_ptr<MoveSyncer> moveSyncer):
-    Component(ComponentType::MovingComponentType,mgr),Speed(speed),BodyID(bodyID),moveSyncer(moveSyncer){
-        syncerManager->AddSyncer(moveSyncer);
+    MovingComponent(uint64_t id,int speed,b2Vec2 targetPos):
+    Component(ComponentType::MovingComponentType,id),Speed(speed),moveSyncer(std::make_shared<MoveSyncer>(id)),target(targetPos){
+        manager->SyncerManager.AddSyncer(moveSyncer);
         moveSyncer->SetPos({200,200});
         target = {200,200};
     }
@@ -24,7 +24,6 @@ public:
     void Interrupt();
 public:
     int Speed;
-    b2BodyId BodyID;
     bool CanMove = true;
     b2Vec2 target;
 private:
@@ -34,14 +33,13 @@ private:
 
 class AttackComponent :public Component {
 public:
-    explicit AttackComponent(std::shared_ptr<ComponentManager> mgr)
-    :Component(ComponentType::AttackComponentType,mgr) {
+    explicit AttackComponent(uint64_t id):Component(ComponentType::AttackComponentType,id) {
 
     }
 public:
     void Update() override;
 
-    void Attack(const std::shared_ptr<ComponentManager>& targetComponent);
+    void Attack( uint64_t targetID);
 
     void Interrupt();
 public:
@@ -49,16 +47,16 @@ public:
     bool isShooting = false;
     float scale = 100;
     std::chrono::time_point<std::chrono::steady_clock, std::chrono::duration<double, std::ratio<1, 1000000000>>> nextPoint;
-    std::shared_ptr<ComponentManager> target = nullptr;
+    uint64_t targetID;
 };
 
 
 class AttributeComponent:public Component {
 public:
-    AttributeComponent(std::shared_ptr<ComponentManager> mgr,SyncerManager* syncerManager,std::shared_ptr<HealthSyncer> healthSyncer,
-        std::shared_ptr<ManaSyncer> manaSyncer,std::shared_ptr<AttackSpeedSyncer> attackSpeedSyncer):
-    Component(ComponentType::AttributeComponentType,mgr),manaSyncer(manaSyncer),healthSyncer(healthSyncer),attackSpeedSyncer(attackSpeedSyncer) {
-        syncerManager->AddSyncer(this->healthSyncer);
+    AttributeComponent(uint64_t id):Component(ComponentType::AttributeComponentType,id),
+    manaSyncer(std::make_shared<ManaSyncer>(id)),healthSyncer(std::make_shared<HealthSyncer>(id)),
+    attackSpeedSyncer(std::make_shared<AttackSpeedSyncer>(id)) {
+        manager->SyncerManager.AddSyncer(this->healthSyncer);
         healthSyncer->SetHealth(100);
         healthSyncer->SetMaxHealth(100);
         manaSyncer->SetMana(100);
@@ -100,16 +98,16 @@ private:
 
 class HitComponent:public Component{
 public:
-    HitComponent(std::shared_ptr<ComponentManager> mgr):Component(ComponentType::HitComponentType,mgr) {}
+    HitComponent(uint64_t id):Component(ComponentType::HitComponentType,id) {}
 public:
-    void Hit(std::shared_ptr<ComponentManager> target);
+    void Hit(uint64_t target);
 };
 
 
 class SkillComponent:public Component {
 public:
-    SkillComponent(std::shared_ptr<ComponentManager> mgr,std::array<std::unique_ptr<Skill>,4> skills):
-    Component(ComponentType::SkillComponentType,mgr),skills(std::move(skills)) {
+    explicit SkillComponent(uint64_t id,std::array<std::unique_ptr<Skill>,4> skills):
+    Component(ComponentType::SkillComponentType,id),skills(std::move(skills)) {
     }
     void Update() override;
 public:

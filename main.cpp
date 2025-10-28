@@ -4,6 +4,8 @@
 
 
 [[noreturn]] int main() {
+    GameWorld::World = GameWorld::Initialize();
+    CustomServer MainServer = CustomServer(7777);
     MainServer.Start();
     std::cout << "Start" << std::endl;
     std::thread logic_thread(&CustomServer::GameLogic, &MainServer);

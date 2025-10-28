@@ -21,13 +21,13 @@ add_executable(testMoba main.cpp protos/test.pb.cc
         internal/core/components/attackComponent.cpp
         internal/core/components/attributeComponent.cpp
         internal/utils/syncer.h
-        internal/objects/bullet.h
         internal/core/components/components.h
         internal/core/components/hitComponent.cpp
         internal/core/components/skillComponent.cpp
         internal/core/skills/skill.h
         internal/core/skills/ezQ.cpp
         internal/objects/worldManager.h
+        internal/utils/mMath.h
 )
 target_link_directories(testMoba PRIVATE C:/projects/TestMoba/libs)
 

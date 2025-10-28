@@ -31,7 +31,7 @@ class CustomServer:public olc::net::server_interface{
 public:
     explicit CustomServer(uint16_t nPort):
         server_interface(nPort) {
-        Initialize();
+        GameWorld::Initialize();
     };
 
     std::shared_ptr<Player> GetPlayer(uint32_t uid) {
@@ -40,8 +40,8 @@ public:
         return it->second;
     }
 
-    void SetPlayer(std::shared_ptr<Player> player) {
-        playerMap[player->GetUID()] = player;
+    void SetPlayer(const std::shared_ptr<Player>& player) {
+        playerMap[player->client->GetID()] = player;
     }
 
     std::unordered_map<uint32_t,std::shared_ptr<Player>>& GetPlayerMap() {
@@ -83,7 +83,7 @@ public:
 
     void SyncPlayersStats(); // 同步玩家的状态
 
-    void UpdatePlayer();
+    void UpdateObjects();
 
     void ProcessInput();
 
@@ -96,13 +96,9 @@ protected:
 
 private:
     std::unordered_map<uint32_t,std::shared_ptr<Player>> playerMap;
-    std::unordered_map<int32_t,std::shared_ptr<Player>> BodyMap;
-    std::unordered_map<int32_t,std::shared_ptr<ComponentManager>> ManagerMap;
     SaveQueue<ConnectTask> ConnectTaskQueue;
     SaveQueue<DisconnectTask>DisconnectTaskQueue;
 };
-
-inline CustomServer MainServer = CustomServer(8888);
 
 #endif //TESTSERVER_INTERNAL_H
 

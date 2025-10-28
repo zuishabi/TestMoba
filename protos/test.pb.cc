@@ -25,18 +25,14 @@ namespace _pb = ::google::protobuf;
 namespace _pbi = ::google::protobuf::internal;
 namespace _fl = ::google::protobuf::internal::field_layout;
 
-inline constexpr StraightBulletSkillInfoMessage::Impl_::Impl_(
+inline constexpr SkillInfoMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : id_{},
-        _id_cached_byte_size_{0},
-        pos_x_{},
-        pos_y_{},
-        angle_{},
-        destroyed_{},
+      : id_{::uint64_t{0u}},
+        angle_{0},
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR StraightBulletSkillInfoMessage::StraightBulletSkillInfoMessage(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR SkillInfoMessage::SkillInfoMessage(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -44,21 +40,48 @@ PROTOBUF_CONSTEXPR StraightBulletSkillInfoMessage::StraightBulletSkillInfoMessag
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct StraightBulletSkillInfoMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR StraightBulletSkillInfoMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~StraightBulletSkillInfoMessageDefaultTypeInternal() {}
+struct SkillInfoMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SkillInfoMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SkillInfoMessageDefaultTypeInternal() {}
   union {
-    StraightBulletSkillInfoMessage _instance;
+    SkillInfoMessage _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StraightBulletSkillInfoMessageDefaultTypeInternal _StraightBulletSkillInfoMessage_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SkillInfoMessageDefaultTypeInternal _SkillInfoMessage_default_instance_;
+
+inline constexpr PositionSyncMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : id_{::uint64_t{0u}},
+        pos_x_{0},
+        pos_y_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PositionSyncMessage::PositionSyncMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PositionSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PositionSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PositionSyncMessageDefaultTypeInternal() {}
+  union {
+    PositionSyncMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PositionSyncMessageDefaultTypeInternal _PositionSyncMessage_default_instance_;
 
 inline constexpr PlayerUseSkillMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : skill_pos_{0u},
-        target_player_{0u},
+      : target_player_{::uint64_t{0u}},
+        skill_pos_{0u},
         x_{0},
         y_{0},
         _cached_size_{0} {}
@@ -83,120 +106,14 @@ struct PlayerUseSkillMessageDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerUseSkillMessageDefaultTypeInternal _PlayerUseSkillMessage_default_instance_;
 
-inline constexpr PlayerPositionSyncMessage::Impl_::Impl_(
+inline constexpr PlayerSyncMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
-        pos_x_{0},
-        pos_y_{0},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR PlayerPositionSyncMessage::PlayerPositionSyncMessage(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct PlayerPositionSyncMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerPositionSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerPositionSyncMessageDefaultTypeInternal() {}
-  union {
-    PlayerPositionSyncMessage _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerPositionSyncMessageDefaultTypeInternal _PlayerPositionSyncMessage_default_instance_;
-
-inline constexpr PlayerManaSyncMessage::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
-        mana_{0},
-        max_mana_{0},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR PlayerManaSyncMessage::PlayerManaSyncMessage(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct PlayerManaSyncMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerManaSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerManaSyncMessageDefaultTypeInternal() {}
-  union {
-    PlayerManaSyncMessage _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerManaSyncMessageDefaultTypeInternal _PlayerManaSyncMessage_default_instance_;
-
-inline constexpr PlayerHealthSyncMessage::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
-        health_{0},
-        max_health_{0},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR PlayerHealthSyncMessage::PlayerHealthSyncMessage(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct PlayerHealthSyncMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerHealthSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerHealthSyncMessageDefaultTypeInternal() {}
-  union {
-    PlayerHealthSyncMessage _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerHealthSyncMessageDefaultTypeInternal _PlayerHealthSyncMessage_default_instance_;
-
-inline constexpr PlayerExitSyncMessage::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR PlayerExitSyncMessage::PlayerExitSyncMessage(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct PlayerExitSyncMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerExitSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerExitSyncMessageDefaultTypeInternal() {}
-  union {
-    PlayerExitSyncMessage _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerExitSyncMessageDefaultTypeInternal _PlayerExitSyncMessage_default_instance_;
-
-inline constexpr PlayerEnterSyncMessage::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
+      : uid_{::uint64_t{0u}},
         self_{false},
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR PlayerEnterSyncMessage::PlayerEnterSyncMessage(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR PlayerSyncMessage::PlayerSyncMessage(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -204,26 +121,24 @@ PROTOBUF_CONSTEXPR PlayerEnterSyncMessage::PlayerEnterSyncMessage(::_pbi::Consta
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct PlayerEnterSyncMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerEnterSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerEnterSyncMessageDefaultTypeInternal() {}
+struct PlayerSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerSyncMessageDefaultTypeInternal() {}
   union {
-    PlayerEnterSyncMessage _instance;
+    PlayerSyncMessage _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerEnterSyncMessageDefaultTypeInternal _PlayerEnterSyncMessage_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSyncMessageDefaultTypeInternal _PlayerSyncMessage_default_instance_;
 
-inline constexpr PlayerAttackSyncMessage::Impl_::Impl_(
+inline constexpr ObjectsDestroyedSyncMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : from_{0u},
-        to_{0u},
-        cool_down_{0},
+      : id_{::uint64_t{0u}},
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR PlayerAttackSyncMessage::PlayerAttackSyncMessage(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR ObjectsDestroyedSyncMessage::ObjectsDestroyedSyncMessage(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -231,67 +146,16 @@ PROTOBUF_CONSTEXPR PlayerAttackSyncMessage::PlayerAttackSyncMessage(::_pbi::Cons
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct PlayerAttackSyncMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerAttackSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerAttackSyncMessageDefaultTypeInternal() {}
+struct ObjectsDestroyedSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ObjectsDestroyedSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ObjectsDestroyedSyncMessageDefaultTypeInternal() {}
   union {
-    PlayerAttackSyncMessage _instance;
+    ObjectsDestroyedSyncMessage _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerAttackSyncMessageDefaultTypeInternal _PlayerAttackSyncMessage_default_instance_;
-
-inline constexpr PlayerAttackSpeedSyncMessage::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
-        speed_{0},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR PlayerAttackSpeedSyncMessage::PlayerAttackSpeedSyncMessage(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct PlayerAttackSpeedSyncMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerAttackSpeedSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerAttackSpeedSyncMessageDefaultTypeInternal() {}
-  union {
-    PlayerAttackSpeedSyncMessage _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerAttackSpeedSyncMessageDefaultTypeInternal _PlayerAttackSpeedSyncMessage_default_instance_;
-
-inline constexpr PlayerAttackMessage::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR PlayerAttackMessage::PlayerAttackMessage(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct PlayerAttackMessageDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PlayerAttackMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PlayerAttackMessageDefaultTypeInternal() {}
-  union {
-    PlayerAttackMessage _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerAttackMessageDefaultTypeInternal _PlayerAttackMessage_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObjectsDestroyedSyncMessageDefaultTypeInternal _ObjectsDestroyedSyncMessage_default_instance_;
 
 inline constexpr MoveMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -319,10 +183,88 @@ struct MoveMessageDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MoveMessageDefaultTypeInternal _MoveMessage_default_instance_;
 
+inline constexpr ManaSyncMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : uid_{::uint64_t{0u}},
+        mana_{0},
+        max_mana_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ManaSyncMessage::ManaSyncMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ManaSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ManaSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ManaSyncMessageDefaultTypeInternal() {}
+  union {
+    ManaSyncMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ManaSyncMessageDefaultTypeInternal _ManaSyncMessage_default_instance_;
+
+inline constexpr HealthSyncMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : uid_{::uint64_t{0u}},
+        health_{0},
+        max_health_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR HealthSyncMessage::HealthSyncMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct HealthSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR HealthSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~HealthSyncMessageDefaultTypeInternal() {}
+  union {
+    HealthSyncMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HealthSyncMessageDefaultTypeInternal _HealthSyncMessage_default_instance_;
+
+inline constexpr ExitSyncMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : uid_{::uint64_t{0u}},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ExitSyncMessage::ExitSyncMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ExitSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ExitSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ExitSyncMessageDefaultTypeInternal() {}
+  union {
+    ExitSyncMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExitSyncMessageDefaultTypeInternal _ExitSyncMessage_default_instance_;
+
 inline constexpr ExecuteSkillMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : direction_x_{0},
-        direction_y_{0},
+      : rotate_{0},
         pos_x_{0},
         pos_y_{0},
         _cached_size_{0} {}
@@ -347,9 +289,87 @@ struct ExecuteSkillMessageDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExecuteSkillMessageDefaultTypeInternal _ExecuteSkillMessage_default_instance_;
 
+inline constexpr AttackSyncMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : from_{::uint64_t{0u}},
+        to_{::uint64_t{0u}},
+        cool_down_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR AttackSyncMessage::AttackSyncMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct AttackSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AttackSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AttackSyncMessageDefaultTypeInternal() {}
+  union {
+    AttackSyncMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AttackSyncMessageDefaultTypeInternal _AttackSyncMessage_default_instance_;
+
+inline constexpr AttackSpeedSyncMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : uid_{::uint64_t{0u}},
+        speed_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR AttackSpeedSyncMessage::AttackSpeedSyncMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct AttackSpeedSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AttackSpeedSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AttackSpeedSyncMessageDefaultTypeInternal() {}
+  union {
+    AttackSpeedSyncMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AttackSpeedSyncMessageDefaultTypeInternal _AttackSpeedSyncMessage_default_instance_;
+
+inline constexpr AttackMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : uid_{::uint64_t{0u}},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR AttackMessage::AttackMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct AttackMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AttackMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AttackMessageDefaultTypeInternal() {}
+  union {
+    AttackMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AttackMessageDefaultTypeInternal _AttackMessage_default_instance_;
+
 inline constexpr SyncSkillMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
+      : uid_{::uint64_t{0u}},
         pos_{0},
         infos_{},
         _cached_size_{0},
@@ -403,8 +423,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr Packet::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : uid_{0u},
-        msg_{},
+      : msg_{},
         _cached_size_{0},
         _oneof_case_{} {}
 
@@ -442,7 +461,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::Packet, _impl_.uid_),
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
@@ -476,14 +494,14 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::MoveMessage, _impl_.x_),
         PROTOBUF_FIELD_OFFSET(::MoveMessage, _impl_.y_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::AttackMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackMessage, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::AttackMessage, _impl_.uid_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::PlayerUseSkillMessage, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -497,78 +515,78 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::PlayerUseSkillMessage, _impl_.x_),
         PROTOBUF_FIELD_OFFSET(::PlayerUseSkillMessage, _impl_.y_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::PlayerEnterSyncMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::PlayerSyncMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::PlayerEnterSyncMessage, _impl_.uid_),
-        PROTOBUF_FIELD_OFFSET(::PlayerEnterSyncMessage, _impl_.self_),
+        PROTOBUF_FIELD_OFFSET(::PlayerSyncMessage, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::PlayerSyncMessage, _impl_.self_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::PlayerExitSyncMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::ExitSyncMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::PlayerExitSyncMessage, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::ExitSyncMessage, _impl_.uid_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::PlayerPositionSyncMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::PositionSyncMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::PlayerPositionSyncMessage, _impl_.uid_),
-        PROTOBUF_FIELD_OFFSET(::PlayerPositionSyncMessage, _impl_.pos_x_),
-        PROTOBUF_FIELD_OFFSET(::PlayerPositionSyncMessage, _impl_.pos_y_),
+        PROTOBUF_FIELD_OFFSET(::PositionSyncMessage, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::PositionSyncMessage, _impl_.pos_x_),
+        PROTOBUF_FIELD_OFFSET(::PositionSyncMessage, _impl_.pos_y_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::PlayerHealthSyncMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::HealthSyncMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::PlayerHealthSyncMessage, _impl_.uid_),
-        PROTOBUF_FIELD_OFFSET(::PlayerHealthSyncMessage, _impl_.health_),
-        PROTOBUF_FIELD_OFFSET(::PlayerHealthSyncMessage, _impl_.max_health_),
+        PROTOBUF_FIELD_OFFSET(::HealthSyncMessage, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::HealthSyncMessage, _impl_.health_),
+        PROTOBUF_FIELD_OFFSET(::HealthSyncMessage, _impl_.max_health_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackSyncMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::AttackSyncMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackSyncMessage, _impl_.from_),
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackSyncMessage, _impl_.to_),
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackSyncMessage, _impl_.cool_down_),
+        PROTOBUF_FIELD_OFFSET(::AttackSyncMessage, _impl_.from_),
+        PROTOBUF_FIELD_OFFSET(::AttackSyncMessage, _impl_.to_),
+        PROTOBUF_FIELD_OFFSET(::AttackSyncMessage, _impl_.cool_down_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::PlayerManaSyncMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::ManaSyncMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::PlayerManaSyncMessage, _impl_.uid_),
-        PROTOBUF_FIELD_OFFSET(::PlayerManaSyncMessage, _impl_.mana_),
-        PROTOBUF_FIELD_OFFSET(::PlayerManaSyncMessage, _impl_.max_mana_),
+        PROTOBUF_FIELD_OFFSET(::ManaSyncMessage, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::ManaSyncMessage, _impl_.mana_),
+        PROTOBUF_FIELD_OFFSET(::ManaSyncMessage, _impl_.max_mana_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackSpeedSyncMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::AttackSpeedSyncMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackSpeedSyncMessage, _impl_.uid_),
-        PROTOBUF_FIELD_OFFSET(::PlayerAttackSpeedSyncMessage, _impl_.speed_),
+        PROTOBUF_FIELD_OFFSET(::AttackSpeedSyncMessage, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::AttackSpeedSyncMessage, _impl_.speed_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -577,8 +595,7 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.direction_x_),
-        PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.direction_y_),
+        PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.rotate_),
         PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.pos_x_),
         PROTOBUF_FIELD_OFFSET(::ExecuteSkillMessage, _impl_.pos_y_),
         ~0u,  // no _has_bits_
@@ -594,110 +611,113 @@ const ::uint32_t
         ::_pbi::kInvalidFieldOffsetTag,
         PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.infos_),
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::SkillInfoMessage, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.id_),
-        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.pos_x_),
-        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.pos_y_),
-        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.angle_),
-        PROTOBUF_FIELD_OFFSET(::StraightBulletSkillInfoMessage, _impl_.destroyed_),
+        PROTOBUF_FIELD_OFFSET(::SkillInfoMessage, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::SkillInfoMessage, _impl_.angle_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::ObjectsDestroyedSyncMessage, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::ObjectsDestroyedSyncMessage, _impl_.id_),
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::Packet)},
-        {19, -1, -1, sizeof(::InputPacket)},
-        {31, -1, -1, sizeof(::MoveMessage)},
-        {41, -1, -1, sizeof(::PlayerAttackMessage)},
-        {50, -1, -1, sizeof(::PlayerUseSkillMessage)},
-        {62, -1, -1, sizeof(::PlayerEnterSyncMessage)},
-        {72, -1, -1, sizeof(::PlayerExitSyncMessage)},
-        {81, -1, -1, sizeof(::PlayerPositionSyncMessage)},
-        {92, -1, -1, sizeof(::PlayerHealthSyncMessage)},
-        {103, -1, -1, sizeof(::PlayerAttackSyncMessage)},
-        {114, -1, -1, sizeof(::PlayerManaSyncMessage)},
-        {125, -1, -1, sizeof(::PlayerAttackSpeedSyncMessage)},
-        {135, -1, -1, sizeof(::ExecuteSkillMessage)},
-        {147, -1, -1, sizeof(::SyncSkillMessage)},
-        {159, -1, -1, sizeof(::StraightBulletSkillInfoMessage)},
+        {18, -1, -1, sizeof(::InputPacket)},
+        {30, -1, -1, sizeof(::MoveMessage)},
+        {40, -1, -1, sizeof(::AttackMessage)},
+        {49, -1, -1, sizeof(::PlayerUseSkillMessage)},
+        {61, -1, -1, sizeof(::PlayerSyncMessage)},
+        {71, -1, -1, sizeof(::ExitSyncMessage)},
+        {80, -1, -1, sizeof(::PositionSyncMessage)},
+        {91, -1, -1, sizeof(::HealthSyncMessage)},
+        {102, -1, -1, sizeof(::AttackSyncMessage)},
+        {113, -1, -1, sizeof(::ManaSyncMessage)},
+        {124, -1, -1, sizeof(::AttackSpeedSyncMessage)},
+        {134, -1, -1, sizeof(::ExecuteSkillMessage)},
+        {145, -1, -1, sizeof(::SyncSkillMessage)},
+        {157, -1, -1, sizeof(::SkillInfoMessage)},
+        {167, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::_Packet_default_instance_._instance,
     &::_InputPacket_default_instance_._instance,
     &::_MoveMessage_default_instance_._instance,
-    &::_PlayerAttackMessage_default_instance_._instance,
+    &::_AttackMessage_default_instance_._instance,
     &::_PlayerUseSkillMessage_default_instance_._instance,
-    &::_PlayerEnterSyncMessage_default_instance_._instance,
-    &::_PlayerExitSyncMessage_default_instance_._instance,
-    &::_PlayerPositionSyncMessage_default_instance_._instance,
-    &::_PlayerHealthSyncMessage_default_instance_._instance,
-    &::_PlayerAttackSyncMessage_default_instance_._instance,
-    &::_PlayerManaSyncMessage_default_instance_._instance,
-    &::_PlayerAttackSpeedSyncMessage_default_instance_._instance,
+    &::_PlayerSyncMessage_default_instance_._instance,
+    &::_ExitSyncMessage_default_instance_._instance,
+    &::_PositionSyncMessage_default_instance_._instance,
+    &::_HealthSyncMessage_default_instance_._instance,
+    &::_AttackSyncMessage_default_instance_._instance,
+    &::_ManaSyncMessage_default_instance_._instance,
+    &::_AttackSpeedSyncMessage_default_instance_._instance,
     &::_ExecuteSkillMessage_default_instance_._instance,
     &::_SyncSkillMessage_default_instance_._instance,
-    &::_StraightBulletSkillInfoMessage_default_instance_._instance,
+    &::_SkillInfoMessage_default_instance_._instance,
+    &::_ObjectsDestroyedSyncMessage_default_instance_._instance,
 };
 const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
-    "\n\ntest.proto\"\361\003\n\006Packet\022\013\n\003uid\030\001 \001(\r\022\035\n\005"
-    "input\030\002 \001(\0132\014.InputPacketH\000\022:\n\024player_po"
-    "sition_sync\030\003 \001(\0132\032.PlayerPositionSyncMe"
-    "ssageH\000\0224\n\021player_enter_sync\030\004 \001(\0132\027.Pla"
-    "yerEnterSyncMessageH\000\0222\n\020player_exit_syn"
-    "c\030\005 \001(\0132\026.PlayerExitSyncMessageH\000\0226\n\022pla"
-    "yer_health_sync\030\006 \001(\0132\030.PlayerHealthSync"
-    "MessageH\000\0226\n\022player_attack_sync\030\007 \001(\0132\030."
-    "PlayerAttackSyncMessageH\000\0222\n\020player_mana"
-    "_sync\030\010 \001(\0132\026.PlayerManaSyncMessageH\000\022A\n"
-    "\030player_attack_speed_sync\030\t \001(\0132\035.Player"
-    "AttackSpeedSyncMessageH\000\022\'\n\nsync_skill\030\n"
-    " \001(\0132\021.SyncSkillMessageH\000B\005\n\003msg\"\222\001\n\013Inp"
-    "utPacket\022\034\n\004move\030\001 \001(\0132\014.MoveMessageH\000\022-"
-    "\n\rplayer_attack\030\002 \001(\0132\024.PlayerAttackMess"
-    "ageH\000\022-\n\rexecute_skill\030\003 \001(\0132\024.ExecuteSk"
-    "illMessageH\000B\007\n\005input\"#\n\013MoveMessage\022\t\n\001"
-    "x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"\"\n\023PlayerAttackMessag"
-    "e\022\013\n\003uid\030\001 \001(\r\"W\n\025PlayerUseSkillMessage\022"
-    "\021\n\tskill_pos\030\001 \001(\r\022\025\n\rtarget_player\030\002 \001("
-    "\r\022\t\n\001x\030\003 \001(\002\022\t\n\001y\030\004 \001(\002\"3\n\026PlayerEnterSy"
-    "ncMessage\022\013\n\003uid\030\001 \001(\r\022\014\n\004self\030\002 \001(\010\"$\n\025"
-    "PlayerExitSyncMessage\022\013\n\003uid\030\001 \001(\r\"F\n\031Pl"
-    "ayerPositionSyncMessage\022\013\n\003uid\030\001 \001(\r\022\r\n\005"
-    "pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\"J\n\027PlayerHeal"
-    "thSyncMessage\022\013\n\003uid\030\001 \001(\r\022\016\n\006health\030\002 \001"
-    "(\005\022\022\n\nmax_health\030\003 \001(\005\"F\n\027PlayerAttackSy"
-    "ncMessage\022\014\n\004from\030\001 \001(\r\022\n\n\002to\030\002 \001(\r\022\021\n\tc"
-    "ool_down\030\003 \001(\002\"D\n\025PlayerManaSyncMessage\022"
-    "\013\n\003uid\030\001 \001(\r\022\014\n\004mana\030\002 \001(\005\022\020\n\010max_mana\030\003"
-    " \001(\005\":\n\034PlayerAttackSpeedSyncMessage\022\013\n\003"
-    "uid\030\001 \001(\r\022\r\n\005speed\030\002 \001(\002\"]\n\023ExecuteSkill"
-    "Message\022\023\n\013direction_x\030\001 \001(\002\022\023\n\013directio"
-    "n_y\030\002 \001(\002\022\r\n\005pos_x\030\003 \001(\002\022\r\n\005pos_y\030\004 \001(\002\""
-    "w\n\020SyncSkillMessage\022\013\n\003uid\030\001 \001(\r\022\013\n\003pos\030"
-    "\002 \001(\005\022@\n\025straight_bullet_skill\030\003 \001(\0132\037.S"
-    "traightBulletSkillInfoMessageH\000B\007\n\005infos"
-    "\"l\n\036StraightBulletSkillInfoMessage\022\n\n\002id"
-    "\030\001 \003(\004\022\r\n\005pos_x\030\002 \003(\002\022\r\n\005pos_y\030\003 \003(\002\022\r\n\005"
-    "angle\030\004 \003(\002\022\021\n\tdestroyed\030\005 \003(\010B\rZ\013pkg/pa"
-    "cketsb\006proto3"
+    "\n\ntest.proto\"\244\003\n\006Packet\022\035\n\005input\030\002 \001(\0132\014"
+    ".InputPacketH\000\022-\n\rposition_sync\030\003 \001(\0132\024."
+    "PositionSyncMessageH\000\022)\n\013player_sync\030\004 \001"
+    "(\0132\022.PlayerSyncMessageH\000\022)\n\013health_sync\030"
+    "\005 \001(\0132\022.HealthSyncMessageH\000\022)\n\013attack_sy"
+    "nc\030\006 \001(\0132\022.AttackSyncMessageH\000\022%\n\tmana_s"
+    "ync\030\007 \001(\0132\020.ManaSyncMessageH\000\0224\n\021attack_"
+    "speed_sync\030\010 \001(\0132\027.AttackSpeedSyncMessag"
+    "eH\000\022\'\n\nsync_skill\030\t \001(\0132\021.SyncSkillMessa"
+    "geH\000\022>\n\026objects_destroyed_sync\030\n \001(\0132\034.O"
+    "bjectsDestroyedSyncMessageH\000B\005\n\003msg\"\214\001\n\013"
+    "InputPacket\022\034\n\004move\030\001 \001(\0132\014.MoveMessageH"
+    "\000\022\'\n\rplayer_attack\030\002 \001(\0132\016.AttackMessage"
+    "H\000\022-\n\rexecute_skill\030\003 \001(\0132\024.ExecuteSkill"
+    "MessageH\000B\007\n\005input\"#\n\013MoveMessage\022\t\n\001x\030\001"
+    " \001(\002\022\t\n\001y\030\002 \001(\002\"\034\n\rAttackMessage\022\013\n\003uid\030"
+    "\001 \001(\004\"W\n\025PlayerUseSkillMessage\022\021\n\tskill_"
+    "pos\030\001 \001(\r\022\025\n\rtarget_player\030\002 \001(\004\022\t\n\001x\030\003 "
+    "\001(\002\022\t\n\001y\030\004 \001(\002\".\n\021PlayerSyncMessage\022\013\n\003u"
+    "id\030\001 \001(\004\022\014\n\004self\030\002 \001(\010\"\036\n\017ExitSyncMessag"
+    "e\022\013\n\003uid\030\001 \001(\004\"\?\n\023PositionSyncMessage\022\n\n"
+    "\002id\030\001 \001(\004\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\""
+    "D\n\021HealthSyncMessage\022\013\n\003uid\030\001 \001(\004\022\016\n\006hea"
+    "lth\030\002 \001(\005\022\022\n\nmax_health\030\003 \001(\005\"@\n\021AttackS"
+    "yncMessage\022\014\n\004from\030\001 \001(\004\022\n\n\002to\030\002 \001(\004\022\021\n\t"
+    "cool_down\030\003 \001(\002\">\n\017ManaSyncMessage\022\013\n\003ui"
+    "d\030\001 \001(\004\022\014\n\004mana\030\002 \001(\005\022\020\n\010max_mana\030\003 \001(\005\""
+    "4\n\026AttackSpeedSyncMessage\022\013\n\003uid\030\001 \001(\004\022\r"
+    "\n\005speed\030\002 \001(\002\"C\n\023ExecuteSkillMessage\022\016\n\006"
+    "rotate\030\001 \001(\002\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001"
+    "(\002\"^\n\020SyncSkillMessage\022\013\n\003uid\030\001 \001(\004\022\013\n\003p"
+    "os\030\002 \001(\005\022\'\n\nskill_info\030\003 \001(\0132\021.SkillInfo"
+    "MessageH\000B\007\n\005infos\"-\n\020SkillInfoMessage\022\n"
+    "\n\002id\030\001 \001(\004\022\r\n\005angle\030\004 \001(\002\")\n\033ObjectsDest"
+    "royedSyncMessage\022\n\n\002id\030\001 \001(\004B\rZ\013pkg/pack"
+    "etsb\006proto3"
 };
 static ::absl::once_flag descriptor_table_test_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_test_2eproto = {
     false,
     false,
-    1613,
+    1411,
     descriptor_table_protodef_test_2eproto,
     "test.proto",
     &descriptor_table_test_2eproto_once,
     nullptr,
     0,
-    15,
+    16,
     schemas,
     file_default_instances,
     TableStruct_test_2eproto::offsets,
@@ -725,96 +745,83 @@ void Packet::set_allocated_input(::InputPacket* input) {
   }
   // @@protoc_insertion_point(field_set_allocated:Packet.input)
 }
-void Packet::set_allocated_player_position_sync(::PlayerPositionSyncMessage* player_position_sync) {
+void Packet::set_allocated_position_sync(::PositionSyncMessage* position_sync) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_msg();
-  if (player_position_sync) {
-    ::google::protobuf::Arena* submessage_arena = player_position_sync->GetArena();
+  if (position_sync) {
+    ::google::protobuf::Arena* submessage_arena = position_sync->GetArena();
     if (message_arena != submessage_arena) {
-      player_position_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_position_sync, submessage_arena);
+      position_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, position_sync, submessage_arena);
     }
-    set_has_player_position_sync();
-    _impl_.msg_.player_position_sync_ = player_position_sync;
+    set_has_position_sync();
+    _impl_.msg_.position_sync_ = position_sync;
   }
-  // @@protoc_insertion_point(field_set_allocated:Packet.player_position_sync)
+  // @@protoc_insertion_point(field_set_allocated:Packet.position_sync)
 }
-void Packet::set_allocated_player_enter_sync(::PlayerEnterSyncMessage* player_enter_sync) {
+void Packet::set_allocated_player_sync(::PlayerSyncMessage* player_sync) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_msg();
-  if (player_enter_sync) {
-    ::google::protobuf::Arena* submessage_arena = player_enter_sync->GetArena();
+  if (player_sync) {
+    ::google::protobuf::Arena* submessage_arena = player_sync->GetArena();
     if (message_arena != submessage_arena) {
-      player_enter_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_enter_sync, submessage_arena);
+      player_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_sync, submessage_arena);
     }
-    set_has_player_enter_sync();
-    _impl_.msg_.player_enter_sync_ = player_enter_sync;
+    set_has_player_sync();
+    _impl_.msg_.player_sync_ = player_sync;
   }
-  // @@protoc_insertion_point(field_set_allocated:Packet.player_enter_sync)
+  // @@protoc_insertion_point(field_set_allocated:Packet.player_sync)
 }
-void Packet::set_allocated_player_exit_sync(::PlayerExitSyncMessage* player_exit_sync) {
+void Packet::set_allocated_health_sync(::HealthSyncMessage* health_sync) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_msg();
-  if (player_exit_sync) {
-    ::google::protobuf::Arena* submessage_arena = player_exit_sync->GetArena();
+  if (health_sync) {
+    ::google::protobuf::Arena* submessage_arena = health_sync->GetArena();
     if (message_arena != submessage_arena) {
-      player_exit_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_exit_sync, submessage_arena);
+      health_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, health_sync, submessage_arena);
     }
-    set_has_player_exit_sync();
-    _impl_.msg_.player_exit_sync_ = player_exit_sync;
+    set_has_health_sync();
+    _impl_.msg_.health_sync_ = health_sync;
   }
-  // @@protoc_insertion_point(field_set_allocated:Packet.player_exit_sync)
+  // @@protoc_insertion_point(field_set_allocated:Packet.health_sync)
 }
-void Packet::set_allocated_player_health_sync(::PlayerHealthSyncMessage* player_health_sync) {
+void Packet::set_allocated_attack_sync(::AttackSyncMessage* attack_sync) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_msg();
-  if (player_health_sync) {
-    ::google::protobuf::Arena* submessage_arena = player_health_sync->GetArena();
+  if (attack_sync) {
+    ::google::protobuf::Arena* submessage_arena = attack_sync->GetArena();
     if (message_arena != submessage_arena) {
-      player_health_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_health_sync, submessage_arena);
+      attack_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, attack_sync, submessage_arena);
     }
-    set_has_player_health_sync();
-    _impl_.msg_.player_health_sync_ = player_health_sync;
+    set_has_attack_sync();
+    _impl_.msg_.attack_sync_ = attack_sync;
   }
-  // @@protoc_insertion_point(field_set_allocated:Packet.player_health_sync)
+  // @@protoc_insertion_point(field_set_allocated:Packet.attack_sync)
 }
-void Packet::set_allocated_player_attack_sync(::PlayerAttackSyncMessage* player_attack_sync) {
+void Packet::set_allocated_mana_sync(::ManaSyncMessage* mana_sync) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_msg();
-  if (player_attack_sync) {
-    ::google::protobuf::Arena* submessage_arena = player_attack_sync->GetArena();
+  if (mana_sync) {
+    ::google::protobuf::Arena* submessage_arena = mana_sync->GetArena();
     if (message_arena != submessage_arena) {
-      player_attack_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_attack_sync, submessage_arena);
+      mana_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, mana_sync, submessage_arena);
     }
-    set_has_player_attack_sync();
-    _impl_.msg_.player_attack_sync_ = player_attack_sync;
+    set_has_mana_sync();
+    _impl_.msg_.mana_sync_ = mana_sync;
   }
-  // @@protoc_insertion_point(field_set_allocated:Packet.player_attack_sync)
+  // @@protoc_insertion_point(field_set_allocated:Packet.mana_sync)
 }
-void Packet::set_allocated_player_mana_sync(::PlayerManaSyncMessage* player_mana_sync) {
+void Packet::set_allocated_attack_speed_sync(::AttackSpeedSyncMessage* attack_speed_sync) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_msg();
-  if (player_mana_sync) {
-    ::google::protobuf::Arena* submessage_arena = player_mana_sync->GetArena();
+  if (attack_speed_sync) {
+    ::google::protobuf::Arena* submessage_arena = attack_speed_sync->GetArena();
     if (message_arena != submessage_arena) {
-      player_mana_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_mana_sync, submessage_arena);
+      attack_speed_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, attack_speed_sync, submessage_arena);
     }
-    set_has_player_mana_sync();
-    _impl_.msg_.player_mana_sync_ = player_mana_sync;
+    set_has_attack_speed_sync();
+    _impl_.msg_.attack_speed_sync_ = attack_speed_sync;
   }
-  // @@protoc_insertion_point(field_set_allocated:Packet.player_mana_sync)
-}
-void Packet::set_allocated_player_attack_speed_sync(::PlayerAttackSpeedSyncMessage* player_attack_speed_sync) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_msg();
-  if (player_attack_speed_sync) {
-    ::google::protobuf::Arena* submessage_arena = player_attack_speed_sync->GetArena();
-    if (message_arena != submessage_arena) {
-      player_attack_speed_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_attack_speed_sync, submessage_arena);
-    }
-    set_has_player_attack_speed_sync();
-    _impl_.msg_.player_attack_speed_sync_ = player_attack_speed_sync;
-  }
-  // @@protoc_insertion_point(field_set_allocated:Packet.player_attack_speed_sync)
+  // @@protoc_insertion_point(field_set_allocated:Packet.attack_speed_sync)
 }
 void Packet::set_allocated_sync_skill(::SyncSkillMessage* sync_skill) {
   ::google::protobuf::Arena* message_arena = GetArena();
@@ -828,6 +835,19 @@ void Packet::set_allocated_sync_skill(::SyncSkillMessage* sync_skill) {
     _impl_.msg_.sync_skill_ = sync_skill;
   }
   // @@protoc_insertion_point(field_set_allocated:Packet.sync_skill)
+}
+void Packet::set_allocated_objects_destroyed_sync(::ObjectsDestroyedSyncMessage* objects_destroyed_sync) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_msg();
+  if (objects_destroyed_sync) {
+    ::google::protobuf::Arena* submessage_arena = objects_destroyed_sync->GetArena();
+    if (message_arena != submessage_arena) {
+      objects_destroyed_sync = ::google::protobuf::internal::GetOwnedMessage(message_arena, objects_destroyed_sync, submessage_arena);
+    }
+    set_has_objects_destroyed_sync();
+    _impl_.msg_.objects_destroyed_sync_ = objects_destroyed_sync;
+  }
+  // @@protoc_insertion_point(field_set_allocated:Packet.objects_destroyed_sync)
 }
 Packet::Packet(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -858,36 +878,35 @@ Packet::Packet(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  _impl_.uid_ = from._impl_.uid_;
   switch (msg_case()) {
     case MSG_NOT_SET:
       break;
       case kInput:
         _impl_.msg_.input_ = ::google::protobuf::Message::CopyConstruct<::InputPacket>(arena, *from._impl_.msg_.input_);
         break;
-      case kPlayerPositionSync:
-        _impl_.msg_.player_position_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerPositionSyncMessage>(arena, *from._impl_.msg_.player_position_sync_);
+      case kPositionSync:
+        _impl_.msg_.position_sync_ = ::google::protobuf::Message::CopyConstruct<::PositionSyncMessage>(arena, *from._impl_.msg_.position_sync_);
         break;
-      case kPlayerEnterSync:
-        _impl_.msg_.player_enter_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerEnterSyncMessage>(arena, *from._impl_.msg_.player_enter_sync_);
+      case kPlayerSync:
+        _impl_.msg_.player_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerSyncMessage>(arena, *from._impl_.msg_.player_sync_);
         break;
-      case kPlayerExitSync:
-        _impl_.msg_.player_exit_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerExitSyncMessage>(arena, *from._impl_.msg_.player_exit_sync_);
+      case kHealthSync:
+        _impl_.msg_.health_sync_ = ::google::protobuf::Message::CopyConstruct<::HealthSyncMessage>(arena, *from._impl_.msg_.health_sync_);
         break;
-      case kPlayerHealthSync:
-        _impl_.msg_.player_health_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerHealthSyncMessage>(arena, *from._impl_.msg_.player_health_sync_);
+      case kAttackSync:
+        _impl_.msg_.attack_sync_ = ::google::protobuf::Message::CopyConstruct<::AttackSyncMessage>(arena, *from._impl_.msg_.attack_sync_);
         break;
-      case kPlayerAttackSync:
-        _impl_.msg_.player_attack_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerAttackSyncMessage>(arena, *from._impl_.msg_.player_attack_sync_);
+      case kManaSync:
+        _impl_.msg_.mana_sync_ = ::google::protobuf::Message::CopyConstruct<::ManaSyncMessage>(arena, *from._impl_.msg_.mana_sync_);
         break;
-      case kPlayerManaSync:
-        _impl_.msg_.player_mana_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerManaSyncMessage>(arena, *from._impl_.msg_.player_mana_sync_);
-        break;
-      case kPlayerAttackSpeedSync:
-        _impl_.msg_.player_attack_speed_sync_ = ::google::protobuf::Message::CopyConstruct<::PlayerAttackSpeedSyncMessage>(arena, *from._impl_.msg_.player_attack_speed_sync_);
+      case kAttackSpeedSync:
+        _impl_.msg_.attack_speed_sync_ = ::google::protobuf::Message::CopyConstruct<::AttackSpeedSyncMessage>(arena, *from._impl_.msg_.attack_speed_sync_);
         break;
       case kSyncSkill:
         _impl_.msg_.sync_skill_ = ::google::protobuf::Message::CopyConstruct<::SyncSkillMessage>(arena, *from._impl_.msg_.sync_skill_);
+        break;
+      case kObjectsDestroyedSync:
+        _impl_.msg_.objects_destroyed_sync_ = ::google::protobuf::Message::CopyConstruct<::ObjectsDestroyedSyncMessage>(arena, *from._impl_.msg_.objects_destroyed_sync_);
         break;
   }
 
@@ -902,7 +921,6 @@ inline PROTOBUF_NDEBUG_INLINE Packet::Impl_::Impl_(
 
 inline void Packet::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.uid_ = {};
 }
 Packet::~Packet() {
   // @@protoc_insertion_point(destructor:Packet)
@@ -930,59 +948,51 @@ void Packet::clear_msg() {
       }
       break;
     }
-    case kPlayerPositionSync: {
+    case kPositionSync: {
       if (GetArena() == nullptr) {
-        delete _impl_.msg_.player_position_sync_;
+        delete _impl_.msg_.position_sync_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.player_position_sync_);
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.position_sync_);
       }
       break;
     }
-    case kPlayerEnterSync: {
+    case kPlayerSync: {
       if (GetArena() == nullptr) {
-        delete _impl_.msg_.player_enter_sync_;
+        delete _impl_.msg_.player_sync_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.player_enter_sync_);
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.player_sync_);
       }
       break;
     }
-    case kPlayerExitSync: {
+    case kHealthSync: {
       if (GetArena() == nullptr) {
-        delete _impl_.msg_.player_exit_sync_;
+        delete _impl_.msg_.health_sync_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.player_exit_sync_);
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.health_sync_);
       }
       break;
     }
-    case kPlayerHealthSync: {
+    case kAttackSync: {
       if (GetArena() == nullptr) {
-        delete _impl_.msg_.player_health_sync_;
+        delete _impl_.msg_.attack_sync_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.player_health_sync_);
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.attack_sync_);
       }
       break;
     }
-    case kPlayerAttackSync: {
+    case kManaSync: {
       if (GetArena() == nullptr) {
-        delete _impl_.msg_.player_attack_sync_;
+        delete _impl_.msg_.mana_sync_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.player_attack_sync_);
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.mana_sync_);
       }
       break;
     }
-    case kPlayerManaSync: {
+    case kAttackSpeedSync: {
       if (GetArena() == nullptr) {
-        delete _impl_.msg_.player_mana_sync_;
+        delete _impl_.msg_.attack_speed_sync_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.player_mana_sync_);
-      }
-      break;
-    }
-    case kPlayerAttackSpeedSync: {
-      if (GetArena() == nullptr) {
-        delete _impl_.msg_.player_attack_speed_sync_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.player_attack_speed_sync_);
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.attack_speed_sync_);
       }
       break;
     }
@@ -991,6 +1001,14 @@ void Packet::clear_msg() {
         delete _impl_.msg_.sync_skill_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
         ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.sync_skill_);
+      }
+      break;
+    }
+    case kObjectsDestroyedSync: {
+      if (GetArena() == nullptr) {
+        delete _impl_.msg_.objects_destroyed_sync_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.objects_destroyed_sync_);
       }
       break;
     }
@@ -1038,15 +1056,15 @@ const ::google::protobuf::internal::ClassData* Packet::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 10, 9, 0, 2> Packet::_table_ = {
+const ::_pbi::TcParseTable<0, 9, 9, 0, 2> Packet::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
     10, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294966272,  // skipmap
+    4294966273,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    10,  // num_field_entries
+    9,  // num_field_entries
     9,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -1056,52 +1074,47 @@ const ::_pbi::TcParseTable<0, 10, 9, 0, 2> Packet::_table_ = {
     ::_pbi::TcParser::GetTable<::Packet>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Packet, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(Packet, _impl_.uid_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
     // .InputPacket input = 2;
     {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.input_), _Internal::kOneofCaseOffset + 0, 0,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .PlayerPositionSyncMessage player_position_sync = 3;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_position_sync_), _Internal::kOneofCaseOffset + 0, 1,
+    // .PositionSyncMessage position_sync = 3;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.position_sync_), _Internal::kOneofCaseOffset + 0, 1,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .PlayerEnterSyncMessage player_enter_sync = 4;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_enter_sync_), _Internal::kOneofCaseOffset + 0, 2,
+    // .PlayerSyncMessage player_sync = 4;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_sync_), _Internal::kOneofCaseOffset + 0, 2,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .PlayerExitSyncMessage player_exit_sync = 5;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_exit_sync_), _Internal::kOneofCaseOffset + 0, 3,
+    // .HealthSyncMessage health_sync = 5;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.health_sync_), _Internal::kOneofCaseOffset + 0, 3,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .PlayerHealthSyncMessage player_health_sync = 6;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_health_sync_), _Internal::kOneofCaseOffset + 0, 4,
+    // .AttackSyncMessage attack_sync = 6;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.attack_sync_), _Internal::kOneofCaseOffset + 0, 4,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .PlayerAttackSyncMessage player_attack_sync = 7;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_attack_sync_), _Internal::kOneofCaseOffset + 0, 5,
+    // .ManaSyncMessage mana_sync = 7;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.mana_sync_), _Internal::kOneofCaseOffset + 0, 5,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .PlayerManaSyncMessage player_mana_sync = 8;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_mana_sync_), _Internal::kOneofCaseOffset + 0, 6,
+    // .AttackSpeedSyncMessage attack_speed_sync = 8;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.attack_speed_sync_), _Internal::kOneofCaseOffset + 0, 6,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .PlayerAttackSpeedSyncMessage player_attack_speed_sync = 9;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.player_attack_speed_sync_), _Internal::kOneofCaseOffset + 0, 7,
+    // .SyncSkillMessage sync_skill = 9;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.sync_skill_), _Internal::kOneofCaseOffset + 0, 7,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .SyncSkillMessage sync_skill = 10;
-    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.sync_skill_), _Internal::kOneofCaseOffset + 0, 8,
+    // .ObjectsDestroyedSyncMessage objects_destroyed_sync = 10;
+    {PROTOBUF_FIELD_OFFSET(Packet, _impl_.msg_.objects_destroyed_sync_), _Internal::kOneofCaseOffset + 0, 8,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::InputPacket>()},
-    {::_pbi::TcParser::GetTable<::PlayerPositionSyncMessage>()},
-    {::_pbi::TcParser::GetTable<::PlayerEnterSyncMessage>()},
-    {::_pbi::TcParser::GetTable<::PlayerExitSyncMessage>()},
-    {::_pbi::TcParser::GetTable<::PlayerHealthSyncMessage>()},
-    {::_pbi::TcParser::GetTable<::PlayerAttackSyncMessage>()},
-    {::_pbi::TcParser::GetTable<::PlayerManaSyncMessage>()},
-    {::_pbi::TcParser::GetTable<::PlayerAttackSpeedSyncMessage>()},
+    {::_pbi::TcParser::GetTable<::PositionSyncMessage>()},
+    {::_pbi::TcParser::GetTable<::PlayerSyncMessage>()},
+    {::_pbi::TcParser::GetTable<::HealthSyncMessage>()},
+    {::_pbi::TcParser::GetTable<::AttackSyncMessage>()},
+    {::_pbi::TcParser::GetTable<::ManaSyncMessage>()},
+    {::_pbi::TcParser::GetTable<::AttackSpeedSyncMessage>()},
     {::_pbi::TcParser::GetTable<::SyncSkillMessage>()},
+    {::_pbi::TcParser::GetTable<::ObjectsDestroyedSyncMessage>()},
   }}, {{
   }},
 };
@@ -1113,7 +1126,6 @@ PROTOBUF_NOINLINE void Packet::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.uid_ = 0u;
   clear_msg();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -1133,13 +1145,6 @@ PROTOBUF_NOINLINE void Packet::Clear() {
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
-          if (this_._internal_uid() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-                1, this_._internal_uid(), target);
-          }
-
           switch (this_.msg_case()) {
             case kInput: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
@@ -1147,51 +1152,51 @@ PROTOBUF_NOINLINE void Packet::Clear() {
                   stream);
               break;
             }
-            case kPlayerPositionSync: {
+            case kPositionSync: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  3, *this_._impl_.msg_.player_position_sync_, this_._impl_.msg_.player_position_sync_->GetCachedSize(), target,
+                  3, *this_._impl_.msg_.position_sync_, this_._impl_.msg_.position_sync_->GetCachedSize(), target,
                   stream);
               break;
             }
-            case kPlayerEnterSync: {
+            case kPlayerSync: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  4, *this_._impl_.msg_.player_enter_sync_, this_._impl_.msg_.player_enter_sync_->GetCachedSize(), target,
+                  4, *this_._impl_.msg_.player_sync_, this_._impl_.msg_.player_sync_->GetCachedSize(), target,
                   stream);
               break;
             }
-            case kPlayerExitSync: {
+            case kHealthSync: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  5, *this_._impl_.msg_.player_exit_sync_, this_._impl_.msg_.player_exit_sync_->GetCachedSize(), target,
+                  5, *this_._impl_.msg_.health_sync_, this_._impl_.msg_.health_sync_->GetCachedSize(), target,
                   stream);
               break;
             }
-            case kPlayerHealthSync: {
+            case kAttackSync: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  6, *this_._impl_.msg_.player_health_sync_, this_._impl_.msg_.player_health_sync_->GetCachedSize(), target,
+                  6, *this_._impl_.msg_.attack_sync_, this_._impl_.msg_.attack_sync_->GetCachedSize(), target,
                   stream);
               break;
             }
-            case kPlayerAttackSync: {
+            case kManaSync: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  7, *this_._impl_.msg_.player_attack_sync_, this_._impl_.msg_.player_attack_sync_->GetCachedSize(), target,
+                  7, *this_._impl_.msg_.mana_sync_, this_._impl_.msg_.mana_sync_->GetCachedSize(), target,
                   stream);
               break;
             }
-            case kPlayerManaSync: {
+            case kAttackSpeedSync: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  8, *this_._impl_.msg_.player_mana_sync_, this_._impl_.msg_.player_mana_sync_->GetCachedSize(), target,
-                  stream);
-              break;
-            }
-            case kPlayerAttackSpeedSync: {
-              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  9, *this_._impl_.msg_.player_attack_speed_sync_, this_._impl_.msg_.player_attack_speed_sync_->GetCachedSize(), target,
+                  8, *this_._impl_.msg_.attack_speed_sync_, this_._impl_.msg_.attack_speed_sync_->GetCachedSize(), target,
                   stream);
               break;
             }
             case kSyncSkill: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  10, *this_._impl_.msg_.sync_skill_, this_._impl_.msg_.sync_skill_->GetCachedSize(), target,
+                  9, *this_._impl_.msg_.sync_skill_, this_._impl_.msg_.sync_skill_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            case kObjectsDestroyedSync: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  10, *this_._impl_.msg_.objects_destroyed_sync_, this_._impl_.msg_.objects_destroyed_sync_->GetCachedSize(), target,
                   stream);
               break;
             }
@@ -1221,13 +1226,6 @@ PROTOBUF_NOINLINE void Packet::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-           {
-            // uint32 uid = 1;
-            if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-                  this_._internal_uid());
-            }
-          }
           switch (this_.msg_case()) {
             // .InputPacket input = 2;
             case kInput: {
@@ -1235,52 +1233,52 @@ PROTOBUF_NOINLINE void Packet::Clear() {
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.input_);
               break;
             }
-            // .PlayerPositionSyncMessage player_position_sync = 3;
-            case kPlayerPositionSync: {
+            // .PositionSyncMessage position_sync = 3;
+            case kPositionSync: {
               total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_position_sync_);
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.position_sync_);
               break;
             }
-            // .PlayerEnterSyncMessage player_enter_sync = 4;
-            case kPlayerEnterSync: {
+            // .PlayerSyncMessage player_sync = 4;
+            case kPlayerSync: {
               total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_enter_sync_);
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_sync_);
               break;
             }
-            // .PlayerExitSyncMessage player_exit_sync = 5;
-            case kPlayerExitSync: {
+            // .HealthSyncMessage health_sync = 5;
+            case kHealthSync: {
               total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_exit_sync_);
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.health_sync_);
               break;
             }
-            // .PlayerHealthSyncMessage player_health_sync = 6;
-            case kPlayerHealthSync: {
+            // .AttackSyncMessage attack_sync = 6;
+            case kAttackSync: {
               total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_health_sync_);
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.attack_sync_);
               break;
             }
-            // .PlayerAttackSyncMessage player_attack_sync = 7;
-            case kPlayerAttackSync: {
+            // .ManaSyncMessage mana_sync = 7;
+            case kManaSync: {
               total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_attack_sync_);
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.mana_sync_);
               break;
             }
-            // .PlayerManaSyncMessage player_mana_sync = 8;
-            case kPlayerManaSync: {
+            // .AttackSpeedSyncMessage attack_speed_sync = 8;
+            case kAttackSpeedSync: {
               total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_mana_sync_);
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.attack_speed_sync_);
               break;
             }
-            // .PlayerAttackSpeedSyncMessage player_attack_speed_sync = 9;
-            case kPlayerAttackSpeedSync: {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.player_attack_speed_sync_);
-              break;
-            }
-            // .SyncSkillMessage sync_skill = 10;
+            // .SyncSkillMessage sync_skill = 9;
             case kSyncSkill: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.sync_skill_);
+              break;
+            }
+            // .ObjectsDestroyedSyncMessage objects_destroyed_sync = 10;
+            case kObjectsDestroyedSync: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.msg_.objects_destroyed_sync_);
               break;
             }
             case MSG_NOT_SET: {
@@ -1300,9 +1298,6 @@ void Packet::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_uid() != 0) {
-    _this->_impl_.uid_ = from._impl_.uid_;
-  }
   if (const uint32_t oneof_from_case = from._impl_._oneof_case_[0]) {
     const uint32_t oneof_to_case = _this->_impl_._oneof_case_[0];
     const bool oneof_needs_init = oneof_to_case != oneof_from_case;
@@ -1323,66 +1318,57 @@ void Packet::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         }
         break;
       }
-      case kPlayerPositionSync: {
+      case kPositionSync: {
         if (oneof_needs_init) {
-          _this->_impl_.msg_.player_position_sync_ =
-              ::google::protobuf::Message::CopyConstruct<::PlayerPositionSyncMessage>(arena, *from._impl_.msg_.player_position_sync_);
+          _this->_impl_.msg_.position_sync_ =
+              ::google::protobuf::Message::CopyConstruct<::PositionSyncMessage>(arena, *from._impl_.msg_.position_sync_);
         } else {
-          _this->_impl_.msg_.player_position_sync_->MergeFrom(from._internal_player_position_sync());
+          _this->_impl_.msg_.position_sync_->MergeFrom(from._internal_position_sync());
         }
         break;
       }
-      case kPlayerEnterSync: {
+      case kPlayerSync: {
         if (oneof_needs_init) {
-          _this->_impl_.msg_.player_enter_sync_ =
-              ::google::protobuf::Message::CopyConstruct<::PlayerEnterSyncMessage>(arena, *from._impl_.msg_.player_enter_sync_);
+          _this->_impl_.msg_.player_sync_ =
+              ::google::protobuf::Message::CopyConstruct<::PlayerSyncMessage>(arena, *from._impl_.msg_.player_sync_);
         } else {
-          _this->_impl_.msg_.player_enter_sync_->MergeFrom(from._internal_player_enter_sync());
+          _this->_impl_.msg_.player_sync_->MergeFrom(from._internal_player_sync());
         }
         break;
       }
-      case kPlayerExitSync: {
+      case kHealthSync: {
         if (oneof_needs_init) {
-          _this->_impl_.msg_.player_exit_sync_ =
-              ::google::protobuf::Message::CopyConstruct<::PlayerExitSyncMessage>(arena, *from._impl_.msg_.player_exit_sync_);
+          _this->_impl_.msg_.health_sync_ =
+              ::google::protobuf::Message::CopyConstruct<::HealthSyncMessage>(arena, *from._impl_.msg_.health_sync_);
         } else {
-          _this->_impl_.msg_.player_exit_sync_->MergeFrom(from._internal_player_exit_sync());
+          _this->_impl_.msg_.health_sync_->MergeFrom(from._internal_health_sync());
         }
         break;
       }
-      case kPlayerHealthSync: {
+      case kAttackSync: {
         if (oneof_needs_init) {
-          _this->_impl_.msg_.player_health_sync_ =
-              ::google::protobuf::Message::CopyConstruct<::PlayerHealthSyncMessage>(arena, *from._impl_.msg_.player_health_sync_);
+          _this->_impl_.msg_.attack_sync_ =
+              ::google::protobuf::Message::CopyConstruct<::AttackSyncMessage>(arena, *from._impl_.msg_.attack_sync_);
         } else {
-          _this->_impl_.msg_.player_health_sync_->MergeFrom(from._internal_player_health_sync());
+          _this->_impl_.msg_.attack_sync_->MergeFrom(from._internal_attack_sync());
         }
         break;
       }
-      case kPlayerAttackSync: {
+      case kManaSync: {
         if (oneof_needs_init) {
-          _this->_impl_.msg_.player_attack_sync_ =
-              ::google::protobuf::Message::CopyConstruct<::PlayerAttackSyncMessage>(arena, *from._impl_.msg_.player_attack_sync_);
+          _this->_impl_.msg_.mana_sync_ =
+              ::google::protobuf::Message::CopyConstruct<::ManaSyncMessage>(arena, *from._impl_.msg_.mana_sync_);
         } else {
-          _this->_impl_.msg_.player_attack_sync_->MergeFrom(from._internal_player_attack_sync());
+          _this->_impl_.msg_.mana_sync_->MergeFrom(from._internal_mana_sync());
         }
         break;
       }
-      case kPlayerManaSync: {
+      case kAttackSpeedSync: {
         if (oneof_needs_init) {
-          _this->_impl_.msg_.player_mana_sync_ =
-              ::google::protobuf::Message::CopyConstruct<::PlayerManaSyncMessage>(arena, *from._impl_.msg_.player_mana_sync_);
+          _this->_impl_.msg_.attack_speed_sync_ =
+              ::google::protobuf::Message::CopyConstruct<::AttackSpeedSyncMessage>(arena, *from._impl_.msg_.attack_speed_sync_);
         } else {
-          _this->_impl_.msg_.player_mana_sync_->MergeFrom(from._internal_player_mana_sync());
-        }
-        break;
-      }
-      case kPlayerAttackSpeedSync: {
-        if (oneof_needs_init) {
-          _this->_impl_.msg_.player_attack_speed_sync_ =
-              ::google::protobuf::Message::CopyConstruct<::PlayerAttackSpeedSyncMessage>(arena, *from._impl_.msg_.player_attack_speed_sync_);
-        } else {
-          _this->_impl_.msg_.player_attack_speed_sync_->MergeFrom(from._internal_player_attack_speed_sync());
+          _this->_impl_.msg_.attack_speed_sync_->MergeFrom(from._internal_attack_speed_sync());
         }
         break;
       }
@@ -1392,6 +1378,15 @@ void Packet::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
               ::google::protobuf::Message::CopyConstruct<::SyncSkillMessage>(arena, *from._impl_.msg_.sync_skill_);
         } else {
           _this->_impl_.msg_.sync_skill_->MergeFrom(from._internal_sync_skill());
+        }
+        break;
+      }
+      case kObjectsDestroyedSync: {
+        if (oneof_needs_init) {
+          _this->_impl_.msg_.objects_destroyed_sync_ =
+              ::google::protobuf::Message::CopyConstruct<::ObjectsDestroyedSyncMessage>(arena, *from._impl_.msg_.objects_destroyed_sync_);
+        } else {
+          _this->_impl_.msg_.objects_destroyed_sync_->MergeFrom(from._internal_objects_destroyed_sync());
         }
         break;
       }
@@ -1413,7 +1408,6 @@ void Packet::CopyFrom(const Packet& from) {
 void Packet::InternalSwap(Packet* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-        swap(_impl_.uid_, other->_impl_.uid_);
   swap(_impl_.msg_, other->_impl_.msg_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
@@ -1442,7 +1436,7 @@ void InputPacket::set_allocated_move(::MoveMessage* move) {
   }
   // @@protoc_insertion_point(field_set_allocated:InputPacket.move)
 }
-void InputPacket::set_allocated_player_attack(::PlayerAttackMessage* player_attack) {
+void InputPacket::set_allocated_player_attack(::AttackMessage* player_attack) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_input();
   if (player_attack) {
@@ -1504,7 +1498,7 @@ InputPacket::InputPacket(
         _impl_.input_.move_ = ::google::protobuf::Message::CopyConstruct<::MoveMessage>(arena, *from._impl_.input_.move_);
         break;
       case kPlayerAttack:
-        _impl_.input_.player_attack_ = ::google::protobuf::Message::CopyConstruct<::PlayerAttackMessage>(arena, *from._impl_.input_.player_attack_);
+        _impl_.input_.player_attack_ = ::google::protobuf::Message::CopyConstruct<::AttackMessage>(arena, *from._impl_.input_.player_attack_);
         break;
       case kExecuteSkill:
         _impl_.input_.execute_skill_ = ::google::protobuf::Message::CopyConstruct<::ExecuteSkillMessage>(arena, *from._impl_.input_.execute_skill_);
@@ -1634,7 +1628,7 @@ const ::_pbi::TcParseTable<0, 3, 3, 0, 2> InputPacket::_table_ = {
     // .MoveMessage move = 1;
     {PROTOBUF_FIELD_OFFSET(InputPacket, _impl_.input_.move_), _Internal::kOneofCaseOffset + 0, 0,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .PlayerAttackMessage player_attack = 2;
+    // .AttackMessage player_attack = 2;
     {PROTOBUF_FIELD_OFFSET(InputPacket, _impl_.input_.player_attack_), _Internal::kOneofCaseOffset + 0, 1,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .ExecuteSkillMessage execute_skill = 3;
@@ -1642,7 +1636,7 @@ const ::_pbi::TcParseTable<0, 3, 3, 0, 2> InputPacket::_table_ = {
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::MoveMessage>()},
-    {::_pbi::TcParser::GetTable<::PlayerAttackMessage>()},
+    {::_pbi::TcParser::GetTable<::AttackMessage>()},
     {::_pbi::TcParser::GetTable<::ExecuteSkillMessage>()},
   }}, {{
   }},
@@ -1726,7 +1720,7 @@ PROTOBUF_NOINLINE void InputPacket::Clear() {
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.input_.move_);
               break;
             }
-            // .PlayerAttackMessage player_attack = 2;
+            // .AttackMessage player_attack = 2;
             case kPlayerAttack: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.input_.player_attack_);
@@ -1778,7 +1772,7 @@ void InputPacket::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
       case kPlayerAttack: {
         if (oneof_needs_init) {
           _this->_impl_.input_.player_attack_ =
-              ::google::protobuf::Message::CopyConstruct<::PlayerAttackMessage>(arena, *from._impl_.input_.player_attack_);
+              ::google::protobuf::Message::CopyConstruct<::AttackMessage>(arena, *from._impl_.input_.player_attack_);
         } else {
           _this->_impl_.input_.player_attack_->MergeFrom(from._internal_player_attack());
         }
@@ -2059,81 +2053,81 @@ void MoveMessage::InternalSwap(MoveMessage* PROTOBUF_RESTRICT other) {
 }
 // ===================================================================
 
-class PlayerAttackMessage::_Internal {
+class AttackMessage::_Internal {
  public:
 };
 
-PlayerAttackMessage::PlayerAttackMessage(::google::protobuf::Arena* arena)
+AttackMessage::AttackMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:PlayerAttackMessage)
+  // @@protoc_insertion_point(arena_constructor:AttackMessage)
 }
-PlayerAttackMessage::PlayerAttackMessage(
-    ::google::protobuf::Arena* arena, const PlayerAttackMessage& from)
-    : PlayerAttackMessage(arena) {
+AttackMessage::AttackMessage(
+    ::google::protobuf::Arena* arena, const AttackMessage& from)
+    : AttackMessage(arena) {
   MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE PlayerAttackMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE AttackMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void PlayerAttackMessage::SharedCtor(::_pb::Arena* arena) {
+inline void AttackMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   _impl_.uid_ = {};
 }
-PlayerAttackMessage::~PlayerAttackMessage() {
-  // @@protoc_insertion_point(destructor:PlayerAttackMessage)
+AttackMessage::~AttackMessage() {
+  // @@protoc_insertion_point(destructor:AttackMessage)
   SharedDtor(*this);
 }
-inline void PlayerAttackMessage::SharedDtor(MessageLite& self) {
-  PlayerAttackMessage& this_ = static_cast<PlayerAttackMessage&>(self);
+inline void AttackMessage::SharedDtor(MessageLite& self) {
+  AttackMessage& this_ = static_cast<AttackMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* PlayerAttackMessage::PlacementNew_(const void*, void* mem,
+inline void* AttackMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) PlayerAttackMessage(arena);
+  return ::new (mem) AttackMessage(arena);
 }
-constexpr auto PlayerAttackMessage::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerAttackMessage),
-                                            alignof(PlayerAttackMessage));
+constexpr auto AttackMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(AttackMessage),
+                                            alignof(AttackMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull PlayerAttackMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull AttackMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_PlayerAttackMessage_default_instance_._instance,
+        &_AttackMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &PlayerAttackMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<PlayerAttackMessage>(),
+        &AttackMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<AttackMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &PlayerAttackMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<PlayerAttackMessage>(), &PlayerAttackMessage::ByteSizeLong,
-            &PlayerAttackMessage::_InternalSerialize,
+        &AttackMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<AttackMessage>(), &AttackMessage::ByteSizeLong,
+            &AttackMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(PlayerAttackMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(AttackMessage, _impl_._cached_size_),
         false,
     },
-    &PlayerAttackMessage::kDescriptorMethods,
+    &AttackMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* PlayerAttackMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* AttackMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 0, 2> PlayerAttackMessage::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 0, 0, 2> AttackMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -2148,54 +2142,54 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> PlayerAttackMessage::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::PlayerAttackMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::AttackMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerAttackMessage, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerAttackMessage, _impl_.uid_)}},
+    // uint64 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(AttackMessage, _impl_.uid_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(AttackMessage, _impl_.uid_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(PlayerAttackMessage, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 uid = 1;
+    {PROTOBUF_FIELD_OFFSET(AttackMessage, _impl_.uid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
   }},
   // no aux_entries
   {{
   }},
 };
 
-PROTOBUF_NOINLINE void PlayerAttackMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:PlayerAttackMessage)
+PROTOBUF_NOINLINE void AttackMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:AttackMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.uid_ = 0u;
+  _impl_.uid_ = ::uint64_t{0u};
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* PlayerAttackMessage::_InternalSerialize(
+        ::uint8_t* AttackMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const PlayerAttackMessage& this_ = static_cast<const PlayerAttackMessage&>(base);
+          const AttackMessage& this_ = static_cast<const AttackMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* PlayerAttackMessage::_InternalSerialize(
+        ::uint8_t* AttackMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const PlayerAttackMessage& this_ = *this;
+          const AttackMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:PlayerAttackMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:AttackMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
+          // uint64 uid = 1;
           if (this_._internal_uid() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 1, this_._internal_uid(), target);
           }
 
@@ -2204,18 +2198,18 @@ PROTOBUF_NOINLINE void PlayerAttackMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:PlayerAttackMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:AttackMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t PlayerAttackMessage::ByteSizeLong(const MessageLite& base) {
-          const PlayerAttackMessage& this_ = static_cast<const PlayerAttackMessage&>(base);
+        ::size_t AttackMessage::ByteSizeLong(const MessageLite& base) {
+          const AttackMessage& this_ = static_cast<const AttackMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t PlayerAttackMessage::ByteSizeLong() const {
-          const PlayerAttackMessage& this_ = *this;
+        ::size_t AttackMessage::ByteSizeLong() const {
+          const AttackMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:PlayerAttackMessage)
+          // @@protoc_insertion_point(message_byte_size_start:AttackMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -2223,9 +2217,9 @@ PROTOBUF_NOINLINE void PlayerAttackMessage::Clear() {
           (void)cached_has_bits;
 
            {
-            // uint32 uid = 1;
+            // uint64 uid = 1;
             if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
           }
@@ -2233,10 +2227,10 @@ PROTOBUF_NOINLINE void PlayerAttackMessage::Clear() {
                                                      &this_._impl_._cached_size_);
         }
 
-void PlayerAttackMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<PlayerAttackMessage*>(&to_msg);
-  auto& from = static_cast<const PlayerAttackMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerAttackMessage)
+void AttackMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<AttackMessage*>(&to_msg);
+  auto& from = static_cast<const AttackMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:AttackMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2247,21 +2241,21 @@ void PlayerAttackMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, con
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlayerAttackMessage::CopyFrom(const PlayerAttackMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:PlayerAttackMessage)
+void AttackMessage::CopyFrom(const AttackMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:AttackMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void PlayerAttackMessage::InternalSwap(PlayerAttackMessage* PROTOBUF_RESTRICT other) {
+void AttackMessage::InternalSwap(AttackMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
         swap(_impl_.uid_, other->_impl_.uid_);
 }
 
-::google::protobuf::Metadata PlayerAttackMessage::GetMetadata() const {
+::google::protobuf::Metadata AttackMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -2292,10 +2286,10 @@ inline PROTOBUF_NDEBUG_INLINE PlayerUseSkillMessage::Impl_::Impl_(
 inline void PlayerUseSkillMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, skill_pos_),
+               offsetof(Impl_, target_player_),
            0,
            offsetof(Impl_, y_) -
-               offsetof(Impl_, skill_pos_) +
+               offsetof(Impl_, target_player_) +
                sizeof(Impl_::y_));
 }
 PlayerUseSkillMessage::~PlayerUseSkillMessage() {
@@ -2369,8 +2363,8 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> PlayerUseSkillMessage::_table_ = {
     // uint32 skill_pos = 1;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerUseSkillMessage, _impl_.skill_pos_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerUseSkillMessage, _impl_.skill_pos_)}},
-    // uint32 target_player = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerUseSkillMessage, _impl_.target_player_), 63>(),
+    // uint64 target_player = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PlayerUseSkillMessage, _impl_.target_player_), 63>(),
      {16, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerUseSkillMessage, _impl_.target_player_)}},
     // float x = 3;
     {::_pbi::TcParser::FastF32S1,
@@ -2381,9 +2375,9 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> PlayerUseSkillMessage::_table_ = {
     // uint32 skill_pos = 1;
     {PROTOBUF_FIELD_OFFSET(PlayerUseSkillMessage, _impl_.skill_pos_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
-    // uint32 target_player = 2;
+    // uint64 target_player = 2;
     {PROTOBUF_FIELD_OFFSET(PlayerUseSkillMessage, _impl_.target_player_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
     // float x = 3;
     {PROTOBUF_FIELD_OFFSET(PlayerUseSkillMessage, _impl_.x_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
@@ -2403,9 +2397,9 @@ PROTOBUF_NOINLINE void PlayerUseSkillMessage::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&_impl_.skill_pos_, 0, static_cast<::size_t>(
+  ::memset(&_impl_.target_player_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.y_) -
-      reinterpret_cast<char*>(&_impl_.skill_pos_)) + sizeof(_impl_.y_));
+      reinterpret_cast<char*>(&_impl_.target_player_)) + sizeof(_impl_.y_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -2431,10 +2425,10 @@ PROTOBUF_NOINLINE void PlayerUseSkillMessage::Clear() {
                 1, this_._internal_skill_pos(), target);
           }
 
-          // uint32 target_player = 2;
+          // uint64 target_player = 2;
           if (this_._internal_target_player() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 2, this_._internal_target_player(), target);
           }
 
@@ -2477,15 +2471,15 @@ PROTOBUF_NOINLINE void PlayerUseSkillMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
+            // uint64 target_player = 2;
+            if (this_._internal_target_player() != 0) {
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
+                  this_._internal_target_player());
+            }
             // uint32 skill_pos = 1;
             if (this_._internal_skill_pos() != 0) {
               total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
                   this_._internal_skill_pos());
-            }
-            // uint32 target_player = 2;
-            if (this_._internal_target_player() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-                  this_._internal_target_player());
             }
             // float x = 3;
             if (::absl::bit_cast<::uint32_t>(this_._internal_x()) != 0) {
@@ -2508,11 +2502,11 @@ void PlayerUseSkillMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, c
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_skill_pos() != 0) {
-    _this->_impl_.skill_pos_ = from._impl_.skill_pos_;
-  }
   if (from._internal_target_player() != 0) {
     _this->_impl_.target_player_ = from._impl_.target_player_;
+  }
+  if (from._internal_skill_pos() != 0) {
+    _this->_impl_.skill_pos_ = from._impl_.skill_pos_;
   }
   if (::absl::bit_cast<::uint32_t>(from._internal_x()) != 0) {
     _this->_impl_.x_ = from._impl_.x_;
@@ -2537,9 +2531,9 @@ void PlayerUseSkillMessage::InternalSwap(PlayerUseSkillMessage* PROTOBUF_RESTRIC
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(PlayerUseSkillMessage, _impl_.y_)
       + sizeof(PlayerUseSkillMessage::_impl_.y_)
-      - PROTOBUF_FIELD_OFFSET(PlayerUseSkillMessage, _impl_.skill_pos_)>(
-          reinterpret_cast<char*>(&_impl_.skill_pos_),
-          reinterpret_cast<char*>(&other->_impl_.skill_pos_));
+      - PROTOBUF_FIELD_OFFSET(PlayerUseSkillMessage, _impl_.target_player_)>(
+          reinterpret_cast<char*>(&_impl_.target_player_),
+          reinterpret_cast<char*>(&other->_impl_.target_player_));
 }
 
 ::google::protobuf::Metadata PlayerUseSkillMessage::GetMetadata() const {
@@ -2547,30 +2541,30 @@ void PlayerUseSkillMessage::InternalSwap(PlayerUseSkillMessage* PROTOBUF_RESTRIC
 }
 // ===================================================================
 
-class PlayerEnterSyncMessage::_Internal {
+class PlayerSyncMessage::_Internal {
  public:
 };
 
-PlayerEnterSyncMessage::PlayerEnterSyncMessage(::google::protobuf::Arena* arena)
+PlayerSyncMessage::PlayerSyncMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:PlayerEnterSyncMessage)
+  // @@protoc_insertion_point(arena_constructor:PlayerSyncMessage)
 }
-PlayerEnterSyncMessage::PlayerEnterSyncMessage(
-    ::google::protobuf::Arena* arena, const PlayerEnterSyncMessage& from)
-    : PlayerEnterSyncMessage(arena) {
+PlayerSyncMessage::PlayerSyncMessage(
+    ::google::protobuf::Arena* arena, const PlayerSyncMessage& from)
+    : PlayerSyncMessage(arena) {
   MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE PlayerEnterSyncMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE PlayerSyncMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void PlayerEnterSyncMessage::SharedCtor(::_pb::Arena* arena) {
+inline void PlayerSyncMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, uid_),
@@ -2579,54 +2573,54 @@ inline void PlayerEnterSyncMessage::SharedCtor(::_pb::Arena* arena) {
                offsetof(Impl_, uid_) +
                sizeof(Impl_::self_));
 }
-PlayerEnterSyncMessage::~PlayerEnterSyncMessage() {
-  // @@protoc_insertion_point(destructor:PlayerEnterSyncMessage)
+PlayerSyncMessage::~PlayerSyncMessage() {
+  // @@protoc_insertion_point(destructor:PlayerSyncMessage)
   SharedDtor(*this);
 }
-inline void PlayerEnterSyncMessage::SharedDtor(MessageLite& self) {
-  PlayerEnterSyncMessage& this_ = static_cast<PlayerEnterSyncMessage&>(self);
+inline void PlayerSyncMessage::SharedDtor(MessageLite& self) {
+  PlayerSyncMessage& this_ = static_cast<PlayerSyncMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* PlayerEnterSyncMessage::PlacementNew_(const void*, void* mem,
+inline void* PlayerSyncMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) PlayerEnterSyncMessage(arena);
+  return ::new (mem) PlayerSyncMessage(arena);
 }
-constexpr auto PlayerEnterSyncMessage::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerEnterSyncMessage),
-                                            alignof(PlayerEnterSyncMessage));
+constexpr auto PlayerSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerSyncMessage),
+                                            alignof(PlayerSyncMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull PlayerEnterSyncMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull PlayerSyncMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_PlayerEnterSyncMessage_default_instance_._instance,
+        &_PlayerSyncMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &PlayerEnterSyncMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<PlayerEnterSyncMessage>(),
+        &PlayerSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<PlayerSyncMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &PlayerEnterSyncMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<PlayerEnterSyncMessage>(), &PlayerEnterSyncMessage::ByteSizeLong,
-            &PlayerEnterSyncMessage::_InternalSerialize,
+        &PlayerSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<PlayerSyncMessage>(), &PlayerSyncMessage::ByteSizeLong,
+            &PlayerSyncMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(PlayerEnterSyncMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_._cached_size_),
         false,
     },
-    &PlayerEnterSyncMessage::kDescriptorMethods,
+    &PlayerSyncMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* PlayerEnterSyncMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* PlayerSyncMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerEnterSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -2641,23 +2635,23 @@ const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerEnterSyncMessage::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::PlayerEnterSyncMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::PlayerSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // bool self = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(PlayerEnterSyncMessage, _impl_.self_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerEnterSyncMessage, _impl_.self_)}},
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerEnterSyncMessage, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerEnterSyncMessage, _impl_.uid_)}},
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(PlayerSyncMessage, _impl_.self_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.self_)}},
+    // uint64 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PlayerSyncMessage, _impl_.uid_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.uid_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(PlayerEnterSyncMessage, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 uid = 1;
+    {PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.uid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
     // bool self = 2;
-    {PROTOBUF_FIELD_OFFSET(PlayerEnterSyncMessage, _impl_.self_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.self_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBool)},
   }},
   // no aux_entries
@@ -2665,8 +2659,8 @@ const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerEnterSyncMessage::_table_ = {
   }},
 };
 
-PROTOBUF_NOINLINE void PlayerEnterSyncMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:PlayerEnterSyncMessage)
+PROTOBUF_NOINLINE void PlayerSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:PlayerSyncMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -2679,24 +2673,24 @@ PROTOBUF_NOINLINE void PlayerEnterSyncMessage::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* PlayerEnterSyncMessage::_InternalSerialize(
+        ::uint8_t* PlayerSyncMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const PlayerEnterSyncMessage& this_ = static_cast<const PlayerEnterSyncMessage&>(base);
+          const PlayerSyncMessage& this_ = static_cast<const PlayerSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* PlayerEnterSyncMessage::_InternalSerialize(
+        ::uint8_t* PlayerSyncMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const PlayerEnterSyncMessage& this_ = *this;
+          const PlayerSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:PlayerEnterSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:PlayerSyncMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
+          // uint64 uid = 1;
           if (this_._internal_uid() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 1, this_._internal_uid(), target);
           }
 
@@ -2712,18 +2706,18 @@ PROTOBUF_NOINLINE void PlayerEnterSyncMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:PlayerEnterSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:PlayerSyncMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t PlayerEnterSyncMessage::ByteSizeLong(const MessageLite& base) {
-          const PlayerEnterSyncMessage& this_ = static_cast<const PlayerEnterSyncMessage&>(base);
+        ::size_t PlayerSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const PlayerSyncMessage& this_ = static_cast<const PlayerSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t PlayerEnterSyncMessage::ByteSizeLong() const {
-          const PlayerEnterSyncMessage& this_ = *this;
+        ::size_t PlayerSyncMessage::ByteSizeLong() const {
+          const PlayerSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:PlayerEnterSyncMessage)
+          // @@protoc_insertion_point(message_byte_size_start:PlayerSyncMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -2732,9 +2726,9 @@ PROTOBUF_NOINLINE void PlayerEnterSyncMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // uint32 uid = 1;
+            // uint64 uid = 1;
             if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
             // bool self = 2;
@@ -2746,10 +2740,10 @@ PROTOBUF_NOINLINE void PlayerEnterSyncMessage::Clear() {
                                                      &this_._impl_._cached_size_);
         }
 
-void PlayerEnterSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<PlayerEnterSyncMessage*>(&to_msg);
-  auto& from = static_cast<const PlayerEnterSyncMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerEnterSyncMessage)
+void PlayerSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<PlayerSyncMessage*>(&to_msg);
+  auto& from = static_cast<const PlayerSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerSyncMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2763,105 +2757,105 @@ void PlayerEnterSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, 
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlayerEnterSyncMessage::CopyFrom(const PlayerEnterSyncMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:PlayerEnterSyncMessage)
+void PlayerSyncMessage::CopyFrom(const PlayerSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:PlayerSyncMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void PlayerEnterSyncMessage::InternalSwap(PlayerEnterSyncMessage* PROTOBUF_RESTRICT other) {
+void PlayerSyncMessage::InternalSwap(PlayerSyncMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerEnterSyncMessage, _impl_.self_)
-      + sizeof(PlayerEnterSyncMessage::_impl_.self_)
-      - PROTOBUF_FIELD_OFFSET(PlayerEnterSyncMessage, _impl_.uid_)>(
+      PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.self_)
+      + sizeof(PlayerSyncMessage::_impl_.self_)
+      - PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.uid_)>(
           reinterpret_cast<char*>(&_impl_.uid_),
           reinterpret_cast<char*>(&other->_impl_.uid_));
 }
 
-::google::protobuf::Metadata PlayerEnterSyncMessage::GetMetadata() const {
+::google::protobuf::Metadata PlayerSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class PlayerExitSyncMessage::_Internal {
+class ExitSyncMessage::_Internal {
  public:
 };
 
-PlayerExitSyncMessage::PlayerExitSyncMessage(::google::protobuf::Arena* arena)
+ExitSyncMessage::ExitSyncMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:PlayerExitSyncMessage)
+  // @@protoc_insertion_point(arena_constructor:ExitSyncMessage)
 }
-PlayerExitSyncMessage::PlayerExitSyncMessage(
-    ::google::protobuf::Arena* arena, const PlayerExitSyncMessage& from)
-    : PlayerExitSyncMessage(arena) {
+ExitSyncMessage::ExitSyncMessage(
+    ::google::protobuf::Arena* arena, const ExitSyncMessage& from)
+    : ExitSyncMessage(arena) {
   MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE PlayerExitSyncMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE ExitSyncMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void PlayerExitSyncMessage::SharedCtor(::_pb::Arena* arena) {
+inline void ExitSyncMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   _impl_.uid_ = {};
 }
-PlayerExitSyncMessage::~PlayerExitSyncMessage() {
-  // @@protoc_insertion_point(destructor:PlayerExitSyncMessage)
+ExitSyncMessage::~ExitSyncMessage() {
+  // @@protoc_insertion_point(destructor:ExitSyncMessage)
   SharedDtor(*this);
 }
-inline void PlayerExitSyncMessage::SharedDtor(MessageLite& self) {
-  PlayerExitSyncMessage& this_ = static_cast<PlayerExitSyncMessage&>(self);
+inline void ExitSyncMessage::SharedDtor(MessageLite& self) {
+  ExitSyncMessage& this_ = static_cast<ExitSyncMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* PlayerExitSyncMessage::PlacementNew_(const void*, void* mem,
+inline void* ExitSyncMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) PlayerExitSyncMessage(arena);
+  return ::new (mem) ExitSyncMessage(arena);
 }
-constexpr auto PlayerExitSyncMessage::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerExitSyncMessage),
-                                            alignof(PlayerExitSyncMessage));
+constexpr auto ExitSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(ExitSyncMessage),
+                                            alignof(ExitSyncMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull PlayerExitSyncMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull ExitSyncMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_PlayerExitSyncMessage_default_instance_._instance,
+        &_ExitSyncMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &PlayerExitSyncMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<PlayerExitSyncMessage>(),
+        &ExitSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ExitSyncMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &PlayerExitSyncMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<PlayerExitSyncMessage>(), &PlayerExitSyncMessage::ByteSizeLong,
-            &PlayerExitSyncMessage::_InternalSerialize,
+        &ExitSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ExitSyncMessage>(), &ExitSyncMessage::ByteSizeLong,
+            &ExitSyncMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(PlayerExitSyncMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(ExitSyncMessage, _impl_._cached_size_),
         false,
     },
-    &PlayerExitSyncMessage::kDescriptorMethods,
+    &ExitSyncMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* PlayerExitSyncMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* ExitSyncMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 0, 2> PlayerExitSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 0, 0, 2> ExitSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -2876,54 +2870,54 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> PlayerExitSyncMessage::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::PlayerExitSyncMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ExitSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerExitSyncMessage, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerExitSyncMessage, _impl_.uid_)}},
+    // uint64 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(ExitSyncMessage, _impl_.uid_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(ExitSyncMessage, _impl_.uid_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(PlayerExitSyncMessage, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 uid = 1;
+    {PROTOBUF_FIELD_OFFSET(ExitSyncMessage, _impl_.uid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
   }},
   // no aux_entries
   {{
   }},
 };
 
-PROTOBUF_NOINLINE void PlayerExitSyncMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:PlayerExitSyncMessage)
+PROTOBUF_NOINLINE void ExitSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:ExitSyncMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.uid_ = 0u;
+  _impl_.uid_ = ::uint64_t{0u};
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* PlayerExitSyncMessage::_InternalSerialize(
+        ::uint8_t* ExitSyncMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const PlayerExitSyncMessage& this_ = static_cast<const PlayerExitSyncMessage&>(base);
+          const ExitSyncMessage& this_ = static_cast<const ExitSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* PlayerExitSyncMessage::_InternalSerialize(
+        ::uint8_t* ExitSyncMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const PlayerExitSyncMessage& this_ = *this;
+          const ExitSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:PlayerExitSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:ExitSyncMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
+          // uint64 uid = 1;
           if (this_._internal_uid() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 1, this_._internal_uid(), target);
           }
 
@@ -2932,18 +2926,18 @@ PROTOBUF_NOINLINE void PlayerExitSyncMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:PlayerExitSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:ExitSyncMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t PlayerExitSyncMessage::ByteSizeLong(const MessageLite& base) {
-          const PlayerExitSyncMessage& this_ = static_cast<const PlayerExitSyncMessage&>(base);
+        ::size_t ExitSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const ExitSyncMessage& this_ = static_cast<const ExitSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t PlayerExitSyncMessage::ByteSizeLong() const {
-          const PlayerExitSyncMessage& this_ = *this;
+        ::size_t ExitSyncMessage::ByteSizeLong() const {
+          const ExitSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:PlayerExitSyncMessage)
+          // @@protoc_insertion_point(message_byte_size_start:ExitSyncMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -2951,9 +2945,9 @@ PROTOBUF_NOINLINE void PlayerExitSyncMessage::Clear() {
           (void)cached_has_bits;
 
            {
-            // uint32 uid = 1;
+            // uint64 uid = 1;
             if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
           }
@@ -2961,10 +2955,10 @@ PROTOBUF_NOINLINE void PlayerExitSyncMessage::Clear() {
                                                      &this_._impl_._cached_size_);
         }
 
-void PlayerExitSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<PlayerExitSyncMessage*>(&to_msg);
-  auto& from = static_cast<const PlayerExitSyncMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerExitSyncMessage)
+void ExitSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ExitSyncMessage*>(&to_msg);
+  auto& from = static_cast<const ExitSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ExitSyncMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2975,105 +2969,105 @@ void PlayerExitSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, c
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlayerExitSyncMessage::CopyFrom(const PlayerExitSyncMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:PlayerExitSyncMessage)
+void ExitSyncMessage::CopyFrom(const ExitSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ExitSyncMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void PlayerExitSyncMessage::InternalSwap(PlayerExitSyncMessage* PROTOBUF_RESTRICT other) {
+void ExitSyncMessage::InternalSwap(ExitSyncMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
         swap(_impl_.uid_, other->_impl_.uid_);
 }
 
-::google::protobuf::Metadata PlayerExitSyncMessage::GetMetadata() const {
+::google::protobuf::Metadata ExitSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class PlayerPositionSyncMessage::_Internal {
+class PositionSyncMessage::_Internal {
  public:
 };
 
-PlayerPositionSyncMessage::PlayerPositionSyncMessage(::google::protobuf::Arena* arena)
+PositionSyncMessage::PositionSyncMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:PlayerPositionSyncMessage)
+  // @@protoc_insertion_point(arena_constructor:PositionSyncMessage)
 }
-PlayerPositionSyncMessage::PlayerPositionSyncMessage(
-    ::google::protobuf::Arena* arena, const PlayerPositionSyncMessage& from)
-    : PlayerPositionSyncMessage(arena) {
+PositionSyncMessage::PositionSyncMessage(
+    ::google::protobuf::Arena* arena, const PositionSyncMessage& from)
+    : PositionSyncMessage(arena) {
   MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE PlayerPositionSyncMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE PositionSyncMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void PlayerPositionSyncMessage::SharedCtor(::_pb::Arena* arena) {
+inline void PositionSyncMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, uid_),
+               offsetof(Impl_, id_),
            0,
            offsetof(Impl_, pos_y_) -
-               offsetof(Impl_, uid_) +
+               offsetof(Impl_, id_) +
                sizeof(Impl_::pos_y_));
 }
-PlayerPositionSyncMessage::~PlayerPositionSyncMessage() {
-  // @@protoc_insertion_point(destructor:PlayerPositionSyncMessage)
+PositionSyncMessage::~PositionSyncMessage() {
+  // @@protoc_insertion_point(destructor:PositionSyncMessage)
   SharedDtor(*this);
 }
-inline void PlayerPositionSyncMessage::SharedDtor(MessageLite& self) {
-  PlayerPositionSyncMessage& this_ = static_cast<PlayerPositionSyncMessage&>(self);
+inline void PositionSyncMessage::SharedDtor(MessageLite& self) {
+  PositionSyncMessage& this_ = static_cast<PositionSyncMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* PlayerPositionSyncMessage::PlacementNew_(const void*, void* mem,
+inline void* PositionSyncMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) PlayerPositionSyncMessage(arena);
+  return ::new (mem) PositionSyncMessage(arena);
 }
-constexpr auto PlayerPositionSyncMessage::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerPositionSyncMessage),
-                                            alignof(PlayerPositionSyncMessage));
+constexpr auto PositionSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PositionSyncMessage),
+                                            alignof(PositionSyncMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull PlayerPositionSyncMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull PositionSyncMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_PlayerPositionSyncMessage_default_instance_._instance,
+        &_PositionSyncMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &PlayerPositionSyncMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<PlayerPositionSyncMessage>(),
+        &PositionSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<PositionSyncMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &PlayerPositionSyncMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<PlayerPositionSyncMessage>(), &PlayerPositionSyncMessage::ByteSizeLong,
-            &PlayerPositionSyncMessage::_InternalSerialize,
+        &PositionSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<PositionSyncMessage>(), &PositionSyncMessage::ByteSizeLong,
+            &PositionSyncMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_._cached_size_),
         false,
     },
-    &PlayerPositionSyncMessage::kDescriptorMethods,
+    &PositionSyncMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* PlayerPositionSyncMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* PositionSyncMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerPositionSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PositionSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -3088,30 +3082,30 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerPositionSyncMessage::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::PlayerPositionSyncMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::PositionSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerPositionSyncMessage, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_.uid_)}},
+    // uint64 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PositionSyncMessage, _impl_.id_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_.id_)}},
     // float pos_x = 2;
     {::_pbi::TcParser::FastF32S1,
-     {21, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_.pos_x_)}},
+     {21, 63, 0, PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_.pos_x_)}},
     // float pos_y = 3;
     {::_pbi::TcParser::FastF32S1,
-     {29, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_.pos_y_)}},
+     {29, 63, 0, PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_.pos_y_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 id = 1;
+    {PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
     // float pos_x = 2;
-    {PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_.pos_x_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_.pos_x_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
     // float pos_y = 3;
-    {PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_.pos_y_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_.pos_y_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
   }},
   // no aux_entries
@@ -3119,39 +3113,39 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerPositionSyncMessage::_table_ = {
   }},
 };
 
-PROTOBUF_NOINLINE void PlayerPositionSyncMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:PlayerPositionSyncMessage)
+PROTOBUF_NOINLINE void PositionSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:PositionSyncMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&_impl_.uid_, 0, static_cast<::size_t>(
+  ::memset(&_impl_.id_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.pos_y_) -
-      reinterpret_cast<char*>(&_impl_.uid_)) + sizeof(_impl_.pos_y_));
+      reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.pos_y_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* PlayerPositionSyncMessage::_InternalSerialize(
+        ::uint8_t* PositionSyncMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const PlayerPositionSyncMessage& this_ = static_cast<const PlayerPositionSyncMessage&>(base);
+          const PositionSyncMessage& this_ = static_cast<const PositionSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* PlayerPositionSyncMessage::_InternalSerialize(
+        ::uint8_t* PositionSyncMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const PlayerPositionSyncMessage& this_ = *this;
+          const PositionSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:PlayerPositionSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:PositionSyncMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
-          if (this_._internal_uid() != 0) {
+          // uint64 id = 1;
+          if (this_._internal_id() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-                1, this_._internal_uid(), target);
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
+                1, this_._internal_id(), target);
           }
 
           // float pos_x = 2;
@@ -3173,18 +3167,18 @@ PROTOBUF_NOINLINE void PlayerPositionSyncMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:PlayerPositionSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:PositionSyncMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t PlayerPositionSyncMessage::ByteSizeLong(const MessageLite& base) {
-          const PlayerPositionSyncMessage& this_ = static_cast<const PlayerPositionSyncMessage&>(base);
+        ::size_t PositionSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const PositionSyncMessage& this_ = static_cast<const PositionSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t PlayerPositionSyncMessage::ByteSizeLong() const {
-          const PlayerPositionSyncMessage& this_ = *this;
+        ::size_t PositionSyncMessage::ByteSizeLong() const {
+          const PositionSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:PlayerPositionSyncMessage)
+          // @@protoc_insertion_point(message_byte_size_start:PositionSyncMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -3193,10 +3187,10 @@ PROTOBUF_NOINLINE void PlayerPositionSyncMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // uint32 uid = 1;
-            if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-                  this_._internal_uid());
+            // uint64 id = 1;
+            if (this_._internal_id() != 0) {
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
+                  this_._internal_id());
             }
             // float pos_x = 2;
             if (::absl::bit_cast<::uint32_t>(this_._internal_pos_x()) != 0) {
@@ -3211,16 +3205,16 @@ PROTOBUF_NOINLINE void PlayerPositionSyncMessage::Clear() {
                                                      &this_._impl_._cached_size_);
         }
 
-void PlayerPositionSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<PlayerPositionSyncMessage*>(&to_msg);
-  auto& from = static_cast<const PlayerPositionSyncMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerPositionSyncMessage)
+void PositionSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<PositionSyncMessage*>(&to_msg);
+  auto& from = static_cast<const PositionSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:PositionSyncMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_uid() != 0) {
-    _this->_impl_.uid_ = from._impl_.uid_;
+  if (from._internal_id() != 0) {
+    _this->_impl_.id_ = from._impl_.id_;
   }
   if (::absl::bit_cast<::uint32_t>(from._internal_pos_x()) != 0) {
     _this->_impl_.pos_x_ = from._impl_.pos_x_;
@@ -3231,54 +3225,54 @@ void PlayerPositionSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_ms
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlayerPositionSyncMessage::CopyFrom(const PlayerPositionSyncMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:PlayerPositionSyncMessage)
+void PositionSyncMessage::CopyFrom(const PositionSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:PositionSyncMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void PlayerPositionSyncMessage::InternalSwap(PlayerPositionSyncMessage* PROTOBUF_RESTRICT other) {
+void PositionSyncMessage::InternalSwap(PositionSyncMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_.pos_y_)
-      + sizeof(PlayerPositionSyncMessage::_impl_.pos_y_)
-      - PROTOBUF_FIELD_OFFSET(PlayerPositionSyncMessage, _impl_.uid_)>(
-          reinterpret_cast<char*>(&_impl_.uid_),
-          reinterpret_cast<char*>(&other->_impl_.uid_));
+      PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_.pos_y_)
+      + sizeof(PositionSyncMessage::_impl_.pos_y_)
+      - PROTOBUF_FIELD_OFFSET(PositionSyncMessage, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
 }
 
-::google::protobuf::Metadata PlayerPositionSyncMessage::GetMetadata() const {
+::google::protobuf::Metadata PositionSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class PlayerHealthSyncMessage::_Internal {
+class HealthSyncMessage::_Internal {
  public:
 };
 
-PlayerHealthSyncMessage::PlayerHealthSyncMessage(::google::protobuf::Arena* arena)
+HealthSyncMessage::HealthSyncMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:PlayerHealthSyncMessage)
+  // @@protoc_insertion_point(arena_constructor:HealthSyncMessage)
 }
-PlayerHealthSyncMessage::PlayerHealthSyncMessage(
-    ::google::protobuf::Arena* arena, const PlayerHealthSyncMessage& from)
-    : PlayerHealthSyncMessage(arena) {
+HealthSyncMessage::HealthSyncMessage(
+    ::google::protobuf::Arena* arena, const HealthSyncMessage& from)
+    : HealthSyncMessage(arena) {
   MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE PlayerHealthSyncMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE HealthSyncMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void PlayerHealthSyncMessage::SharedCtor(::_pb::Arena* arena) {
+inline void HealthSyncMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, uid_),
@@ -3287,54 +3281,54 @@ inline void PlayerHealthSyncMessage::SharedCtor(::_pb::Arena* arena) {
                offsetof(Impl_, uid_) +
                sizeof(Impl_::max_health_));
 }
-PlayerHealthSyncMessage::~PlayerHealthSyncMessage() {
-  // @@protoc_insertion_point(destructor:PlayerHealthSyncMessage)
+HealthSyncMessage::~HealthSyncMessage() {
+  // @@protoc_insertion_point(destructor:HealthSyncMessage)
   SharedDtor(*this);
 }
-inline void PlayerHealthSyncMessage::SharedDtor(MessageLite& self) {
-  PlayerHealthSyncMessage& this_ = static_cast<PlayerHealthSyncMessage&>(self);
+inline void HealthSyncMessage::SharedDtor(MessageLite& self) {
+  HealthSyncMessage& this_ = static_cast<HealthSyncMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* PlayerHealthSyncMessage::PlacementNew_(const void*, void* mem,
+inline void* HealthSyncMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) PlayerHealthSyncMessage(arena);
+  return ::new (mem) HealthSyncMessage(arena);
 }
-constexpr auto PlayerHealthSyncMessage::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerHealthSyncMessage),
-                                            alignof(PlayerHealthSyncMessage));
+constexpr auto HealthSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(HealthSyncMessage),
+                                            alignof(HealthSyncMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull PlayerHealthSyncMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull HealthSyncMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_PlayerHealthSyncMessage_default_instance_._instance,
+        &_HealthSyncMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &PlayerHealthSyncMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<PlayerHealthSyncMessage>(),
+        &HealthSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<HealthSyncMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &PlayerHealthSyncMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<PlayerHealthSyncMessage>(), &PlayerHealthSyncMessage::ByteSizeLong,
-            &PlayerHealthSyncMessage::_InternalSerialize,
+        &HealthSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<HealthSyncMessage>(), &HealthSyncMessage::ByteSizeLong,
+            &HealthSyncMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_._cached_size_),
         false,
     },
-    &PlayerHealthSyncMessage::kDescriptorMethods,
+    &HealthSyncMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* PlayerHealthSyncMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* HealthSyncMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerHealthSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 0, 2> HealthSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -3349,30 +3343,30 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerHealthSyncMessage::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::PlayerHealthSyncMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::HealthSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerHealthSyncMessage, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_.uid_)}},
+    // uint64 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(HealthSyncMessage, _impl_.uid_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_.uid_)}},
     // int32 health = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerHealthSyncMessage, _impl_.health_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_.health_)}},
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(HealthSyncMessage, _impl_.health_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_.health_)}},
     // int32 max_health = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerHealthSyncMessage, _impl_.max_health_), 63>(),
-     {24, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_.max_health_)}},
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(HealthSyncMessage, _impl_.max_health_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_.max_health_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 uid = 1;
+    {PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_.uid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
     // int32 health = 2;
-    {PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_.health_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_.health_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
     // int32 max_health = 3;
-    {PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_.max_health_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_.max_health_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
   }},
   // no aux_entries
@@ -3380,8 +3374,8 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerHealthSyncMessage::_table_ = {
   }},
 };
 
-PROTOBUF_NOINLINE void PlayerHealthSyncMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:PlayerHealthSyncMessage)
+PROTOBUF_NOINLINE void HealthSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:HealthSyncMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -3394,24 +3388,24 @@ PROTOBUF_NOINLINE void PlayerHealthSyncMessage::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* PlayerHealthSyncMessage::_InternalSerialize(
+        ::uint8_t* HealthSyncMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const PlayerHealthSyncMessage& this_ = static_cast<const PlayerHealthSyncMessage&>(base);
+          const HealthSyncMessage& this_ = static_cast<const HealthSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* PlayerHealthSyncMessage::_InternalSerialize(
+        ::uint8_t* HealthSyncMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const PlayerHealthSyncMessage& this_ = *this;
+          const HealthSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:PlayerHealthSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:HealthSyncMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
+          // uint64 uid = 1;
           if (this_._internal_uid() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 1, this_._internal_uid(), target);
           }
 
@@ -3434,18 +3428,18 @@ PROTOBUF_NOINLINE void PlayerHealthSyncMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:PlayerHealthSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:HealthSyncMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t PlayerHealthSyncMessage::ByteSizeLong(const MessageLite& base) {
-          const PlayerHealthSyncMessage& this_ = static_cast<const PlayerHealthSyncMessage&>(base);
+        ::size_t HealthSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const HealthSyncMessage& this_ = static_cast<const HealthSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t PlayerHealthSyncMessage::ByteSizeLong() const {
-          const PlayerHealthSyncMessage& this_ = *this;
+        ::size_t HealthSyncMessage::ByteSizeLong() const {
+          const HealthSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:PlayerHealthSyncMessage)
+          // @@protoc_insertion_point(message_byte_size_start:HealthSyncMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -3454,9 +3448,9 @@ PROTOBUF_NOINLINE void PlayerHealthSyncMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // uint32 uid = 1;
+            // uint64 uid = 1;
             if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
             // int32 health = 2;
@@ -3474,10 +3468,10 @@ PROTOBUF_NOINLINE void PlayerHealthSyncMessage::Clear() {
                                                      &this_._impl_._cached_size_);
         }
 
-void PlayerHealthSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<PlayerHealthSyncMessage*>(&to_msg);
-  auto& from = static_cast<const PlayerHealthSyncMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerHealthSyncMessage)
+void HealthSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<HealthSyncMessage*>(&to_msg);
+  auto& from = static_cast<const HealthSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:HealthSyncMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -3494,54 +3488,54 @@ void PlayerHealthSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg,
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlayerHealthSyncMessage::CopyFrom(const PlayerHealthSyncMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:PlayerHealthSyncMessage)
+void HealthSyncMessage::CopyFrom(const HealthSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:HealthSyncMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void PlayerHealthSyncMessage::InternalSwap(PlayerHealthSyncMessage* PROTOBUF_RESTRICT other) {
+void HealthSyncMessage::InternalSwap(HealthSyncMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_.max_health_)
-      + sizeof(PlayerHealthSyncMessage::_impl_.max_health_)
-      - PROTOBUF_FIELD_OFFSET(PlayerHealthSyncMessage, _impl_.uid_)>(
+      PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_.max_health_)
+      + sizeof(HealthSyncMessage::_impl_.max_health_)
+      - PROTOBUF_FIELD_OFFSET(HealthSyncMessage, _impl_.uid_)>(
           reinterpret_cast<char*>(&_impl_.uid_),
           reinterpret_cast<char*>(&other->_impl_.uid_));
 }
 
-::google::protobuf::Metadata PlayerHealthSyncMessage::GetMetadata() const {
+::google::protobuf::Metadata HealthSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class PlayerAttackSyncMessage::_Internal {
+class AttackSyncMessage::_Internal {
  public:
 };
 
-PlayerAttackSyncMessage::PlayerAttackSyncMessage(::google::protobuf::Arena* arena)
+AttackSyncMessage::AttackSyncMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:PlayerAttackSyncMessage)
+  // @@protoc_insertion_point(arena_constructor:AttackSyncMessage)
 }
-PlayerAttackSyncMessage::PlayerAttackSyncMessage(
-    ::google::protobuf::Arena* arena, const PlayerAttackSyncMessage& from)
-    : PlayerAttackSyncMessage(arena) {
+AttackSyncMessage::AttackSyncMessage(
+    ::google::protobuf::Arena* arena, const AttackSyncMessage& from)
+    : AttackSyncMessage(arena) {
   MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE PlayerAttackSyncMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE AttackSyncMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void PlayerAttackSyncMessage::SharedCtor(::_pb::Arena* arena) {
+inline void AttackSyncMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, from_),
@@ -3550,54 +3544,54 @@ inline void PlayerAttackSyncMessage::SharedCtor(::_pb::Arena* arena) {
                offsetof(Impl_, from_) +
                sizeof(Impl_::cool_down_));
 }
-PlayerAttackSyncMessage::~PlayerAttackSyncMessage() {
-  // @@protoc_insertion_point(destructor:PlayerAttackSyncMessage)
+AttackSyncMessage::~AttackSyncMessage() {
+  // @@protoc_insertion_point(destructor:AttackSyncMessage)
   SharedDtor(*this);
 }
-inline void PlayerAttackSyncMessage::SharedDtor(MessageLite& self) {
-  PlayerAttackSyncMessage& this_ = static_cast<PlayerAttackSyncMessage&>(self);
+inline void AttackSyncMessage::SharedDtor(MessageLite& self) {
+  AttackSyncMessage& this_ = static_cast<AttackSyncMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* PlayerAttackSyncMessage::PlacementNew_(const void*, void* mem,
+inline void* AttackSyncMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) PlayerAttackSyncMessage(arena);
+  return ::new (mem) AttackSyncMessage(arena);
 }
-constexpr auto PlayerAttackSyncMessage::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerAttackSyncMessage),
-                                            alignof(PlayerAttackSyncMessage));
+constexpr auto AttackSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(AttackSyncMessage),
+                                            alignof(AttackSyncMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull PlayerAttackSyncMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull AttackSyncMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_PlayerAttackSyncMessage_default_instance_._instance,
+        &_AttackSyncMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &PlayerAttackSyncMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<PlayerAttackSyncMessage>(),
+        &AttackSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<AttackSyncMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &PlayerAttackSyncMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<PlayerAttackSyncMessage>(), &PlayerAttackSyncMessage::ByteSizeLong,
-            &PlayerAttackSyncMessage::_InternalSerialize,
+        &AttackSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<AttackSyncMessage>(), &AttackSyncMessage::ByteSizeLong,
+            &AttackSyncMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_._cached_size_),
         false,
     },
-    &PlayerAttackSyncMessage::kDescriptorMethods,
+    &AttackSyncMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* PlayerAttackSyncMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* AttackSyncMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerAttackSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 0, 2> AttackSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -3612,30 +3606,30 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerAttackSyncMessage::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::PlayerAttackSyncMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::AttackSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // uint32 from = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerAttackSyncMessage, _impl_.from_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_.from_)}},
-    // uint32 to = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerAttackSyncMessage, _impl_.to_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_.to_)}},
+    // uint64 from = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(AttackSyncMessage, _impl_.from_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.from_)}},
+    // uint64 to = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(AttackSyncMessage, _impl_.to_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.to_)}},
     // float cool_down = 3;
     {::_pbi::TcParser::FastF32S1,
-     {29, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_.cool_down_)}},
+     {29, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.cool_down_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 from = 1;
-    {PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_.from_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
-    // uint32 to = 2;
-    {PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_.to_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 from = 1;
+    {PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.from_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
+    // uint64 to = 2;
+    {PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.to_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
     // float cool_down = 3;
-    {PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_.cool_down_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.cool_down_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
   }},
   // no aux_entries
@@ -3643,8 +3637,8 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerAttackSyncMessage::_table_ = {
   }},
 };
 
-PROTOBUF_NOINLINE void PlayerAttackSyncMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:PlayerAttackSyncMessage)
+PROTOBUF_NOINLINE void AttackSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:AttackSyncMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -3657,31 +3651,31 @@ PROTOBUF_NOINLINE void PlayerAttackSyncMessage::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* PlayerAttackSyncMessage::_InternalSerialize(
+        ::uint8_t* AttackSyncMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const PlayerAttackSyncMessage& this_ = static_cast<const PlayerAttackSyncMessage&>(base);
+          const AttackSyncMessage& this_ = static_cast<const AttackSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* PlayerAttackSyncMessage::_InternalSerialize(
+        ::uint8_t* AttackSyncMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const PlayerAttackSyncMessage& this_ = *this;
+          const AttackSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:PlayerAttackSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:AttackSyncMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 from = 1;
+          // uint64 from = 1;
           if (this_._internal_from() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 1, this_._internal_from(), target);
           }
 
-          // uint32 to = 2;
+          // uint64 to = 2;
           if (this_._internal_to() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 2, this_._internal_to(), target);
           }
 
@@ -3697,18 +3691,18 @@ PROTOBUF_NOINLINE void PlayerAttackSyncMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:PlayerAttackSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:AttackSyncMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t PlayerAttackSyncMessage::ByteSizeLong(const MessageLite& base) {
-          const PlayerAttackSyncMessage& this_ = static_cast<const PlayerAttackSyncMessage&>(base);
+        ::size_t AttackSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const AttackSyncMessage& this_ = static_cast<const AttackSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t PlayerAttackSyncMessage::ByteSizeLong() const {
-          const PlayerAttackSyncMessage& this_ = *this;
+        ::size_t AttackSyncMessage::ByteSizeLong() const {
+          const AttackSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:PlayerAttackSyncMessage)
+          // @@protoc_insertion_point(message_byte_size_start:AttackSyncMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -3717,14 +3711,14 @@ PROTOBUF_NOINLINE void PlayerAttackSyncMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // uint32 from = 1;
+            // uint64 from = 1;
             if (this_._internal_from() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_from());
             }
-            // uint32 to = 2;
+            // uint64 to = 2;
             if (this_._internal_to() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_to());
             }
             // float cool_down = 3;
@@ -3736,10 +3730,10 @@ PROTOBUF_NOINLINE void PlayerAttackSyncMessage::Clear() {
                                                      &this_._impl_._cached_size_);
         }
 
-void PlayerAttackSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<PlayerAttackSyncMessage*>(&to_msg);
-  auto& from = static_cast<const PlayerAttackSyncMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerAttackSyncMessage)
+void AttackSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<AttackSyncMessage*>(&to_msg);
+  auto& from = static_cast<const AttackSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:AttackSyncMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -3756,54 +3750,54 @@ void PlayerAttackSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg,
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlayerAttackSyncMessage::CopyFrom(const PlayerAttackSyncMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:PlayerAttackSyncMessage)
+void AttackSyncMessage::CopyFrom(const AttackSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:AttackSyncMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void PlayerAttackSyncMessage::InternalSwap(PlayerAttackSyncMessage* PROTOBUF_RESTRICT other) {
+void AttackSyncMessage::InternalSwap(AttackSyncMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_.cool_down_)
-      + sizeof(PlayerAttackSyncMessage::_impl_.cool_down_)
-      - PROTOBUF_FIELD_OFFSET(PlayerAttackSyncMessage, _impl_.from_)>(
+      PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.cool_down_)
+      + sizeof(AttackSyncMessage::_impl_.cool_down_)
+      - PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.from_)>(
           reinterpret_cast<char*>(&_impl_.from_),
           reinterpret_cast<char*>(&other->_impl_.from_));
 }
 
-::google::protobuf::Metadata PlayerAttackSyncMessage::GetMetadata() const {
+::google::protobuf::Metadata AttackSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class PlayerManaSyncMessage::_Internal {
+class ManaSyncMessage::_Internal {
  public:
 };
 
-PlayerManaSyncMessage::PlayerManaSyncMessage(::google::protobuf::Arena* arena)
+ManaSyncMessage::ManaSyncMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:PlayerManaSyncMessage)
+  // @@protoc_insertion_point(arena_constructor:ManaSyncMessage)
 }
-PlayerManaSyncMessage::PlayerManaSyncMessage(
-    ::google::protobuf::Arena* arena, const PlayerManaSyncMessage& from)
-    : PlayerManaSyncMessage(arena) {
+ManaSyncMessage::ManaSyncMessage(
+    ::google::protobuf::Arena* arena, const ManaSyncMessage& from)
+    : ManaSyncMessage(arena) {
   MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE PlayerManaSyncMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE ManaSyncMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void PlayerManaSyncMessage::SharedCtor(::_pb::Arena* arena) {
+inline void ManaSyncMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, uid_),
@@ -3812,54 +3806,54 @@ inline void PlayerManaSyncMessage::SharedCtor(::_pb::Arena* arena) {
                offsetof(Impl_, uid_) +
                sizeof(Impl_::max_mana_));
 }
-PlayerManaSyncMessage::~PlayerManaSyncMessage() {
-  // @@protoc_insertion_point(destructor:PlayerManaSyncMessage)
+ManaSyncMessage::~ManaSyncMessage() {
+  // @@protoc_insertion_point(destructor:ManaSyncMessage)
   SharedDtor(*this);
 }
-inline void PlayerManaSyncMessage::SharedDtor(MessageLite& self) {
-  PlayerManaSyncMessage& this_ = static_cast<PlayerManaSyncMessage&>(self);
+inline void ManaSyncMessage::SharedDtor(MessageLite& self) {
+  ManaSyncMessage& this_ = static_cast<ManaSyncMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* PlayerManaSyncMessage::PlacementNew_(const void*, void* mem,
+inline void* ManaSyncMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) PlayerManaSyncMessage(arena);
+  return ::new (mem) ManaSyncMessage(arena);
 }
-constexpr auto PlayerManaSyncMessage::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerManaSyncMessage),
-                                            alignof(PlayerManaSyncMessage));
+constexpr auto ManaSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(ManaSyncMessage),
+                                            alignof(ManaSyncMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull PlayerManaSyncMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull ManaSyncMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_PlayerManaSyncMessage_default_instance_._instance,
+        &_ManaSyncMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &PlayerManaSyncMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<PlayerManaSyncMessage>(),
+        &ManaSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ManaSyncMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &PlayerManaSyncMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<PlayerManaSyncMessage>(), &PlayerManaSyncMessage::ByteSizeLong,
-            &PlayerManaSyncMessage::_InternalSerialize,
+        &ManaSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ManaSyncMessage>(), &ManaSyncMessage::ByteSizeLong,
+            &ManaSyncMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_._cached_size_),
         false,
     },
-    &PlayerManaSyncMessage::kDescriptorMethods,
+    &ManaSyncMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* PlayerManaSyncMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* ManaSyncMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerManaSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 0, 2> ManaSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -3874,30 +3868,30 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerManaSyncMessage::_table_ = {
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::PlayerManaSyncMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::ManaSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerManaSyncMessage, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_.uid_)}},
+    // uint64 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(ManaSyncMessage, _impl_.uid_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_.uid_)}},
     // int32 mana = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerManaSyncMessage, _impl_.mana_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_.mana_)}},
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ManaSyncMessage, _impl_.mana_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_.mana_)}},
     // int32 max_mana = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerManaSyncMessage, _impl_.max_mana_), 63>(),
-     {24, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_.max_mana_)}},
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ManaSyncMessage, _impl_.max_mana_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_.max_mana_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 uid = 1;
+    {PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_.uid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
     // int32 mana = 2;
-    {PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_.mana_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_.mana_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
     // int32 max_mana = 3;
-    {PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_.max_mana_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_.max_mana_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
   }},
   // no aux_entries
@@ -3905,8 +3899,8 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerManaSyncMessage::_table_ = {
   }},
 };
 
-PROTOBUF_NOINLINE void PlayerManaSyncMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:PlayerManaSyncMessage)
+PROTOBUF_NOINLINE void ManaSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:ManaSyncMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -3919,24 +3913,24 @@ PROTOBUF_NOINLINE void PlayerManaSyncMessage::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* PlayerManaSyncMessage::_InternalSerialize(
+        ::uint8_t* ManaSyncMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const PlayerManaSyncMessage& this_ = static_cast<const PlayerManaSyncMessage&>(base);
+          const ManaSyncMessage& this_ = static_cast<const ManaSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* PlayerManaSyncMessage::_InternalSerialize(
+        ::uint8_t* ManaSyncMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const PlayerManaSyncMessage& this_ = *this;
+          const ManaSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:PlayerManaSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:ManaSyncMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
+          // uint64 uid = 1;
           if (this_._internal_uid() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 1, this_._internal_uid(), target);
           }
 
@@ -3959,18 +3953,18 @@ PROTOBUF_NOINLINE void PlayerManaSyncMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:PlayerManaSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:ManaSyncMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t PlayerManaSyncMessage::ByteSizeLong(const MessageLite& base) {
-          const PlayerManaSyncMessage& this_ = static_cast<const PlayerManaSyncMessage&>(base);
+        ::size_t ManaSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const ManaSyncMessage& this_ = static_cast<const ManaSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t PlayerManaSyncMessage::ByteSizeLong() const {
-          const PlayerManaSyncMessage& this_ = *this;
+        ::size_t ManaSyncMessage::ByteSizeLong() const {
+          const ManaSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:PlayerManaSyncMessage)
+          // @@protoc_insertion_point(message_byte_size_start:ManaSyncMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -3979,9 +3973,9 @@ PROTOBUF_NOINLINE void PlayerManaSyncMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // uint32 uid = 1;
+            // uint64 uid = 1;
             if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
             // int32 mana = 2;
@@ -3999,10 +3993,10 @@ PROTOBUF_NOINLINE void PlayerManaSyncMessage::Clear() {
                                                      &this_._impl_._cached_size_);
         }
 
-void PlayerManaSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<PlayerManaSyncMessage*>(&to_msg);
-  auto& from = static_cast<const PlayerManaSyncMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerManaSyncMessage)
+void ManaSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ManaSyncMessage*>(&to_msg);
+  auto& from = static_cast<const ManaSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ManaSyncMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4019,54 +4013,54 @@ void PlayerManaSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, c
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlayerManaSyncMessage::CopyFrom(const PlayerManaSyncMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:PlayerManaSyncMessage)
+void ManaSyncMessage::CopyFrom(const ManaSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ManaSyncMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void PlayerManaSyncMessage::InternalSwap(PlayerManaSyncMessage* PROTOBUF_RESTRICT other) {
+void ManaSyncMessage::InternalSwap(ManaSyncMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_.max_mana_)
-      + sizeof(PlayerManaSyncMessage::_impl_.max_mana_)
-      - PROTOBUF_FIELD_OFFSET(PlayerManaSyncMessage, _impl_.uid_)>(
+      PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_.max_mana_)
+      + sizeof(ManaSyncMessage::_impl_.max_mana_)
+      - PROTOBUF_FIELD_OFFSET(ManaSyncMessage, _impl_.uid_)>(
           reinterpret_cast<char*>(&_impl_.uid_),
           reinterpret_cast<char*>(&other->_impl_.uid_));
 }
 
-::google::protobuf::Metadata PlayerManaSyncMessage::GetMetadata() const {
+::google::protobuf::Metadata ManaSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class PlayerAttackSpeedSyncMessage::_Internal {
+class AttackSpeedSyncMessage::_Internal {
  public:
 };
 
-PlayerAttackSpeedSyncMessage::PlayerAttackSpeedSyncMessage(::google::protobuf::Arena* arena)
+AttackSpeedSyncMessage::AttackSpeedSyncMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:PlayerAttackSpeedSyncMessage)
+  // @@protoc_insertion_point(arena_constructor:AttackSpeedSyncMessage)
 }
-PlayerAttackSpeedSyncMessage::PlayerAttackSpeedSyncMessage(
-    ::google::protobuf::Arena* arena, const PlayerAttackSpeedSyncMessage& from)
-    : PlayerAttackSpeedSyncMessage(arena) {
+AttackSpeedSyncMessage::AttackSpeedSyncMessage(
+    ::google::protobuf::Arena* arena, const AttackSpeedSyncMessage& from)
+    : AttackSpeedSyncMessage(arena) {
   MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE PlayerAttackSpeedSyncMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE AttackSpeedSyncMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void PlayerAttackSpeedSyncMessage::SharedCtor(::_pb::Arena* arena) {
+inline void AttackSpeedSyncMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, uid_),
@@ -4075,54 +4069,54 @@ inline void PlayerAttackSpeedSyncMessage::SharedCtor(::_pb::Arena* arena) {
                offsetof(Impl_, uid_) +
                sizeof(Impl_::speed_));
 }
-PlayerAttackSpeedSyncMessage::~PlayerAttackSpeedSyncMessage() {
-  // @@protoc_insertion_point(destructor:PlayerAttackSpeedSyncMessage)
+AttackSpeedSyncMessage::~AttackSpeedSyncMessage() {
+  // @@protoc_insertion_point(destructor:AttackSpeedSyncMessage)
   SharedDtor(*this);
 }
-inline void PlayerAttackSpeedSyncMessage::SharedDtor(MessageLite& self) {
-  PlayerAttackSpeedSyncMessage& this_ = static_cast<PlayerAttackSpeedSyncMessage&>(self);
+inline void AttackSpeedSyncMessage::SharedDtor(MessageLite& self) {
+  AttackSpeedSyncMessage& this_ = static_cast<AttackSpeedSyncMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* PlayerAttackSpeedSyncMessage::PlacementNew_(const void*, void* mem,
+inline void* AttackSpeedSyncMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) PlayerAttackSpeedSyncMessage(arena);
+  return ::new (mem) AttackSpeedSyncMessage(arena);
 }
-constexpr auto PlayerAttackSpeedSyncMessage::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PlayerAttackSpeedSyncMessage),
-                                            alignof(PlayerAttackSpeedSyncMessage));
+constexpr auto AttackSpeedSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(AttackSpeedSyncMessage),
+                                            alignof(AttackSpeedSyncMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull PlayerAttackSpeedSyncMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull AttackSpeedSyncMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_PlayerAttackSpeedSyncMessage_default_instance_._instance,
+        &_AttackSpeedSyncMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &PlayerAttackSpeedSyncMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<PlayerAttackSpeedSyncMessage>(),
+        &AttackSpeedSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<AttackSpeedSyncMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &PlayerAttackSpeedSyncMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<PlayerAttackSpeedSyncMessage>(), &PlayerAttackSpeedSyncMessage::ByteSizeLong,
-            &PlayerAttackSpeedSyncMessage::_InternalSerialize,
+        &AttackSpeedSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<AttackSpeedSyncMessage>(), &AttackSpeedSyncMessage::ByteSizeLong,
+            &AttackSpeedSyncMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(PlayerAttackSpeedSyncMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(AttackSpeedSyncMessage, _impl_._cached_size_),
         false,
     },
-    &PlayerAttackSpeedSyncMessage::kDescriptorMethods,
+    &AttackSpeedSyncMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* PlayerAttackSpeedSyncMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* AttackSpeedSyncMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerAttackSpeedSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> AttackSpeedSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -4137,23 +4131,23 @@ const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerAttackSpeedSyncMessage::_table_ 
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::PlayerAttackSpeedSyncMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::AttackSpeedSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     // float speed = 2;
     {::_pbi::TcParser::FastF32S1,
-     {21, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerAttackSpeedSyncMessage, _impl_.speed_)}},
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerAttackSpeedSyncMessage, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerAttackSpeedSyncMessage, _impl_.uid_)}},
+     {21, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSpeedSyncMessage, _impl_.speed_)}},
+    // uint64 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(AttackSpeedSyncMessage, _impl_.uid_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSpeedSyncMessage, _impl_.uid_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
-    {PROTOBUF_FIELD_OFFSET(PlayerAttackSpeedSyncMessage, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 uid = 1;
+    {PROTOBUF_FIELD_OFFSET(AttackSpeedSyncMessage, _impl_.uid_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
     // float speed = 2;
-    {PROTOBUF_FIELD_OFFSET(PlayerAttackSpeedSyncMessage, _impl_.speed_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(AttackSpeedSyncMessage, _impl_.speed_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
   }},
   // no aux_entries
@@ -4161,8 +4155,8 @@ const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerAttackSpeedSyncMessage::_table_ 
   }},
 };
 
-PROTOBUF_NOINLINE void PlayerAttackSpeedSyncMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:PlayerAttackSpeedSyncMessage)
+PROTOBUF_NOINLINE void AttackSpeedSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:AttackSpeedSyncMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
@@ -4175,24 +4169,24 @@ PROTOBUF_NOINLINE void PlayerAttackSpeedSyncMessage::Clear() {
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* PlayerAttackSpeedSyncMessage::_InternalSerialize(
+        ::uint8_t* AttackSpeedSyncMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const PlayerAttackSpeedSyncMessage& this_ = static_cast<const PlayerAttackSpeedSyncMessage&>(base);
+          const AttackSpeedSyncMessage& this_ = static_cast<const AttackSpeedSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* PlayerAttackSpeedSyncMessage::_InternalSerialize(
+        ::uint8_t* AttackSpeedSyncMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const PlayerAttackSpeedSyncMessage& this_ = *this;
+          const AttackSpeedSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:PlayerAttackSpeedSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:AttackSpeedSyncMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
+          // uint64 uid = 1;
           if (this_._internal_uid() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 1, this_._internal_uid(), target);
           }
 
@@ -4208,18 +4202,18 @@ PROTOBUF_NOINLINE void PlayerAttackSpeedSyncMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:PlayerAttackSpeedSyncMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:AttackSpeedSyncMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t PlayerAttackSpeedSyncMessage::ByteSizeLong(const MessageLite& base) {
-          const PlayerAttackSpeedSyncMessage& this_ = static_cast<const PlayerAttackSpeedSyncMessage&>(base);
+        ::size_t AttackSpeedSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const AttackSpeedSyncMessage& this_ = static_cast<const AttackSpeedSyncMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t PlayerAttackSpeedSyncMessage::ByteSizeLong() const {
-          const PlayerAttackSpeedSyncMessage& this_ = *this;
+        ::size_t AttackSpeedSyncMessage::ByteSizeLong() const {
+          const AttackSpeedSyncMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:PlayerAttackSpeedSyncMessage)
+          // @@protoc_insertion_point(message_byte_size_start:AttackSpeedSyncMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -4228,9 +4222,9 @@ PROTOBUF_NOINLINE void PlayerAttackSpeedSyncMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // uint32 uid = 1;
+            // uint64 uid = 1;
             if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
             // float speed = 2;
@@ -4242,10 +4236,10 @@ PROTOBUF_NOINLINE void PlayerAttackSpeedSyncMessage::Clear() {
                                                      &this_._impl_._cached_size_);
         }
 
-void PlayerAttackSpeedSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<PlayerAttackSpeedSyncMessage*>(&to_msg);
-  auto& from = static_cast<const PlayerAttackSpeedSyncMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:PlayerAttackSpeedSyncMessage)
+void AttackSpeedSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<AttackSpeedSyncMessage*>(&to_msg);
+  auto& from = static_cast<const AttackSpeedSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:AttackSpeedSyncMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4259,26 +4253,26 @@ void PlayerAttackSpeedSyncMessage::MergeImpl(::google::protobuf::MessageLite& to
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PlayerAttackSpeedSyncMessage::CopyFrom(const PlayerAttackSpeedSyncMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:PlayerAttackSpeedSyncMessage)
+void AttackSpeedSyncMessage::CopyFrom(const AttackSpeedSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:AttackSpeedSyncMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void PlayerAttackSpeedSyncMessage::InternalSwap(PlayerAttackSpeedSyncMessage* PROTOBUF_RESTRICT other) {
+void AttackSpeedSyncMessage::InternalSwap(AttackSpeedSyncMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PlayerAttackSpeedSyncMessage, _impl_.speed_)
-      + sizeof(PlayerAttackSpeedSyncMessage::_impl_.speed_)
-      - PROTOBUF_FIELD_OFFSET(PlayerAttackSpeedSyncMessage, _impl_.uid_)>(
+      PROTOBUF_FIELD_OFFSET(AttackSpeedSyncMessage, _impl_.speed_)
+      + sizeof(AttackSpeedSyncMessage::_impl_.speed_)
+      - PROTOBUF_FIELD_OFFSET(AttackSpeedSyncMessage, _impl_.uid_)>(
           reinterpret_cast<char*>(&_impl_.uid_),
           reinterpret_cast<char*>(&other->_impl_.uid_));
 }
 
-::google::protobuf::Metadata PlayerAttackSpeedSyncMessage::GetMetadata() const {
+::google::protobuf::Metadata AttackSpeedSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -4309,10 +4303,10 @@ inline PROTOBUF_NDEBUG_INLINE ExecuteSkillMessage::Impl_::Impl_(
 inline void ExecuteSkillMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, direction_x_),
+               offsetof(Impl_, rotate_),
            0,
            offsetof(Impl_, pos_y_) -
-               offsetof(Impl_, direction_x_) +
+               offsetof(Impl_, rotate_) +
                sizeof(Impl_::pos_y_));
 }
 ExecuteSkillMessage::~ExecuteSkillMessage() {
@@ -4362,15 +4356,15 @@ const ::google::protobuf::internal::ClassData* ExecuteSkillMessage::GetClassData
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 0, 0, 2> ExecuteSkillMessage::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 0, 2> ExecuteSkillMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
+    3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -4380,31 +4374,26 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> ExecuteSkillMessage::_table_ = {
     ::_pbi::TcParser::GetTable<::ExecuteSkillMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // float pos_y = 4;
+    {::_pbi::TcParser::MiniParse, {}},
+    // float rotate = 1;
     {::_pbi::TcParser::FastF32S1,
-     {37, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_y_)}},
-    // float direction_x = 1;
+     {13, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.rotate_)}},
+    // float pos_x = 2;
     {::_pbi::TcParser::FastF32S1,
-     {13, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_x_)}},
-    // float direction_y = 2;
+     {21, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_x_)}},
+    // float pos_y = 3;
     {::_pbi::TcParser::FastF32S1,
-     {21, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_y_)}},
-    // float pos_x = 3;
-    {::_pbi::TcParser::FastF32S1,
-     {29, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_x_)}},
+     {29, 63, 0, PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_y_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // float direction_x = 1;
-    {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_x_), 0, 0,
+    // float rotate = 1;
+    {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.rotate_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
-    // float direction_y = 2;
-    {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_y_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
-    // float pos_x = 3;
+    // float pos_x = 2;
     {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_x_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
-    // float pos_y = 4;
+    // float pos_y = 3;
     {PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_y_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
   }},
@@ -4420,9 +4409,9 @@ PROTOBUF_NOINLINE void ExecuteSkillMessage::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&_impl_.direction_x_, 0, static_cast<::size_t>(
+  ::memset(&_impl_.rotate_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.pos_y_) -
-      reinterpret_cast<char*>(&_impl_.direction_x_)) + sizeof(_impl_.pos_y_));
+      reinterpret_cast<char*>(&_impl_.rotate_)) + sizeof(_impl_.pos_y_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -4441,32 +4430,25 @@ PROTOBUF_NOINLINE void ExecuteSkillMessage::Clear() {
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // float direction_x = 1;
-          if (::absl::bit_cast<::uint32_t>(this_._internal_direction_x()) != 0) {
+          // float rotate = 1;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_rotate()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                1, this_._internal_direction_x(), target);
+                1, this_._internal_rotate(), target);
           }
 
-          // float direction_y = 2;
-          if (::absl::bit_cast<::uint32_t>(this_._internal_direction_y()) != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                2, this_._internal_direction_y(), target);
-          }
-
-          // float pos_x = 3;
+          // float pos_x = 2;
           if (::absl::bit_cast<::uint32_t>(this_._internal_pos_x()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                3, this_._internal_pos_x(), target);
+                2, this_._internal_pos_x(), target);
           }
 
-          // float pos_y = 4;
+          // float pos_y = 3;
           if (::absl::bit_cast<::uint32_t>(this_._internal_pos_y()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                4, this_._internal_pos_y(), target);
+                3, this_._internal_pos_y(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -4494,19 +4476,15 @@ PROTOBUF_NOINLINE void ExecuteSkillMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // float direction_x = 1;
-            if (::absl::bit_cast<::uint32_t>(this_._internal_direction_x()) != 0) {
+            // float rotate = 1;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_rotate()) != 0) {
               total_size += 5;
             }
-            // float direction_y = 2;
-            if (::absl::bit_cast<::uint32_t>(this_._internal_direction_y()) != 0) {
-              total_size += 5;
-            }
-            // float pos_x = 3;
+            // float pos_x = 2;
             if (::absl::bit_cast<::uint32_t>(this_._internal_pos_x()) != 0) {
               total_size += 5;
             }
-            // float pos_y = 4;
+            // float pos_y = 3;
             if (::absl::bit_cast<::uint32_t>(this_._internal_pos_y()) != 0) {
               total_size += 5;
             }
@@ -4523,11 +4501,8 @@ void ExecuteSkillMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, con
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (::absl::bit_cast<::uint32_t>(from._internal_direction_x()) != 0) {
-    _this->_impl_.direction_x_ = from._impl_.direction_x_;
-  }
-  if (::absl::bit_cast<::uint32_t>(from._internal_direction_y()) != 0) {
-    _this->_impl_.direction_y_ = from._impl_.direction_y_;
+  if (::absl::bit_cast<::uint32_t>(from._internal_rotate()) != 0) {
+    _this->_impl_.rotate_ = from._impl_.rotate_;
   }
   if (::absl::bit_cast<::uint32_t>(from._internal_pos_x()) != 0) {
     _this->_impl_.pos_x_ = from._impl_.pos_x_;
@@ -4552,9 +4527,9 @@ void ExecuteSkillMessage::InternalSwap(ExecuteSkillMessage* PROTOBUF_RESTRICT ot
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.pos_y_)
       + sizeof(ExecuteSkillMessage::_impl_.pos_y_)
-      - PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.direction_x_)>(
-          reinterpret_cast<char*>(&_impl_.direction_x_),
-          reinterpret_cast<char*>(&other->_impl_.direction_x_));
+      - PROTOBUF_FIELD_OFFSET(ExecuteSkillMessage, _impl_.rotate_)>(
+          reinterpret_cast<char*>(&_impl_.rotate_),
+          reinterpret_cast<char*>(&other->_impl_.rotate_));
 }
 
 ::google::protobuf::Metadata ExecuteSkillMessage::GetMetadata() const {
@@ -4568,18 +4543,18 @@ class SyncSkillMessage::_Internal {
       PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_._oneof_case_);
 };
 
-void SyncSkillMessage::set_allocated_straight_bullet_skill(::StraightBulletSkillInfoMessage* straight_bullet_skill) {
+void SyncSkillMessage::set_allocated_skill_info(::SkillInfoMessage* skill_info) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_infos();
-  if (straight_bullet_skill) {
-    ::google::protobuf::Arena* submessage_arena = straight_bullet_skill->GetArena();
+  if (skill_info) {
+    ::google::protobuf::Arena* submessage_arena = skill_info->GetArena();
     if (message_arena != submessage_arena) {
-      straight_bullet_skill = ::google::protobuf::internal::GetOwnedMessage(message_arena, straight_bullet_skill, submessage_arena);
+      skill_info = ::google::protobuf::internal::GetOwnedMessage(message_arena, skill_info, submessage_arena);
     }
-    set_has_straight_bullet_skill();
-    _impl_.infos_.straight_bullet_skill_ = straight_bullet_skill;
+    set_has_skill_info();
+    _impl_.infos_.skill_info_ = skill_info;
   }
-  // @@protoc_insertion_point(field_set_allocated:SyncSkillMessage.straight_bullet_skill)
+  // @@protoc_insertion_point(field_set_allocated:SyncSkillMessage.skill_info)
 }
 SyncSkillMessage::SyncSkillMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -4620,8 +4595,8 @@ SyncSkillMessage::SyncSkillMessage(
   switch (infos_case()) {
     case INFOS_NOT_SET:
       break;
-      case kStraightBulletSkill:
-        _impl_.infos_.straight_bullet_skill_ = ::google::protobuf::Message::CopyConstruct<::StraightBulletSkillInfoMessage>(arena, *from._impl_.infos_.straight_bullet_skill_);
+      case kSkillInfo:
+        _impl_.infos_.skill_info_ = ::google::protobuf::Message::CopyConstruct<::SkillInfoMessage>(arena, *from._impl_.infos_.skill_info_);
         break;
   }
 
@@ -4661,11 +4636,11 @@ void SyncSkillMessage::clear_infos() {
 // @@protoc_insertion_point(one_of_clear_start:SyncSkillMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   switch (infos_case()) {
-    case kStraightBulletSkill: {
+    case kSkillInfo: {
       if (GetArena() == nullptr) {
-        delete _impl_.infos_.straight_bullet_skill_;
+        delete _impl_.infos_.skill_info_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.infos_.straight_bullet_skill_);
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.infos_.skill_info_);
       }
       break;
     }
@@ -4734,23 +4709,23 @@ const ::_pbi::TcParseTable<1, 3, 1, 0, 2> SyncSkillMessage::_table_ = {
     // int32 pos = 2;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SyncSkillMessage, _impl_.pos_), 63>(),
      {16, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.pos_)}},
-    // uint32 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SyncSkillMessage, _impl_.uid_), 63>(),
+    // uint64 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(SyncSkillMessage, _impl_.uid_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 uid = 1;
+    // uint64 uid = 1;
     {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
     // int32 pos = 2;
     {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.pos_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-    // .StraightBulletSkillInfoMessage straight_bullet_skill = 3;
-    {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.infos_.straight_bullet_skill_), _Internal::kOneofCaseOffset + 0, 0,
+    // .SkillInfoMessage skill_info = 3;
+    {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.infos_.skill_info_), _Internal::kOneofCaseOffset + 0, 0,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::StraightBulletSkillInfoMessage>()},
+    {::_pbi::TcParser::GetTable<::SkillInfoMessage>()},
   }}, {{
   }},
 };
@@ -4784,10 +4759,10 @@ PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // uint32 uid = 1;
+          // uint64 uid = 1;
           if (this_._internal_uid() != 0) {
             target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 1, this_._internal_uid(), target);
           }
 
@@ -4798,10 +4773,10 @@ PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
                     stream, this_._internal_pos(), target);
           }
 
-          // .StraightBulletSkillInfoMessage straight_bullet_skill = 3;
-          if (this_.infos_case() == kStraightBulletSkill) {
+          // .SkillInfoMessage skill_info = 3;
+          if (this_.infos_case() == kSkillInfo) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                3, *this_._impl_.infos_.straight_bullet_skill_, this_._impl_.infos_.straight_bullet_skill_->GetCachedSize(), target,
+                3, *this_._impl_.infos_.skill_info_, this_._impl_.infos_.skill_info_->GetCachedSize(), target,
                 stream);
           }
 
@@ -4830,9 +4805,9 @@ PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // uint32 uid = 1;
+            // uint64 uid = 1;
             if (this_._internal_uid() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
             // int32 pos = 2;
@@ -4842,10 +4817,10 @@ PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
             }
           }
           switch (this_.infos_case()) {
-            // .StraightBulletSkillInfoMessage straight_bullet_skill = 3;
-            case kStraightBulletSkill: {
+            // .SkillInfoMessage skill_info = 3;
+            case kSkillInfo: {
               total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.infos_.straight_bullet_skill_);
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.infos_.skill_info_);
               break;
             }
             case INFOS_NOT_SET: {
@@ -4882,12 +4857,12 @@ void SyncSkillMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const 
     }
 
     switch (oneof_from_case) {
-      case kStraightBulletSkill: {
+      case kSkillInfo: {
         if (oneof_needs_init) {
-          _this->_impl_.infos_.straight_bullet_skill_ =
-              ::google::protobuf::Message::CopyConstruct<::StraightBulletSkillInfoMessage>(arena, *from._impl_.infos_.straight_bullet_skill_);
+          _this->_impl_.infos_.skill_info_ =
+              ::google::protobuf::Message::CopyConstruct<::SkillInfoMessage>(arena, *from._impl_.infos_.skill_info_);
         } else {
-          _this->_impl_.infos_.straight_bullet_skill_->MergeFrom(from._internal_straight_bullet_skill());
+          _this->_impl_.infos_.skill_info_->MergeFrom(from._internal_skill_info());
         }
         break;
       }
@@ -4924,252 +4899,164 @@ void SyncSkillMessage::InternalSwap(SyncSkillMessage* PROTOBUF_RESTRICT other) {
 }
 // ===================================================================
 
-class StraightBulletSkillInfoMessage::_Internal {
+class SkillInfoMessage::_Internal {
  public:
 };
 
-StraightBulletSkillInfoMessage::StraightBulletSkillInfoMessage(::google::protobuf::Arena* arena)
+SkillInfoMessage::SkillInfoMessage(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:StraightBulletSkillInfoMessage)
+  // @@protoc_insertion_point(arena_constructor:SkillInfoMessage)
 }
-inline PROTOBUF_NDEBUG_INLINE StraightBulletSkillInfoMessage::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::StraightBulletSkillInfoMessage& from_msg)
-      : id_{visibility, arena, from.id_},
-        _id_cached_byte_size_{0},
-        pos_x_{visibility, arena, from.pos_x_},
-        pos_y_{visibility, arena, from.pos_y_},
-        angle_{visibility, arena, from.angle_},
-        destroyed_{visibility, arena, from.destroyed_},
-        _cached_size_{0} {}
-
-StraightBulletSkillInfoMessage::StraightBulletSkillInfoMessage(
-    ::google::protobuf::Arena* arena,
-    const StraightBulletSkillInfoMessage& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  StraightBulletSkillInfoMessage* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-
-  // @@protoc_insertion_point(copy_constructor:StraightBulletSkillInfoMessage)
+SkillInfoMessage::SkillInfoMessage(
+    ::google::protobuf::Arena* arena, const SkillInfoMessage& from)
+    : SkillInfoMessage(arena) {
+  MergeFrom(from);
 }
-inline PROTOBUF_NDEBUG_INLINE StraightBulletSkillInfoMessage::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE SkillInfoMessage::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : id_{visibility, arena},
-        _id_cached_byte_size_{0},
-        pos_x_{visibility, arena},
-        pos_y_{visibility, arena},
-        angle_{visibility, arena},
-        destroyed_{visibility, arena},
-        _cached_size_{0} {}
+      : _cached_size_{0} {}
 
-inline void StraightBulletSkillInfoMessage::SharedCtor(::_pb::Arena* arena) {
+inline void SkillInfoMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, angle_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::angle_));
 }
-StraightBulletSkillInfoMessage::~StraightBulletSkillInfoMessage() {
-  // @@protoc_insertion_point(destructor:StraightBulletSkillInfoMessage)
+SkillInfoMessage::~SkillInfoMessage() {
+  // @@protoc_insertion_point(destructor:SkillInfoMessage)
   SharedDtor(*this);
 }
-inline void StraightBulletSkillInfoMessage::SharedDtor(MessageLite& self) {
-  StraightBulletSkillInfoMessage& this_ = static_cast<StraightBulletSkillInfoMessage&>(self);
+inline void SkillInfoMessage::SharedDtor(MessageLite& self) {
+  SkillInfoMessage& this_ = static_cast<SkillInfoMessage&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.~Impl_();
 }
 
-inline void* StraightBulletSkillInfoMessage::PlacementNew_(const void*, void* mem,
+inline void* SkillInfoMessage::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
-  return ::new (mem) StraightBulletSkillInfoMessage(arena);
+  return ::new (mem) SkillInfoMessage(arena);
 }
-constexpr auto StraightBulletSkillInfoMessage::InternalNewImpl_() {
-  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.id_) +
-          decltype(StraightBulletSkillInfoMessage::_impl_.id_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_x_) +
-          decltype(StraightBulletSkillInfoMessage::_impl_.pos_x_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_y_) +
-          decltype(StraightBulletSkillInfoMessage::_impl_.pos_y_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.angle_) +
-          decltype(StraightBulletSkillInfoMessage::_impl_.angle_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.destroyed_) +
-          decltype(StraightBulletSkillInfoMessage::_impl_.destroyed_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-  });
-  if (arena_bits.has_value()) {
-    return ::google::protobuf::internal::MessageCreator::ZeroInit(
-        sizeof(StraightBulletSkillInfoMessage), alignof(StraightBulletSkillInfoMessage), *arena_bits);
-  } else {
-    return ::google::protobuf::internal::MessageCreator(&StraightBulletSkillInfoMessage::PlacementNew_,
-                                 sizeof(StraightBulletSkillInfoMessage),
-                                 alignof(StraightBulletSkillInfoMessage));
-  }
+constexpr auto SkillInfoMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(SkillInfoMessage),
+                                            alignof(SkillInfoMessage));
 }
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull StraightBulletSkillInfoMessage::_class_data_ = {
+const ::google::protobuf::internal::ClassDataFull SkillInfoMessage::_class_data_ = {
     ::google::protobuf::internal::ClassData{
-        &_StraightBulletSkillInfoMessage_default_instance_._instance,
+        &_SkillInfoMessage_default_instance_._instance,
         &_table_.header,
         nullptr,  // OnDemandRegisterArenaDtor
         nullptr,  // IsInitialized
-        &StraightBulletSkillInfoMessage::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<StraightBulletSkillInfoMessage>(),
+        &SkillInfoMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<SkillInfoMessage>(),
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        &StraightBulletSkillInfoMessage::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<StraightBulletSkillInfoMessage>(), &StraightBulletSkillInfoMessage::ByteSizeLong,
-            &StraightBulletSkillInfoMessage::_InternalSerialize,
+        &SkillInfoMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<SkillInfoMessage>(), &SkillInfoMessage::ByteSizeLong,
+            &SkillInfoMessage::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_._cached_size_),
+        PROTOBUF_FIELD_OFFSET(SkillInfoMessage, _impl_._cached_size_),
         false,
     },
-    &StraightBulletSkillInfoMessage::kDescriptorMethods,
+    &SkillInfoMessage::kDescriptorMethods,
     &descriptor_table_test_2eproto,
     nullptr,  // tracker
 };
-const ::google::protobuf::internal::ClassData* StraightBulletSkillInfoMessage::GetClassData() const {
+const ::google::protobuf::internal::ClassData* SkillInfoMessage::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 5, 0, 0, 2> StraightBulletSkillInfoMessage::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> SkillInfoMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    5, 56,  // max_field_number, fast_idx_mask
+    4, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967264,  // skipmap
+    4294967286,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
+    2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::StraightBulletSkillInfoMessage>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::SkillInfoMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // repeated uint64 id = 1;
-    {::_pbi::TcParser::FastV64P1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.id_)}},
-    // repeated float pos_x = 2;
-    {::_pbi::TcParser::FastF32P1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_x_)}},
-    // repeated float pos_y = 3;
-    {::_pbi::TcParser::FastF32P1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_y_)}},
-    // repeated float angle = 4;
-    {::_pbi::TcParser::FastF32P1,
-     {34, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.angle_)}},
-    // repeated bool destroyed = 5;
-    {::_pbi::TcParser::FastV8P1,
-     {42, 63, 0, PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.destroyed_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // float angle = 4;
+    {::_pbi::TcParser::FastF32S1,
+     {37, 63, 0, PROTOBUF_FIELD_OFFSET(SkillInfoMessage, _impl_.angle_)}},
+    // uint64 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(SkillInfoMessage, _impl_.id_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(SkillInfoMessage, _impl_.id_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // repeated uint64 id = 1;
-    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.id_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kPackedUInt64)},
-    // repeated float pos_x = 2;
-    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_x_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kPackedFloat)},
-    // repeated float pos_y = 3;
-    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.pos_y_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kPackedFloat)},
-    // repeated float angle = 4;
-    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.angle_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kPackedFloat)},
-    // repeated bool destroyed = 5;
-    {PROTOBUF_FIELD_OFFSET(StraightBulletSkillInfoMessage, _impl_.destroyed_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kPackedBool)},
+    // uint64 id = 1;
+    {PROTOBUF_FIELD_OFFSET(SkillInfoMessage, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
+    // float angle = 4;
+    {PROTOBUF_FIELD_OFFSET(SkillInfoMessage, _impl_.angle_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
   }},
   // no aux_entries
   {{
   }},
 };
 
-PROTOBUF_NOINLINE void StraightBulletSkillInfoMessage::Clear() {
-// @@protoc_insertion_point(message_clear_start:StraightBulletSkillInfoMessage)
+PROTOBUF_NOINLINE void SkillInfoMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:SkillInfoMessage)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.id_.Clear();
-  _impl_.pos_x_.Clear();
-  _impl_.pos_y_.Clear();
-  _impl_.angle_.Clear();
-  _impl_.destroyed_.Clear();
+  ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.angle_) -
+      reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.angle_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* StraightBulletSkillInfoMessage::_InternalSerialize(
+        ::uint8_t* SkillInfoMessage::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const StraightBulletSkillInfoMessage& this_ = static_cast<const StraightBulletSkillInfoMessage&>(base);
+          const SkillInfoMessage& this_ = static_cast<const SkillInfoMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* StraightBulletSkillInfoMessage::_InternalSerialize(
+        ::uint8_t* SkillInfoMessage::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const StraightBulletSkillInfoMessage& this_ = *this;
+          const SkillInfoMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:StraightBulletSkillInfoMessage)
+          // @@protoc_insertion_point(serialize_to_array_start:SkillInfoMessage)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // repeated uint64 id = 1;
-          {
-            int byte_size = this_._impl_._id_cached_byte_size_.Get();
-            if (byte_size > 0) {
-              target = stream->WriteUInt64Packed(
-                  1, this_._internal_id(), byte_size, target);
-            }
+          // uint64 id = 1;
+          if (this_._internal_id() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
+                1, this_._internal_id(), target);
           }
 
-          // repeated float pos_x = 2;
-          if (this_._internal_pos_x_size() > 0) {
-            target = stream->WriteFixedPacked(2, this_._internal_pos_x(), target);
-          }
-
-          // repeated float pos_y = 3;
-          if (this_._internal_pos_y_size() > 0) {
-            target = stream->WriteFixedPacked(3, this_._internal_pos_y(), target);
-          }
-
-          // repeated float angle = 4;
-          if (this_._internal_angle_size() > 0) {
-            target = stream->WriteFixedPacked(4, this_._internal_angle(), target);
-          }
-
-          // repeated bool destroyed = 5;
-          if (this_._internal_destroyed_size() > 0) {
-            target = stream->WriteFixedPacked(5, this_._internal_destroyed(), target);
+          // float angle = 4;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_angle()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                4, this_._internal_angle(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -5177,18 +5064,18 @@ PROTOBUF_NOINLINE void StraightBulletSkillInfoMessage::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:StraightBulletSkillInfoMessage)
+          // @@protoc_insertion_point(serialize_to_array_end:SkillInfoMessage)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t StraightBulletSkillInfoMessage::ByteSizeLong(const MessageLite& base) {
-          const StraightBulletSkillInfoMessage& this_ = static_cast<const StraightBulletSkillInfoMessage&>(base);
+        ::size_t SkillInfoMessage::ByteSizeLong(const MessageLite& base) {
+          const SkillInfoMessage& this_ = static_cast<const SkillInfoMessage&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t StraightBulletSkillInfoMessage::ByteSizeLong() const {
-          const StraightBulletSkillInfoMessage& this_ = *this;
+        ::size_t SkillInfoMessage::ByteSizeLong() const {
+          const SkillInfoMessage& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:StraightBulletSkillInfoMessage)
+          // @@protoc_insertion_point(message_byte_size_start:SkillInfoMessage)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -5197,93 +5084,264 @@ PROTOBUF_NOINLINE void StraightBulletSkillInfoMessage::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // repeated uint64 id = 1;
-            {
-              total_size +=
-                  ::_pbi::WireFormatLite::UInt64SizeWithPackedTagSize(
-                      this_._internal_id(), 1,
-                      this_._impl_._id_cached_byte_size_);
+            // uint64 id = 1;
+            if (this_._internal_id() != 0) {
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
+                  this_._internal_id());
             }
-            // repeated float pos_x = 2;
-            {
-              std::size_t data_size = std::size_t{4} *
-                  ::_pbi::FromIntSize(this_._internal_pos_x_size());
-              std::size_t tag_size = data_size == 0
-                  ? 0
-                  : 1 + ::_pbi::WireFormatLite::Int32Size(
-                                      static_cast<int32_t>(data_size));
-              total_size += tag_size + data_size;
-            }
-            // repeated float pos_y = 3;
-            {
-              std::size_t data_size = std::size_t{4} *
-                  ::_pbi::FromIntSize(this_._internal_pos_y_size());
-              std::size_t tag_size = data_size == 0
-                  ? 0
-                  : 1 + ::_pbi::WireFormatLite::Int32Size(
-                                      static_cast<int32_t>(data_size));
-              total_size += tag_size + data_size;
-            }
-            // repeated float angle = 4;
-            {
-              std::size_t data_size = std::size_t{4} *
-                  ::_pbi::FromIntSize(this_._internal_angle_size());
-              std::size_t tag_size = data_size == 0
-                  ? 0
-                  : 1 + ::_pbi::WireFormatLite::Int32Size(
-                                      static_cast<int32_t>(data_size));
-              total_size += tag_size + data_size;
-            }
-            // repeated bool destroyed = 5;
-            {
-              std::size_t data_size = std::size_t{1} *
-                  ::_pbi::FromIntSize(this_._internal_destroyed_size());
-              std::size_t tag_size = data_size == 0
-                  ? 0
-                  : 1 + ::_pbi::WireFormatLite::Int32Size(
-                                      static_cast<int32_t>(data_size));
-              total_size += tag_size + data_size;
+            // float angle = 4;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_angle()) != 0) {
+              total_size += 5;
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
 
-void StraightBulletSkillInfoMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<StraightBulletSkillInfoMessage*>(&to_msg);
-  auto& from = static_cast<const StraightBulletSkillInfoMessage&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:StraightBulletSkillInfoMessage)
+void SkillInfoMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<SkillInfoMessage*>(&to_msg);
+  auto& from = static_cast<const SkillInfoMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:SkillInfoMessage)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_internal_mutable_id()->MergeFrom(from._internal_id());
-  _this->_internal_mutable_pos_x()->MergeFrom(from._internal_pos_x());
-  _this->_internal_mutable_pos_y()->MergeFrom(from._internal_pos_y());
-  _this->_internal_mutable_angle()->MergeFrom(from._internal_angle());
-  _this->_internal_mutable_destroyed()->MergeFrom(from._internal_destroyed());
+  if (from._internal_id() != 0) {
+    _this->_impl_.id_ = from._impl_.id_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_angle()) != 0) {
+    _this->_impl_.angle_ = from._impl_.angle_;
+  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void StraightBulletSkillInfoMessage::CopyFrom(const StraightBulletSkillInfoMessage& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:StraightBulletSkillInfoMessage)
+void SkillInfoMessage::CopyFrom(const SkillInfoMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SkillInfoMessage)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void StraightBulletSkillInfoMessage::InternalSwap(StraightBulletSkillInfoMessage* PROTOBUF_RESTRICT other) {
+void SkillInfoMessage::InternalSwap(SkillInfoMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.id_.InternalSwap(&other->_impl_.id_);
-  _impl_.pos_x_.InternalSwap(&other->_impl_.pos_x_);
-  _impl_.pos_y_.InternalSwap(&other->_impl_.pos_y_);
-  _impl_.angle_.InternalSwap(&other->_impl_.angle_);
-  _impl_.destroyed_.InternalSwap(&other->_impl_.destroyed_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(SkillInfoMessage, _impl_.angle_)
+      + sizeof(SkillInfoMessage::_impl_.angle_)
+      - PROTOBUF_FIELD_OFFSET(SkillInfoMessage, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
 }
 
-::google::protobuf::Metadata StraightBulletSkillInfoMessage::GetMetadata() const {
+::google::protobuf::Metadata SkillInfoMessage::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ObjectsDestroyedSyncMessage::_Internal {
+ public:
+};
+
+ObjectsDestroyedSyncMessage::ObjectsDestroyedSyncMessage(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ObjectsDestroyedSyncMessage)
+}
+ObjectsDestroyedSyncMessage::ObjectsDestroyedSyncMessage(
+    ::google::protobuf::Arena* arena, const ObjectsDestroyedSyncMessage& from)
+    : ObjectsDestroyedSyncMessage(arena) {
+  MergeFrom(from);
+}
+inline PROTOBUF_NDEBUG_INLINE ObjectsDestroyedSyncMessage::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void ObjectsDestroyedSyncMessage::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.id_ = {};
+}
+ObjectsDestroyedSyncMessage::~ObjectsDestroyedSyncMessage() {
+  // @@protoc_insertion_point(destructor:ObjectsDestroyedSyncMessage)
+  SharedDtor(*this);
+}
+inline void ObjectsDestroyedSyncMessage::SharedDtor(MessageLite& self) {
+  ObjectsDestroyedSyncMessage& this_ = static_cast<ObjectsDestroyedSyncMessage&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* ObjectsDestroyedSyncMessage::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) ObjectsDestroyedSyncMessage(arena);
+}
+constexpr auto ObjectsDestroyedSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(ObjectsDestroyedSyncMessage),
+                                            alignof(ObjectsDestroyedSyncMessage));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull ObjectsDestroyedSyncMessage::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_ObjectsDestroyedSyncMessage_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &ObjectsDestroyedSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ObjectsDestroyedSyncMessage>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &ObjectsDestroyedSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ObjectsDestroyedSyncMessage>(), &ObjectsDestroyedSyncMessage::ByteSizeLong,
+            &ObjectsDestroyedSyncMessage::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_._cached_size_),
+        false,
+    },
+    &ObjectsDestroyedSyncMessage::kDescriptorMethods,
+    &descriptor_table_test_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* ObjectsDestroyedSyncMessage::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 0, 2> ObjectsDestroyedSyncMessage::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ObjectsDestroyedSyncMessage>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // uint64 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(ObjectsDestroyedSyncMessage, _impl_.id_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_.id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint64 id = 1;
+    {PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+PROTOBUF_NOINLINE void ObjectsDestroyedSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:ObjectsDestroyedSyncMessage)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.id_ = ::uint64_t{0u};
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* ObjectsDestroyedSyncMessage::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const ObjectsDestroyedSyncMessage& this_ = static_cast<const ObjectsDestroyedSyncMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* ObjectsDestroyedSyncMessage::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const ObjectsDestroyedSyncMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:ObjectsDestroyedSyncMessage)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // uint64 id = 1;
+          if (this_._internal_id() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
+                1, this_._internal_id(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:ObjectsDestroyedSyncMessage)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t ObjectsDestroyedSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const ObjectsDestroyedSyncMessage& this_ = static_cast<const ObjectsDestroyedSyncMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t ObjectsDestroyedSyncMessage::ByteSizeLong() const {
+          const ObjectsDestroyedSyncMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:ObjectsDestroyedSyncMessage)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+           {
+            // uint64 id = 1;
+            if (this_._internal_id() != 0) {
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
+                  this_._internal_id());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void ObjectsDestroyedSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ObjectsDestroyedSyncMessage*>(&to_msg);
+  auto& from = static_cast<const ObjectsDestroyedSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ObjectsDestroyedSyncMessage)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_id() != 0) {
+    _this->_impl_.id_ = from._impl_.id_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ObjectsDestroyedSyncMessage::CopyFrom(const ObjectsDestroyedSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ObjectsDestroyedSyncMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ObjectsDestroyedSyncMessage::InternalSwap(ObjectsDestroyedSyncMessage* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+        swap(_impl_.id_, other->_impl_.id_);
+}
+
+::google::protobuf::Metadata ObjectsDestroyedSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

@@ -2,24 +2,23 @@ syntax = "proto3";
 option go_package = "pkg/packets";
 
 message Packet{
-  uint32 uid = 1;
   oneof msg{
     InputPacket input = 2;
-    PlayerPositionSyncMessage player_position_sync = 3;
-    PlayerEnterSyncMessage player_enter_sync = 4;
-    PlayerExitSyncMessage player_exit_sync = 5;
-    PlayerHealthSyncMessage player_health_sync = 6;
-    PlayerAttackSyncMessage player_attack_sync = 7;
-    PlayerManaSyncMessage player_mana_sync = 8;
-    PlayerAttackSpeedSyncMessage player_attack_speed_sync = 9;
-    SyncSkillMessage sync_skill = 10;
+    PositionSyncMessage position_sync = 3;
+    PlayerSyncMessage player_sync = 4;
+    HealthSyncMessage health_sync = 5;
+    AttackSyncMessage attack_sync = 6;
+    ManaSyncMessage mana_sync = 7;
+    AttackSpeedSyncMessage attack_speed_sync = 8;
+    SyncSkillMessage sync_skill = 9;
+    ObjectsDestroyedSyncMessage objects_destroyed_sync = 10;
   }
 }
 
 message InputPacket{
   oneof input{
     MoveMessage move = 1;
-    PlayerAttackMessage player_attack = 2;
+    AttackMessage player_attack = 2;
     ExecuteSkillMessage execute_skill = 3;
   }
 }
@@ -29,74 +28,76 @@ message MoveMessage{
   float y = 2;
 }
 
-message PlayerAttackMessage{
-  uint32 uid = 1;
+message AttackMessage{
+  uint64 uid = 1;
 }
 
 message PlayerUseSkillMessage{
   uint32 skill_pos = 1;
-  uint32 target_player = 2;
+  uint64 target_player = 2;
   float x = 3;
   float y = 4;
 }
 
-message PlayerEnterSyncMessage{
-  uint32 uid = 1;
+message PlayerSyncMessage{
+  uint64 uid = 1;
   bool self = 2;
 }
 
-message PlayerExitSyncMessage{
-  uint32 uid = 1;
+message ExitSyncMessage{
+  uint64 uid = 1;
 }
 
-message PlayerPositionSyncMessage{
-  uint32 uid = 1;
+message PositionSyncMessage{
+  uint64 id = 1;
   float pos_x = 2;
   float pos_y = 3;
 }
 
-message PlayerHealthSyncMessage{
-  uint32 uid = 1;
+message HealthSyncMessage{
+  uint64 uid = 1;
   int32 health = 2;
   int32 max_health = 3;
 }
 
-message PlayerAttackSyncMessage{
-  uint32 from = 1;
-  uint32 to = 2;
+message AttackSyncMessage{
+  uint64 from = 1;
+  uint64 to = 2;
   float cool_down = 3;
 }
 
-message PlayerManaSyncMessage{
-  uint32 uid = 1;
+message ManaSyncMessage{
+  uint64 uid = 1;
   int32 mana = 2;
   int32 max_mana = 3;
 }
 
-message PlayerAttackSpeedSyncMessage{
-  uint32 uid = 1;
+message AttackSpeedSyncMessage{
+  uint64 uid = 1;
   float speed = 2;
 }
 
 message ExecuteSkillMessage{
-  float direction_x = 1;
-  float direction_y = 2;
-  float pos_x = 3;
-  float pos_y = 4;
+  float rotate = 1;
+  float pos_x = 2;
+  float pos_y = 3;
 }
 
 message SyncSkillMessage{
-  uint32 uid = 1;
+  uint64 uid = 1;
   int32 pos = 2;
   oneof infos{
-    StraightBulletSkillInfoMessage straight_bullet_skill = 3;
+    SkillInfoMessage skill_info = 3;
   }
 }
 
-message StraightBulletSkillInfoMessage{
-  repeated uint64 id = 1;
-  repeated float pos_x = 2;
-  repeated float pos_y = 3;
-  repeated float angle = 4;
-  repeated bool destroyed = 5;
+
+message SkillInfoMessage{
+  uint64 id = 1;
+  float angle = 4;
+}
+
+
+message ObjectsDestroyedSyncMessage{
+  uint64 id = 1;
 }
