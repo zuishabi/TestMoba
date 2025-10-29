@@ -20,7 +20,8 @@ enum class ComponentType{
     AttributeComponentType,
     HitComponentType,
     SkillComponentType,
-    SkillObjectCoreComponentType,
+    SkillObjectComponentType,
+    BuffComponentType,
 };
 
 
@@ -129,5 +130,18 @@ protected:
     bool canExecute;
 };
 
+
+class Buff {
+public:
+    virtual void Update() = 0;
+    bool destroyed = false;
+    uint64_t id;
+};
+
+
+struct AttackInfo {
+    int PhysicalDamage;
+    int MagicDamage;
+};
 
 #endif //TESTSERVER_COMPONENT_H

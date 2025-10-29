@@ -5,8 +5,8 @@
 #include "components.h"
 #include "../../objects/worldManager.h"
 
-void HitComponent::Hit(uint64_t targetID) {
+void HitComponent::Hit(uint64_t targetID,AttackInfo info) {
     ComponentManager* target = GameWorld::GetComponentManager(targetID);
     auto targetAttribute = target->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);
-    targetAttribute->SetHealth(targetAttribute->GetHealth() - 10);
+    targetAttribute->SetHealth(targetAttribute->GetHealth() - info.PhysicalDamage - info.MagicDamage);
 }

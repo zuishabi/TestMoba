@@ -5,18 +5,24 @@
 #include "server.h"
 
 void CustomServer::UpdateObjects() {
+    std::vector<uint64_t> destroyedList;
     for (auto& p :GameWorld::objectsMap) {
         ComponentManager* manager = GameWorld::GetComponentManager(p.second->id);
         if (manager->destroyed) {
-            b2BodyId body = b2LoadBodyId(manager->id);
-            b2DestroyBody(body);
-            GameWorld::objectsMap.erase(manager->id);
-            auto packet = std::make_shared<Packet>();
-            ObjectsDestroyedSyncMessage* destroy = packet->mutable_objects_destroyed_sync();
-            destroy->set_id(manager->id);
-            BroadcastMessage(packet);
+            destroyedList.push_back(p.second->id);
             continue;
         }
         manager->Update();
+    }
+    for (int i = 0;i < destroyedList.size();i++) {
+        ComponentManager* manager = GameWorld::GetComponentManager(destroyedList[i]);
+        b2BodyId body = b2LoadBodyId(manager->id);
+        b2DestroyBody(body);
+        GameWorld::objectsMap.erase(manager->id);
+        auto packet = std::make_shared<Packet>();
+        ObjectsDestroyedSyncMessage* destroy = packet->mutable_objects_destroyed_sync();
+        destroy->set_id(manager->id);
+        destroy->set_is_player(manager->Type == ManagerType::Player);
+        BroadcastMessage(packet);
     }
 }

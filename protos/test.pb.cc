@@ -135,6 +135,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr ObjectsDestroyedSyncMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : id_{::uint64_t{0u}},
+        is_player_{false},
         _cached_size_{0} {}
 
 template <typename>
@@ -293,7 +294,6 @@ inline constexpr AttackSyncMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : from_{::uint64_t{0u}},
         to_{::uint64_t{0u}},
-        cool_down_{0},
         _cached_size_{0} {}
 
 template <typename>
@@ -565,7 +565,6 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::AttackSyncMessage, _impl_.from_),
         PROTOBUF_FIELD_OFFSET(::AttackSyncMessage, _impl_.to_),
-        PROTOBUF_FIELD_OFFSET(::AttackSyncMessage, _impl_.cool_down_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::ManaSyncMessage, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -629,6 +628,7 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::ObjectsDestroyedSyncMessage, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::ObjectsDestroyedSyncMessage, _impl_.is_player_),
 };
 
 static const ::_pbi::MigrationSchema
@@ -643,12 +643,12 @@ static const ::_pbi::MigrationSchema
         {80, -1, -1, sizeof(::PositionSyncMessage)},
         {91, -1, -1, sizeof(::HealthSyncMessage)},
         {102, -1, -1, sizeof(::AttackSyncMessage)},
-        {113, -1, -1, sizeof(::ManaSyncMessage)},
-        {124, -1, -1, sizeof(::AttackSpeedSyncMessage)},
-        {134, -1, -1, sizeof(::ExecuteSkillMessage)},
-        {145, -1, -1, sizeof(::SyncSkillMessage)},
-        {157, -1, -1, sizeof(::SkillInfoMessage)},
-        {167, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
+        {112, -1, -1, sizeof(::ManaSyncMessage)},
+        {123, -1, -1, sizeof(::AttackSpeedSyncMessage)},
+        {133, -1, -1, sizeof(::ExecuteSkillMessage)},
+        {144, -1, -1, sizeof(::SyncSkillMessage)},
+        {156, -1, -1, sizeof(::SkillInfoMessage)},
+        {166, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::_Packet_default_instance_._instance,
@@ -693,18 +693,18 @@ const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIA
     "e\022\013\n\003uid\030\001 \001(\004\"\?\n\023PositionSyncMessage\022\n\n"
     "\002id\030\001 \001(\004\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\""
     "D\n\021HealthSyncMessage\022\013\n\003uid\030\001 \001(\004\022\016\n\006hea"
-    "lth\030\002 \001(\005\022\022\n\nmax_health\030\003 \001(\005\"@\n\021AttackS"
-    "yncMessage\022\014\n\004from\030\001 \001(\004\022\n\n\002to\030\002 \001(\004\022\021\n\t"
-    "cool_down\030\003 \001(\002\">\n\017ManaSyncMessage\022\013\n\003ui"
-    "d\030\001 \001(\004\022\014\n\004mana\030\002 \001(\005\022\020\n\010max_mana\030\003 \001(\005\""
-    "4\n\026AttackSpeedSyncMessage\022\013\n\003uid\030\001 \001(\004\022\r"
-    "\n\005speed\030\002 \001(\002\"C\n\023ExecuteSkillMessage\022\016\n\006"
-    "rotate\030\001 \001(\002\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001"
-    "(\002\"^\n\020SyncSkillMessage\022\013\n\003uid\030\001 \001(\004\022\013\n\003p"
-    "os\030\002 \001(\005\022\'\n\nskill_info\030\003 \001(\0132\021.SkillInfo"
-    "MessageH\000B\007\n\005infos\"-\n\020SkillInfoMessage\022\n"
-    "\n\002id\030\001 \001(\004\022\r\n\005angle\030\004 \001(\002\")\n\033ObjectsDest"
-    "royedSyncMessage\022\n\n\002id\030\001 \001(\004B\rZ\013pkg/pack"
+    "lth\030\002 \001(\005\022\022\n\nmax_health\030\003 \001(\005\"-\n\021AttackS"
+    "yncMessage\022\014\n\004from\030\001 \001(\004\022\n\n\002to\030\002 \001(\004\">\n\017"
+    "ManaSyncMessage\022\013\n\003uid\030\001 \001(\004\022\014\n\004mana\030\002 \001"
+    "(\005\022\020\n\010max_mana\030\003 \001(\005\"4\n\026AttackSpeedSyncM"
+    "essage\022\013\n\003uid\030\001 \001(\004\022\r\n\005speed\030\002 \001(\002\"C\n\023Ex"
+    "ecuteSkillMessage\022\016\n\006rotate\030\001 \001(\002\022\r\n\005pos"
+    "_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\"^\n\020SyncSkillMess"
+    "age\022\013\n\003uid\030\001 \001(\004\022\013\n\003pos\030\002 \001(\005\022\'\n\nskill_i"
+    "nfo\030\003 \001(\0132\021.SkillInfoMessageH\000B\007\n\005infos\""
+    "-\n\020SkillInfoMessage\022\n\n\002id\030\001 \001(\004\022\r\n\005angle"
+    "\030\004 \001(\002\"<\n\033ObjectsDestroyedSyncMessage\022\n\n"
+    "\002id\030\001 \001(\004\022\021\n\tis_player\030\002 \001(\010B\rZ\013pkg/pack"
     "etsb\006proto3"
 };
 static ::absl::once_flag descriptor_table_test_2eproto_once;
@@ -3540,9 +3540,9 @@ inline void AttackSyncMessage::SharedCtor(::_pb::Arena* arena) {
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, from_),
            0,
-           offsetof(Impl_, cool_down_) -
+           offsetof(Impl_, to_) -
                offsetof(Impl_, from_) +
-               sizeof(Impl_::cool_down_));
+               sizeof(Impl_::to_));
 }
 AttackSyncMessage::~AttackSyncMessage() {
   // @@protoc_insertion_point(destructor:AttackSyncMessage)
@@ -3591,15 +3591,15 @@ const ::google::protobuf::internal::ClassData* AttackSyncMessage::GetClassData()
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 0, 2> AttackSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> AttackSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967292,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -3609,16 +3609,12 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> AttackSyncMessage::_table_ = {
     ::_pbi::TcParser::GetTable<::AttackSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // uint64 from = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(AttackSyncMessage, _impl_.from_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.from_)}},
     // uint64 to = 2;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(AttackSyncMessage, _impl_.to_), 63>(),
      {16, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.to_)}},
-    // float cool_down = 3;
-    {::_pbi::TcParser::FastF32S1,
-     {29, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.cool_down_)}},
+    // uint64 from = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(AttackSyncMessage, _impl_.from_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.from_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -3628,9 +3624,6 @@ const ::_pbi::TcParseTable<2, 3, 0, 0, 2> AttackSyncMessage::_table_ = {
     // uint64 to = 2;
     {PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.to_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // float cool_down = 3;
-    {PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.cool_down_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
   }},
   // no aux_entries
   {{
@@ -3645,8 +3638,8 @@ PROTOBUF_NOINLINE void AttackSyncMessage::Clear() {
   (void) cached_has_bits;
 
   ::memset(&_impl_.from_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.cool_down_) -
-      reinterpret_cast<char*>(&_impl_.from_)) + sizeof(_impl_.cool_down_));
+      reinterpret_cast<char*>(&_impl_.to_) -
+      reinterpret_cast<char*>(&_impl_.from_)) + sizeof(_impl_.to_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -3677,13 +3670,6 @@ PROTOBUF_NOINLINE void AttackSyncMessage::Clear() {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
                 2, this_._internal_to(), target);
-          }
-
-          // float cool_down = 3;
-          if (::absl::bit_cast<::uint32_t>(this_._internal_cool_down()) != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                3, this_._internal_cool_down(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -3721,10 +3707,6 @@ PROTOBUF_NOINLINE void AttackSyncMessage::Clear() {
               total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_to());
             }
-            // float cool_down = 3;
-            if (::absl::bit_cast<::uint32_t>(this_._internal_cool_down()) != 0) {
-              total_size += 5;
-            }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
@@ -3744,9 +3726,6 @@ void AttackSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const
   if (from._internal_to() != 0) {
     _this->_impl_.to_ = from._impl_.to_;
   }
-  if (::absl::bit_cast<::uint32_t>(from._internal_cool_down()) != 0) {
-    _this->_impl_.cool_down_ = from._impl_.cool_down_;
-  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -3762,8 +3741,8 @@ void AttackSyncMessage::InternalSwap(AttackSyncMessage* PROTOBUF_RESTRICT other)
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.cool_down_)
-      + sizeof(AttackSyncMessage::_impl_.cool_down_)
+      PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.to_)
+      + sizeof(AttackSyncMessage::_impl_.to_)
       - PROTOBUF_FIELD_OFFSET(AttackSyncMessage, _impl_.from_)>(
           reinterpret_cast<char*>(&_impl_.from_),
           reinterpret_cast<char*>(&other->_impl_.from_));
@@ -5164,7 +5143,12 @@ inline PROTOBUF_NDEBUG_INLINE ObjectsDestroyedSyncMessage::Impl_::Impl_(
 
 inline void ObjectsDestroyedSyncMessage::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.id_ = {};
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, is_player_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::is_player_));
 }
 ObjectsDestroyedSyncMessage::~ObjectsDestroyedSyncMessage() {
   // @@protoc_insertion_point(destructor:ObjectsDestroyedSyncMessage)
@@ -5213,15 +5197,15 @@ const ::google::protobuf::internal::ClassData* ObjectsDestroyedSyncMessage::GetC
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 0, 2> ObjectsDestroyedSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> ObjectsDestroyedSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
+    2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
+    4294967292,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
+    2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -5231,6 +5215,9 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> ObjectsDestroyedSyncMessage::_table_ =
     ::_pbi::TcParser::GetTable<::ObjectsDestroyedSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
+    // bool is_player = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(ObjectsDestroyedSyncMessage, _impl_.is_player_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_.is_player_)}},
     // uint64 id = 1;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(ObjectsDestroyedSyncMessage, _impl_.id_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_.id_)}},
@@ -5240,6 +5227,9 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> ObjectsDestroyedSyncMessage::_table_ =
     // uint64 id = 1;
     {PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_.id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
+    // bool is_player = 2;
+    {PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_.is_player_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
   }},
   // no aux_entries
   {{
@@ -5253,7 +5243,9 @@ PROTOBUF_NOINLINE void ObjectsDestroyedSyncMessage::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.id_ = ::uint64_t{0u};
+  ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.is_player_) -
+      reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.is_player_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -5279,6 +5271,13 @@ PROTOBUF_NOINLINE void ObjectsDestroyedSyncMessage::Clear() {
                 1, this_._internal_id(), target);
           }
 
+          // bool is_player = 2;
+          if (this_._internal_is_player() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteBoolToArray(
+                2, this_._internal_is_player(), target);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -5302,11 +5301,16 @@ PROTOBUF_NOINLINE void ObjectsDestroyedSyncMessage::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
             // uint64 id = 1;
             if (this_._internal_id() != 0) {
               total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_id());
+            }
+            // bool is_player = 2;
+            if (this_._internal_is_player() != 0) {
+              total_size += 2;
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -5324,6 +5328,9 @@ void ObjectsDestroyedSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_
   if (from._internal_id() != 0) {
     _this->_impl_.id_ = from._impl_.id_;
   }
+  if (from._internal_is_player() != 0) {
+    _this->_impl_.is_player_ = from._impl_.is_player_;
+  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -5338,7 +5345,12 @@ void ObjectsDestroyedSyncMessage::CopyFrom(const ObjectsDestroyedSyncMessage& fr
 void ObjectsDestroyedSyncMessage::InternalSwap(ObjectsDestroyedSyncMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-        swap(_impl_.id_, other->_impl_.id_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_.is_player_)
+      + sizeof(ObjectsDestroyedSyncMessage::_impl_.is_player_)
+      - PROTOBUF_FIELD_OFFSET(ObjectsDestroyedSyncMessage, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
 }
 
 ::google::protobuf::Metadata ObjectsDestroyedSyncMessage::GetMetadata() const {

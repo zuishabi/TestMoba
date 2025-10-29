@@ -63,7 +63,6 @@ message HealthSyncMessage{
 message AttackSyncMessage{
   uint64 from = 1;
   uint64 to = 2;
-  float cool_down = 3;
 }
 
 message ManaSyncMessage{
@@ -100,4 +99,5 @@ message SkillInfoMessage{
 
 message ObjectsDestroyedSyncMessage{
   uint64 id = 1;
+  bool is_player = 2;
 }

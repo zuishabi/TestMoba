@@ -29,13 +29,10 @@ void CustomServer::ProcessInput() {
 
                 if (distance.x * distance.x + distance.y * distance.y <= attack->scale * attack->scale) {
                     attack->Attack(input.player_attack().uid());
-                    auto attribute = manager->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);
                     std::shared_ptr<Packet> packet = std::make_shared<Packet>();
                     auto sync = packet->mutable_attack_sync();
                     sync->set_to(input.player_attack().uid());
                     sync->set_from(player->GetID());
-                    float coolDown = attribute->GetAttackSpeed();
-                    sync->set_cool_down(coolDown);
                     BroadcastMessage(packet);
                 }
             }else if (input.has_execute_skill()) {
@@ -43,6 +40,8 @@ void CustomServer::ProcessInput() {
                 auto info = input.execute_skill();
                 skill->ExecuteSkill(0,{b2Vec2{info.pos_x(),info.pos_y()},info.rotate()});
             }
+
+
             p.second->InputList.pop();
         }
     }

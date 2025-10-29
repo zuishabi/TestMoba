@@ -11,11 +11,13 @@
 #include "../../objects/player.h"
 
 
-class ezQComponent:public Component{
+class ezQComponent:public SkillObjectComponent{
 public:
-    ezQComponent(uint64_t id,uint64_t from,b2ShapeId shapeID):Component(ComponentType::SkillObjectCoreComponentType,id),shapeID(shapeID) {
+    ezQComponent(uint64_t id,uint64_t from,b2ShapeId shapeID):
+    SkillObjectComponent(id,from),shapeID(shapeID),positionSyncer(std::make_shared<MoveSyncer>(id)) {
         auto skillSyncer = std::make_shared<SkillSyncer>(id,from,0);
         manager->SyncerManager.AddSyncer(skillSyncer);
+        manager->SyncerManager.AddSyncer(positionSyncer);
         expireAt = std::chrono::steady_clock::now() + std::chrono::seconds(1);
     }
 public:
@@ -23,6 +25,7 @@ public:
 private:
     b2ShapeId shapeID;
     std::chrono::steady_clock::time_point expireAt;
+    std::shared_ptr<MoveSyncer> positionSyncer;
 };
 
 
@@ -31,6 +34,7 @@ void ezQComponent::Update() {
         manager->destroyed = true;
         return;
     }
+    positionSyncer->SetPos(b2Body_GetPosition(b2LoadBodyId(id)));
     int capacity = b2Shape_GetSensorCapacity( shapeID );
     std::vector<b2ShapeId> overlaps;
     overlaps.resize( capacity );
@@ -49,14 +53,14 @@ void ezQComponent::Update() {
         }
         b2BodyId body = b2Shape_GetBody(visitorId);
         uint64_t _id = b2StoreBodyId(body);
-        if (_id == id) {
+        if (_id == from) {
             continue;
         }
-        ComponentManager* manager = GameWorld::GetComponentManager(_id);
-        if (manager && manager->Type == ManagerType::Player) {
-            auto hit = GameWorld::GetComponentManager(id)->GetComponent<HitComponent>(ComponentType::HitComponentType);
+        ComponentManager* targetManager = GameWorld::GetComponentManager(_id);
+        if (targetManager && targetManager->Type == ManagerType::Player) {
+            auto hit = targetManager->GetComponent<HitComponent>(ComponentType::HitComponentType);
             if (hit != nullptr) {
-                hit->Hit(_id);
+                hit->Hit(_id,{10});
                 manager->destroyed = true;
                 break;
             }
@@ -98,6 +102,5 @@ void ezQ::Execute(SkillInfo info) {
 
     auto id = b2StoreBodyId(myBodyId);
     auto manager = GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Skill));
-    manager->AddComponent<MovingComponent>(id,200,info.pos);
     manager->AddComponent<ezQComponent>(id,from,bodyShape);
 }

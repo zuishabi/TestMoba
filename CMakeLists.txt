@@ -11,7 +11,7 @@ add_executable(testMoba main.cpp protos/test.pb.cc
         internal/containers/containers.h
         internal/objects/player.h
         internal/containers/error.h
-        internal/objects/timer.h
+        internal/utils/timer.h
         internal/serverSync.cpp
         internal/serverUpdate.cpp
         internal/serverTerrain.cpp
@@ -28,6 +28,9 @@ add_executable(testMoba main.cpp protos/test.pb.cc
         internal/core/skills/ezQ.cpp
         internal/objects/worldManager.h
         internal/utils/mMath.h
+        internal/core/buffs/buff.h
+        internal/core/components/buffComponent.cpp
+        internal/core/buffs/fire.cpp
 )
 target_link_directories(testMoba PRIVATE C:/projects/TestMoba/libs)
 

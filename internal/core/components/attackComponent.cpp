@@ -14,7 +14,7 @@ void AttackComponent::Update() {
         ComponentManager* target = GameWorld::GetComponentManager(targetID);
         auto hit = target->GetComponent<HitComponent>(ComponentType::HitComponentType);
         if (hit != nullptr) {
-            hit->Hit(targetID);
+            hit->Hit(targetID,{10});
         }
         isShooting = false;
     }

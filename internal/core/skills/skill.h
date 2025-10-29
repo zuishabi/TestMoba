@@ -16,7 +16,6 @@ public:
     void Update() override;
 
     void Execute(SkillInfo info) override;
-private:
 };
 
 

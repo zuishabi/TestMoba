@@ -75,6 +75,7 @@ std::vector<std::shared_ptr<Packet>> GetAllSyncers(uint64_t id) {
     int cur = 0;
     for (auto& p : syncers) {
         syncerMessages[cur] = p.second->getSync();
+        cur++;
     }
     return syncerMessages;
 }
@@ -113,6 +114,7 @@ void CustomServer::CreatePlayer() {
         auto packet = std::make_shared<Packet>();
         PlayerSyncMessage *playerSync = packet->mutable_player_sync();
         // 向登录的玩家发送自身的登录消息以及已登录的玩家信息
+        playerMap[player->client->GetID()] = player;
         for (auto& p:playerMap) {
             playerSync->set_uid(p.second->GetID());
             playerSync->set_self(p.first == t.client->GetID());
@@ -121,7 +123,6 @@ void CustomServer::CreatePlayer() {
                 SendMessageA(t.client,packs);
             }
         }
-        playerMap[player->client->GetID()] = player;
         // 向其他玩家广播加入消息，并同步玩家状态
         playerSync->set_uid(player->GetID());
         playerSync->set_self(false);
@@ -135,7 +136,7 @@ void CustomServer::CreatePlayer() {
 void CustomServer::DeletePlayer() {
     while (!DisconnectTaskQueue.empty()) {
         DisconnectTask t = DisconnectTaskQueue.back();
-        std::cout << "Client Disconnect" << std::endl;
+        std::cout << "Client Disconnect " << (t.client == nullptr) << std::endl;
 
         // 清除玩家碰撞体
         DisconnectTaskQueue.pop_back();

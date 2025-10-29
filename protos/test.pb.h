@@ -1101,6 +1101,7 @@ class ObjectsDestroyedSyncMessage final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kIdFieldNumber = 1,
+    kIsPlayerFieldNumber = 2,
   };
   // uint64 id = 1;
   void clear_id() ;
@@ -1112,12 +1113,22 @@ class ObjectsDestroyedSyncMessage final : public ::google::protobuf::Message
   void _internal_set_id(::uint64_t value);
 
   public:
+  // bool is_player = 2;
+  void clear_is_player() ;
+  bool is_player() const;
+  void set_is_player(bool value);
+
+  private:
+  bool _internal_is_player() const;
+  void _internal_set_is_player(bool value);
+
+  public:
   // @@protoc_insertion_point(class_scope:ObjectsDestroyedSyncMessage)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 0,
+      1, 2, 0,
       0, 2>
       _table_;
 
@@ -1136,6 +1147,7 @@ class ObjectsDestroyedSyncMessage final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const ObjectsDestroyedSyncMessage& from_msg);
     ::uint64_t id_;
+    bool is_player_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -2326,7 +2338,6 @@ class AttackSyncMessage final : public ::google::protobuf::Message
   enum : int {
     kFromFieldNumber = 1,
     kToFieldNumber = 2,
-    kCoolDownFieldNumber = 3,
   };
   // uint64 from = 1;
   void clear_from() ;
@@ -2348,22 +2359,12 @@ class AttackSyncMessage final : public ::google::protobuf::Message
   void _internal_set_to(::uint64_t value);
 
   public:
-  // float cool_down = 3;
-  void clear_cool_down() ;
-  float cool_down() const;
-  void set_cool_down(float value);
-
-  private:
-  float _internal_cool_down() const;
-  void _internal_set_cool_down(float value);
-
-  public:
   // @@protoc_insertion_point(class_scope:AttackSyncMessage)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
+      1, 2, 0,
       0, 2>
       _table_;
 
@@ -2383,7 +2384,6 @@ class AttackSyncMessage final : public ::google::protobuf::Message
                           const AttackSyncMessage& from_msg);
     ::uint64_t from_;
     ::uint64_t to_;
-    float cool_down_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -5090,28 +5090,6 @@ inline void AttackSyncMessage::_internal_set_to(::uint64_t value) {
   _impl_.to_ = value;
 }
 
-// float cool_down = 3;
-inline void AttackSyncMessage::clear_cool_down() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.cool_down_ = 0;
-}
-inline float AttackSyncMessage::cool_down() const {
-  // @@protoc_insertion_point(field_get:AttackSyncMessage.cool_down)
-  return _internal_cool_down();
-}
-inline void AttackSyncMessage::set_cool_down(float value) {
-  _internal_set_cool_down(value);
-  // @@protoc_insertion_point(field_set:AttackSyncMessage.cool_down)
-}
-inline float AttackSyncMessage::_internal_cool_down() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.cool_down_;
-}
-inline void AttackSyncMessage::_internal_set_cool_down(float value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.cool_down_ = value;
-}
-
 // -------------------------------------------------------------------
 
 // ManaSyncMessage
@@ -5508,6 +5486,28 @@ inline ::uint64_t ObjectsDestroyedSyncMessage::_internal_id() const {
 inline void ObjectsDestroyedSyncMessage::_internal_set_id(::uint64_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.id_ = value;
+}
+
+// bool is_player = 2;
+inline void ObjectsDestroyedSyncMessage::clear_is_player() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.is_player_ = false;
+}
+inline bool ObjectsDestroyedSyncMessage::is_player() const {
+  // @@protoc_insertion_point(field_get:ObjectsDestroyedSyncMessage.is_player)
+  return _internal_is_player();
+}
+inline void ObjectsDestroyedSyncMessage::set_is_player(bool value) {
+  _internal_set_is_player(value);
+  // @@protoc_insertion_point(field_set:ObjectsDestroyedSyncMessage.is_player)
+}
+inline bool ObjectsDestroyedSyncMessage::_internal_is_player() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.is_player_;
+}
+inline void ObjectsDestroyedSyncMessage::_internal_set_is_player(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.is_player_ = value;
 }
 
 #ifdef __GNUC__

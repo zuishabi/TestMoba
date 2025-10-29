@@ -193,6 +193,7 @@ public:
         auto skills = sync->mutable_skill_info();
         skills->set_id(id);
         skills->set_angle(b2Rot_GetAngle(b2Body_GetRotation(bodyID)));
+        updated = false;
         return packet;
     }
 private:

@@ -6,20 +6,15 @@
 #define TESTSERVER_TIMER_H
 
 #include <chrono>
-#include <utility>
 #include <vector>
-#include <functional>
-#include <algorithm>
 
 class TimerManager {
 private:
     using Clock = std::chrono::steady_clock;
 
     struct Timer {
-        int id;
         Clock::time_point startTime;
         std::chrono::milliseconds duration;
-        std::function<void()> callback;
         bool repeating;
 
         bool isExpired(Clock::time_point now) const {
@@ -32,12 +27,11 @@ private:
     };
 
     std::vector<Timer> timers;
-    int nextId = 0;
 
 public:
-    int addTimer(std::chrono::milliseconds duration,std::function<void()> callback,bool repeating = false) {
-        timers.push_back({nextId++, Clock::now(), duration, std::move(callback), repeating});
-        return timers.back().id;
+    Timer* addTimer(std::chrono::milliseconds duration,bool repeating = false) {
+        timers.push_back({ Clock::now(), duration, repeating});
+        return &timers.back();
     }
 
     void update() {
@@ -46,7 +40,6 @@ public:
 
         while (it != timers.end()) {
             if (it->isExpired(now)) {
-                it->callback();
 
                 if (it->repeating) {
                     it->reset(now);

@@ -22,8 +22,11 @@ public:
     void SetTargetDirection(b2Vec2 target);
 
     void Interrupt();
+
+    void ProcessInput(b2Vec2 target);
 public:
     int Speed;
+    int OverrideSpeed = 0;
     bool CanMove = true;
     b2Vec2 target;
 private:
@@ -100,7 +103,7 @@ class HitComponent:public Component{
 public:
     HitComponent(uint64_t id):Component(ComponentType::HitComponentType,id) {}
 public:
-    void Hit(uint64_t target);
+    void Hit(uint64_t target,AttackInfo info);
 };
 
 
@@ -116,5 +119,24 @@ private:
     std::array<std::unique_ptr<Skill>,4> skills;
 };
 
+
+class SkillObjectComponent:public Component {
+public:
+    SkillObjectComponent(uint64_t id,uint64_t from):Component(ComponentType::SkillObjectComponentType,id),from(from){}
+protected:
+    uint64_t from;
+};
+
+
+class BuffComponent:public Component {
+public:
+    BuffComponent(uint64_t id):Component(ComponentType::BuffComponentType,id) {}
+public:
+    void Update() override;
+
+    void AddBuff(std::unique_ptr<Buff> buff);
+private:
+    std::vector<std::unique_ptr<Buff>> buffs;
+};
 
 #endif //TESTSERVER_COMPONENTS_H

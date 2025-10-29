@@ -97,7 +97,7 @@ protected:
 private:
     std::unordered_map<uint32_t,std::shared_ptr<Player>> playerMap;
     SaveQueue<ConnectTask> ConnectTaskQueue;
-    SaveQueue<DisconnectTask>DisconnectTaskQueue;
+    SaveQueue<DisconnectTask>DisconnectTaskQueue; // 这里修改喂shared_map
 };
 
 #endif //TESTSERVER_INTERNAL_H
