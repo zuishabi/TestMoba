@@ -16,7 +16,7 @@ void CustomServer::ProcessInput() {
 
             if (input.has_move()) {
                 auto moving = manager->GetComponent<MovingComponent>(ComponentType::MovingComponentType);
-                moving->SetTargetDirection(b2Vec2{input.move().x(),input.move().y()});
+                moving->ProcessInput(b2Vec2{input.move().x(),input.move().y()});
             }else if (input.has_player_attack()) {
                 // 处理玩家攻击
                 auto attack = manager->GetComponent<AttackComponent>(ComponentType::AttackComponentType);

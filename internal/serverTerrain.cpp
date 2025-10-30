@@ -3,7 +3,7 @@
 //
 
 #include "server.h"
-#include "objects/worldManager.h"
+#include "worldManager.h"
 
 // 初始化世界中的地形
 void CustomServer::InitializeWorld() {

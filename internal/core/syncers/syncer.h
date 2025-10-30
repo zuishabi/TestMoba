@@ -7,41 +7,8 @@
 
 #include <box2d/box2d.h>
 #include <box2d/id.h>
-#include "../../protos/test.pb.h"
-
-enum class SyncerType {
-    HealthSyncer,
-    MoveSyncer,
-    ManaSyncer,
-    SpeedSyncer,
-    AttackSpeedSyncer,
-    StraightBulletSkillSyncer,
-};
-
-
-class Syncer{
-public:
-    virtual ~Syncer() = default;
-
-    explicit Syncer(uint64_t id,SyncerType type) : id(id), type(type) {
-    }
-
-public:
-    virtual std::shared_ptr<Packet> getSync() = 0;
-
-    [[nodiscard]] SyncerType GetType() const {
-        return type;
-    }
-
-    [[nodiscard]] bool IsUpdated() const{
-        return updated;
-    }
-protected:
-    uint64_t id;
-    bool updated = false;
-    SyncerType type;
-};
-
+#include "../../../protos/test.pb.h"
+#include "../core.h"
 
 class HealthSyncer:public Syncer {
 public:
@@ -75,10 +42,11 @@ public:
         sync->set_health(health);
         sync->set_max_health(maxHealth);
         sync->set_uid(id);
+        std::cout << "sync health:" << id << std::endl;
         return packet;
     };
 private:
-    int health{};
+    int health;
     int maxHealth;
 };
 
@@ -110,9 +78,9 @@ private:
 };
 
 
-class ManaSyncer:Syncer {
+class ManaSyncer:public Syncer {
 public:
-    ManaSyncer(uint64_t id):Syncer(id,SyncerType::ManaSyncer){}
+    explicit ManaSyncer(uint64_t id):Syncer(id,SyncerType::ManaSyncer){}
 public:
     void SetMana(int m) {
         this->updated = true;
@@ -145,12 +113,12 @@ public:
         return packet;
     }
 private:
-    int mana;
-    int maxMana;
+    int mana{};
+    int maxMana{};
 };
 
 
-class AttackSpeedSyncer:Syncer {
+class AttackSpeedSyncer:public Syncer {
 public:
     AttackSpeedSyncer(uint64_t id):Syncer(id,SyncerType::AttackSpeedSyncer) {}
 public:
@@ -176,10 +144,10 @@ private:
 
 
 // 用于同步技能状态
-class SkillSyncer:public Syncer {
+class StraightBulletSkillSyncer:public Syncer {
 public:
     // pos:代表技能的位置，如一技能二技能
-    SkillSyncer(uint64_t id,uint64_t from,int pos):
+    StraightBulletSkillSyncer(uint64_t id,uint64_t from,int pos):
     Syncer(id,SyncerType::StraightBulletSkillSyncer),pos(pos),from(from),id(id) {
         updated = true;
         bodyID = b2LoadBodyId(id);
@@ -190,7 +158,7 @@ public:
         auto sync = packet->mutable_sync_skill();
         sync->set_pos(pos);
         sync->set_uid(from);
-        auto skills = sync->mutable_skill_info();
+        auto skills = sync->mutable_straight_bullet_skill_info();
         skills->set_id(id);
         skills->set_angle(b2Rot_GetAngle(b2Body_GetRotation(bodyID)));
         updated = false;
@@ -203,26 +171,5 @@ private:
     b2BodyId bodyID;
 };
 
-
-class SyncerManager {
-public:
-    void AddSyncer(const std::shared_ptr<Syncer>& syncer) {
-        syncers[syncer->GetType()] = syncer;
-    }
-
-    std::shared_ptr<Syncer> GetSyncer(SyncerType type) {
-        auto it = syncers.find(type);
-        if (it != syncers.end()) {
-            return std::dynamic_pointer_cast<Syncer>(it->second);
-        }
-        return nullptr;
-    }
-
-    std::unordered_map<SyncerType,std::shared_ptr<Syncer>> GetSyncers() {
-        return syncers;
-    }
-private:
-    std::unordered_map<SyncerType, std::shared_ptr<Syncer>> syncers;
-};
 
 #endif //TESTSERVER_SYNCER_H

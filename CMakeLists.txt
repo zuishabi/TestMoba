@@ -9,7 +9,7 @@ add_executable(testMoba main.cpp protos/test.pb.cc
         internal/server.cpp
         internal/server.h
         internal/containers/containers.h
-        internal/objects/player.h
+        internal/player/player.h
         internal/containers/error.h
         internal/utils/timer.h
         internal/serverSync.cpp
@@ -20,17 +20,19 @@ add_executable(testMoba main.cpp protos/test.pb.cc
         internal/core/components/movingComponent.cpp
         internal/core/components/attackComponent.cpp
         internal/core/components/attributeComponent.cpp
-        internal/utils/syncer.h
+        internal/core/syncers/syncer.h
         internal/core/components/components.h
         internal/core/components/hitComponent.cpp
         internal/core/components/skillComponent.cpp
         internal/core/skills/skill.h
         internal/core/skills/ezQ.cpp
-        internal/objects/worldManager.h
+        internal/worldManager.h
         internal/utils/mMath.h
         internal/core/buffs/buff.h
         internal/core/components/buffComponent.cpp
         internal/core/buffs/fire.cpp
+        internal/player/barbarian.cpp
+        internal/core/skills/meleeSpin.cpp
 )
 target_link_directories(testMoba PRIVATE C:/projects/TestMoba/libs)
 

@@ -3,21 +3,19 @@
 //
 
 #include <box2d/box2d.h>
-#include "skill.h"
-#include "../components/components.h"
-#include "../../objects/worldManager.h"
+#include "../../worldManager.h"
 #include "../../utils/mMath.h"
-#include "../core.h"
-#include "../../objects/player.h"
+#include "skill.h"
+#include "../../player/player.h"
 
 
 class ezQComponent:public SkillObjectComponent{
 public:
     ezQComponent(uint64_t id,uint64_t from,b2ShapeId shapeID):
     SkillObjectComponent(id,from),shapeID(shapeID),positionSyncer(std::make_shared<MoveSyncer>(id)) {
-        auto skillSyncer = std::make_shared<SkillSyncer>(id,from,0);
-        manager->SyncerManager.AddSyncer(skillSyncer);
-        manager->SyncerManager.AddSyncer(positionSyncer);
+        auto skillSyncer = std::make_shared<StraightBulletSkillSyncer>(id,from,0);
+        manager->SyncerManager->AddSyncer(skillSyncer);
+        manager->SyncerManager->AddSyncer(positionSyncer);
         expireAt = std::chrono::steady_clock::now() + std::chrono::seconds(1);
     }
 public:
@@ -102,5 +100,6 @@ void ezQ::Execute(SkillInfo info) {
 
     auto id = b2StoreBodyId(myBodyId);
     auto manager = GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Skill));
+    std::cout << "create skill:" << id << std::endl;
     manager->AddComponent<ezQComponent>(id,from,bodyShape);
 }

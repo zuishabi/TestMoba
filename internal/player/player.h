@@ -12,7 +12,7 @@
 #include "../core/core.h"
 #include "../core/components/components.h"
 
-#include "worldManager.h"
+#include "../worldManager.h"
 #include "../core/skills/skill.h"
 
 class Player {
@@ -23,13 +23,15 @@ public:
         b2Vec2 startPos = {200,200};
         manager->AddComponent<MovingComponent>(id,100,startPos);
 
-        manager->AddComponent<AttackComponent>(id);
+        manager->AddComponent<AttackComponent>(id,50);
 
         manager->AddComponent<AttributeComponent>(id);
 
         manager->AddComponent<HitComponent>(id);
 
-        std::array<std::unique_ptr<Skill>,4> skills = {std::make_unique<ezQ>(id)};
+        manager->AddComponent<StateMachineComponent>(id);
+
+        std::array<std::unique_ptr<Skill>,4> skills = {std::make_unique<meleeSpin>(id)};
         manager->AddComponent<SkillComponent>(id,std::move(skills));
     }
 
@@ -41,6 +43,11 @@ private:
 public:
     std::queue<InputPacket> InputList;
     std::mutex InputLock;
+};
+
+
+class Barbarian:public Player {
+
 };
 
 #endif //TESTSERVER_PLAYER_H

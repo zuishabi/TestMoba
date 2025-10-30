@@ -5,6 +5,10 @@
 #ifndef TESTMOBA_WORLDMANAGER_H
 #define TESTMOBA_WORLDMANAGER_H
 
+#include <box2d/box2d.h>
+#include <unordered_map>
+#include <memory>
+
 class ComponentManager;
 
 class GameWorld {

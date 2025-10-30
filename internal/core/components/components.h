@@ -6,13 +6,14 @@
 #define TESTSERVER_COMPONENTS_H
 
 #include "../core.h"
+#include "../syncers/syncer.h"
 
 // 移动组件
 class MovingComponent :public Component{
 public:
     MovingComponent(uint64_t id,int speed,b2Vec2 targetPos):
     Component(ComponentType::MovingComponentType,id),Speed(speed),moveSyncer(std::make_shared<MoveSyncer>(id)),target(targetPos){
-        manager->SyncerManager.AddSyncer(moveSyncer);
+        manager->SyncerManager->AddSyncer(moveSyncer);
         moveSyncer->SetPos({200,200});
         target = {200,200};
     }
@@ -36,7 +37,7 @@ private:
 
 class AttackComponent :public Component {
 public:
-    explicit AttackComponent(uint64_t id):Component(ComponentType::AttackComponentType,id) {
+    explicit AttackComponent(uint64_t id,float scale):Component(ComponentType::AttackComponentType,id),scale(scale) {
 
     }
 public:
@@ -48,7 +49,7 @@ public:
 public:
     bool isBullet = false;
     bool isShooting = false;
-    float scale = 100;
+    float scale;
     std::chrono::time_point<std::chrono::steady_clock, std::chrono::duration<double, std::ratio<1, 1000000000>>> nextPoint;
     uint64_t targetID;
 };
@@ -59,7 +60,9 @@ public:
     AttributeComponent(uint64_t id):Component(ComponentType::AttributeComponentType,id),
     manaSyncer(std::make_shared<ManaSyncer>(id)),healthSyncer(std::make_shared<HealthSyncer>(id)),
     attackSpeedSyncer(std::make_shared<AttackSpeedSyncer>(id)) {
-        manager->SyncerManager.AddSyncer(this->healthSyncer);
+        manager->SyncerManager->AddSyncer(this->healthSyncer);
+        manager->SyncerManager->AddSyncer(this->manaSyncer);
+        manager->SyncerManager->AddSyncer(this->attackSpeedSyncer);
         healthSyncer->SetHealth(100);
         healthSyncer->SetMaxHealth(100);
         manaSyncer->SetMana(100);
@@ -137,6 +140,42 @@ public:
     void AddBuff(std::unique_ptr<Buff> buff);
 private:
     std::vector<std::unique_ptr<Buff>> buffs;
+};
+
+
+class StateSyncer:public Syncer {
+public:
+    explicit StateSyncer(uint64_t id):Syncer(id,SyncerType::StateSyncer){}
+public:
+    std::shared_ptr<Packet>getSync()override {
+        updated = false;
+        std::shared_ptr<Packet> packet = std::make_shared<Packet>();
+        auto state = packet->mutable_state_sync();
+        state->set_id(id);
+        state->set_state(static_cast<uint32_t>(currentState));
+        return packet;
+    }
+
+    void SetState(State state) {
+        updated = true;
+        currentState = state;
+    }
+
+    [[nodiscard]] State GetState() const {
+        return currentState;
+    }
+
+    State currentState;
+};
+
+
+// 用于进行状态同步
+class StateMachineComponent:public Component {
+public:
+    explicit StateMachineComponent(uint64_t id):
+    Component(ComponentType::StateMachineComponentType,id),currentState(std::make_shared<StateSyncer>(id)){}
+public:
+    std::shared_ptr<StateSyncer> currentState;
 };
 
 #endif //TESTSERVER_COMPONENTS_H

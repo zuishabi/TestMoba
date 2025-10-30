@@ -9,7 +9,10 @@ void SkillComponent::ExecuteSkill(int pos,SkillInfo info) {
         return;
     }
     skills[pos]->Execute(info);
+    auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
+    stateMachine->currentState->SetState(State::SKILL);
 }
+
 
 void SkillComponent::Update() {
     for (int i = 0;i < 4;i++) {

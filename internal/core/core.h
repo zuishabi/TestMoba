@@ -9,10 +9,11 @@
 #include <utility>
 #include <vector>
 #include <box2d/math_functions.h>
-#include "../utils/syncer.h"
-#include "../objects/worldManager.h"
+#include "../worldManager.h"
+#include "../../protos/test.pb.h"
 
 class ComponentManager;
+class SyncerManager;
 
 enum class ComponentType{
     MovingComponentType,
@@ -22,6 +23,7 @@ enum class ComponentType{
     SkillComponentType,
     SkillObjectComponentType,
     BuffComponentType,
+    StateMachineComponentType,
 };
 
 
@@ -57,7 +59,8 @@ public:
 
     ComponentManager() = delete;
 
-    explicit ComponentManager(uint64_t id,ManagerType type):id(id),Type(type) {
+    explicit ComponentManager(uint64_t id,ManagerType type):
+    id(id),Type(type),SyncerManager(std::make_unique<class SyncerManager>()) {
 
     }
 
@@ -90,7 +93,7 @@ public:
 private:
     std::vector<std::unique_ptr<Component>> componentList;
 public:
-    SyncerManager SyncerManager;
+    std::unique_ptr<SyncerManager> SyncerManager;
     uint64_t id;
     ManagerType Type;
     bool destroyed = false;
@@ -143,5 +146,71 @@ struct AttackInfo {
     int PhysicalDamage;
     int MagicDamage;
 };
+
+
+enum class SyncerType {
+    HealthSyncer,
+    MoveSyncer,
+    ManaSyncer,
+    SpeedSyncer,
+    AttackSpeedSyncer,
+    StraightBulletSkillSyncer,
+    StateSyncer,
+};
+
+
+class Syncer{
+public:
+    virtual ~Syncer() = default;
+
+    explicit Syncer(uint64_t id,SyncerType type) : id(id), type(type) {
+    }
+
+public:
+    virtual std::shared_ptr<Packet> getSync() = 0;
+
+    [[nodiscard]] SyncerType GetType() const {
+        return type;
+    }
+
+    [[nodiscard]] bool IsUpdated() const{
+        return updated;
+    }
+protected:
+    uint64_t id;
+    bool updated = true;
+    SyncerType type;
+};
+
+
+class SyncerManager {
+public:
+    void AddSyncer(const std::shared_ptr<Syncer>& syncer) {
+        syncers[syncer->GetType()] = syncer;
+    }
+
+    std::shared_ptr<Syncer> GetSyncer(SyncerType type) {
+        auto it = syncers.find(type);
+        if (it != syncers.end()) {
+            return std::dynamic_pointer_cast<Syncer>(it->second);
+        }
+        return nullptr;
+    }
+
+    std::unordered_map<SyncerType,std::shared_ptr<Syncer>> GetSyncers() {
+        return syncers;
+    }
+private:
+    std::unordered_map<SyncerType, std::shared_ptr<Syncer>> syncers;
+};
+
+
+enum class State:uint32_t{
+    IDLE,
+    MOVING,
+    ATTACK,
+    SKILL,
+};
+
 
 #endif //TESTSERVER_COMPONENT_H

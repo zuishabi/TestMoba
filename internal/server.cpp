@@ -2,7 +2,7 @@
 // Created by 张俏悦 on 2025/9/25.
 //
 #include "server.h"
-#include "objects/worldManager.h"
+#include "worldManager.h"
 
 void CustomServer::OnMessage(olc::net::message &msg,uint32_t id) {
     Packet p;
@@ -19,8 +19,8 @@ void CustomServer::OnMessage(olc::net::message &msg,uint32_t id) {
 
 
 void CustomServer::OnClientDisconnect(std::shared_ptr<olc::net::connection> client) {
-    DisconnectTask t = {client};
-    DisconnectTaskQueue.push_front(t);
+    auto t = std::make_shared<DisconnectTask>(client);
+    DisconnectTaskQueue.push_back(t);
 }
 
 
@@ -70,7 +70,7 @@ void CustomServer::BigGameLogic() {
 
 
 std::vector<std::shared_ptr<Packet>> GetAllSyncers(uint64_t id) {
-    auto syncers = GameWorld::objectsMap[id]->SyncerManager.GetSyncers();
+    auto syncers = GameWorld::objectsMap[id]->SyncerManager->GetSyncers();
     auto syncerMessages = std::vector<std::shared_ptr<Packet>>(syncers.size());
     int cur = 0;
     for (auto& p : syncers) {
@@ -135,11 +135,12 @@ void CustomServer::CreatePlayer() {
 
 void CustomServer::DeletePlayer() {
     while (!DisconnectTaskQueue.empty()) {
-        DisconnectTask t = DisconnectTaskQueue.back();
-        std::cout << "Client Disconnect " << (t.client == nullptr) << std::endl;
+        auto t = DisconnectTaskQueue.back();
+        std::cout << "Client Disconnect " << (t->client == nullptr) << std::endl;
+        GameWorld::objectsMap[playerMap[t->client->id]->GetID()]->destroyed = true;
 
         // 清除玩家碰撞体
+        playerMap.erase(t->client->id);
         DisconnectTaskQueue.pop_back();
-        playerMap.erase(t.client->id);
     }
 }

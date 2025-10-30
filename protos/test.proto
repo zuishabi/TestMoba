@@ -12,6 +12,7 @@ message Packet{
     AttackSpeedSyncMessage attack_speed_sync = 8;
     SyncSkillMessage sync_skill = 9;
     ObjectsDestroyedSyncMessage objects_destroyed_sync = 10;
+    StateSyncMessage state_sync = 11;
   }
 }
 
@@ -32,20 +33,9 @@ message AttackMessage{
   uint64 uid = 1;
 }
 
-message PlayerUseSkillMessage{
-  uint32 skill_pos = 1;
-  uint64 target_player = 2;
-  float x = 3;
-  float y = 4;
-}
-
 message PlayerSyncMessage{
   uint64 uid = 1;
   bool self = 2;
-}
-
-message ExitSyncMessage{
-  uint64 uid = 1;
 }
 
 message PositionSyncMessage{
@@ -86,12 +76,12 @@ message SyncSkillMessage{
   uint64 uid = 1;
   int32 pos = 2;
   oneof infos{
-    SkillInfoMessage skill_info = 3;
+    StraightBulletSkillInfoMessage straight_bullet_skill_info = 3;
   }
 }
 
 
-message SkillInfoMessage{
+message StraightBulletSkillInfoMessage{
   uint64 id = 1;
   float angle = 4;
 }
@@ -100,4 +90,9 @@ message SkillInfoMessage{
 message ObjectsDestroyedSyncMessage{
   uint64 id = 1;
   bool is_player = 2;
+}
+
+message StateSyncMessage{
+  uint64 id = 1;
+  uint32 state = 2; // 0：静止，1：移动，2：攻击，3：释放技能
 }

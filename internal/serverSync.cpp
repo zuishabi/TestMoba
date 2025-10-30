@@ -10,7 +10,7 @@ void CustomServer::SyncPlayersStats() {
         // p.second->position.y += p.second->currentDirection.y * 10;
         auto objectID = p.second->id;
         ComponentManager* manager = GameWorld::GetComponentManager(objectID);
-        auto syncers = manager->SyncerManager.GetSyncers();
+        auto syncers = manager->SyncerManager->GetSyncers();
         for (auto& s : syncers) {
             if (s.second->IsUpdated()) {
                 BroadcastMessage(s.second->getSync());

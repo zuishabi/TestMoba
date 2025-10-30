@@ -3,7 +3,7 @@
 //
 
 #include "components.h"
-#include "../../objects/worldManager.h"
+#include "../../worldManager.h"
 
 void HitComponent::Hit(uint64_t targetID,AttackInfo info) {
     ComponentManager* target = GameWorld::GetComponentManager(targetID);

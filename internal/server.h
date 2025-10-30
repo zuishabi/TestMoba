@@ -12,8 +12,8 @@
 #include <box2d/box2d.h>
 #include "containers/containers.h"
 #include "../protos/test.pb.h"
-#include "objects/player.h"
-#include "objects/worldManager.h"
+#include "player/player.h"
+#include "worldManager.h"
 
 
 
@@ -97,7 +97,7 @@ protected:
 private:
     std::unordered_map<uint32_t,std::shared_ptr<Player>> playerMap;
     SaveQueue<ConnectTask> ConnectTaskQueue;
-    SaveQueue<DisconnectTask>DisconnectTaskQueue; // 这里修改喂shared_map
+    SaveQueue<std::shared_ptr<DisconnectTask>>DisconnectTaskQueue; // 这里修改喂shared_map
 };
 
 #endif //TESTSERVER_INTERNAL_H

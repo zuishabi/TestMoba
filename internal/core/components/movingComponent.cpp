@@ -5,7 +5,7 @@
 #include <box2d/box2d.h>
 #include <box2d/id.h>
 #include "components.h"
-#include "../../objects/worldManager.h"
+#include "../../worldManager.h"
 
 
 const float fixed_dt = 1.0f / 30.0f;
@@ -27,10 +27,14 @@ inline float Distance(const b2Vec2& a, const b2Vec2& b) {
 
 void MovingComponent::Update() {
     b2BodyId body = b2LoadBodyId(id);
+    b2Vec2 vec = b2Body_GetLinearVelocity(body);
     if (!b2Body_IsValid(body)) {
         std::cout << id << "not valid" << std::endl;
     }
-    moveSyncer->SetPos(b2Body_GetPosition(body));
+    if (vec.x != 0 || vec.y != 0) {
+        moveSyncer->SetPos(b2Body_GetPosition(body));
+    }
+
     int currentSpeed = OverrideSpeed == 0 ? Speed : OverrideSpeed;
     b2Vec2 playerPosition = b2Body_GetPosition(body);
     // 阈值按速度和时间步计算，保证 fast moving 能在一帧内到达的不抖动
@@ -39,6 +43,8 @@ void MovingComponent::Update() {
     if (Distance(playerPosition, target) <= stopThreshold) {
         // 贴合到目标并停止，避免小幅震荡
         b2Body_SetLinearVelocity(body, b2Vec2{0.0f, 0.0f});
+        auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
+        stateMachine->currentState->SetState(State::IDLE);
     } else {
         b2Vec2 direction = GetDirection(playerPosition, target);
         b2Body_SetLinearVelocity(body,b2Vec2(direction.x * currentSpeed,direction.y * currentSpeed));
@@ -62,5 +68,7 @@ void MovingComponent::Interrupt() {
 void MovingComponent::ProcessInput(b2Vec2 target) {
     if (CanMove) {
         SetTargetDirection(target);
+        auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
+        stateMachine->currentState->SetState(State::MOVING);
     }
 }

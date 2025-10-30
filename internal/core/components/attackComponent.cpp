@@ -6,7 +6,7 @@
 #include <box2d/box2d.h>
 #include <box2d/id.h>
 #include "components.h"
-#include "../../objects/worldManager.h"
+#include "../../worldManager.h"
 
 
 void AttackComponent::Update() {
@@ -31,6 +31,8 @@ void AttackComponent::Attack(uint64_t target) {
         isShooting = true;
         ComponentManager* self = GameWorld::GetComponentManager(id);
         auto moving = self->GetComponent<MovingComponent>(ComponentType::MovingComponentType);
+        auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
+        stateMachine->currentState->SetState(State::ATTACK);
         moving->Interrupt();
     }
 }

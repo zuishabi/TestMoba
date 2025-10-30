@@ -17,12 +17,14 @@ void CustomServer::UpdateObjects() {
     for (int i = 0;i < destroyedList.size();i++) {
         ComponentManager* manager = GameWorld::GetComponentManager(destroyedList[i]);
         b2BodyId body = b2LoadBodyId(manager->id);
-        b2DestroyBody(body);
-        GameWorld::objectsMap.erase(manager->id);
+
         auto packet = std::make_shared<Packet>();
         ObjectsDestroyedSyncMessage* destroy = packet->mutable_objects_destroyed_sync();
         destroy->set_id(manager->id);
         destroy->set_is_player(manager->Type == ManagerType::Player);
         BroadcastMessage(packet);
+
+        b2DestroyBody(body);
+        GameWorld::objectsMap.erase(manager->id);
     }
 }
