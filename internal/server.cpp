@@ -108,7 +108,7 @@ void CustomServer::CreatePlayer() {
         uint64_t id = b2StoreBodyId(myBodyId);
         std::cout << "create id " << id <<std::endl;
         GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Player));
-        std::shared_ptr<Player> player = std::make_shared<Player>(t.client,id);
+        std::shared_ptr<Player> player = std::make_shared<Barbarian>(t.client,id);
 
 
         auto packet = std::make_shared<Packet>();

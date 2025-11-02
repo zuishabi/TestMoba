@@ -11,11 +11,13 @@
 // 移动组件
 class MovingComponent :public Component{
 public:
-    MovingComponent(uint64_t id,int speed,b2Vec2 targetPos):
-    Component(ComponentType::MovingComponentType,id),Speed(speed),moveSyncer(std::make_shared<MoveSyncer>(id)),target(targetPos){
+    explicit MovingComponent(uint64_t id,b2Vec2 startPos):Component(ComponentType::MovingComponentType,id),
+    speed(std::make_shared<SpeedSyncer>(id)),moveSyncer(std::make_shared<MoveSyncer>(id)){
         manager->SyncerManager->AddSyncer(moveSyncer);
-        moveSyncer->SetPos({200,200});
-        target = {200,200};
+        moveSyncer->SetPos(startPos);
+        manager->SyncerManager->AddSyncer(speed);
+        speed->SetSpeed(100);
+        target = startPos;
     }
 public:
     void Update() override;
@@ -26,12 +28,12 @@ public:
 
     void ProcessInput(b2Vec2 target);
 public:
-    int Speed;
     int OverrideSpeed = 0;
     bool CanMove = true;
     b2Vec2 target;
 private:
     std::shared_ptr<MoveSyncer> moveSyncer;
+    std::shared_ptr<SpeedSyncer> speed;
 };
 
 
@@ -59,7 +61,8 @@ class AttributeComponent:public Component {
 public:
     AttributeComponent(uint64_t id):Component(ComponentType::AttributeComponentType,id),
     manaSyncer(std::make_shared<ManaSyncer>(id)),healthSyncer(std::make_shared<HealthSyncer>(id)),
-    attackSpeedSyncer(std::make_shared<AttackSpeedSyncer>(id)) {
+    attackSpeedSyncer(std::make_shared<AttackSpeedSyncer>(id)){
+
         manager->SyncerManager->AddSyncer(this->healthSyncer);
         manager->SyncerManager->AddSyncer(this->manaSyncer);
         manager->SyncerManager->AddSyncer(this->attackSpeedSyncer);
@@ -95,7 +98,7 @@ public:
     }
 
     void Update() override;
-private:
+public:
     std::shared_ptr<ManaSyncer> manaSyncer;
     std::shared_ptr<HealthSyncer> healthSyncer;
     std::shared_ptr<AttackSpeedSyncer> attackSpeedSyncer;
@@ -112,12 +115,22 @@ public:
 
 class SkillComponent:public Component {
 public:
-    explicit SkillComponent(uint64_t id,std::array<std::unique_ptr<Skill>,4> skills):
-    Component(ComponentType::SkillComponentType,id),skills(std::move(skills)) {
+    explicit SkillComponent(uint64_t id):
+    Component(ComponentType::SkillComponentType,id),skillAttributeSyncer(std::make_shared<SkillAttributeSyncer>(id)){
+        manager->SyncerManager->AddSyncer(this->skillAttributeSyncer);
+        skillAttributeSyncer->SetAttribute({100,100,100});
     }
+
     void Update() override;
 public:
-    void ExecuteSkill(int pos,SkillInfo info);
+
+    void LoadSkills(std::array<std::unique_ptr<Skill>,4> skills) {
+        this->skills = std::move(skills);
+    }
+
+    void ExecuteSkill(int pos,ExecuteSkillInfo info);
+
+    std::shared_ptr<SkillAttributeSyncer> skillAttributeSyncer;
 private:
     std::array<std::unique_ptr<Skill>,4> skills;
 };
@@ -143,38 +156,25 @@ private:
 };
 
 
-class StateSyncer:public Syncer {
-public:
-    explicit StateSyncer(uint64_t id):Syncer(id,SyncerType::StateSyncer){}
-public:
-    std::shared_ptr<Packet>getSync()override {
-        updated = false;
-        std::shared_ptr<Packet> packet = std::make_shared<Packet>();
-        auto state = packet->mutable_state_sync();
-        state->set_id(id);
-        state->set_state(static_cast<uint32_t>(currentState));
-        return packet;
-    }
-
-    void SetState(State state) {
-        updated = true;
-        currentState = state;
-    }
-
-    [[nodiscard]] State GetState() const {
-        return currentState;
-    }
-
-    State currentState;
-};
-
-
 // 用于进行状态同步
 class StateMachineComponent:public Component {
 public:
     explicit StateMachineComponent(uint64_t id):
     Component(ComponentType::StateMachineComponentType,id),currentState(std::make_shared<StateSyncer>(id)){}
 public:
+    void SetState(State state) {
+        if (currentState->currentState == State::ATTACK) {
+            if (state == State::IDLE) {
+                return;
+            }
+        }
+        currentState->SetState(state);
+    }
+
+    State GetState() {
+        return currentState->currentState;
+    }
+private:
     std::shared_ptr<StateSyncer> currentState;
 };
 

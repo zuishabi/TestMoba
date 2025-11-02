@@ -35,16 +35,16 @@ void MovingComponent::Update() {
         moveSyncer->SetPos(b2Body_GetPosition(body));
     }
 
-    int currentSpeed = OverrideSpeed == 0 ? Speed : OverrideSpeed;
+    int currentSpeed = OverrideSpeed == 0 ? speed->GetSpeed() : OverrideSpeed;
     b2Vec2 playerPosition = b2Body_GetPosition(body);
     // 阈值按速度和时间步计算，保证 fast moving 能在一帧内到达的不抖动
     float stopThreshold = std::max(0.01f, currentSpeed * fixed_dt * 1.5f);
 
     if (Distance(playerPosition, target) <= stopThreshold) {
         // 贴合到目标并停止，避免小幅震荡
-        b2Body_SetLinearVelocity(body, b2Vec2{0.0f, 0.0f});
         auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-        stateMachine->currentState->SetState(State::IDLE);
+        b2Body_SetLinearVelocity(body, b2Vec2{0.0f, 0.0f});
+        stateMachine->SetState(State::IDLE);
     } else {
         b2Vec2 direction = GetDirection(playerPosition, target);
         b2Body_SetLinearVelocity(body,b2Vec2(direction.x * currentSpeed,direction.y * currentSpeed));
@@ -69,6 +69,6 @@ void MovingComponent::ProcessInput(b2Vec2 target) {
     if (CanMove) {
         SetTargetDirection(target);
         auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-        stateMachine->currentState->SetState(State::MOVING);
+        stateMachine->SetState(State::MOVING);
     }
 }

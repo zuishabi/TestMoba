@@ -4,13 +4,13 @@
 
 #include "components.h"
 
-void SkillComponent::ExecuteSkill(int pos,SkillInfo info) {
+void SkillComponent::ExecuteSkill(int pos,ExecuteSkillInfo info) {
     if (skills[pos] == nullptr) {
         return;
     }
     skills[pos]->Execute(info);
     auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-    stateMachine->currentState->SetState(State::SKILL);
+    stateMachine->SetState(State::SKILL);
 }
 
 

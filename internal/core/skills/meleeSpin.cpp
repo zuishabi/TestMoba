@@ -3,14 +3,17 @@
 //
 
 #include "skill.h"
+#include "../buffs/buff.h"
 #include "../components/components.h"
+
 
 void meleeSpin::Update() {
     if (activated) {
+        int damage = 10 * (1+1.0/static_cast<double>(attribute->GeAttribute().strength));
+
         int capacity = b2Shape_GetSensorCapacity( shape );
         std::vector<b2ShapeId> overlaps;
         overlaps.resize( capacity );
-
         // Now get all overlaps and record the actual count
         int count = b2Shape_GetSensorOverlaps( shape, overlaps.data(), capacity );
         overlaps.resize( count );
@@ -32,7 +35,13 @@ void meleeSpin::Update() {
             if (targetManager && targetManager->Type == ManagerType::Player) {
                 auto hit = targetManager->GetComponent<HitComponent>(ComponentType::HitComponentType);
                 if (hit != nullptr) {
-                    hit->Hit(_id,{10});
+                    hit->Hit(_id,{damage});
+                }
+
+                auto buff = targetManager->GetComponent<BuffComponent>(ComponentType::BuffComponentType);
+                if (buff != nullptr) {
+                    std::unique_ptr<Buff> ptr = std::make_unique<Fire>(from, _id);
+                    buff->AddBuff(std::move(ptr));
                 }
             }
         }
@@ -41,6 +50,6 @@ void meleeSpin::Update() {
 }
 
 
-void meleeSpin::Execute(SkillInfo info) {
+void meleeSpin::Execute(ExecuteSkillInfo info) {
     activated = true;
 }

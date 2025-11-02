@@ -13,6 +13,8 @@ message Packet{
     SyncSkillMessage sync_skill = 9;
     ObjectsDestroyedSyncMessage objects_destroyed_sync = 10;
     StateSyncMessage state_sync = 11;
+    SkillAttributeMessage skill_attribute_sync = 12;
+    SpeedSyncMessage speed_sync = 13;
   }
 }
 
@@ -66,6 +68,11 @@ message AttackSpeedSyncMessage{
   float speed = 2;
 }
 
+message SpeedSyncMessage{
+  uint64 id = 1;
+  float speed = 2;
+}
+
 message ExecuteSkillMessage{
   float rotate = 1;
   float pos_x = 2;
@@ -73,19 +80,19 @@ message ExecuteSkillMessage{
 }
 
 message SyncSkillMessage{
-  uint64 uid = 1;
-  int32 pos = 2;
-  oneof infos{
-    StraightBulletSkillInfoMessage straight_bullet_skill_info = 3;
-  }
-}
-
-
-message StraightBulletSkillInfoMessage{
-  uint64 id = 1;
+  uint64 uid = 1; // 技能的来源
+  uint64 id = 2; // 如果是实体技能，实体技能的id
+  int32 pos = 3;
   float angle = 4;
+  float left_time = 5;
 }
 
+message SkillAttributeMessage{
+  uint64 uid = 1;
+  int64 strength = 2;
+  int64 scale = 3;
+  int64 efficiency = 4;
+}
 
 message ObjectsDestroyedSyncMessage{
   uint64 id = 1;

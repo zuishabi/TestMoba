@@ -5,8 +5,6 @@
 #ifndef TESTSERVER_SYNCER_H
 #define TESTSERVER_SYNCER_H
 
-#include <box2d/box2d.h>
-#include <box2d/id.h>
 #include "../../../protos/test.pb.h"
 #include "../core.h"
 
@@ -144,31 +142,109 @@ private:
 
 
 // 用于同步技能状态
-class StraightBulletSkillSyncer:public Syncer {
+class SkillInfoSyncer:public Syncer {
 public:
     // pos:代表技能的位置，如一技能二技能
-    StraightBulletSkillSyncer(uint64_t id,uint64_t from,int pos):
-    Syncer(id,SyncerType::StraightBulletSkillSyncer),pos(pos),from(from),id(id) {
+    SkillInfoSyncer(uint64_t from,uint64_t id,SkillInfo info):
+    Syncer(id,SyncerType::SkillInfoSyncer),from(from),id(id),info(info) {
         updated = true;
-        bodyID = b2LoadBodyId(id);
     }
 public:
     std::shared_ptr<Packet>getSync() override {
         std::shared_ptr<Packet> packet = std::make_shared<Packet>();
         auto sync = packet->mutable_sync_skill();
-        sync->set_pos(pos);
+        sync->set_pos(info.pos);
         sync->set_uid(from);
-        auto skills = sync->mutable_straight_bullet_skill_info();
-        skills->set_id(id);
-        skills->set_angle(b2Rot_GetAngle(b2Body_GetRotation(bodyID)));
+        sync->set_left_time(info.timeLeft);
+        sync->set_angle(info.rotate);
+        sync->set_id(id);
         updated = false;
         return packet;
     }
 private:
-    int pos;
     uint64_t from;
     uint64_t id;
-    b2BodyId bodyID;
+    SkillInfo info;
+};
+
+
+class StateSyncer:public Syncer {
+public:
+    explicit StateSyncer(uint64_t id):Syncer(id,SyncerType::StateSyncer){}
+public:
+    std::shared_ptr<Packet>getSync()override {
+        updated = false;
+        std::shared_ptr<Packet> packet = std::make_shared<Packet>();
+        auto state = packet->mutable_state_sync();
+        state->set_id(id);
+        state->set_state(static_cast<uint32_t>(currentState));
+        return packet;
+    }
+
+    void SetState(State state) {
+        updated = true;
+        currentState = state;
+    }
+
+    [[nodiscard]] State GetState() const {
+        return currentState;
+    }
+
+    State currentState;
+};
+
+
+class SkillAttributeSyncer:public Syncer {
+public:
+    SkillAttributeSyncer(uint64_t id):Syncer(id,SyncerType::SkillAttributeSyncer) {}
+public:
+    std::shared_ptr<Packet> getSync() override {
+        updated = false;
+        std::shared_ptr<Packet> packet = std::make_shared<Packet>();
+        auto sync = packet->mutable_skill_attribute_sync();
+        sync->set_uid(id);
+        sync->set_efficiency(attribute.efficiency);
+        sync->set_scale(attribute.scale);
+        sync->set_strength(attribute.strength);
+        return packet;
+    }
+
+    void SetAttribute(SkillAttribute newAttribute) {
+        attribute = newAttribute;
+        updated = true;
+    }
+
+    SkillAttribute GeAttribute() {
+        return attribute;
+    }
+private:
+    SkillAttribute attribute;
+};
+
+
+class SpeedSyncer:public Syncer {
+public:
+    SpeedSyncer(uint64_t id):Syncer(id,SyncerType::SpeedSyncer) {}
+public:
+    std::shared_ptr<Packet> getSync()override {
+        updated = false;
+        std::shared_ptr<Packet> packet = std::make_shared<Packet>();
+        auto sync = packet->mutable_speed_sync();
+        sync->set_id(id);
+        sync->set_speed(speed);
+        return packet;
+    }
+
+    void SetSpeed(int speed) {
+        this->speed = speed;
+        updated = true;
+    }
+
+    int GetSpeed() {
+        return speed;
+    }
+private:
+    int speed;
 };
 
 

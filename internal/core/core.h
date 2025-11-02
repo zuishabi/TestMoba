@@ -12,6 +12,46 @@
 #include "../worldManager.h"
 #include "../../protos/test.pb.h"
 
+enum class State:uint32_t{
+    IDLE,
+    MOVING,
+    ATTACK,
+    SKILL,
+};
+
+
+enum class ManagerType {
+    Player,
+    Skill,
+};
+
+
+struct ExecuteSkillInfo {
+    b2Vec2 pos;
+    float rotate;
+};
+
+
+struct SkillInfo {
+    int pos;
+    float rotate;
+    float timeLeft;
+};
+
+
+struct SkillAttribute {
+    int scale;
+    int strength;
+    int efficiency;
+};
+
+
+struct AttackInfo {
+    int PhysicalDamage;
+    int MagicDamage;
+};
+
+
 class ComponentManager;
 class SyncerManager;
 
@@ -24,12 +64,6 @@ enum class ComponentType{
     SkillObjectComponentType,
     BuffComponentType,
     StateMachineComponentType,
-};
-
-
-enum class ManagerType {
-    Player,
-    Skill,
 };
 
 
@@ -100,19 +134,13 @@ public:
 };
 
 
-struct SkillInfo {
-    b2Vec2 pos;
-    float rotate;
-};
-
-
 class Skill {
 public:
     virtual ~Skill() = default;
 
     Skill(uint64_t id):from(id){}
 
-    virtual void Execute(SkillInfo info) = 0;
+    virtual void Execute(ExecuteSkillInfo info) = 0;
 
     virtual void Update() = 0;
 
@@ -134,28 +162,15 @@ protected:
 };
 
 
-class Buff {
-public:
-    virtual void Update() = 0;
-    bool destroyed = false;
-    uint64_t id;
-};
-
-
-struct AttackInfo {
-    int PhysicalDamage;
-    int MagicDamage;
-};
-
-
 enum class SyncerType {
     HealthSyncer,
     MoveSyncer,
     ManaSyncer,
     SpeedSyncer,
     AttackSpeedSyncer,
-    StraightBulletSkillSyncer,
+    SkillInfoSyncer,
     StateSyncer,
+    SkillAttributeSyncer,
 };
 
 
@@ -205,11 +220,16 @@ private:
 };
 
 
-enum class State:uint32_t{
-    IDLE,
-    MOVING,
-    ATTACK,
-    SKILL,
+class Buff {
+public:
+    Buff(uint64_t from,uint64_t owner):from(from),owner(owner){}
+public:
+    virtual void Update() = 0;
+    virtual void OnLoad() = 0;
+public:
+    bool destroyed = false;
+    uint64_t from;
+    uint64_t owner;
 };
 
 

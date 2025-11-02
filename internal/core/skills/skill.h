@@ -7,6 +7,7 @@
 
 
 #include"../core.h"
+#include "../components/components.h"
 
 class ezQ:public Skill {
 public:
@@ -14,7 +15,7 @@ public:
 public:
     void Update() override;
 
-    void Execute(SkillInfo info) override;
+    void Execute(ExecuteSkillInfo info) override;
 };
 
 
@@ -32,14 +33,18 @@ public:
         shapeDef.enableSensorEvents = true;
         b2ShapeId bodyShape = b2CreateCircleShape(body, &shapeDef, &circle);
         shape = bodyShape;
+
+        auto manager = GameWorld::objectsMap[from].get();
+        attribute = manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType)->skillAttributeSyncer;
     }
 public:
     void Update() override;
 
-    void Execute(SkillInfo info) override;
+    void Execute(ExecuteSkillInfo info) override;
 private:
     b2ShapeId shape;
     bool activated = false;
+    std::shared_ptr<SkillAttributeSyncer> attribute;
 };
 
 #endif //TESTMOBA_SKILL_H

@@ -6,13 +6,19 @@
 #define TESTMOBA_BUFF_H
 
 #include "../core.h"
+#include "../../utils/timer.h"
 
 
 class Fire:public Buff {
 public:
+    Fire(uint64_t id,uint64_t owner):Buff(id,owner){}
+public:
     void Update() override;
-private:
 
+    void OnLoad() override;
+private:
+    Timer timer;
+    int life = 10;
 };
 
 

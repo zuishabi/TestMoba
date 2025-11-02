@@ -32,7 +32,7 @@ void AttackComponent::Attack(uint64_t target) {
         ComponentManager* self = GameWorld::GetComponentManager(id);
         auto moving = self->GetComponent<MovingComponent>(ComponentType::MovingComponentType);
         auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-        stateMachine->currentState->SetState(State::ATTACK);
+        stateMachine->SetState(State::ATTACK);
         moving->Interrupt();
     }
 }
