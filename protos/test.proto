@@ -79,12 +79,12 @@ message ExecuteSkillMessage{
   float pos_y = 3;
 }
 
+// 同步技能信息，当释放技能时更新
 message SyncSkillMessage{
   uint64 uid = 1; // 技能的来源
-  uint64 id = 2; // 如果是实体技能，实体技能的id
-  int32 pos = 3;
-  float angle = 4;
-  float left_time = 5;
+  int32 pos = 2;
+  float left_time = 3; // 技能剩余的时间
+  float angle = 4; // 技能的朝向
 }
 
 message SkillAttributeMessage{
@@ -102,4 +102,13 @@ message ObjectsDestroyedSyncMessage{
 message StateSyncMessage{
   uint64 id = 1;
   uint32 state = 2; // 0：静止，1：移动，2：攻击，3：释放技能
+}
+
+message ObjectSyncMessage{
+  uint32 type_id = 1;
+  uint64 id = 2;
+  float x = 3;
+  float y = 4;
+  float scale = 5;
+  float angle = 6;
 }

@@ -15,6 +15,7 @@ void AttackComponent::Update() {
         auto hit = target->GetComponent<HitComponent>(ComponentType::HitComponentType);
         if (hit != nullptr) {
             hit->Hit(targetID,{10});
+            stopAttackSignal.emit(targetID);
         }
         isShooting = false;
     }
@@ -29,16 +30,7 @@ void AttackComponent::Attack(uint64_t target) {
         auto attackSpeed = manager->GetComponent<AttributeComponent>(ComponentType::AttributeComponentType);
         nextPoint = std::chrono::steady_clock::now() + std::chrono::duration<double>(attackSpeed->GetAttackSpeed());
         isShooting = true;
-        ComponentManager* self = GameWorld::GetComponentManager(id);
-        auto moving = self->GetComponent<MovingComponent>(ComponentType::MovingComponentType);
-        auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-        stateMachine->SetState(State::ATTACK);
-        moving->Interrupt();
+
+        startAttackSignal.emit(target);
     }
 }
-
-
-void AttackComponent::Interrupt() {
-    isShooting = false;
-}
-

@@ -2,6 +2,8 @@
 #include "internal/server.h"
 #include "protos/test.pb.h"
 
+// TODO 完善技能状态的同步
+
 
 [[noreturn]] int main() {
     GameWorld::World = GameWorld::Initialize();

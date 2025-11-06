@@ -36,6 +36,8 @@ public:
 
         auto manager = GameWorld::objectsMap[from].get();
         attribute = manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType)->skillAttributeSyncer;
+
+        skillInfoSyncer = std::make_shared<SkillInfoSyncer>(from,SkillInfo(1));
     }
 public:
     void Update() override;
@@ -44,7 +46,8 @@ public:
 private:
     b2ShapeId shape;
     bool activated = false;
-    std::shared_ptr<SkillAttributeSyncer> attribute;
+    std::shared_ptr<SkillAttributeSyncer> attribute; // 保存玩家的技能属性信息
+    std::shared_ptr<SkillInfoSyncer> skillInfoSyncer;
 };
 
 #endif //TESTMOBA_SKILL_H

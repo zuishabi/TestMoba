@@ -145,25 +145,30 @@ private:
 class SkillInfoSyncer:public Syncer {
 public:
     // pos:代表技能的位置，如一技能二技能
-    SkillInfoSyncer(uint64_t from,uint64_t id,SkillInfo info):
-    Syncer(id,SyncerType::SkillInfoSyncer),from(from),id(id),info(info) {
+    SkillInfoSyncer(uint64_t from,SkillInfo info):
+    Syncer(from,SyncerType::SkillInfoSyncer),from(from),info(info){}
+public:
+    // 执行一次技能，会向周围玩家进行更新。
+    void Execute() {
         updated = true;
     }
-public:
+
+    void SetSkillInfo(SkillInfo skillInfo) {
+        info = skillInfo;
+    }
+
     std::shared_ptr<Packet>getSync() override {
         std::shared_ptr<Packet> packet = std::make_shared<Packet>();
         auto sync = packet->mutable_sync_skill();
         sync->set_pos(info.pos);
         sync->set_uid(from);
-        sync->set_left_time(info.timeLeft);
         sync->set_angle(info.rotate);
-        sync->set_id(id);
+        sync->set_left_time(info.timeLeft);
         updated = false;
         return packet;
     }
 private:
     uint64_t from;
-    uint64_t id;
     SkillInfo info;
 };
 
@@ -177,13 +182,16 @@ public:
         std::shared_ptr<Packet> packet = std::make_shared<Packet>();
         auto state = packet->mutable_state_sync();
         state->set_id(id);
+        std::cout << "sync state = " << static_cast<uint32_t>(currentState) << std::endl;
         state->set_state(static_cast<uint32_t>(currentState));
         return packet;
     }
 
     void SetState(State state) {
-        updated = true;
-        currentState = state;
+        if (state != currentState) {
+            updated = true;
+            currentState = state;
+        }
     }
 
     [[nodiscard]] State GetState() const {

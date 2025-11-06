@@ -7,6 +7,7 @@
 
 #include "../core.h"
 #include "../syncers/syncer.h"
+#include "../../utils/event.h"
 
 // 移动组件
 class MovingComponent :public Component{
@@ -24,13 +25,12 @@ public:
 
     void SetTargetDirection(b2Vec2 target);
 
-    void Interrupt();
-
     void ProcessInput(b2Vec2 target);
 public:
     int OverrideSpeed = 0;
-    bool CanMove = true;
-    b2Vec2 target;
+    bool CanMove = true; // 是否可以进行主动移动
+    b2Vec2 target; // 移动的目标位置
+    Signal<b2Vec2> MovingSignal;
 private:
     std::shared_ptr<MoveSyncer> moveSyncer;
     std::shared_ptr<SpeedSyncer> speed;
@@ -47,13 +47,14 @@ public:
 
     void Attack( uint64_t targetID);
 
-    void Interrupt();
 public:
     bool isBullet = false;
     bool isShooting = false;
     float scale;
     std::chrono::time_point<std::chrono::steady_clock, std::chrono::duration<double, std::ratio<1, 1000000000>>> nextPoint;
     uint64_t targetID;
+    Signal<uint64_t> startAttackSignal;
+    Signal<uint64_t> stopAttackSignal;
 };
 
 
@@ -150,32 +151,69 @@ public:
 public:
     void Update() override;
 
+
     void AddBuff(std::unique_ptr<Buff> buff);
 private:
     std::vector<std::unique_ptr<Buff>> buffs;
 };
 
 
-// 用于进行状态同步
+class StateMachineComponent;
+
+
+class StateNode {
+public:
+    StateNode(StateMachineComponent* stateMachine):stateMachine(stateMachine){}
+
+    virtual void OnEnter() = 0;
+
+    virtual void Update() = 0;
+
+    virtual void OnExit() = 0;
+
+    State GetState() {
+        return state;
+    }
+
+    bool activate;
+protected:
+    State state;
+    StateMachineComponent* stateMachine;
+};
+
+
+// 用于进行同步状态
 class StateMachineComponent:public Component {
 public:
     explicit StateMachineComponent(uint64_t id):
-    Component(ComponentType::StateMachineComponentType,id),currentState(std::make_shared<StateSyncer>(id)){}
+    Component(ComponentType::StateMachineComponentType,id),currentState(std::make_shared<StateSyncer>(id)) {
+        std::cout << "create state machine:" << id << std::endl;
+        manager->SyncerManager->AddSyncer(currentState);
+        InitializeNodes();
+    }
 public:
-    void SetState(State state) {
-        if (currentState->currentState == State::ATTACK) {
-            if (state == State::IDLE) {
+    void Update() override;
+
+    void InitializeNodes();
+
+    void SetStateNode(State state) {
+        if (currentNode != nullptr) {
+            if (state == currentNode->GetState()) {
                 return;
             }
+            currentNode->OnExit();
         }
+        currentNode = nodes[static_cast<uint32_t>(state)].get();
+        currentNode->OnEnter();
         currentState->SetState(state);
     }
 
-    State GetState() {
-        return currentState->currentState;
-    }
 private:
     std::shared_ptr<StateSyncer> currentState;
+    std::vector<std::unique_ptr<StateNode>> nodes;
+    StateNode* currentNode;
 };
+
+
 
 #endif //TESTSERVER_COMPONENTS_H

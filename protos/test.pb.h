@@ -75,6 +75,9 @@ extern ManaSyncMessageDefaultTypeInternal _ManaSyncMessage_default_instance_;
 class MoveMessage;
 struct MoveMessageDefaultTypeInternal;
 extern MoveMessageDefaultTypeInternal _MoveMessage_default_instance_;
+class ObjectSyncMessage;
+struct ObjectSyncMessageDefaultTypeInternal;
+extern ObjectSyncMessageDefaultTypeInternal _ObjectSyncMessage_default_instance_;
 class ObjectsDestroyedSyncMessage;
 struct ObjectsDestroyedSyncMessageDefaultTypeInternal;
 extern ObjectsDestroyedSyncMessageDefaultTypeInternal _ObjectsDestroyedSyncMessage_default_instance_;
@@ -257,10 +260,9 @@ class SyncSkillMessage final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kUidFieldNumber = 1,
-    kIdFieldNumber = 2,
-    kPosFieldNumber = 3,
+    kPosFieldNumber = 2,
+    kLeftTimeFieldNumber = 3,
     kAngleFieldNumber = 4,
-    kLeftTimeFieldNumber = 5,
   };
   // uint64 uid = 1;
   void clear_uid() ;
@@ -272,17 +274,7 @@ class SyncSkillMessage final : public ::google::protobuf::Message
   void _internal_set_uid(::uint64_t value);
 
   public:
-  // uint64 id = 2;
-  void clear_id() ;
-  ::uint64_t id() const;
-  void set_id(::uint64_t value);
-
-  private:
-  ::uint64_t _internal_id() const;
-  void _internal_set_id(::uint64_t value);
-
-  public:
-  // int32 pos = 3;
+  // int32 pos = 2;
   void clear_pos() ;
   ::int32_t pos() const;
   void set_pos(::int32_t value);
@@ -290,6 +282,16 @@ class SyncSkillMessage final : public ::google::protobuf::Message
   private:
   ::int32_t _internal_pos() const;
   void _internal_set_pos(::int32_t value);
+
+  public:
+  // float left_time = 3;
+  void clear_left_time() ;
+  float left_time() const;
+  void set_left_time(float value);
+
+  private:
+  float _internal_left_time() const;
+  void _internal_set_left_time(float value);
 
   public:
   // float angle = 4;
@@ -302,22 +304,12 @@ class SyncSkillMessage final : public ::google::protobuf::Message
   void _internal_set_angle(float value);
 
   public:
-  // float left_time = 5;
-  void clear_left_time() ;
-  float left_time() const;
-  void set_left_time(float value);
-
-  private:
-  float _internal_left_time() const;
-  void _internal_set_left_time(float value);
-
-  public:
   // @@protoc_insertion_point(class_scope:SyncSkillMessage)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 5, 0,
+      2, 4, 0,
       0, 2>
       _table_;
 
@@ -336,10 +328,9 @@ class SyncSkillMessage final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const SyncSkillMessage& from_msg);
     ::uint64_t uid_;
-    ::uint64_t id_;
     ::int32_t pos_;
-    float angle_;
     float left_time_;
+    float angle_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -1588,6 +1579,256 @@ class ObjectsDestroyedSyncMessage final : public ::google::protobuf::Message
                           const ObjectsDestroyedSyncMessage& from_msg);
     ::uint64_t id_;
     bool is_player_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_test_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ObjectSyncMessage final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:ObjectSyncMessage) */ {
+ public:
+  inline ObjectSyncMessage() : ObjectSyncMessage(nullptr) {}
+  ~ObjectSyncMessage() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ObjectSyncMessage* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ObjectSyncMessage));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ObjectSyncMessage(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ObjectSyncMessage(const ObjectSyncMessage& from) : ObjectSyncMessage(nullptr, from) {}
+  inline ObjectSyncMessage(ObjectSyncMessage&& from) noexcept
+      : ObjectSyncMessage(nullptr, std::move(from)) {}
+  inline ObjectSyncMessage& operator=(const ObjectSyncMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ObjectSyncMessage& operator=(ObjectSyncMessage&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ObjectSyncMessage& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ObjectSyncMessage* internal_default_instance() {
+    return reinterpret_cast<const ObjectSyncMessage*>(
+        &_ObjectSyncMessage_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 16;
+  friend void swap(ObjectSyncMessage& a, ObjectSyncMessage& b) { a.Swap(&b); }
+  inline void Swap(ObjectSyncMessage* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ObjectSyncMessage* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ObjectSyncMessage* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ObjectSyncMessage>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ObjectSyncMessage& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ObjectSyncMessage& from) { ObjectSyncMessage::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(ObjectSyncMessage* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "ObjectSyncMessage"; }
+
+ protected:
+  explicit ObjectSyncMessage(::google::protobuf::Arena* arena);
+  ObjectSyncMessage(::google::protobuf::Arena* arena, const ObjectSyncMessage& from);
+  ObjectSyncMessage(::google::protobuf::Arena* arena, ObjectSyncMessage&& from) noexcept
+      : ObjectSyncMessage(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kIdFieldNumber = 2,
+    kTypeIdFieldNumber = 1,
+    kXFieldNumber = 3,
+    kYFieldNumber = 4,
+    kScaleFieldNumber = 5,
+    kAngleFieldNumber = 6,
+  };
+  // uint64 id = 2;
+  void clear_id() ;
+  ::uint64_t id() const;
+  void set_id(::uint64_t value);
+
+  private:
+  ::uint64_t _internal_id() const;
+  void _internal_set_id(::uint64_t value);
+
+  public:
+  // uint32 type_id = 1;
+  void clear_type_id() ;
+  ::uint32_t type_id() const;
+  void set_type_id(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_type_id() const;
+  void _internal_set_type_id(::uint32_t value);
+
+  public:
+  // float x = 3;
+  void clear_x() ;
+  float x() const;
+  void set_x(float value);
+
+  private:
+  float _internal_x() const;
+  void _internal_set_x(float value);
+
+  public:
+  // float y = 4;
+  void clear_y() ;
+  float y() const;
+  void set_y(float value);
+
+  private:
+  float _internal_y() const;
+  void _internal_set_y(float value);
+
+  public:
+  // float scale = 5;
+  void clear_scale() ;
+  float scale() const;
+  void set_scale(float value);
+
+  private:
+  float _internal_scale() const;
+  void _internal_set_scale(float value);
+
+  public:
+  // float angle = 6;
+  void clear_angle() ;
+  float angle() const;
+  void set_angle(float value);
+
+  private:
+  float _internal_angle() const;
+  void _internal_set_angle(float value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:ObjectSyncMessage)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 6, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ObjectSyncMessage& from_msg);
+    ::uint64_t id_;
+    ::uint32_t type_id_;
+    float x_;
+    float y_;
+    float scale_;
+    float angle_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -5553,29 +5794,7 @@ inline void SyncSkillMessage::_internal_set_uid(::uint64_t value) {
   _impl_.uid_ = value;
 }
 
-// uint64 id = 2;
-inline void SyncSkillMessage::clear_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.id_ = ::uint64_t{0u};
-}
-inline ::uint64_t SyncSkillMessage::id() const {
-  // @@protoc_insertion_point(field_get:SyncSkillMessage.id)
-  return _internal_id();
-}
-inline void SyncSkillMessage::set_id(::uint64_t value) {
-  _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:SyncSkillMessage.id)
-}
-inline ::uint64_t SyncSkillMessage::_internal_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.id_;
-}
-inline void SyncSkillMessage::_internal_set_id(::uint64_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.id_ = value;
-}
-
-// int32 pos = 3;
+// int32 pos = 2;
 inline void SyncSkillMessage::clear_pos() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.pos_ = 0;
@@ -5595,6 +5814,28 @@ inline ::int32_t SyncSkillMessage::_internal_pos() const {
 inline void SyncSkillMessage::_internal_set_pos(::int32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.pos_ = value;
+}
+
+// float left_time = 3;
+inline void SyncSkillMessage::clear_left_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.left_time_ = 0;
+}
+inline float SyncSkillMessage::left_time() const {
+  // @@protoc_insertion_point(field_get:SyncSkillMessage.left_time)
+  return _internal_left_time();
+}
+inline void SyncSkillMessage::set_left_time(float value) {
+  _internal_set_left_time(value);
+  // @@protoc_insertion_point(field_set:SyncSkillMessage.left_time)
+}
+inline float SyncSkillMessage::_internal_left_time() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.left_time_;
+}
+inline void SyncSkillMessage::_internal_set_left_time(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.left_time_ = value;
 }
 
 // float angle = 4;
@@ -5617,28 +5858,6 @@ inline float SyncSkillMessage::_internal_angle() const {
 inline void SyncSkillMessage::_internal_set_angle(float value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.angle_ = value;
-}
-
-// float left_time = 5;
-inline void SyncSkillMessage::clear_left_time() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.left_time_ = 0;
-}
-inline float SyncSkillMessage::left_time() const {
-  // @@protoc_insertion_point(field_get:SyncSkillMessage.left_time)
-  return _internal_left_time();
-}
-inline void SyncSkillMessage::set_left_time(float value) {
-  _internal_set_left_time(value);
-  // @@protoc_insertion_point(field_set:SyncSkillMessage.left_time)
-}
-inline float SyncSkillMessage::_internal_left_time() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.left_time_;
-}
-inline void SyncSkillMessage::_internal_set_left_time(float value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.left_time_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -5827,6 +6046,142 @@ inline ::uint32_t StateSyncMessage::_internal_state() const {
 inline void StateSyncMessage::_internal_set_state(::uint32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ObjectSyncMessage
+
+// uint32 type_id = 1;
+inline void ObjectSyncMessage::clear_type_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.type_id_ = 0u;
+}
+inline ::uint32_t ObjectSyncMessage::type_id() const {
+  // @@protoc_insertion_point(field_get:ObjectSyncMessage.type_id)
+  return _internal_type_id();
+}
+inline void ObjectSyncMessage::set_type_id(::uint32_t value) {
+  _internal_set_type_id(value);
+  // @@protoc_insertion_point(field_set:ObjectSyncMessage.type_id)
+}
+inline ::uint32_t ObjectSyncMessage::_internal_type_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.type_id_;
+}
+inline void ObjectSyncMessage::_internal_set_type_id(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.type_id_ = value;
+}
+
+// uint64 id = 2;
+inline void ObjectSyncMessage::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = ::uint64_t{0u};
+}
+inline ::uint64_t ObjectSyncMessage::id() const {
+  // @@protoc_insertion_point(field_get:ObjectSyncMessage.id)
+  return _internal_id();
+}
+inline void ObjectSyncMessage::set_id(::uint64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:ObjectSyncMessage.id)
+}
+inline ::uint64_t ObjectSyncMessage::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline void ObjectSyncMessage::_internal_set_id(::uint64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = value;
+}
+
+// float x = 3;
+inline void ObjectSyncMessage::clear_x() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.x_ = 0;
+}
+inline float ObjectSyncMessage::x() const {
+  // @@protoc_insertion_point(field_get:ObjectSyncMessage.x)
+  return _internal_x();
+}
+inline void ObjectSyncMessage::set_x(float value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:ObjectSyncMessage.x)
+}
+inline float ObjectSyncMessage::_internal_x() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.x_;
+}
+inline void ObjectSyncMessage::_internal_set_x(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.x_ = value;
+}
+
+// float y = 4;
+inline void ObjectSyncMessage::clear_y() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.y_ = 0;
+}
+inline float ObjectSyncMessage::y() const {
+  // @@protoc_insertion_point(field_get:ObjectSyncMessage.y)
+  return _internal_y();
+}
+inline void ObjectSyncMessage::set_y(float value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:ObjectSyncMessage.y)
+}
+inline float ObjectSyncMessage::_internal_y() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.y_;
+}
+inline void ObjectSyncMessage::_internal_set_y(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.y_ = value;
+}
+
+// float scale = 5;
+inline void ObjectSyncMessage::clear_scale() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.scale_ = 0;
+}
+inline float ObjectSyncMessage::scale() const {
+  // @@protoc_insertion_point(field_get:ObjectSyncMessage.scale)
+  return _internal_scale();
+}
+inline void ObjectSyncMessage::set_scale(float value) {
+  _internal_set_scale(value);
+  // @@protoc_insertion_point(field_set:ObjectSyncMessage.scale)
+}
+inline float ObjectSyncMessage::_internal_scale() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.scale_;
+}
+inline void ObjectSyncMessage::_internal_set_scale(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.scale_ = value;
+}
+
+// float angle = 6;
+inline void ObjectSyncMessage::clear_angle() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.angle_ = 0;
+}
+inline float ObjectSyncMessage::angle() const {
+  // @@protoc_insertion_point(field_get:ObjectSyncMessage.angle)
+  return _internal_angle();
+}
+inline void ObjectSyncMessage::set_angle(float value) {
+  _internal_set_angle(value);
+  // @@protoc_insertion_point(field_set:ObjectSyncMessage.angle)
+}
+inline float ObjectSyncMessage::_internal_angle() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.angle_;
+}
+inline void ObjectSyncMessage::_internal_set_angle(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.angle_ = value;
 }
 
 #ifdef __GNUC__

@@ -28,10 +28,9 @@ namespace _fl = ::google::protobuf::internal::field_layout;
 inline constexpr SyncSkillMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : uid_{::uint64_t{0u}},
-        id_{::uint64_t{0u}},
         pos_{0},
-        angle_{0},
         left_time_{0},
+        angle_{0},
         _cached_size_{0} {}
 
 template <typename>
@@ -212,6 +211,36 @@ struct ObjectsDestroyedSyncMessageDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObjectsDestroyedSyncMessageDefaultTypeInternal _ObjectsDestroyedSyncMessage_default_instance_;
+
+inline constexpr ObjectSyncMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : id_{::uint64_t{0u}},
+        type_id_{0u},
+        x_{0},
+        y_{0},
+        scale_{0},
+        angle_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ObjectSyncMessage::ObjectSyncMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ObjectSyncMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ObjectSyncMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ObjectSyncMessageDefaultTypeInternal() {}
+  union {
+    ObjectSyncMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ObjectSyncMessageDefaultTypeInternal _ObjectSyncMessage_default_instance_;
 
 inline constexpr MoveMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -600,10 +629,9 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.uid_),
-        PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.id_),
         PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.pos_),
-        PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.angle_),
         PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.left_time_),
+        PROTOBUF_FIELD_OFFSET(::SyncSkillMessage, _impl_.angle_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::SkillAttributeMessage, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -636,6 +664,20 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::StateSyncMessage, _impl_.id_),
         PROTOBUF_FIELD_OFFSET(::StateSyncMessage, _impl_.state_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::ObjectSyncMessage, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::ObjectSyncMessage, _impl_.type_id_),
+        PROTOBUF_FIELD_OFFSET(::ObjectSyncMessage, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::ObjectSyncMessage, _impl_.x_),
+        PROTOBUF_FIELD_OFFSET(::ObjectSyncMessage, _impl_.y_),
+        PROTOBUF_FIELD_OFFSET(::ObjectSyncMessage, _impl_.scale_),
+        PROTOBUF_FIELD_OFFSET(::ObjectSyncMessage, _impl_.angle_),
 };
 
 static const ::_pbi::MigrationSchema
@@ -653,9 +695,10 @@ static const ::_pbi::MigrationSchema
         {115, -1, -1, sizeof(::SpeedSyncMessage)},
         {125, -1, -1, sizeof(::ExecuteSkillMessage)},
         {136, -1, -1, sizeof(::SyncSkillMessage)},
-        {149, -1, -1, sizeof(::SkillAttributeMessage)},
-        {161, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
-        {171, -1, -1, sizeof(::StateSyncMessage)},
+        {148, -1, -1, sizeof(::SkillAttributeMessage)},
+        {160, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
+        {170, -1, -1, sizeof(::StateSyncMessage)},
+        {180, -1, -1, sizeof(::ObjectSyncMessage)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::_Packet_default_instance_._instance,
@@ -674,6 +717,7 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::_SkillAttributeMessage_default_instance_._instance,
     &::_ObjectsDestroyedSyncMessage_default_instance_._instance,
     &::_StateSyncMessage_default_instance_._instance,
+    &::_ObjectSyncMessage_default_instance_._instance,
 };
 const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
@@ -708,27 +752,29 @@ const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIA
     "speed\030\002 \001(\002\"-\n\020SpeedSyncMessage\022\n\n\002id\030\001 "
     "\001(\004\022\r\n\005speed\030\002 \001(\002\"C\n\023ExecuteSkillMessag"
     "e\022\016\n\006rotate\030\001 \001(\002\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_"
-    "y\030\003 \001(\002\"Z\n\020SyncSkillMessage\022\013\n\003uid\030\001 \001(\004"
-    "\022\n\n\002id\030\002 \001(\004\022\013\n\003pos\030\003 \001(\005\022\r\n\005angle\030\004 \001(\002"
-    "\022\021\n\tleft_time\030\005 \001(\002\"Y\n\025SkillAttributeMes"
-    "sage\022\013\n\003uid\030\001 \001(\004\022\020\n\010strength\030\002 \001(\003\022\r\n\005s"
-    "cale\030\003 \001(\003\022\022\n\nefficiency\030\004 \001(\003\"<\n\033Object"
-    "sDestroyedSyncMessage\022\n\n\002id\030\001 \001(\004\022\021\n\tis_"
-    "player\030\002 \001(\010\"-\n\020StateSyncMessage\022\n\n\002id\030\001"
-    " \001(\004\022\r\n\005state\030\002 \001(\rB\rZ\013pkg/packetsb\006prot"
-    "o3"
+    "y\030\003 \001(\002\"N\n\020SyncSkillMessage\022\013\n\003uid\030\001 \001(\004"
+    "\022\013\n\003pos\030\002 \001(\005\022\021\n\tleft_time\030\003 \001(\002\022\r\n\005angl"
+    "e\030\004 \001(\002\"Y\n\025SkillAttributeMessage\022\013\n\003uid\030"
+    "\001 \001(\004\022\020\n\010strength\030\002 \001(\003\022\r\n\005scale\030\003 \001(\003\022\022"
+    "\n\nefficiency\030\004 \001(\003\"<\n\033ObjectsDestroyedSy"
+    "ncMessage\022\n\n\002id\030\001 \001(\004\022\021\n\tis_player\030\002 \001(\010"
+    "\"-\n\020StateSyncMessage\022\n\n\002id\030\001 \001(\004\022\r\n\005stat"
+    "e\030\002 \001(\r\"d\n\021ObjectSyncMessage\022\017\n\007type_id\030"
+    "\001 \001(\r\022\n\n\002id\030\002 \001(\004\022\t\n\001x\030\003 \001(\002\022\t\n\001y\030\004 \001(\002\022"
+    "\r\n\005scale\030\005 \001(\002\022\r\n\005angle\030\006 \001(\002B\rZ\013pkg/pac"
+    "ketsb\006proto3"
 };
 static ::absl::once_flag descriptor_table_test_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_test_2eproto = {
     false,
     false,
-    1562,
+    1652,
     descriptor_table_protodef_test_2eproto,
     "test.proto",
     &descriptor_table_test_2eproto_once,
     nullptr,
     0,
-    16,
+    17,
     schemas,
     file_default_instances,
     TableStruct_test_2eproto::offsets,
@@ -4454,9 +4500,9 @@ inline void SyncSkillMessage::SharedCtor(::_pb::Arena* arena) {
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, uid_),
            0,
-           offsetof(Impl_, left_time_) -
+           offsetof(Impl_, angle_) -
                offsetof(Impl_, uid_) +
-               sizeof(Impl_::left_time_));
+               sizeof(Impl_::angle_));
 }
 SyncSkillMessage::~SyncSkillMessage() {
   // @@protoc_insertion_point(destructor:SyncSkillMessage)
@@ -4505,15 +4551,15 @@ const ::google::protobuf::internal::ClassData* SyncSkillMessage::GetClassData() 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 5, 0, 0, 2> SyncSkillMessage::_table_ = {
+const ::_pbi::TcParseTable<2, 4, 0, 0, 2> SyncSkillMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    5, 56,  // max_field_number, fast_idx_mask
+    4, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967264,  // skipmap
+    4294967280,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
+    4,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -4523,41 +4569,32 @@ const ::_pbi::TcParseTable<3, 5, 0, 0, 2> SyncSkillMessage::_table_ = {
     ::_pbi::TcParser::GetTable<::SyncSkillMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // uint64 uid = 1;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(SyncSkillMessage, _impl_.uid_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_)}},
-    // uint64 id = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(SyncSkillMessage, _impl_.id_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.id_)}},
-    // int32 pos = 3;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SyncSkillMessage, _impl_.pos_), 63>(),
-     {24, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.pos_)}},
     // float angle = 4;
     {::_pbi::TcParser::FastF32S1,
      {37, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.angle_)}},
-    // float left_time = 5;
+    // uint64 uid = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(SyncSkillMessage, _impl_.uid_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_)}},
+    // int32 pos = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(SyncSkillMessage, _impl_.pos_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.pos_)}},
+    // float left_time = 3;
     {::_pbi::TcParser::FastF32S1,
-     {45, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.left_time_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+     {29, 63, 0, PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.left_time_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint64 uid = 1;
     {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // uint64 id = 2;
-    {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.id_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // int32 pos = 3;
+    // int32 pos = 2;
     {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.pos_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // float left_time = 3;
+    {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.left_time_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
     // float angle = 4;
     {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.angle_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
-    // float left_time = 5;
-    {PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.left_time_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
   }},
   // no aux_entries
@@ -4573,8 +4610,8 @@ PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
   (void) cached_has_bits;
 
   ::memset(&_impl_.uid_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.left_time_) -
-      reinterpret_cast<char*>(&_impl_.uid_)) + sizeof(_impl_.left_time_));
+      reinterpret_cast<char*>(&_impl_.angle_) -
+      reinterpret_cast<char*>(&_impl_.uid_)) + sizeof(_impl_.angle_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -4600,18 +4637,18 @@ PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
                 1, this_._internal_uid(), target);
           }
 
-          // uint64 id = 2;
-          if (this_._internal_id() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-                2, this_._internal_id(), target);
-          }
-
-          // int32 pos = 3;
+          // int32 pos = 2;
           if (this_._internal_pos() != 0) {
             target = ::google::protobuf::internal::WireFormatLite::
-                WriteInt32ToArrayWithField<3>(
+                WriteInt32ToArrayWithField<2>(
                     stream, this_._internal_pos(), target);
+          }
+
+          // float left_time = 3;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_left_time()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                3, this_._internal_left_time(), target);
           }
 
           // float angle = 4;
@@ -4619,13 +4656,6 @@ PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteFloatToArray(
                 4, this_._internal_angle(), target);
-          }
-
-          // float left_time = 5;
-          if (::absl::bit_cast<::uint32_t>(this_._internal_left_time()) != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteFloatToArray(
-                5, this_._internal_left_time(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -4658,22 +4688,17 @@ PROTOBUF_NOINLINE void SyncSkillMessage::Clear() {
               total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
-            // uint64 id = 2;
-            if (this_._internal_id() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
-                  this_._internal_id());
-            }
-            // int32 pos = 3;
+            // int32 pos = 2;
             if (this_._internal_pos() != 0) {
               total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
                   this_._internal_pos());
             }
-            // float angle = 4;
-            if (::absl::bit_cast<::uint32_t>(this_._internal_angle()) != 0) {
+            // float left_time = 3;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_left_time()) != 0) {
               total_size += 5;
             }
-            // float left_time = 5;
-            if (::absl::bit_cast<::uint32_t>(this_._internal_left_time()) != 0) {
+            // float angle = 4;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_angle()) != 0) {
               total_size += 5;
             }
           }
@@ -4692,17 +4717,14 @@ void SyncSkillMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const 
   if (from._internal_uid() != 0) {
     _this->_impl_.uid_ = from._impl_.uid_;
   }
-  if (from._internal_id() != 0) {
-    _this->_impl_.id_ = from._impl_.id_;
-  }
   if (from._internal_pos() != 0) {
     _this->_impl_.pos_ = from._impl_.pos_;
   }
-  if (::absl::bit_cast<::uint32_t>(from._internal_angle()) != 0) {
-    _this->_impl_.angle_ = from._impl_.angle_;
-  }
   if (::absl::bit_cast<::uint32_t>(from._internal_left_time()) != 0) {
     _this->_impl_.left_time_ = from._impl_.left_time_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_angle()) != 0) {
+    _this->_impl_.angle_ = from._impl_.angle_;
   }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4719,8 +4741,8 @@ void SyncSkillMessage::InternalSwap(SyncSkillMessage* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.left_time_)
-      + sizeof(SyncSkillMessage::_impl_.left_time_)
+      PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.angle_)
+      + sizeof(SyncSkillMessage::_impl_.angle_)
       - PROTOBUF_FIELD_OFFSET(SyncSkillMessage, _impl_.uid_)>(
           reinterpret_cast<char*>(&_impl_.uid_),
           reinterpret_cast<char*>(&other->_impl_.uid_));
@@ -5491,6 +5513,329 @@ void StateSyncMessage::InternalSwap(StateSyncMessage* PROTOBUF_RESTRICT other) {
 }
 
 ::google::protobuf::Metadata StateSyncMessage::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ObjectSyncMessage::_Internal {
+ public:
+};
+
+ObjectSyncMessage::ObjectSyncMessage(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:ObjectSyncMessage)
+}
+ObjectSyncMessage::ObjectSyncMessage(
+    ::google::protobuf::Arena* arena, const ObjectSyncMessage& from)
+    : ObjectSyncMessage(arena) {
+  MergeFrom(from);
+}
+inline PROTOBUF_NDEBUG_INLINE ObjectSyncMessage::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void ObjectSyncMessage::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, angle_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::angle_));
+}
+ObjectSyncMessage::~ObjectSyncMessage() {
+  // @@protoc_insertion_point(destructor:ObjectSyncMessage)
+  SharedDtor(*this);
+}
+inline void ObjectSyncMessage::SharedDtor(MessageLite& self) {
+  ObjectSyncMessage& this_ = static_cast<ObjectSyncMessage&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* ObjectSyncMessage::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) ObjectSyncMessage(arena);
+}
+constexpr auto ObjectSyncMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(ObjectSyncMessage),
+                                            alignof(ObjectSyncMessage));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull ObjectSyncMessage::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_ObjectSyncMessage_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &ObjectSyncMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ObjectSyncMessage>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &ObjectSyncMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ObjectSyncMessage>(), &ObjectSyncMessage::ByteSizeLong,
+            &ObjectSyncMessage::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_._cached_size_),
+        false,
+    },
+    &ObjectSyncMessage::kDescriptorMethods,
+    &descriptor_table_test_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* ObjectSyncMessage::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 6, 0, 0, 2> ObjectSyncMessage::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    6, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967232,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    6,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::ObjectSyncMessage>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // uint32 type_id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ObjectSyncMessage, _impl_.type_id_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.type_id_)}},
+    // uint64 id = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(ObjectSyncMessage, _impl_.id_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.id_)}},
+    // float x = 3;
+    {::_pbi::TcParser::FastF32S1,
+     {29, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.x_)}},
+    // float y = 4;
+    {::_pbi::TcParser::FastF32S1,
+     {37, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.y_)}},
+    // float scale = 5;
+    {::_pbi::TcParser::FastF32S1,
+     {45, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.scale_)}},
+    // float angle = 6;
+    {::_pbi::TcParser::FastF32S1,
+     {53, 63, 0, PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.angle_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // uint32 type_id = 1;
+    {PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.type_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // uint64 id = 2;
+    {PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
+    // float x = 3;
+    {PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.x_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+    // float y = 4;
+    {PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.y_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+    // float scale = 5;
+    {PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.scale_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+    // float angle = 6;
+    {PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.angle_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+PROTOBUF_NOINLINE void ObjectSyncMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:ObjectSyncMessage)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.angle_) -
+      reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.angle_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* ObjectSyncMessage::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const ObjectSyncMessage& this_ = static_cast<const ObjectSyncMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* ObjectSyncMessage::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const ObjectSyncMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:ObjectSyncMessage)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // uint32 type_id = 1;
+          if (this_._internal_type_id() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+                1, this_._internal_type_id(), target);
+          }
+
+          // uint64 id = 2;
+          if (this_._internal_id() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
+                2, this_._internal_id(), target);
+          }
+
+          // float x = 3;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_x()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                3, this_._internal_x(), target);
+          }
+
+          // float y = 4;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_y()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                4, this_._internal_y(), target);
+          }
+
+          // float scale = 5;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_scale()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                5, this_._internal_scale(), target);
+          }
+
+          // float angle = 6;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_angle()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                6, this_._internal_angle(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:ObjectSyncMessage)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t ObjectSyncMessage::ByteSizeLong(const MessageLite& base) {
+          const ObjectSyncMessage& this_ = static_cast<const ObjectSyncMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t ObjectSyncMessage::ByteSizeLong() const {
+          const ObjectSyncMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:ObjectSyncMessage)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // uint64 id = 2;
+            if (this_._internal_id() != 0) {
+              total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
+                  this_._internal_id());
+            }
+            // uint32 type_id = 1;
+            if (this_._internal_type_id() != 0) {
+              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+                  this_._internal_type_id());
+            }
+            // float x = 3;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_x()) != 0) {
+              total_size += 5;
+            }
+            // float y = 4;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_y()) != 0) {
+              total_size += 5;
+            }
+            // float scale = 5;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_scale()) != 0) {
+              total_size += 5;
+            }
+            // float angle = 6;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_angle()) != 0) {
+              total_size += 5;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void ObjectSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ObjectSyncMessage*>(&to_msg);
+  auto& from = static_cast<const ObjectSyncMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:ObjectSyncMessage)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_id() != 0) {
+    _this->_impl_.id_ = from._impl_.id_;
+  }
+  if (from._internal_type_id() != 0) {
+    _this->_impl_.type_id_ = from._impl_.type_id_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_x()) != 0) {
+    _this->_impl_.x_ = from._impl_.x_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_y()) != 0) {
+    _this->_impl_.y_ = from._impl_.y_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_scale()) != 0) {
+    _this->_impl_.scale_ = from._impl_.scale_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_angle()) != 0) {
+    _this->_impl_.angle_ = from._impl_.angle_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ObjectSyncMessage::CopyFrom(const ObjectSyncMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:ObjectSyncMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ObjectSyncMessage::InternalSwap(ObjectSyncMessage* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.angle_)
+      + sizeof(ObjectSyncMessage::_impl_.angle_)
+      - PROTOBUF_FIELD_OFFSET(ObjectSyncMessage, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
+}
+
+::google::protobuf::Metadata ObjectSyncMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

@@ -13,10 +13,10 @@
 #include "../../protos/test.pb.h"
 
 enum class State:uint32_t{
-    IDLE,
-    MOVING,
-    ATTACK,
-    SKILL,
+    IDLE = 0,
+    MOVING = 1,
+    ATTACK = 2,
+    SKILL = 3,
 };
 
 
@@ -26,12 +26,14 @@ enum class ManagerType {
 };
 
 
+// 执行技能的信息
 struct ExecuteSkillInfo {
     b2Vec2 pos;
     float rotate;
 };
 
 
+// 技能的信息
 struct SkillInfo {
     int pos;
     float rotate;
@@ -144,6 +146,8 @@ public:
 
     virtual void Update() = 0;
 
+    virtual void Interrupt(){}
+
 protected:
 
     [[nodiscard]] virtual bool CanExecute(int currentMana) const {
@@ -193,7 +197,7 @@ public:
     }
 protected:
     uint64_t id;
-    bool updated = true;
+    bool updated = false;
     SyncerType type;
 };
 

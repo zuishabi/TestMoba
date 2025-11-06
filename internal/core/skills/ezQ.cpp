@@ -13,9 +13,10 @@ class ezQComponent:public SkillObjectComponent{
 public:
     ezQComponent(uint64_t id,uint64_t from,float angle,b2ShapeId shapeID):
     SkillObjectComponent(id,from),shapeID(shapeID),positionSyncer(std::make_shared<MoveSyncer>(id)) {
-        auto skillSyncer = std::make_shared<SkillInfoSyncer>(id,from,SkillInfo{0,angle,0});
-        manager->SyncerManager->AddSyncer(skillSyncer);
-        manager->SyncerManager->AddSyncer(positionSyncer);
+        // TODO 技能应该交由实体来进行同步
+        // auto skillSyncer = std::make_shared<SkillInfoSyncer>(id,from,SkillInfo{0,angle,0});
+        // manager->SyncerManager->AddSyncer(skillSyncer);
+        // manager->SyncerManager->AddSyncer(positionSyncer);
         expireAt = std::chrono::steady_clock::now() + std::chrono::seconds(1);
         attribute = GameWorld::objectsMap[from].get()->GetComponent<SkillComponent>(ComponentType::SkillComponentType)->skillAttributeSyncer;
     }

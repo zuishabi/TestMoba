@@ -8,6 +8,7 @@
 #include "../../worldManager.h"
 
 
+
 const float fixed_dt = 1.0f / 30.0f;
 
 
@@ -41,10 +42,10 @@ void MovingComponent::Update() {
     float stopThreshold = std::max(0.01f, currentSpeed * fixed_dt * 1.5f);
 
     if (Distance(playerPosition, target) <= stopThreshold) {
-        // 贴合到目标并停止，避免小幅震荡
-        auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-        b2Body_SetLinearVelocity(body, b2Vec2{0.0f, 0.0f});
-        stateMachine->SetState(State::IDLE);
+        if (b2Body_GetLinearVelocity(body) != b2Vec2(0,0)) {
+            // 贴合到目标并停止，避免小幅震荡
+            b2Body_SetLinearVelocity(body, b2Vec2{0.0f, 0.0f});
+        }
     } else {
         b2Vec2 direction = GetDirection(playerPosition, target);
         b2Body_SetLinearVelocity(body,b2Vec2(direction.x * currentSpeed,direction.y * currentSpeed));
@@ -54,21 +55,12 @@ void MovingComponent::Update() {
 
 void MovingComponent::SetTargetDirection(b2Vec2 target) {
     this->target = target;
-    auto attack = GameWorld::GetComponentManager(id)->GetComponent<AttackComponent>(ComponentType::AttackComponentType);
-    attack->Interrupt();
-}
-
-
-void MovingComponent::Interrupt() {
-    b2BodyId body = b2LoadBodyId(id);
-    this->target = b2Body_GetPosition(body);
 }
 
 
 void MovingComponent::ProcessInput(b2Vec2 target) {
     if (CanMove) {
         SetTargetDirection(target);
-        auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-        stateMachine->SetState(State::MOVING);
+        MovingSignal.emit(target);
     }
 }

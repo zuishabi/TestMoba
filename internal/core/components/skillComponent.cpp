@@ -9,8 +9,6 @@ void SkillComponent::ExecuteSkill(int pos,ExecuteSkillInfo info) {
         return;
     }
     skills[pos]->Execute(info);
-    auto stateMachine = manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-    stateMachine->SetState(State::SKILL);
 }
 
 

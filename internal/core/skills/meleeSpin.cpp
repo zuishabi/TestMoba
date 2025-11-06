@@ -45,6 +45,8 @@ void meleeSpin::Update() {
                 }
             }
         }
+        auto stateMachine = GameWorld::GetComponentManager(from)->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
+        stateMachine->SetStateNode(State::IDLE);
         activated = false;
     }
 }
@@ -52,4 +54,7 @@ void meleeSpin::Update() {
 
 void meleeSpin::Execute(ExecuteSkillInfo info) {
     activated = true;
+    skillInfoSyncer->Execute();
+    auto stateMachine = GameWorld::GetComponentManager(from)->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
+    stateMachine->SetStateNode(State::SKILL);
 }
