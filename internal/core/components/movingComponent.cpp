@@ -26,20 +26,29 @@ inline float Distance(const b2Vec2& a, const b2Vec2& b) {
 }
 
 
-void MovingComponent::Update() {
+void MoveTargetComponent::SetTargetDirection(b2Vec2 target) {
+    this->target = target;
+}
+
+
+void MoveTargetComponent::ProcessInput(b2Vec2 target) {
+    if (Enable) {
+        SetTargetDirection(target);
+        MovingSignal.emit(target);
+    }
+}
+
+
+void MoveTargetComponent::Update() {
     b2BodyId body = b2LoadBodyId(id);
     b2Vec2 vec = b2Body_GetLinearVelocity(body);
     if (!b2Body_IsValid(body)) {
         std::cout << id << "not valid" << std::endl;
     }
-    if (vec.x != 0 || vec.y != 0) {
-        moveSyncer->SetPos(b2Body_GetPosition(body));
-    }
 
-    int currentSpeed = OverrideSpeed == 0 ? speed->GetSpeed() : OverrideSpeed;
     b2Vec2 playerPosition = b2Body_GetPosition(body);
     // 阈值按速度和时间步计算，保证 fast moving 能在一帧内到达的不抖动
-    float stopThreshold = std::max(0.01f, currentSpeed * fixed_dt * 1.5f);
+    float stopThreshold = std::max(0.01f, speed->GetSpeed() * fixed_dt * 1.5f);
 
     if (Distance(playerPosition, target) <= stopThreshold) {
         if (b2Body_GetLinearVelocity(body) != b2Vec2(0,0)) {
@@ -48,19 +57,14 @@ void MovingComponent::Update() {
         }
     } else {
         b2Vec2 direction = GetDirection(playerPosition, target);
-        b2Body_SetLinearVelocity(body,b2Vec2(direction.x * currentSpeed,direction.y * currentSpeed));
+        b2Body_SetLinearVelocity(body,b2Vec2(direction.x * speed->GetSpeed(),direction.y * speed->GetSpeed()));
     }
 }
 
 
-void MovingComponent::SetTargetDirection(b2Vec2 target) {
-    this->target = target;
-}
-
-
-void MovingComponent::ProcessInput(b2Vec2 target) {
-    if (CanMove) {
-        SetTargetDirection(target);
-        MovingSignal.emit(target);
+void MoveDirectionComponent::Update() {
+    b2BodyId body = b2LoadBodyId(id);
+    if (std::chrono::steady_clock::now() > expireAt) {
+        b2Body_SetLinearVelocity(body,b2Vec2(0,0));
     }
 }

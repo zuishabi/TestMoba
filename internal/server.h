@@ -19,6 +19,7 @@
 
 struct ConnectTask {
     std::shared_ptr<olc::net::connection>client;
+    uint32_t heroID;
 };
 
 
@@ -98,6 +99,8 @@ private:
     std::unordered_map<uint32_t,std::shared_ptr<Player>> playerMap;
     SaveQueue<ConnectTask> ConnectTaskQueue;
     SaveQueue<std::shared_ptr<DisconnectTask>>DisconnectTaskQueue; // 这里修改喂shared_map
+    std::mutex waitLock;
+    std::unordered_map<uint32_t,std::shared_ptr<olc::net::connection>> waitCreateMap;
 };
 
 #endif //TESTSERVER_INTERNAL_H

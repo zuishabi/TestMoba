@@ -17,6 +17,7 @@ enum class State:uint32_t{
     MOVING = 1,
     ATTACK = 2,
     SKILL = 3,
+    CC = 4,
 };
 
 
@@ -51,6 +52,16 @@ struct SkillAttribute {
 struct AttackInfo {
     int PhysicalDamage;
     int MagicDamage;
+};
+
+
+struct ObjectInfo {
+    uint32_t type_id; // 实体类型的id
+    uint64_t id; // 实体对应的id
+    float x; // 实体坐标
+    float y;
+    float scale; // 实体缩放
+    float angle; // 实体角度
 };
 
 
@@ -140,7 +151,7 @@ class Skill {
 public:
     virtual ~Skill() = default;
 
-    Skill(uint64_t id):from(id){}
+    Skill(uint32_t id,uint64_t from):from(from),id(id){}
 
     virtual void Execute(ExecuteSkillInfo info) = 0;
 
@@ -162,7 +173,8 @@ protected:
 protected:
     uint64_t from;
     int cost;
-    bool canExecute;
+    bool canExecute; // 是否可以被执行
+    uint32_t id; // 技能的id
 };
 
 
@@ -175,6 +187,7 @@ enum class SyncerType {
     SkillInfoSyncer,
     StateSyncer,
     SkillAttributeSyncer,
+    ObjectSyncer,
 };
 
 

@@ -8,8 +8,9 @@
 #include "../core.h"
 #include "../syncers/syncer.h"
 #include "../../utils/event.h"
+#include <chrono>
 
-// 移动组件
+// 移动组件，只负责同步玩家的位置以及管理玩家的速度
 class MovingComponent :public Component{
 public:
     explicit MovingComponent(uint64_t id,b2Vec2 startPos):Component(ComponentType::MovingComponentType,id),
@@ -18,22 +19,52 @@ public:
         moveSyncer->SetPos(startPos);
         manager->SyncerManager->AddSyncer(speed);
         speed->SetSpeed(100);
-        target = startPos;
     }
 public:
-    void Update() override;
+    void Update() override {
+        auto pos = b2Body_GetPosition(b2LoadBodyId(id));
+        if (prePos != pos) {
+            prePos = pos;
+            moveSyncer->SetPos(pos);
+        }
+    }
+protected:
+    std::shared_ptr<MoveSyncer> moveSyncer;
+    std::shared_ptr<SpeedSyncer> speed;
+    b2Vec2 prePos;
+};
+
+
+// 处理到目标位置的移动
+class MoveTargetComponent:public MovingComponent {
+public:
+    MoveTargetComponent(uint64_t id,b2Vec2 startPos):MovingComponent(id,startPos) {
+        target = startPos;
+    }
+
+    b2Vec2 target; // 移动的目标位置
 
     void SetTargetDirection(b2Vec2 target);
 
     void ProcessInput(b2Vec2 target);
+
+    void Update() override;
+
+    Signal<b2Vec2> MovingSignal; // 设定坐标后发出
+};
+
+
+// 向目标方向移动的组件
+class MoveDirectionComponent:public MovingComponent {
 public:
-    int OverrideSpeed = 0;
-    bool CanMove = true; // 是否可以进行主动移动
-    b2Vec2 target; // 移动的目标位置
-    Signal<b2Vec2> MovingSignal;
-private:
-    std::shared_ptr<MoveSyncer> moveSyncer;
-    std::shared_ptr<SpeedSyncer> speed;
+    MoveDirectionComponent(uint64_t id,b2Vec2 startPos,b2Vec2 direction,std::chrono::steady_clock::time_point expire)
+    :MovingComponent(id,startPos),direction(direction),expireAt(expire) {}
+
+    b2Vec2 direction;
+
+    std::chrono::steady_clock::time_point expireAt;
+
+    void Update() override;
 };
 
 
@@ -152,9 +183,9 @@ public:
     void Update() override;
 
 
-    void AddBuff(std::unique_ptr<Buff> buff);
+    void AddBuff(std::shared_ptr<Buff> buff);
 private:
-    std::vector<std::unique_ptr<Buff>> buffs;
+    std::vector<std::shared_ptr<Buff>> buffs;
 };
 
 

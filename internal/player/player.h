@@ -35,7 +35,7 @@ class Barbarian:public Player {
 public:
     Barbarian(std::shared_ptr<olc::net::connection> client,uint64_t id):Player(std::move(client),id) {
         ComponentManager* manager = GameWorld::GetComponentManager(id);
-        manager->AddComponent<MovingComponent>(id,b2Vec2(200,200));
+        manager->AddComponent<MoveTargetComponent>(id,b2Vec2(200,200));
 
         manager->AddComponent<AttackComponent>(id,50);
 
@@ -57,8 +57,21 @@ public:
 class Shooter:public Player {
     Shooter(std::shared_ptr<olc::net::connection> client,uint64_t id):Player(std::move(client),id) {
         ComponentManager* manager = GameWorld::GetComponentManager(id);
-        b2Vec2 startPos = {200,200};
-        manager->AddComponent<MovingComponent>(id,b2Vec2(200,200));
+        manager->AddComponent<MoveTargetComponent>(id,b2Vec2(200,200));
+
+        manager->AddComponent<AttackComponent>(id,50);
+
+        manager->AddComponent<AttributeComponent>(id);
+
+        manager->AddComponent<HitComponent>(id);
+
+        manager->AddComponent<StateMachineComponent>(id);
+
+        auto skill = manager->AddComponent<SkillComponent>(id);
+        std::array<std::unique_ptr<Skill>,4> skills = {std::make_unique<ezQ>(id)};
+        skill->LoadSkills(std::move(skills));
+
+        manager->AddComponent<BuffComponent>(id);
     }
 };
 

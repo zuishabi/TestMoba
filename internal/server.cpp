@@ -7,11 +7,19 @@
 void CustomServer::OnMessage(olc::net::message &msg,uint32_t id) {
     Packet p;
     p.ParseFromArray(msg.body.data(),msg.body.size());
-    if (p.has_input()) {
+    if (p.has_input() && playerMap.contains(id)) {
         auto player = GetPlayer(id);
         player->InputLock.lock();
         player->InputList.push(p.input());
         player->InputLock.unlock();
+    }else if (p.has_create_player()) {
+        waitLock.lock();
+        if (waitCreateMap.contains(id)) {
+            ConnectTask t = {waitCreateMap[id],p.create_player().hero_id()};
+            ConnectTaskQueue.push_front(t);
+            waitCreateMap.erase(id);
+        }
+        waitLock.unlock();
     }else {
         std::cout << "unknow message" << std::endl;
     }
@@ -25,8 +33,9 @@ void CustomServer::OnClientDisconnect(std::shared_ptr<olc::net::connection> clie
 
 
 bool CustomServer::OnClientConnect(std::shared_ptr<olc::net::connection> client) {
-    ConnectTask t = {client};
-    ConnectTaskQueue.push_front(t);
+    waitLock.lock();
+    waitCreateMap[client->id] = client;
+    waitLock.unlock();
     return true;
 }
 

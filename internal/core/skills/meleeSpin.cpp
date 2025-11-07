@@ -40,8 +40,8 @@ void meleeSpin::Update() {
 
                 auto buff = targetManager->GetComponent<BuffComponent>(ComponentType::BuffComponentType);
                 if (buff != nullptr) {
-                    std::unique_ptr<Buff> ptr = std::make_unique<Fire>(from, _id);
-                    buff->AddBuff(std::move(ptr));
+                    std::shared_ptr<Buff> ptr = std::make_shared<Fire>(from, _id);
+                    buff->AddBuff(ptr);
                 }
             }
         }

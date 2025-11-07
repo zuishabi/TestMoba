@@ -15,11 +15,19 @@ void CustomServer::ProcessInput() {
 
 
             if (input.has_move()) {
-                auto moving = manager->GetComponent<MovingComponent>(ComponentType::MovingComponentType);
+                auto moving = manager->GetComponent<MoveTargetComponent>(ComponentType::MovingComponentType);
+                if (!moving->Enable) {
+                    continue;
+                }
+
                 moving->ProcessInput(b2Vec2{input.move().x(),input.move().y()});
             }else if (input.has_player_attack()) {
                 // 处理玩家攻击
                 auto attack = manager->GetComponent<AttackComponent>(ComponentType::AttackComponentType);
+                if (!attack->Enable) {
+                    continue;
+                }
+
                 b2BodyId body = b2LoadBodyId(p.second->GetID());
                 b2BodyId targetBody = b2LoadBodyId(input.player_attack().uid());
                 if (!b2Body_IsValid(targetBody)) {
@@ -37,6 +45,10 @@ void CustomServer::ProcessInput() {
                 }
             }else if (input.has_execute_skill()) {
                 auto skill = manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType);
+                if (!skill->Enable) {
+                    continue;
+                }
+
                 auto info = input.execute_skill();
                 skill->ExecuteSkill(0,{b2Vec2{info.pos_x(),info.pos_y()},info.rotate()});
             }

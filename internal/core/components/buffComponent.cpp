@@ -17,7 +17,7 @@ void BuffComponent::Update() {
     }
 }
 
-void BuffComponent::AddBuff(std::unique_ptr<Buff> buff) {
+void BuffComponent::AddBuff(std::shared_ptr<Buff> buff) {
     for (int i = 0;i < buffs.size();i ++) {
         if (buffs[i] == nullptr) {
             buffs[i] = std::move(buff);
@@ -25,6 +25,6 @@ void BuffComponent::AddBuff(std::unique_ptr<Buff> buff) {
         }
     }
     buff->OnLoad();
-    buffs.emplace_back(std::move(buff));
+    buffs.emplace_back(buff);
 }
 

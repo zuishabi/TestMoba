@@ -9,7 +9,7 @@ class MovingState:public StateNode{
 public:
     MovingState(StateMachineComponent* stateMachine):StateNode(stateMachine) {
         state = State::MOVING;
-        stateMachine->manager->GetComponent<MovingComponent>(ComponentType::MovingComponentType)
+        stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MovingComponentType)
         ->MovingSignal.connect([this, stateMachine](b2Vec2 target) {
             stateMachine->SetStateNode(State::MOVING);
         });
@@ -21,7 +21,7 @@ public:
 
     void OnExit() override {
         std::cout << "exit moving" << std::endl;
-        auto moving = stateMachine->manager->GetComponent<MovingComponent>(ComponentType::MovingComponentType);
+        auto moving = stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MovingComponentType);
         b2BodyId body = b2LoadBodyId(moving->id);
         moving->target = b2Body_GetPosition(body);
     }
@@ -84,7 +84,7 @@ public:
     }
 
     void Update() override {
-        //  TODO 将攻击数据进行同步
+
     }
 };
 
@@ -96,8 +96,8 @@ public:
     }
 
     void OnEnter() override {
-        auto moving = stateMachine->manager->GetComponent<MovingComponent>(ComponentType::MovingComponentType);
-        moving->CanMove = false;
+        auto moving = stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MovingComponentType);
+        moving->Enable = false;
         b2BodyId body = b2LoadBodyId(moving->id);
         moving->target = b2Body_GetPosition(body);
         std::cout << "enter skill" << std::endl;
@@ -105,8 +105,42 @@ public:
 
     void OnExit() override {
         std::cout << "exit skill" << std::endl;
-        auto moving = stateMachine->manager->GetComponent<MovingComponent>(ComponentType::MovingComponentType);
-        moving->CanMove = true;
+        auto moving = stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MovingComponentType);
+        moving->Enable = true;
+    }
+
+    void Update() override {
+
+    }
+};
+
+
+class CCState:public StateNode {
+public:
+    CCState(StateMachineComponent* stateMachine):StateNode(stateMachine) {
+        state = State::CC;
+    }
+
+    void OnEnter() override {
+        std::cout << "enter cc" << std::endl;
+        // 需要禁用移动组件和攻击组件以及技能组件
+        auto moving = stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MovingComponentType);
+        moving->Enable = false;
+        auto attack = stateMachine->manager->GetComponent<AttackComponent>(ComponentType::AttackComponentType);
+        attack->Enable = false;
+        auto skill = stateMachine->manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType);
+        skill->Enable = false;
+    }
+
+
+    void OnExit() override {
+        std::cout << "exit cc" << std::endl;
+        auto moving = stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MovingComponentType);
+        moving->Enable = true;
+        auto attack = stateMachine->manager->GetComponent<AttackComponent>(ComponentType::AttackComponentType);
+        attack->Enable = true;
+        auto skill = stateMachine->manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType);
+        skill->Enable = true;
     }
 
     void Update() override {

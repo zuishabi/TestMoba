@@ -11,17 +11,21 @@
 
 class ezQ:public Skill {
 public:
-    explicit ezQ(uint64_t from):Skill(from) {}
+    explicit ezQ(uint64_t from):Skill(1,from) {
+        skillInfoSyncer = std::make_shared<SkillInfoSyncer>(from,SkillInfo());
+    }
 public:
     void Update() override;
 
     void Execute(ExecuteSkillInfo info) override;
+private:
+    std::shared_ptr<SkillInfoSyncer> skillInfoSyncer;
 };
 
 
 class meleeSpin:public Skill {
 public:
-    explicit meleeSpin(uint64_t from):Skill(from) {
+    explicit meleeSpin(uint64_t from):Skill(2,from) {
         b2BodyId body = b2LoadBodyId(from);
         b2Circle circle;
         circle.center = {0,0};
@@ -37,7 +41,7 @@ public:
         auto manager = GameWorld::objectsMap[from].get();
         attribute = manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType)->skillAttributeSyncer;
 
-        skillInfoSyncer = std::make_shared<SkillInfoSyncer>(from,SkillInfo(1));
+        skillInfoSyncer = std::make_shared<SkillInfoSyncer>(from,SkillInfo());
     }
 public:
     void Update() override;

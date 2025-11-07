@@ -11,12 +11,13 @@
 
 class ezQComponent:public SkillObjectComponent{
 public:
-    ezQComponent(uint64_t id,uint64_t from,float angle,b2ShapeId shapeID):
-    SkillObjectComponent(id,from),shapeID(shapeID),positionSyncer(std::make_shared<MoveSyncer>(id)) {
-        // TODO 技能应该交由实体来进行同步
-        // auto skillSyncer = std::make_shared<SkillInfoSyncer>(id,from,SkillInfo{0,angle,0});
-        // manager->SyncerManager->AddSyncer(skillSyncer);
-        // manager->SyncerManager->AddSyncer(positionSyncer);
+    ezQComponent(uint64_t id,uint64_t from,b2ShapeId shapeID):
+    SkillObjectComponent(id,from),shapeID(shapeID),positionSyncer(std::make_shared<MoveSyncer>(id)),
+    objectSyncer(std::make_shared<ObjectSyncer>(id)) {
+        auto body = b2LoadBodyId(id);
+        b2Vec2 pos = b2Body_GetPosition(body);
+        objectSyncer->SetInfo(ObjectInfo(1,id,pos.x,pos.y,1,b2Rot_GetAngle(b2Body_GetRotation(body))));
+        manager->SyncerManager->AddSyncer(positionSyncer);
         expireAt = std::chrono::steady_clock::now() + std::chrono::seconds(1);
         attribute = GameWorld::objectsMap[from].get()->GetComponent<SkillComponent>(ComponentType::SkillComponentType)->skillAttributeSyncer;
     }
@@ -26,7 +27,8 @@ private:
     b2ShapeId shapeID;
     std::chrono::steady_clock::time_point expireAt;
     std::shared_ptr<MoveSyncer> positionSyncer;
-    std::shared_ptr<SkillAttributeSyncer> attribute;
+    std::shared_ptr<SkillAttributeSyncer> attribute; // 保存来自玩家的技能信息
+    std::shared_ptr<ObjectSyncer> objectSyncer;
 };
 
 
@@ -106,5 +108,7 @@ void ezQ::Execute(ExecuteSkillInfo info) {
     auto id = b2StoreBodyId(myBodyId);
     auto manager = GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Skill));
     std::cout << "create skill:" << id << std::endl;
-    manager->AddComponent<ezQComponent>(id,from,info.rotate,bodyShape);
+    manager->AddComponent<ezQComponent>(id,from,bodyShape);
+
+    skillInfoSyncer->Execute();
 }

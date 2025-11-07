@@ -15,6 +15,7 @@ message Packet{
     StateSyncMessage state_sync = 11;
     SkillAttributeMessage skill_attribute_sync = 12;
     SpeedSyncMessage speed_sync = 13;
+    CreatePlayerMessage create_player = 14;
   }
 }
 
@@ -111,4 +112,8 @@ message ObjectSyncMessage{
   float y = 4;
   float scale = 5;
   float angle = 6;
+}
+
+message CreatePlayerMessage{
+  uint32 hero_id = 1;
 }

@@ -256,4 +256,34 @@ private:
 };
 
 
+// 同步实体信息
+class ObjectSyncer:public Syncer {
+public:
+    ObjectSyncer(uint64_t id):Syncer(id,SyncerType::ObjectSyncer) {
+        updated = true;
+    }
+
+    void SetInfo(ObjectInfo info) {
+        this->info = info;
+        updated = true;
+    }
+
+    // 通过加载body获得body信息
+    void LoadObject(b2BodyId body) {
+
+    }
+
+
+    const ObjectInfo& GetInfo() {
+        return info;
+    }
+
+    std::shared_ptr<Packet>getSync() override{
+        return std::make_shared<Packet>();
+    }
+private:
+    ObjectInfo info;
+};
+
+
 #endif //TESTSERVER_SYNCER_H
