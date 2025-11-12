@@ -1333,7 +1333,8 @@ class PlayerSyncMessage final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kUidFieldNumber = 1,
-    kSelfFieldNumber = 2,
+    kHeroIdFieldNumber = 2,
+    kSelfFieldNumber = 3,
   };
   // uint64 uid = 1;
   void clear_uid() ;
@@ -1345,7 +1346,17 @@ class PlayerSyncMessage final : public ::google::protobuf::Message
   void _internal_set_uid(::uint64_t value);
 
   public:
-  // bool self = 2;
+  // uint32 hero_id = 2;
+  void clear_hero_id() ;
+  ::uint32_t hero_id() const;
+  void set_hero_id(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_hero_id() const;
+  void _internal_set_hero_id(::uint32_t value);
+
+  public:
+  // bool self = 3;
   void clear_self() ;
   bool self() const;
   void set_self(bool value);
@@ -1360,7 +1371,7 @@ class PlayerSyncMessage final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
+      2, 3, 0,
       0, 2>
       _table_;
 
@@ -1379,6 +1390,7 @@ class PlayerSyncMessage final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const PlayerSyncMessage& from_msg);
     ::uint64_t uid_;
+    ::uint32_t hero_id_;
     bool self_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -5617,7 +5629,29 @@ inline void PlayerSyncMessage::_internal_set_uid(::uint64_t value) {
   _impl_.uid_ = value;
 }
 
-// bool self = 2;
+// uint32 hero_id = 2;
+inline void PlayerSyncMessage::clear_hero_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.hero_id_ = 0u;
+}
+inline ::uint32_t PlayerSyncMessage::hero_id() const {
+  // @@protoc_insertion_point(field_get:PlayerSyncMessage.hero_id)
+  return _internal_hero_id();
+}
+inline void PlayerSyncMessage::set_hero_id(::uint32_t value) {
+  _internal_set_hero_id(value);
+  // @@protoc_insertion_point(field_set:PlayerSyncMessage.hero_id)
+}
+inline ::uint32_t PlayerSyncMessage::_internal_hero_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.hero_id_;
+}
+inline void PlayerSyncMessage::_internal_set_hero_id(::uint32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.hero_id_ = value;
+}
+
+// bool self = 3;
 inline void PlayerSyncMessage::clear_self() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.self_ = false;

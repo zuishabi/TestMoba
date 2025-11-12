@@ -48,7 +48,14 @@ void MoveTargetComponent::Update() {
 
     b2Vec2 playerPosition = b2Body_GetPosition(body);
     // 阈值按速度和时间步计算，保证 fast moving 能在一帧内到达的不抖动
-    float stopThreshold = std::max(0.01f, speed->GetSpeed() * fixed_dt * 1.5f);
+    float speed;
+    if (this->speed.lock()) {
+        speed = this->speed.lock()->GetSpeed();
+    }else {
+        return;
+    }
+
+    float stopThreshold = std::max(0.01f, speed * fixed_dt * 1.5f);
 
     if (Distance(playerPosition, target) <= stopThreshold) {
         if (b2Body_GetLinearVelocity(body) != b2Vec2(0,0)) {
@@ -57,7 +64,7 @@ void MoveTargetComponent::Update() {
         }
     } else {
         b2Vec2 direction = GetDirection(playerPosition, target);
-        b2Body_SetLinearVelocity(body,b2Vec2(direction.x * speed->GetSpeed(),direction.y * speed->GetSpeed()));
+        b2Body_SetLinearVelocity(body,b2Vec2(direction.x * speed,direction.y * speed));
     }
 }
 

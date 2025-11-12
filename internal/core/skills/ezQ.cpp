@@ -74,41 +74,44 @@ void ezQComponent::Update() {
 }
 
 
-
 void ezQ::Update() {
+    if (activated && waitTimer.IsExpired()) {
+        b2BodyDef bodyDef = b2DefaultBodyDef();
+        bodyDef.type = b2_kinematicBody;
+        bodyDef.isBullet = true;
+        b2BodyId myBodyId = b2CreateBody(GameWorld::World,&bodyDef);
+        b2Vec2 dir = DirectionFromRadians(info.rotate);
+        b2Body_SetLinearVelocity(myBodyId,dir*200);
+        b2Body_SetTransform(myBodyId,info.pos,b2MakeRot(info.rotate));
 
+        b2Capsule capsule;
+        capsule.center1 = {0,4};
+        capsule.center2 = {0,-4};
+        capsule.radius = 3;
+
+        b2ShapeDef shapeDef = b2DefaultShapeDef();
+        shapeDef.isSensor = true;
+        shapeDef.density = 1.0f;
+        shapeDef.material.friction = 0.3f;
+        shapeDef.material.restitution = 0;
+        shapeDef.filter.categoryBits = CATEGORY_SKILL;
+        shapeDef.filter.maskBits = MASK_SKILL;
+        shapeDef.enableSensorEvents = true;
+        b2ShapeId bodyShape = b2CreateCapsuleShape(myBodyId, &shapeDef, &capsule);
+
+        auto id = b2StoreBodyId(myBodyId);
+        auto manager = GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Skill));
+        std::cout << "create skill:" << id << std::endl;
+        manager->AddComponent<ezQComponent>(id,from,bodyShape);
+        activated = false;
+    }
 }
 
 
 void ezQ::Execute(ExecuteSkillInfo info) {
-
-    b2BodyDef bodyDef = b2DefaultBodyDef();
-    bodyDef.type = b2_kinematicBody;
-    bodyDef.isBullet = true;
-    b2BodyId myBodyId = b2CreateBody(GameWorld::World,&bodyDef);
-    b2Vec2 dir = DirectionFromRadians(info.rotate);
-    b2Body_SetLinearVelocity(myBodyId,dir*200);
-    b2Body_SetTransform(myBodyId,info.pos,b2MakeRot(info.rotate));
-
-    b2Capsule capsule;
-    capsule.center1 = {0,4};
-    capsule.center2 = {0,-4};
-    capsule.radius = 3;
-
-    b2ShapeDef shapeDef = b2DefaultShapeDef();
-    shapeDef.isSensor = true;
-    shapeDef.density = 1.0f;
-    shapeDef.material.friction = 0.3f;
-    shapeDef.material.restitution = 0;
-    shapeDef.filter.categoryBits = CATEGORY_SKILL;
-    shapeDef.filter.maskBits = MASK_SKILL;
-    shapeDef.enableSensorEvents = true;
-    b2ShapeId bodyShape = b2CreateCapsuleShape(myBodyId, &shapeDef, &capsule);
-
-    auto id = b2StoreBodyId(myBodyId);
-    auto manager = GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Skill));
-    std::cout << "create skill:" << id << std::endl;
-    manager->AddComponent<ezQComponent>(id,from,bodyShape);
-
+    this->info = info;
     skillInfoSyncer->Execute();
+    skillComponent->UseNormalSkill.emit(this);
+    activated = true;
+    waitTimer.Reset(std::chrono::duration<double>(0.1));
 }

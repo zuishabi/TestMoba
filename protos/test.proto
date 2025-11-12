@@ -38,7 +38,8 @@ message AttackMessage{
 
 message PlayerSyncMessage{
   uint64 uid = 1;
-  bool self = 2;
+  uint32 hero_id = 2;
+  bool self = 3;
 }
 
 message PositionSyncMessage{

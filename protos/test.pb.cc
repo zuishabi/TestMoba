@@ -163,6 +163,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr PlayerSyncMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : uid_{::uint64_t{0u}},
+        hero_id_{0u},
         self_{false},
         _cached_size_{0} {}
 
@@ -571,6 +572,7 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::PlayerSyncMessage, _impl_.uid_),
+        PROTOBUF_FIELD_OFFSET(::PlayerSyncMessage, _impl_.hero_id_),
         PROTOBUF_FIELD_OFFSET(::PlayerSyncMessage, _impl_.self_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::PositionSyncMessage, _internal_metadata_),
@@ -722,19 +724,19 @@ static const ::_pbi::MigrationSchema
         {34, -1, -1, sizeof(::MoveMessage)},
         {44, -1, -1, sizeof(::AttackMessage)},
         {53, -1, -1, sizeof(::PlayerSyncMessage)},
-        {63, -1, -1, sizeof(::PositionSyncMessage)},
-        {74, -1, -1, sizeof(::HealthSyncMessage)},
-        {85, -1, -1, sizeof(::AttackSyncMessage)},
-        {95, -1, -1, sizeof(::ManaSyncMessage)},
-        {106, -1, -1, sizeof(::AttackSpeedSyncMessage)},
-        {116, -1, -1, sizeof(::SpeedSyncMessage)},
-        {126, -1, -1, sizeof(::ExecuteSkillMessage)},
-        {137, -1, -1, sizeof(::SyncSkillMessage)},
-        {149, -1, -1, sizeof(::SkillAttributeMessage)},
-        {161, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
-        {171, -1, -1, sizeof(::StateSyncMessage)},
-        {181, -1, -1, sizeof(::ObjectSyncMessage)},
-        {195, -1, -1, sizeof(::CreatePlayerMessage)},
+        {64, -1, -1, sizeof(::PositionSyncMessage)},
+        {75, -1, -1, sizeof(::HealthSyncMessage)},
+        {86, -1, -1, sizeof(::AttackSyncMessage)},
+        {96, -1, -1, sizeof(::ManaSyncMessage)},
+        {107, -1, -1, sizeof(::AttackSpeedSyncMessage)},
+        {117, -1, -1, sizeof(::SpeedSyncMessage)},
+        {127, -1, -1, sizeof(::ExecuteSkillMessage)},
+        {138, -1, -1, sizeof(::SyncSkillMessage)},
+        {150, -1, -1, sizeof(::SkillAttributeMessage)},
+        {162, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
+        {172, -1, -1, sizeof(::StateSyncMessage)},
+        {182, -1, -1, sizeof(::ObjectSyncMessage)},
+        {196, -1, -1, sizeof(::CreatePlayerMessage)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::_Packet_default_instance_._instance,
@@ -778,36 +780,36 @@ const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIA
     "ack\030\002 \001(\0132\016.AttackMessageH\000\022-\n\rexecute_s"
     "kill\030\003 \001(\0132\024.ExecuteSkillMessageH\000B\007\n\005in"
     "put\"#\n\013MoveMessage\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002"
-    "\"\034\n\rAttackMessage\022\013\n\003uid\030\001 \001(\004\".\n\021Player"
-    "SyncMessage\022\013\n\003uid\030\001 \001(\004\022\014\n\004self\030\002 \001(\010\"\?"
-    "\n\023PositionSyncMessage\022\n\n\002id\030\001 \001(\004\022\r\n\005pos"
-    "_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\"D\n\021HealthSyncMes"
-    "sage\022\013\n\003uid\030\001 \001(\004\022\016\n\006health\030\002 \001(\005\022\022\n\nmax"
-    "_health\030\003 \001(\005\"-\n\021AttackSyncMessage\022\014\n\004fr"
-    "om\030\001 \001(\004\022\n\n\002to\030\002 \001(\004\">\n\017ManaSyncMessage\022"
-    "\013\n\003uid\030\001 \001(\004\022\014\n\004mana\030\002 \001(\005\022\020\n\010max_mana\030\003"
-    " \001(\005\"4\n\026AttackSpeedSyncMessage\022\013\n\003uid\030\001 "
-    "\001(\004\022\r\n\005speed\030\002 \001(\002\"-\n\020SpeedSyncMessage\022\n"
-    "\n\002id\030\001 \001(\004\022\r\n\005speed\030\002 \001(\002\"C\n\023ExecuteSkil"
-    "lMessage\022\016\n\006rotate\030\001 \001(\002\022\r\n\005pos_x\030\002 \001(\002\022"
-    "\r\n\005pos_y\030\003 \001(\002\"N\n\020SyncSkillMessage\022\013\n\003ui"
-    "d\030\001 \001(\004\022\013\n\003pos\030\002 \001(\005\022\021\n\tleft_time\030\003 \001(\002\022"
-    "\r\n\005angle\030\004 \001(\002\"Y\n\025SkillAttributeMessage\022"
-    "\013\n\003uid\030\001 \001(\004\022\020\n\010strength\030\002 \001(\003\022\r\n\005scale\030"
-    "\003 \001(\003\022\022\n\nefficiency\030\004 \001(\003\"<\n\033ObjectsDest"
-    "royedSyncMessage\022\n\n\002id\030\001 \001(\004\022\021\n\tis_playe"
-    "r\030\002 \001(\010\"-\n\020StateSyncMessage\022\n\n\002id\030\001 \001(\004\022"
-    "\r\n\005state\030\002 \001(\r\"d\n\021ObjectSyncMessage\022\017\n\007t"
-    "ype_id\030\001 \001(\r\022\n\n\002id\030\002 \001(\004\022\t\n\001x\030\003 \001(\002\022\t\n\001y"
-    "\030\004 \001(\002\022\r\n\005scale\030\005 \001(\002\022\r\n\005angle\030\006 \001(\002\"&\n\023"
-    "CreatePlayerMessage\022\017\n\007hero_id\030\001 \001(\rB\rZ\013"
-    "pkg/packetsb\006proto3"
+    "\"\034\n\rAttackMessage\022\013\n\003uid\030\001 \001(\004\"\?\n\021Player"
+    "SyncMessage\022\013\n\003uid\030\001 \001(\004\022\017\n\007hero_id\030\002 \001("
+    "\r\022\014\n\004self\030\003 \001(\010\"\?\n\023PositionSyncMessage\022\n"
+    "\n\002id\030\001 \001(\004\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002"
+    "\"D\n\021HealthSyncMessage\022\013\n\003uid\030\001 \001(\004\022\016\n\006he"
+    "alth\030\002 \001(\005\022\022\n\nmax_health\030\003 \001(\005\"-\n\021Attack"
+    "SyncMessage\022\014\n\004from\030\001 \001(\004\022\n\n\002to\030\002 \001(\004\">\n"
+    "\017ManaSyncMessage\022\013\n\003uid\030\001 \001(\004\022\014\n\004mana\030\002 "
+    "\001(\005\022\020\n\010max_mana\030\003 \001(\005\"4\n\026AttackSpeedSync"
+    "Message\022\013\n\003uid\030\001 \001(\004\022\r\n\005speed\030\002 \001(\002\"-\n\020S"
+    "peedSyncMessage\022\n\n\002id\030\001 \001(\004\022\r\n\005speed\030\002 \001"
+    "(\002\"C\n\023ExecuteSkillMessage\022\016\n\006rotate\030\001 \001("
+    "\002\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\"N\n\020SyncS"
+    "killMessage\022\013\n\003uid\030\001 \001(\004\022\013\n\003pos\030\002 \001(\005\022\021\n"
+    "\tleft_time\030\003 \001(\002\022\r\n\005angle\030\004 \001(\002\"Y\n\025Skill"
+    "AttributeMessage\022\013\n\003uid\030\001 \001(\004\022\020\n\010strengt"
+    "h\030\002 \001(\003\022\r\n\005scale\030\003 \001(\003\022\022\n\nefficiency\030\004 \001"
+    "(\003\"<\n\033ObjectsDestroyedSyncMessage\022\n\n\002id\030"
+    "\001 \001(\004\022\021\n\tis_player\030\002 \001(\010\"-\n\020StateSyncMes"
+    "sage\022\n\n\002id\030\001 \001(\004\022\r\n\005state\030\002 \001(\r\"d\n\021Objec"
+    "tSyncMessage\022\017\n\007type_id\030\001 \001(\r\022\n\n\002id\030\002 \001("
+    "\004\022\t\n\001x\030\003 \001(\002\022\t\n\001y\030\004 \001(\002\022\r\n\005scale\030\005 \001(\002\022\r"
+    "\n\005angle\030\006 \001(\002\"&\n\023CreatePlayerMessage\022\017\n\007"
+    "hero_id\030\001 \001(\rB\rZ\013pkg/packetsb\006proto3"
 };
 static ::absl::once_flag descriptor_table_test_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_test_2eproto = {
     false,
     false,
-    1739,
+    1756,
     descriptor_table_protodef_test_2eproto,
     "test.proto",
     &descriptor_table_test_2eproto_once,
@@ -2631,15 +2633,15 @@ const ::google::protobuf::internal::ClassData* PlayerSyncMessage::GetClassData()
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerSyncMessage::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 0, 2> PlayerSyncMessage::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -2649,19 +2651,26 @@ const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PlayerSyncMessage::_table_ = {
     ::_pbi::TcParser::GetTable<::PlayerSyncMessage>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // bool self = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(PlayerSyncMessage, _impl_.self_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.self_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // uint64 uid = 1;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PlayerSyncMessage, _impl_.uid_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.uid_)}},
+    // uint32 hero_id = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerSyncMessage, _impl_.hero_id_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.hero_id_)}},
+    // bool self = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(PlayerSyncMessage, _impl_.self_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.self_)}},
   }}, {{
     65535, 65535
   }}, {{
     // uint64 uid = 1;
     {PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.uid_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
-    // bool self = 2;
+    // uint32 hero_id = 2;
+    {PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.hero_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // bool self = 3;
     {PROTOBUF_FIELD_OFFSET(PlayerSyncMessage, _impl_.self_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBool)},
   }},
@@ -2705,11 +2714,18 @@ PROTOBUF_NOINLINE void PlayerSyncMessage::Clear() {
                 1, this_._internal_uid(), target);
           }
 
-          // bool self = 2;
+          // uint32 hero_id = 2;
+          if (this_._internal_hero_id() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+                2, this_._internal_hero_id(), target);
+          }
+
+          // bool self = 3;
           if (this_._internal_self() != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteBoolToArray(
-                2, this_._internal_self(), target);
+                3, this_._internal_self(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -2742,7 +2758,12 @@ PROTOBUF_NOINLINE void PlayerSyncMessage::Clear() {
               total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_uid());
             }
-            // bool self = 2;
+            // uint32 hero_id = 2;
+            if (this_._internal_hero_id() != 0) {
+              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+                  this_._internal_hero_id());
+            }
+            // bool self = 3;
             if (this_._internal_self() != 0) {
               total_size += 2;
             }
@@ -2761,6 +2782,9 @@ void PlayerSyncMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const
 
   if (from._internal_uid() != 0) {
     _this->_impl_.uid_ = from._impl_.uid_;
+  }
+  if (from._internal_hero_id() != 0) {
+    _this->_impl_.hero_id_ = from._impl_.hero_id_;
   }
   if (from._internal_self() != 0) {
     _this->_impl_.self_ = from._impl_.self_;

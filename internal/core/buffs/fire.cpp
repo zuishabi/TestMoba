@@ -22,5 +22,5 @@ void Fire::Update() {
 
 
 void Fire::OnLoad() {
-
+    timer.Reset(std::chrono::seconds(1));
 }

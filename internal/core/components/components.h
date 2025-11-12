@@ -9,6 +9,7 @@
 #include "../syncers/syncer.h"
 #include "../../utils/event.h"
 #include <chrono>
+#include <utility>
 
 // 移动组件，只负责同步玩家的位置以及管理玩家的速度
 class MovingComponent :public Component{
@@ -28,6 +29,10 @@ public:
             moveSyncer->SetPos(pos);
         }
     }
+
+    std::shared_ptr<SpeedSyncer> GetSpeed() {
+        return speed;
+    }
 protected:
     std::shared_ptr<MoveSyncer> moveSyncer;
     std::shared_ptr<SpeedSyncer> speed;
@@ -36,9 +41,10 @@ protected:
 
 
 // 处理到目标位置的移动
-class MoveTargetComponent:public MovingComponent {
+class MoveTargetComponent:public Component {
 public:
-    MoveTargetComponent(uint64_t id,b2Vec2 startPos):MovingComponent(id,startPos) {
+    MoveTargetComponent(uint64_t id,b2Vec2 startPos,std::weak_ptr<SpeedSyncer> speed):
+    Component(ComponentType::MoveTargetComponentType,id),speed(std::move(speed)) {
         target = startPos;
     }
 
@@ -51,14 +57,16 @@ public:
     void Update() override;
 
     Signal<b2Vec2> MovingSignal; // 设定坐标后发出
+
+    std::weak_ptr<SpeedSyncer> speed;
 };
 
 
 // 向目标方向移动的组件
-class MoveDirectionComponent:public MovingComponent {
+class MoveDirectionComponent:public Component {
 public:
-    MoveDirectionComponent(uint64_t id,b2Vec2 startPos,b2Vec2 direction,std::chrono::steady_clock::time_point expire)
-    :MovingComponent(id,startPos),direction(direction),expireAt(expire) {}
+    MoveDirectionComponent(uint64_t id,b2Vec2 direction,std::chrono::steady_clock::time_point expire)
+    :Component(ComponentType::MoveDirectionComponentType,id),direction(direction),expireAt(expire) {}
 
     b2Vec2 direction;
 
@@ -163,6 +171,9 @@ public:
     void ExecuteSkill(int pos,ExecuteSkillInfo info);
 
     std::shared_ptr<SkillAttributeSyncer> skillAttributeSyncer;
+
+    Signal<Skill*> UseNormalSkill;
+    Signal<Skill*> UseMoveSkill;
 private:
     std::array<std::unique_ptr<Skill>,4> skills;
 };
@@ -206,7 +217,7 @@ public:
         return state;
     }
 
-    bool activate;
+    bool activate = false;
 protected:
     State state;
     StateMachineComponent* stateMachine;
@@ -233,9 +244,11 @@ public:
                 return;
             }
             currentNode->OnExit();
+            currentNode->activate = false;
         }
         currentNode = nodes[static_cast<uint32_t>(state)].get();
         currentNode->OnEnter();
+        currentNode->activate = true;
         currentState->SetState(state);
     }
 
@@ -244,7 +257,6 @@ private:
     std::vector<std::unique_ptr<StateNode>> nodes;
     StateNode* currentNode;
 };
-
 
 
 #endif //TESTSERVER_COMPONENTS_H

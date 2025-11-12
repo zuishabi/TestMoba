@@ -117,7 +117,18 @@ void CustomServer::CreatePlayer() {
         uint64_t id = b2StoreBodyId(myBodyId);
         std::cout << "create id " << id <<std::endl;
         GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Player));
-        std::shared_ptr<Player> player = std::make_shared<Barbarian>(t.client,id);
+
+        std::shared_ptr<Player> player;
+        switch (t.heroID) {
+            case 0:
+                player = std::make_shared<Barbarian>(t.client,id);
+                break;
+            case 1:
+                player = std::make_shared<Shooter>(t.client,id);
+                break;
+            default:
+                std::cout << "unknown hero id" << std::endl;
+        }
 
 
         auto packet = std::make_shared<Packet>();
@@ -135,6 +146,7 @@ void CustomServer::CreatePlayer() {
         // 向其他玩家广播加入消息，并同步玩家状态
         playerSync->set_uid(player->GetID());
         playerSync->set_self(false);
+        playerSync->set_hero_id(t.heroID);
         BroadcastMessage(packet,t.client->GetID());
         for (auto packs : GetAllSyncers(id)) {
             BroadcastMessage(packs);

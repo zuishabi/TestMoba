@@ -16,7 +16,6 @@
 #include "worldManager.h"
 
 
-
 struct ConnectTask {
     std::shared_ptr<olc::net::connection>client;
     uint32_t heroID;

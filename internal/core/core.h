@@ -18,6 +18,7 @@ enum class State:uint32_t{
     ATTACK = 2,
     SKILL = 3,
     CC = 4,
+    MOVE_SKILL = 5,
 };
 
 
@@ -77,6 +78,8 @@ enum class ComponentType{
     SkillObjectComponentType,
     BuffComponentType,
     StateMachineComponentType,
+    MoveTargetComponentType,
+    MoveDirectionComponentType,
 };
 
 
@@ -175,6 +178,7 @@ protected:
     int cost;
     bool canExecute; // 是否可以被执行
     uint32_t id; // 技能的id
+    bool activated = false;
 };
 
 

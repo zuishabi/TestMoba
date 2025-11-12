@@ -65,7 +65,6 @@ void CustomServer::InitializeWorld() {
         std::cout << "right pos:" << bd.position.x << "," << bd.position.y << std::endl;
     }
 
-    std::cout << "World boundary created with 4 static walls" << std::endl;
 
     // 创建地形
     b2BodyDef bd = b2DefaultBodyDef();
