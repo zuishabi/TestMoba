@@ -40,9 +40,6 @@ public:
         return it->second;
     }
 
-    void SetPlayer(const std::shared_ptr<Player>& player) {
-        playerMap[player->client->GetID()] = player;
-    }
 
     std::unordered_map<uint32_t,std::shared_ptr<Player>>& GetPlayerMap() {
         return playerMap;

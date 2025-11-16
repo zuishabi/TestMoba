@@ -16,6 +16,7 @@ message Packet{
     SkillAttributeMessage skill_attribute_sync = 12;
     SpeedSyncMessage speed_sync = 13;
     CreatePlayerMessage create_player = 14;
+    ObjectSyncMessage object_sync = 15;
   }
 }
 

@@ -66,10 +66,13 @@ public:
             ->startAttackSignal.connect([this, stateMachine](uint64_t target) {
                 stateMachine->SetStateNode(State::ATTACK);
             });
-        stateMachine->manager->GetComponent<AttackComponent>(ComponentType::AttackComponentType)
-            ->stopAttackSignal.connect([this,stateMachine](uint64_t target) {
-               stateMachine->SetStateNode(State::IDLE);
-            });
+        stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MoveTargetComponentType)
+        ->MovingSignal.connect([this, stateMachine](b2Vec2 target) {
+            if (activate) {
+                // 只有当处于静止状态时进行移动才会改变为移动状态
+                stateMachine->SetStateNode(State::MOVING);
+            }
+        });
     }
 
     void OnEnter() override {
@@ -101,11 +104,11 @@ public:
     }
 
     void OnEnter() override {
+        std::cout << "enter skill" << std::endl;
         auto moving = stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MoveTargetComponentType);
         moving->Enable = false;
         b2BodyId body = b2LoadBodyId(moving->id);
         moving->target = b2Body_GetPosition(body);
-        std::cout << "enter skill" << std::endl;
     }
 
     void OnExit() override {

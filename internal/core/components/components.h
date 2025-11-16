@@ -93,7 +93,6 @@ public:
     std::chrono::time_point<std::chrono::steady_clock, std::chrono::duration<double, std::ratio<1, 1000000000>>> nextPoint;
     uint64_t targetID;
     Signal<uint64_t> startAttackSignal;
-    Signal<uint64_t> stopAttackSignal;
 };
 
 

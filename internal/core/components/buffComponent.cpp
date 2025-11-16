@@ -18,13 +18,21 @@ void BuffComponent::Update() {
 }
 
 void BuffComponent::AddBuff(std::shared_ptr<Buff> buff) {
+    if (!Enable) {
+        return;
+    }
+    buff->OnLoad();
     for (int i = 0;i < buffs.size();i ++) {
         if (buffs[i] == nullptr) {
             buffs[i] = std::move(buff);
             return;
         }
+        // 寻找到了相同的buff
+        if (buffs[i]->type == buff->type) {
+            buffs[i]->Upgrade(buff->level);
+            return;
+        }
     }
-    buff->OnLoad();
     buffs.emplace_back(buff);
 }
 

@@ -7,17 +7,17 @@
 #include "../../utils/mMath.h"
 #include "skill.h"
 #include "../../player/player.h"
+#include "../buffs/buff.h"
 
 
 class ezQComponent:public SkillObjectComponent{
 public:
     ezQComponent(uint64_t id,uint64_t from,b2ShapeId shapeID):
-    SkillObjectComponent(id,from),shapeID(shapeID),positionSyncer(std::make_shared<MoveSyncer>(id)),
-    objectSyncer(std::make_shared<ObjectSyncer>(id)) {
+    SkillObjectComponent(id,from),shapeID(shapeID),objectSyncer(std::make_shared<ObjectSyncer>(id)) {
         auto body = b2LoadBodyId(id);
         b2Vec2 pos = b2Body_GetPosition(body);
-        objectSyncer->SetInfo(ObjectInfo(1,id,pos.x,pos.y,1,b2Rot_GetAngle(b2Body_GetRotation(body))));
-        manager->SyncerManager->AddSyncer(positionSyncer);
+        objectSyncer->SetInfo(ObjectInfo(0,id,pos.x,pos.y,1,b2Rot_GetAngle(b2Body_GetRotation(body))));
+        manager->SyncerManager->AddSyncer(objectSyncer);
         expireAt = std::chrono::steady_clock::now() + std::chrono::seconds(1);
         attribute = GameWorld::objectsMap[from].get()->GetComponent<SkillComponent>(ComponentType::SkillComponentType)->skillAttributeSyncer;
     }
@@ -26,7 +26,6 @@ public:
 private:
     b2ShapeId shapeID;
     std::chrono::steady_clock::time_point expireAt;
-    std::shared_ptr<MoveSyncer> positionSyncer;
     std::shared_ptr<SkillAttributeSyncer> attribute; // 保存来自玩家的技能信息
     std::shared_ptr<ObjectSyncer> objectSyncer;
 };
@@ -38,7 +37,6 @@ void ezQComponent::Update() {
         return;
     }
 
-    positionSyncer->SetPos(b2Body_GetPosition(b2LoadBodyId(id)));
     int capacity = b2Shape_GetSensorCapacity( shapeID );
     std::vector<b2ShapeId> overlaps;
     overlaps.resize( capacity );
@@ -66,6 +64,13 @@ void ezQComponent::Update() {
             auto hit = targetManager->GetComponent<HitComponent>(ComponentType::HitComponentType);
             if (hit != nullptr) {
                 hit->Hit(_id,{damage});
+
+                // 施加眩晕效果
+                auto buff = targetManager->GetComponent<BuffComponent>(ComponentType::BuffComponentType);
+                if (buff != nullptr) {
+                    buff->AddBuff(std::make_shared<CCBuff>(from,_id,2));
+                }
+
                 manager->destroyed = true;
                 break;
             }
@@ -103,7 +108,11 @@ void ezQ::Update() {
         auto manager = GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Skill));
         std::cout << "create skill:" << id << std::endl;
         manager->AddComponent<ezQComponent>(id,from,bodyShape);
+        manager->AddComponent<MovingComponent>(id,info.pos);
         activated = false;
+
+        auto selfManager = GameWorld::objectsMap[from].get();
+        selfManager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType)->SetStateNode(State::IDLE);
     }
 }
 

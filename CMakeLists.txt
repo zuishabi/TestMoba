@@ -35,6 +35,7 @@ add_executable(testMoba main.cpp protos/test.pb.cc
         internal/core/skills/meleeSpin.cpp
         internal/core/components/statemachineComponent.cpp
         internal/utils/event.h
+        internal/core/buffs/CCBuff.cpp
 )
 target_link_directories(testMoba PRIVATE C:/projects/TestMoba/libs)
 

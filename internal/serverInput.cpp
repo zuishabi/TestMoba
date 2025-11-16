@@ -17,6 +17,7 @@ void CustomServer::ProcessInput() {
             if (input.has_move()) {
                 auto moving = manager->GetComponent<MoveTargetComponent>(ComponentType::MoveTargetComponentType);
                 if (!moving->Enable) {
+                    p.second->InputList.pop();
                     continue;
                 }
 

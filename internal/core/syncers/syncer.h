@@ -279,7 +279,16 @@ public:
     }
 
     std::shared_ptr<Packet>getSync() override{
-        return std::make_shared<Packet>();
+        updated = false;
+        std::shared_ptr<Packet> res = std::make_shared<Packet>();
+        auto sync = res->mutable_object_sync();
+        sync->set_angle(info.angle);
+        sync->set_id(info.id);
+        sync->set_scale(info.scale);
+        sync->set_type_id(info.type_id);
+        sync->set_x(info.x);
+        sync->set_y(info.y);
+        return res;
     }
 private:
     ObjectInfo info;

@@ -28,17 +28,10 @@ public:
     }
 
     static ComponentManager* GetComponentManager(uint64_t id) {
-        auto data =  b2Body_GetUserData(b2LoadBodyId(id));
-        if (!data) {
-            return nullptr;
-        };
-        auto sp_ptr = static_cast<ComponentManager*>(data);
-        return sp_ptr;
+        return objectsMap[id].get();
     }
 
     static ComponentManager* StoreComponentManager(uint64_t id,std::unique_ptr<ComponentManager> manager) {
-        b2BodyId body = b2LoadBodyId(id);
-        b2Body_SetUserData(body,manager.get());
         objectsMap[id] = std::move(manager);
         return objectsMap[id].get();
     }

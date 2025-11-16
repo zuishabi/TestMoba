@@ -3808,6 +3808,7 @@ class Packet final : public ::google::protobuf::Message
     kSkillAttributeSync = 12,
     kSpeedSync = 13,
     kCreatePlayer = 14,
+    kObjectSync = 15,
     MSG_NOT_SET = 0,
   };
   static inline const Packet* internal_default_instance() {
@@ -3914,6 +3915,7 @@ class Packet final : public ::google::protobuf::Message
     kSkillAttributeSyncFieldNumber = 12,
     kSpeedSyncFieldNumber = 13,
     kCreatePlayerFieldNumber = 14,
+    kObjectSyncFieldNumber = 15,
   };
   // .InputPacket input = 2;
   bool has_input() const;
@@ -4162,6 +4164,25 @@ class Packet final : public ::google::protobuf::Message
   ::CreatePlayerMessage* _internal_mutable_create_player();
 
   public:
+  // .ObjectSyncMessage object_sync = 15;
+  bool has_object_sync() const;
+  private:
+  bool _internal_has_object_sync() const;
+
+  public:
+  void clear_object_sync() ;
+  const ::ObjectSyncMessage& object_sync() const;
+  PROTOBUF_NODISCARD ::ObjectSyncMessage* release_object_sync();
+  ::ObjectSyncMessage* mutable_object_sync();
+  void set_allocated_object_sync(::ObjectSyncMessage* value);
+  void unsafe_arena_set_allocated_object_sync(::ObjectSyncMessage* value);
+  ::ObjectSyncMessage* unsafe_arena_release_object_sync();
+
+  private:
+  const ::ObjectSyncMessage& _internal_object_sync() const;
+  ::ObjectSyncMessage* _internal_mutable_object_sync();
+
+  public:
   void clear_msg();
   MsgCase msg_case() const;
   // @@protoc_insertion_point(class_scope:Packet)
@@ -4180,11 +4201,12 @@ class Packet final : public ::google::protobuf::Message
   void set_has_skill_attribute_sync();
   void set_has_speed_sync();
   void set_has_create_player();
+  void set_has_object_sync();
   inline bool has_msg() const;
   inline void clear_has_msg();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 13, 13,
+      0, 14, 14,
       0, 2>
       _table_;
 
@@ -4218,6 +4240,7 @@ class Packet final : public ::google::protobuf::Message
       ::SkillAttributeMessage* skill_attribute_sync_;
       ::SpeedSyncMessage* speed_sync_;
       ::CreatePlayerMessage* create_player_;
+      ::ObjectSyncMessage* object_sync_;
     } msg_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
@@ -5267,6 +5290,85 @@ inline ::CreatePlayerMessage* Packet::_internal_mutable_create_player() {
 inline ::CreatePlayerMessage* Packet::mutable_create_player() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::CreatePlayerMessage* _msg = _internal_mutable_create_player();
   // @@protoc_insertion_point(field_mutable:Packet.create_player)
+  return _msg;
+}
+
+// .ObjectSyncMessage object_sync = 15;
+inline bool Packet::has_object_sync() const {
+  return msg_case() == kObjectSync;
+}
+inline bool Packet::_internal_has_object_sync() const {
+  return msg_case() == kObjectSync;
+}
+inline void Packet::set_has_object_sync() {
+  _impl_._oneof_case_[0] = kObjectSync;
+}
+inline void Packet::clear_object_sync() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (msg_case() == kObjectSync) {
+    if (GetArena() == nullptr) {
+      delete _impl_.msg_.object_sync_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.msg_.object_sync_);
+    }
+    clear_has_msg();
+  }
+}
+inline ::ObjectSyncMessage* Packet::release_object_sync() {
+  // @@protoc_insertion_point(field_release:Packet.object_sync)
+  if (msg_case() == kObjectSync) {
+    clear_has_msg();
+    auto* temp = _impl_.msg_.object_sync_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.msg_.object_sync_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::ObjectSyncMessage& Packet::_internal_object_sync() const {
+  return msg_case() == kObjectSync ? *_impl_.msg_.object_sync_ : reinterpret_cast<::ObjectSyncMessage&>(::_ObjectSyncMessage_default_instance_);
+}
+inline const ::ObjectSyncMessage& Packet::object_sync() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:Packet.object_sync)
+  return _internal_object_sync();
+}
+inline ::ObjectSyncMessage* Packet::unsafe_arena_release_object_sync() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:Packet.object_sync)
+  if (msg_case() == kObjectSync) {
+    clear_has_msg();
+    auto* temp = _impl_.msg_.object_sync_;
+    _impl_.msg_.object_sync_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Packet::unsafe_arena_set_allocated_object_sync(::ObjectSyncMessage* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_msg();
+  if (value) {
+    set_has_object_sync();
+    _impl_.msg_.object_sync_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:Packet.object_sync)
+}
+inline ::ObjectSyncMessage* Packet::_internal_mutable_object_sync() {
+  if (msg_case() != kObjectSync) {
+    clear_msg();
+    set_has_object_sync();
+    _impl_.msg_.object_sync_ =
+        ::google::protobuf::Message::DefaultConstruct<::ObjectSyncMessage>(GetArena());
+  }
+  return _impl_.msg_.object_sync_;
+}
+inline ::ObjectSyncMessage* Packet::mutable_object_sync() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::ObjectSyncMessage* _msg = _internal_mutable_object_sync();
+  // @@protoc_insertion_point(field_mutable:Packet.object_sync)
   return _msg;
 }
 

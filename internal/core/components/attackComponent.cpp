@@ -15,7 +15,8 @@ void AttackComponent::Update() {
         auto hit = target->GetComponent<HitComponent>(ComponentType::HitComponentType);
         if (hit != nullptr) {
             hit->Hit(targetID,{10});
-            stopAttackSignal.emit(targetID);
+            manager->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType)->
+                SetStateNode(State::IDLE);
         }
         isShooting = false;
     }

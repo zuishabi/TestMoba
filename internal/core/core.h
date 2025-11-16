@@ -240,17 +240,21 @@ private:
     std::unordered_map<SyncerType, std::shared_ptr<Syncer>> syncers;
 };
 
+enum class BUFF;
 
 class Buff {
 public:
-    Buff(uint64_t from,uint64_t owner):from(from),owner(owner){}
+    Buff(uint64_t from,uint64_t owner,int level,BUFF type):from(from),owner(owner),type(type),level(level){}
 public:
     virtual void Update() = 0;
     virtual void OnLoad() = 0;
+    virtual void Upgrade(int level) = 0; // 进行buff的升级或者直接进行覆盖
 public:
     bool destroyed = false;
     uint64_t from;
     uint64_t owner;
+    int level;
+    BUFF type;
 };
 
 
