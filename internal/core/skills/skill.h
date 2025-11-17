@@ -13,8 +13,9 @@
 class ezQ:public Skill {
 public:
     explicit ezQ(uint64_t from):Skill(1,from) {
-        skillInfoSyncer = std::make_shared<SkillInfoSyncer>(from,SkillInfo());
         auto manager = GameWorld::objectsMap[from].get();
+        skillInfoSyncer = std::make_shared<SkillInfoSyncer>(from,SkillInfo());
+        manager->SyncerManager->AddSyncer(skillInfoSyncer);
         skillComponent = manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType);
     }
 public:
@@ -63,6 +64,26 @@ private:
     std::shared_ptr<SkillAttributeSyncer> attribute; // 保存玩家的技能属性信息
     std::shared_ptr<SkillInfoSyncer> skillInfoSyncer;
     SkillComponent* skillComponent;
+};
+
+
+class rockWall:public Skill {
+public:
+    rockWall(uint64_t from):Skill(3,from) {
+        auto manager = GameWorld::objectsMap[from].get();
+        skillInfoSyncer = std::make_shared<SkillInfoSyncer>(from,SkillInfo());
+        manager->SyncerManager->AddSyncer(skillInfoSyncer);
+        skillComponent = manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType);
+    }
+public:
+    void Update() override;
+
+    void Execute(ExecuteSkillInfo info) override;
+private:
+    std::shared_ptr<SkillInfoSyncer> skillInfoSyncer;
+    Timer waitTimer;
+    SkillComponent* skillComponent;
+    ExecuteSkillInfo info;
 };
 
 #endif //TESTMOBA_SKILL_H

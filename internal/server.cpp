@@ -125,6 +125,9 @@ void CustomServer::CreatePlayer() {
             case 1:
                 player = std::make_shared<Shooter>(t.client,id);
                 break;
+            case 2:
+                player = std::make_shared<Magician>(t.client,id);
+                break;
             default:
                 std::cout << "unknown hero id" << std::endl;
         }

@@ -39,9 +39,15 @@ void MoveTargetComponent::ProcessInput(b2Vec2 target) {
 }
 
 
+void MoveTargetComponent::Interrupt() {
+    b2BodyId body = b2LoadBodyId(id);
+    b2Body_SetLinearVelocity(body, b2Vec2{0.0f, 0.0f});
+    target = b2Body_GetPosition(body);
+}
+
+
 void MoveTargetComponent::Update() {
     b2BodyId body = b2LoadBodyId(id);
-    b2Vec2 vec = b2Body_GetLinearVelocity(body);
     if (!b2Body_IsValid(body)) {
         std::cout << id << "not valid" << std::endl;
     }
@@ -75,3 +81,4 @@ void MoveDirectionComponent::Update() {
         b2Body_SetLinearVelocity(body,b2Vec2(0,0));
     }
 }
+

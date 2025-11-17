@@ -56,6 +56,8 @@ public:
 
     void Update() override;
 
+    void Interrupt();
+
     Signal<b2Vec2> MovingSignal; // 设定坐标后发出
 
     std::weak_ptr<SpeedSyncer> speed;

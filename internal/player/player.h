@@ -87,4 +87,28 @@ public:
 };
 
 
+class Magician:public Player{
+public:
+    Magician(std::shared_ptr<olc::net::connection> client,uint64_t id):Player(std::move(client),id,2) {
+        ComponentManager* manager = GameWorld::GetComponentManager(id);
+        auto move = manager->AddComponent<MovingComponent>(id,b2Vec2(200,200));
+
+        manager->AddComponent<MoveTargetComponent>(id,b2Vec2(200,200),move->GetSpeed());
+
+        manager->AddComponent<AttackComponent>(id,80);
+
+        manager->AddComponent<AttributeComponent>(id);
+
+        manager->AddComponent<HitComponent>(id);
+
+        auto skill = manager->AddComponent<SkillComponent>(id);
+        std::array<std::unique_ptr<Skill>,4> skills = {std::make_unique<rockWall>(id)};
+        skill->LoadSkills(std::move(skills));
+
+        manager->AddComponent<BuffComponent>(id);
+
+        manager->AddComponent<StateMachineComponent>(id);
+    }
+};
+
 #endif //TESTSERVER_PLAYER_H

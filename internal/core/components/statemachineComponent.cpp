@@ -18,8 +18,7 @@ public:
     void OnExit() override {
         std::cout << "exit moving" << std::endl;
         auto moving = stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MoveTargetComponentType);
-        b2BodyId body = b2LoadBodyId(moving->id);
-        moving->target = b2Body_GetPosition(body);
+        moving->Interrupt();
     }
 
     void Update() override {
@@ -107,8 +106,6 @@ public:
         std::cout << "enter skill" << std::endl;
         auto moving = stateMachine->manager->GetComponent<MoveTargetComponent>(ComponentType::MoveTargetComponentType);
         moving->Enable = false;
-        b2BodyId body = b2LoadBodyId(moving->id);
-        moving->target = b2Body_GetPosition(body);
     }
 
     void OnExit() override {
@@ -165,7 +162,7 @@ class MoveSkillState:public StateNode{
 public:
     MoveSkillState(StateMachineComponent* stateMachine):StateNode(stateMachine) {
         state = State::MOVE_SKILL;
-        stateMachine->manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType)->UseNormalSkill.connect(
+        stateMachine->manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType)->UseMoveSkill.connect(
             [this](Skill* skill) {
                 this->stateMachine->SetStateNode(State::MOVE_SKILL);
             }

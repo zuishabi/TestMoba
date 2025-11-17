@@ -36,6 +36,7 @@ add_executable(testMoba main.cpp protos/test.pb.cc
         internal/core/components/statemachineComponent.cpp
         internal/utils/event.h
         internal/core/buffs/CCBuff.cpp
+        internal/core/skills/rockWall.cpp
 )
 target_link_directories(testMoba PRIVATE C:/projects/TestMoba/libs)
 

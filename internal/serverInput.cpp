@@ -17,6 +17,7 @@ void CustomServer::ProcessInput() {
             if (input.has_move()) {
                 auto moving = manager->GetComponent<MoveTargetComponent>(ComponentType::MoveTargetComponentType);
                 if (!moving->Enable) {
+                    std::cout << "block moving" << std::endl;
                     p.second->InputList.pop();
                     continue;
                 }

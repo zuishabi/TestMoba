@@ -65,6 +65,4 @@ void meleeSpin::Execute(ExecuteSkillInfo info) {
     endTimer.Stop();
     skillInfoSyncer->Execute();
     skillComponent->UseMoveSkill.emit(this);
-    auto stateMachine = GameWorld::GetComponentManager(from)->GetComponent<StateMachineComponent>(ComponentType::StateMachineComponentType);
-    stateMachine->SetStateNode(State::MOVE_SKILL);
 }
