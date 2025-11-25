@@ -97,13 +97,13 @@ void ezQ::Update() {
         shapeDef.density = 1.0f;
         shapeDef.material.friction = 0.3f;
         shapeDef.material.restitution = 0;
-        shapeDef.filter.categoryBits = CATEGORY_SKILL;
-        shapeDef.filter.maskBits = MASK_SKILL;
+        shapeDef.filter.categoryBits = CATEGORY_BULLET;
+        shapeDef.filter.maskBits = MASK_BULLET;
         shapeDef.enableSensorEvents = true;
         b2ShapeId bodyShape = b2CreateCapsuleShape(myBodyId, &shapeDef, &capsule);
 
         auto id = b2StoreBodyId(myBodyId);
-        auto manager = GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Skill));
+        auto manager = GameWorld::StoreComponentManager(id,std::make_unique<ComponentManager>(id,ManagerType::Bullet));
         manager->AddComponent<ezQComponent>(id,from,bodyShape);
         manager->AddComponent<MovingComponent>(id,info.pos);
         activated = false;

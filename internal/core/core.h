@@ -23,8 +23,9 @@ enum class State:uint32_t{
 
 
 enum class ManagerType {
-    Player,
-    Skill,
+    Player, // 玩家
+    Skill, // 技能实体
+    Bullet, // 子弹实体
 };
 
 
@@ -80,6 +81,7 @@ enum class ComponentType{
     StateMachineComponentType,
     MoveTargetComponentType,
     MoveDirectionComponentType,
+    BulletComponentType, // 子弹普通攻击
 };
 
 

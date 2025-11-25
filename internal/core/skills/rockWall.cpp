@@ -40,7 +40,6 @@ void rockWallComponent::Update() {
     // Now get all overlaps and record the actual count
     int count = b2Shape_GetSensorOverlaps( shapeID, overlaps.data(), capacity );
     overlaps.resize( count );
-
     std::cout << count << std::endl;
 
     for ( int j = 0; j < count; ++j )
@@ -57,8 +56,11 @@ void rockWallComponent::Update() {
             continue;
         }
         ComponentManager* targetManager = GameWorld::GetComponentManager(_id);
-        if (targetManager && targetManager->Type == ManagerType::Skill) {
+        // 只有当目标是子弹时才会进行销毁
+        if (targetManager && targetManager->Type == ManagerType::Bullet) {
             targetManager->destroyed = true;
+        }else {
+            std::cout << "不是子弹" << std::endl;
         }
     }
 }

@@ -17,7 +17,6 @@ void CustomServer::ProcessInput() {
             if (input.has_move()) {
                 auto moving = manager->GetComponent<MoveTargetComponent>(ComponentType::MoveTargetComponentType);
                 if (!moving->Enable) {
-                    std::cout << "block moving" << std::endl;
                     p.second->InputList.pop();
                     continue;
                 }
@@ -27,12 +26,14 @@ void CustomServer::ProcessInput() {
                 // 处理玩家攻击
                 auto attack = manager->GetComponent<AttackComponent>(ComponentType::AttackComponentType);
                 if (!attack->Enable) {
+                    p.second->InputList.pop();
                     continue;
                 }
 
                 b2BodyId body = b2LoadBodyId(p.second->GetID());
                 b2BodyId targetBody = b2LoadBodyId(input.player_attack().uid());
                 if (!b2Body_IsValid(targetBody)) {
+                    p.second->InputList.pop();
                     continue;
                 }
                 b2Vec2 distance = b2Body_GetPosition(body) - b2Body_GetPosition(targetBody);
@@ -48,13 +49,13 @@ void CustomServer::ProcessInput() {
             }else if (input.has_execute_skill()) {
                 auto skill = manager->GetComponent<SkillComponent>(ComponentType::SkillComponentType);
                 if (!skill->Enable) {
+                    p.second->InputList.pop();
                     continue;
                 }
 
                 auto info = input.execute_skill();
                 skill->ExecuteSkill(0,{b2Vec2{info.pos_x(),info.pos_y()},info.rotate()});
             }
-
 
             p.second->InputList.pop();
         }

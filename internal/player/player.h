@@ -70,7 +70,7 @@ public:
 
         manager->AddComponent<MoveTargetComponent>(id,b2Vec2(200,200),move->GetSpeed());
 
-        manager->AddComponent<AttackComponent>(id,100);
+        manager->AddComponent<AttackComponent>(id,100,true);
 
         manager->AddComponent<AttributeComponent>(id);
 
@@ -95,7 +95,7 @@ public:
 
         manager->AddComponent<MoveTargetComponent>(id,b2Vec2(200,200),move->GetSpeed());
 
-        manager->AddComponent<AttackComponent>(id,80);
+        manager->AddComponent<AttackComponent>(id,80,true);
 
         manager->AddComponent<AttributeComponent>(id);
 

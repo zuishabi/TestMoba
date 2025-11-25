@@ -80,7 +80,8 @@ public:
 
 class AttackComponent :public Component {
 public:
-    explicit AttackComponent(uint64_t id,float scale):Component(ComponentType::AttackComponentType,id),scale(scale) {
+    explicit AttackComponent(uint64_t id,float scale,bool isBullet = false):
+        Component(ComponentType::AttackComponentType,id),scale(scale),isBullet(isBullet) {
 
     }
 public:
@@ -89,7 +90,7 @@ public:
     void Attack( uint64_t targetID);
 
 public:
-    bool isBullet = false;
+    bool isBullet;
     bool isShooting = false;
     float scale;
     std::chrono::time_point<std::chrono::steady_clock, std::chrono::duration<double, std::ratio<1, 1000000000>>> nextPoint;
