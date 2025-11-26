@@ -20,9 +20,17 @@ public:
         manager->SyncerManager->AddSyncer(objectSyncer);
     }
 
-    static void* operator new(std::size_t n);
+    // static void* operator new(std::size_t n);
+    //
+    // static void operator delete(void* p);
 
-    static void operator delete(void* p);
+    static void* operator new(size_t size) {
+        return memory_pool->allocate(size);
+    }
+
+    static void operator delete(void* ptr, size_t size) {
+        memory_pool->deallocate(ptr, size);
+    }
 public:
     void Update() override {
         auto t = GameWorld::GetComponentManager(_target);
@@ -90,22 +98,24 @@ private:
     uint64_t _from;
     b2ShapeId _shapeID;
     std::shared_ptr<ObjectSyncer> objectSyncer;
+    static std::pmr::memory_resource* memory_pool;
 };
 
 
+std::pmr::memory_resource* BulletComponent::memory_pool = std::pmr::get_default_resource();
+
 // 子弹的内存池
-static FixedSizePool bulletPool(sizeof(BulletComponent));
+//static FixedSizePool bulletPool(sizeof(BulletComponent));
 
 
-void *BulletComponent::operator new(std::size_t n) {
-    return bulletPool.allocate();
-}
-
-
-void BulletComponent::operator delete(void *p) {
-    bulletPool.deallocate(p);
-}
-
+// void *BulletComponent::operator new(std::size_t n) {
+//     return bulletPool.allocate();
+// }
+//
+//
+// void BulletComponent::operator delete(void *p) {
+//     bulletPool.deallocate(p);
+// }
 
 
 void AttackComponent::Update() {

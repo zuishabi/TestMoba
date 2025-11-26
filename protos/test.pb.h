@@ -63,6 +63,9 @@ extern AttackSyncMessageDefaultTypeInternal _AttackSyncMessage_default_instance_
 class CreatePlayerMessage;
 struct CreatePlayerMessageDefaultTypeInternal;
 extern CreatePlayerMessageDefaultTypeInternal _CreatePlayerMessage_default_instance_;
+class CreateTestPlayerMessage;
+struct CreateTestPlayerMessageDefaultTypeInternal;
+extern CreateTestPlayerMessageDefaultTypeInternal _CreateTestPlayerMessage_default_instance_;
 class ExecuteSkillMessage;
 struct ExecuteSkillMessageDefaultTypeInternal;
 extern ExecuteSkillMessageDefaultTypeInternal _ExecuteSkillMessage_default_instance_;
@@ -2696,6 +2699,208 @@ class ExecuteSkillMessage final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class CreateTestPlayerMessage final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:CreateTestPlayerMessage) */ {
+ public:
+  inline CreateTestPlayerMessage() : CreateTestPlayerMessage(nullptr) {}
+  ~CreateTestPlayerMessage() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CreateTestPlayerMessage* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CreateTestPlayerMessage));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CreateTestPlayerMessage(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline CreateTestPlayerMessage(const CreateTestPlayerMessage& from) : CreateTestPlayerMessage(nullptr, from) {}
+  inline CreateTestPlayerMessage(CreateTestPlayerMessage&& from) noexcept
+      : CreateTestPlayerMessage(nullptr, std::move(from)) {}
+  inline CreateTestPlayerMessage& operator=(const CreateTestPlayerMessage& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateTestPlayerMessage& operator=(CreateTestPlayerMessage&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CreateTestPlayerMessage& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CreateTestPlayerMessage* internal_default_instance() {
+    return reinterpret_cast<const CreateTestPlayerMessage*>(
+        &_CreateTestPlayerMessage_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 18;
+  friend void swap(CreateTestPlayerMessage& a, CreateTestPlayerMessage& b) { a.Swap(&b); }
+  inline void Swap(CreateTestPlayerMessage* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateTestPlayerMessage* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CreateTestPlayerMessage* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CreateTestPlayerMessage>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CreateTestPlayerMessage& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CreateTestPlayerMessage& from) { CreateTestPlayerMessage::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CreateTestPlayerMessage* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "CreateTestPlayerMessage"; }
+
+ protected:
+  explicit CreateTestPlayerMessage(::google::protobuf::Arena* arena);
+  CreateTestPlayerMessage(::google::protobuf::Arena* arena, const CreateTestPlayerMessage& from);
+  CreateTestPlayerMessage(::google::protobuf::Arena* arena, CreateTestPlayerMessage&& from) noexcept
+      : CreateTestPlayerMessage(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kXFieldNumber = 1,
+    kYFieldNumber = 2,
+  };
+  // float x = 1;
+  void clear_x() ;
+  float x() const;
+  void set_x(float value);
+
+  private:
+  float _internal_x() const;
+  void _internal_set_x(float value);
+
+  public:
+  // float y = 2;
+  void clear_y() ;
+  float y() const;
+  void set_y(float value);
+
+  private:
+  float _internal_y() const;
+  void _internal_set_y(float value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:CreateTestPlayerMessage)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const CreateTestPlayerMessage& from_msg);
+    float x_;
+    float y_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_test_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CreatePlayerMessage final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:CreatePlayerMessage) */ {
  public:
@@ -3539,6 +3744,7 @@ class InputPacket final : public ::google::protobuf::Message
     kMove = 1,
     kPlayerAttack = 2,
     kExecuteSkill = 3,
+    kCreateTestPlayer = 4,
     INPUT_NOT_SET = 0,
   };
   static inline const InputPacket* internal_default_instance() {
@@ -3635,6 +3841,7 @@ class InputPacket final : public ::google::protobuf::Message
     kMoveFieldNumber = 1,
     kPlayerAttackFieldNumber = 2,
     kExecuteSkillFieldNumber = 3,
+    kCreateTestPlayerFieldNumber = 4,
   };
   // .MoveMessage move = 1;
   bool has_move() const;
@@ -3693,6 +3900,25 @@ class InputPacket final : public ::google::protobuf::Message
   ::ExecuteSkillMessage* _internal_mutable_execute_skill();
 
   public:
+  // .CreateTestPlayerMessage create_test_player = 4;
+  bool has_create_test_player() const;
+  private:
+  bool _internal_has_create_test_player() const;
+
+  public:
+  void clear_create_test_player() ;
+  const ::CreateTestPlayerMessage& create_test_player() const;
+  PROTOBUF_NODISCARD ::CreateTestPlayerMessage* release_create_test_player();
+  ::CreateTestPlayerMessage* mutable_create_test_player();
+  void set_allocated_create_test_player(::CreateTestPlayerMessage* value);
+  void unsafe_arena_set_allocated_create_test_player(::CreateTestPlayerMessage* value);
+  ::CreateTestPlayerMessage* unsafe_arena_release_create_test_player();
+
+  private:
+  const ::CreateTestPlayerMessage& _internal_create_test_player() const;
+  ::CreateTestPlayerMessage* _internal_mutable_create_test_player();
+
+  public:
   void clear_input();
   InputCase input_case() const;
   // @@protoc_insertion_point(class_scope:InputPacket)
@@ -3701,11 +3927,12 @@ class InputPacket final : public ::google::protobuf::Message
   void set_has_move();
   void set_has_player_attack();
   void set_has_execute_skill();
+  void set_has_create_test_player();
   inline bool has_input() const;
   inline void clear_has_input();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 3, 3,
+      0, 4, 4,
       0, 2>
       _table_;
 
@@ -3729,6 +3956,7 @@ class InputPacket final : public ::google::protobuf::Message
       ::MoveMessage* move_;
       ::AttackMessage* player_attack_;
       ::ExecuteSkillMessage* execute_skill_;
+      ::CreateTestPlayerMessage* create_test_player_;
     } input_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
@@ -5622,6 +5850,85 @@ inline ::ExecuteSkillMessage* InputPacket::mutable_execute_skill() ABSL_ATTRIBUT
   return _msg;
 }
 
+// .CreateTestPlayerMessage create_test_player = 4;
+inline bool InputPacket::has_create_test_player() const {
+  return input_case() == kCreateTestPlayer;
+}
+inline bool InputPacket::_internal_has_create_test_player() const {
+  return input_case() == kCreateTestPlayer;
+}
+inline void InputPacket::set_has_create_test_player() {
+  _impl_._oneof_case_[0] = kCreateTestPlayer;
+}
+inline void InputPacket::clear_create_test_player() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (input_case() == kCreateTestPlayer) {
+    if (GetArena() == nullptr) {
+      delete _impl_.input_.create_test_player_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.input_.create_test_player_);
+    }
+    clear_has_input();
+  }
+}
+inline ::CreateTestPlayerMessage* InputPacket::release_create_test_player() {
+  // @@protoc_insertion_point(field_release:InputPacket.create_test_player)
+  if (input_case() == kCreateTestPlayer) {
+    clear_has_input();
+    auto* temp = _impl_.input_.create_test_player_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.input_.create_test_player_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::CreateTestPlayerMessage& InputPacket::_internal_create_test_player() const {
+  return input_case() == kCreateTestPlayer ? *_impl_.input_.create_test_player_ : reinterpret_cast<::CreateTestPlayerMessage&>(::_CreateTestPlayerMessage_default_instance_);
+}
+inline const ::CreateTestPlayerMessage& InputPacket::create_test_player() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:InputPacket.create_test_player)
+  return _internal_create_test_player();
+}
+inline ::CreateTestPlayerMessage* InputPacket::unsafe_arena_release_create_test_player() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:InputPacket.create_test_player)
+  if (input_case() == kCreateTestPlayer) {
+    clear_has_input();
+    auto* temp = _impl_.input_.create_test_player_;
+    _impl_.input_.create_test_player_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void InputPacket::unsafe_arena_set_allocated_create_test_player(::CreateTestPlayerMessage* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_input();
+  if (value) {
+    set_has_create_test_player();
+    _impl_.input_.create_test_player_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:InputPacket.create_test_player)
+}
+inline ::CreateTestPlayerMessage* InputPacket::_internal_mutable_create_test_player() {
+  if (input_case() != kCreateTestPlayer) {
+    clear_input();
+    set_has_create_test_player();
+    _impl_.input_.create_test_player_ =
+        ::google::protobuf::Message::DefaultConstruct<::CreateTestPlayerMessage>(GetArena());
+  }
+  return _impl_.input_.create_test_player_;
+}
+inline ::CreateTestPlayerMessage* InputPacket::mutable_create_test_player() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::CreateTestPlayerMessage* _msg = _internal_mutable_create_test_player();
+  // @@protoc_insertion_point(field_mutable:InputPacket.create_test_player)
+  return _msg;
+}
+
 inline bool InputPacket::has_input() const {
   return input_case() != INPUT_NOT_SET;
 }
@@ -6639,6 +6946,54 @@ inline ::uint32_t CreatePlayerMessage::_internal_hero_id() const {
 inline void CreatePlayerMessage::_internal_set_hero_id(::uint32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.hero_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CreateTestPlayerMessage
+
+// float x = 1;
+inline void CreateTestPlayerMessage::clear_x() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.x_ = 0;
+}
+inline float CreateTestPlayerMessage::x() const {
+  // @@protoc_insertion_point(field_get:CreateTestPlayerMessage.x)
+  return _internal_x();
+}
+inline void CreateTestPlayerMessage::set_x(float value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:CreateTestPlayerMessage.x)
+}
+inline float CreateTestPlayerMessage::_internal_x() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.x_;
+}
+inline void CreateTestPlayerMessage::_internal_set_x(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.x_ = value;
+}
+
+// float y = 2;
+inline void CreateTestPlayerMessage::clear_y() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.y_ = 0;
+}
+inline float CreateTestPlayerMessage::y() const {
+  // @@protoc_insertion_point(field_get:CreateTestPlayerMessage.y)
+  return _internal_y();
+}
+inline void CreateTestPlayerMessage::set_y(float value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:CreateTestPlayerMessage.y)
+}
+inline float CreateTestPlayerMessage::_internal_y() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.y_;
+}
+inline void CreateTestPlayerMessage::_internal_set_y(float value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.y_ = value;
 }
 
 #ifdef __GNUC__

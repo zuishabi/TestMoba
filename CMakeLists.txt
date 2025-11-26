@@ -31,13 +31,14 @@ add_executable(testMoba main.cpp protos/test.pb.cc
         internal/core/buffs/buff.h
         internal/core/components/buffComponent.cpp
         internal/core/buffs/fire.cpp
-        internal/player/barbarian.cpp
         internal/core/skills/meleeSpin.cpp
         internal/core/components/statemachineComponent.cpp
         internal/utils/event.h
         internal/core/buffs/CCBuff.cpp
         internal/core/skills/rockWall.cpp
         internal/utils/memoryPool.h
+        internal/objects/objects.h
+        internal/objects/test/TestPlayer.cpp
 )
 target_link_directories(testMoba PRIVATE C:/projects/TestMoba/libs)
 

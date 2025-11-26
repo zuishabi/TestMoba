@@ -6,11 +6,15 @@
 #define TESTSERVER_COMPONENT_H
 
 #include <memory>
+#include <memory_resource>
 #include <utility>
 #include <vector>
 #include <box2d/math_functions.h>
 #include "../worldManager.h"
 #include "../../protos/test.pb.h"
+#include "../utils/memoryPool.h"
+
+class PacketPacker;
 
 enum class State:uint32_t{
     IDLE = 0,
@@ -26,6 +30,13 @@ enum class ManagerType {
     Player, // 玩家
     Skill, // 技能实体
     Bullet, // 子弹实体
+    Object, // 其他实体
+};
+
+
+enum class GroupType {
+    BLUE,
+    RED,
 };
 
 
@@ -149,6 +160,7 @@ public:
     uint64_t id;
     ManagerType Type;
     bool destroyed = false;
+    GroupType groupType;
 };
 
 
@@ -258,6 +270,5 @@ public:
     int level;
     BUFF type;
 };
-
 
 #endif //TESTSERVER_COMPONENT_H

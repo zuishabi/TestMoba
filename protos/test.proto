@@ -25,6 +25,7 @@ message InputPacket{
     MoveMessage move = 1;
     AttackMessage player_attack = 2;
     ExecuteSkillMessage execute_skill = 3;
+    CreateTestPlayerMessage create_test_player = 4;
   }
 }
 
@@ -118,4 +119,9 @@ message ObjectSyncMessage{
 
 message CreatePlayerMessage{
   uint32 hero_id = 1;
+}
+
+message CreateTestPlayerMessage{
+  float x = 1;
+  float y = 2;
 }

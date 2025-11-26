@@ -39,8 +39,9 @@ public:
 
 class Barbarian:public Player {
 public:
-    Barbarian(std::shared_ptr<olc::net::connection> client,uint64_t id):Player(std::move(client),id,0) {
+    Barbarian(std::shared_ptr<olc::net::connection> client,uint64_t id,GroupType type):Player(std::move(client),id,0) {
         ComponentManager* manager = GameWorld::GetComponentManager(id);
+        manager->groupType = type;
         auto move = manager->AddComponent<MovingComponent>(id,b2Vec2(200,200));
 
         manager->AddComponent<MoveTargetComponent>(id,b2Vec2(200,200),move->GetSpeed());
@@ -64,8 +65,9 @@ public:
 
 class Shooter:public Player {
 public:
-    Shooter(std::shared_ptr<olc::net::connection> client,uint64_t id):Player(std::move(client),id,1) {
+    Shooter(std::shared_ptr<olc::net::connection> client,uint64_t id,GroupType type):Player(std::move(client),id,1) {
         ComponentManager* manager = GameWorld::GetComponentManager(id);
+        manager->groupType = type;
         auto move = manager->AddComponent<MovingComponent>(id,b2Vec2(200,200));
 
         manager->AddComponent<MoveTargetComponent>(id,b2Vec2(200,200),move->GetSpeed());
@@ -89,8 +91,9 @@ public:
 
 class Magician:public Player{
 public:
-    Magician(std::shared_ptr<olc::net::connection> client,uint64_t id):Player(std::move(client),id,2) {
+    Magician(std::shared_ptr<olc::net::connection> client,uint64_t id,GroupType type):Player(std::move(client),id,2) {
         ComponentManager* manager = GameWorld::GetComponentManager(id);
+        manager->groupType = type;
         auto move = manager->AddComponent<MovingComponent>(id,b2Vec2(200,200));
 
         manager->AddComponent<MoveTargetComponent>(id,b2Vec2(200,200),move->GetSpeed());

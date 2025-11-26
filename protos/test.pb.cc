@@ -350,6 +350,32 @@ struct ExecuteSkillMessageDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExecuteSkillMessageDefaultTypeInternal _ExecuteSkillMessage_default_instance_;
 
+inline constexpr CreateTestPlayerMessage::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : x_{0},
+        y_{0},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CreateTestPlayerMessage::CreateTestPlayerMessage(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CreateTestPlayerMessageDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CreateTestPlayerMessageDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CreateTestPlayerMessageDefaultTypeInternal() {}
+  union {
+    CreateTestPlayerMessage _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateTestPlayerMessageDefaultTypeInternal _CreateTestPlayerMessage_default_instance_;
+
 inline constexpr CreatePlayerMessage::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : hero_id_{0u},
@@ -544,6 +570,7 @@ const ::uint32_t
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
         PROTOBUF_FIELD_OFFSET(::InputPacket, _impl_.input_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::MoveMessage, _internal_metadata_),
@@ -716,28 +743,39 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::CreatePlayerMessage, _impl_.hero_id_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::CreateTestPlayerMessage, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::CreateTestPlayerMessage, _impl_.x_),
+        PROTOBUF_FIELD_OFFSET(::CreateTestPlayerMessage, _impl_.y_),
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::Packet)},
         {23, -1, -1, sizeof(::InputPacket)},
-        {35, -1, -1, sizeof(::MoveMessage)},
-        {45, -1, -1, sizeof(::AttackMessage)},
-        {54, -1, -1, sizeof(::PlayerSyncMessage)},
-        {65, -1, -1, sizeof(::PositionSyncMessage)},
-        {76, -1, -1, sizeof(::HealthSyncMessage)},
-        {87, -1, -1, sizeof(::AttackSyncMessage)},
-        {97, -1, -1, sizeof(::ManaSyncMessage)},
-        {108, -1, -1, sizeof(::AttackSpeedSyncMessage)},
-        {118, -1, -1, sizeof(::SpeedSyncMessage)},
-        {128, -1, -1, sizeof(::ExecuteSkillMessage)},
-        {139, -1, -1, sizeof(::SyncSkillMessage)},
-        {151, -1, -1, sizeof(::SkillAttributeMessage)},
-        {163, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
-        {173, -1, -1, sizeof(::StateSyncMessage)},
-        {183, -1, -1, sizeof(::ObjectSyncMessage)},
-        {197, -1, -1, sizeof(::CreatePlayerMessage)},
+        {36, -1, -1, sizeof(::MoveMessage)},
+        {46, -1, -1, sizeof(::AttackMessage)},
+        {55, -1, -1, sizeof(::PlayerSyncMessage)},
+        {66, -1, -1, sizeof(::PositionSyncMessage)},
+        {77, -1, -1, sizeof(::HealthSyncMessage)},
+        {88, -1, -1, sizeof(::AttackSyncMessage)},
+        {98, -1, -1, sizeof(::ManaSyncMessage)},
+        {109, -1, -1, sizeof(::AttackSpeedSyncMessage)},
+        {119, -1, -1, sizeof(::SpeedSyncMessage)},
+        {129, -1, -1, sizeof(::ExecuteSkillMessage)},
+        {140, -1, -1, sizeof(::SyncSkillMessage)},
+        {152, -1, -1, sizeof(::SkillAttributeMessage)},
+        {164, -1, -1, sizeof(::ObjectsDestroyedSyncMessage)},
+        {174, -1, -1, sizeof(::StateSyncMessage)},
+        {184, -1, -1, sizeof(::ObjectSyncMessage)},
+        {198, -1, -1, sizeof(::CreatePlayerMessage)},
+        {207, -1, -1, sizeof(::CreateTestPlayerMessage)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::_Packet_default_instance_._instance,
@@ -758,6 +796,7 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::_StateSyncMessage_default_instance_._instance,
     &::_ObjectSyncMessage_default_instance_._instance,
     &::_CreatePlayerMessage_default_instance_._instance,
+    &::_CreateTestPlayerMessage_default_instance_._instance,
 };
 const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
@@ -777,47 +816,50 @@ const char descriptor_table_protodef_test_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIA
     "ageH\000\022\'\n\nspeed_sync\030\r \001(\0132\021.SpeedSyncMes"
     "sageH\000\022-\n\rcreate_player\030\016 \001(\0132\024.CreatePl"
     "ayerMessageH\000\022)\n\013object_sync\030\017 \001(\0132\022.Obj"
-    "ectSyncMessageH\000B\005\n\003msg\"\214\001\n\013InputPacket\022"
+    "ectSyncMessageH\000B\005\n\003msg\"\304\001\n\013InputPacket\022"
     "\034\n\004move\030\001 \001(\0132\014.MoveMessageH\000\022\'\n\rplayer_"
     "attack\030\002 \001(\0132\016.AttackMessageH\000\022-\n\rexecut"
-    "e_skill\030\003 \001(\0132\024.ExecuteSkillMessageH\000B\007\n"
-    "\005input\"#\n\013MoveMessage\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 "
-    "\001(\002\"\034\n\rAttackMessage\022\013\n\003uid\030\001 \001(\004\"\?\n\021Pla"
-    "yerSyncMessage\022\013\n\003uid\030\001 \001(\004\022\017\n\007hero_id\030\002"
-    " \001(\r\022\014\n\004self\030\003 \001(\010\"\?\n\023PositionSyncMessag"
-    "e\022\n\n\002id\030\001 \001(\004\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 "
-    "\001(\002\"D\n\021HealthSyncMessage\022\013\n\003uid\030\001 \001(\004\022\016\n"
-    "\006health\030\002 \001(\005\022\022\n\nmax_health\030\003 \001(\005\"-\n\021Att"
-    "ackSyncMessage\022\014\n\004from\030\001 \001(\004\022\n\n\002to\030\002 \001(\004"
-    "\">\n\017ManaSyncMessage\022\013\n\003uid\030\001 \001(\004\022\014\n\004mana"
-    "\030\002 \001(\005\022\020\n\010max_mana\030\003 \001(\005\"4\n\026AttackSpeedS"
-    "yncMessage\022\013\n\003uid\030\001 \001(\004\022\r\n\005speed\030\002 \001(\002\"-"
-    "\n\020SpeedSyncMessage\022\n\n\002id\030\001 \001(\004\022\r\n\005speed\030"
-    "\002 \001(\002\"C\n\023ExecuteSkillMessage\022\016\n\006rotate\030\001"
-    " \001(\002\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005pos_y\030\003 \001(\002\"N\n\020Sy"
-    "ncSkillMessage\022\013\n\003uid\030\001 \001(\004\022\013\n\003pos\030\002 \001(\005"
-    "\022\021\n\tleft_time\030\003 \001(\002\022\r\n\005angle\030\004 \001(\002\"Y\n\025Sk"
-    "illAttributeMessage\022\013\n\003uid\030\001 \001(\004\022\020\n\010stre"
-    "ngth\030\002 \001(\003\022\r\n\005scale\030\003 \001(\003\022\022\n\nefficiency\030"
-    "\004 \001(\003\"<\n\033ObjectsDestroyedSyncMessage\022\n\n\002"
-    "id\030\001 \001(\004\022\021\n\tis_player\030\002 \001(\010\"-\n\020StateSync"
-    "Message\022\n\n\002id\030\001 \001(\004\022\r\n\005state\030\002 \001(\r\"d\n\021Ob"
-    "jectSyncMessage\022\017\n\007type_id\030\001 \001(\r\022\n\n\002id\030\002"
-    " \001(\004\022\t\n\001x\030\003 \001(\002\022\t\n\001y\030\004 \001(\002\022\r\n\005scale\030\005 \001("
-    "\002\022\r\n\005angle\030\006 \001(\002\"&\n\023CreatePlayerMessage\022"
-    "\017\n\007hero_id\030\001 \001(\rB\rZ\013pkg/packetsb\006proto3"
+    "e_skill\030\003 \001(\0132\024.ExecuteSkillMessageH\000\0226\n"
+    "\022create_test_player\030\004 \001(\0132\030.CreateTestPl"
+    "ayerMessageH\000B\007\n\005input\"#\n\013MoveMessage\022\t\n"
+    "\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"\034\n\rAttackMessage\022\013\n\003"
+    "uid\030\001 \001(\004\"\?\n\021PlayerSyncMessage\022\013\n\003uid\030\001 "
+    "\001(\004\022\017\n\007hero_id\030\002 \001(\r\022\014\n\004self\030\003 \001(\010\"\?\n\023Po"
+    "sitionSyncMessage\022\n\n\002id\030\001 \001(\004\022\r\n\005pos_x\030\002"
+    " \001(\002\022\r\n\005pos_y\030\003 \001(\002\"D\n\021HealthSyncMessage"
+    "\022\013\n\003uid\030\001 \001(\004\022\016\n\006health\030\002 \001(\005\022\022\n\nmax_hea"
+    "lth\030\003 \001(\005\"-\n\021AttackSyncMessage\022\014\n\004from\030\001"
+    " \001(\004\022\n\n\002to\030\002 \001(\004\">\n\017ManaSyncMessage\022\013\n\003u"
+    "id\030\001 \001(\004\022\014\n\004mana\030\002 \001(\005\022\020\n\010max_mana\030\003 \001(\005"
+    "\"4\n\026AttackSpeedSyncMessage\022\013\n\003uid\030\001 \001(\004\022"
+    "\r\n\005speed\030\002 \001(\002\"-\n\020SpeedSyncMessage\022\n\n\002id"
+    "\030\001 \001(\004\022\r\n\005speed\030\002 \001(\002\"C\n\023ExecuteSkillMes"
+    "sage\022\016\n\006rotate\030\001 \001(\002\022\r\n\005pos_x\030\002 \001(\002\022\r\n\005p"
+    "os_y\030\003 \001(\002\"N\n\020SyncSkillMessage\022\013\n\003uid\030\001 "
+    "\001(\004\022\013\n\003pos\030\002 \001(\005\022\021\n\tleft_time\030\003 \001(\002\022\r\n\005a"
+    "ngle\030\004 \001(\002\"Y\n\025SkillAttributeMessage\022\013\n\003u"
+    "id\030\001 \001(\004\022\020\n\010strength\030\002 \001(\003\022\r\n\005scale\030\003 \001("
+    "\003\022\022\n\nefficiency\030\004 \001(\003\"<\n\033ObjectsDestroye"
+    "dSyncMessage\022\n\n\002id\030\001 \001(\004\022\021\n\tis_player\030\002 "
+    "\001(\010\"-\n\020StateSyncMessage\022\n\n\002id\030\001 \001(\004\022\r\n\005s"
+    "tate\030\002 \001(\r\"d\n\021ObjectSyncMessage\022\017\n\007type_"
+    "id\030\001 \001(\r\022\n\n\002id\030\002 \001(\004\022\t\n\001x\030\003 \001(\002\022\t\n\001y\030\004 \001"
+    "(\002\022\r\n\005scale\030\005 \001(\002\022\r\n\005angle\030\006 \001(\002\"&\n\023Crea"
+    "tePlayerMessage\022\017\n\007hero_id\030\001 \001(\r\"/\n\027Crea"
+    "teTestPlayerMessage\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001("
+    "\002B\rZ\013pkg/packetsb\006proto3"
 };
 static ::absl::once_flag descriptor_table_test_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_test_2eproto = {
     false,
     false,
-    1799,
+    1904,
     descriptor_table_protodef_test_2eproto,
     "test.proto",
     &descriptor_table_test_2eproto_once,
     nullptr,
     0,
-    18,
+    19,
     schemas,
     file_default_instances,
     TableStruct_test_2eproto::offsets,
@@ -1807,6 +1849,19 @@ void InputPacket::set_allocated_execute_skill(::ExecuteSkillMessage* execute_ski
   }
   // @@protoc_insertion_point(field_set_allocated:InputPacket.execute_skill)
 }
+void InputPacket::set_allocated_create_test_player(::CreateTestPlayerMessage* create_test_player) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_input();
+  if (create_test_player) {
+    ::google::protobuf::Arena* submessage_arena = create_test_player->GetArena();
+    if (message_arena != submessage_arena) {
+      create_test_player = ::google::protobuf::internal::GetOwnedMessage(message_arena, create_test_player, submessage_arena);
+    }
+    set_has_create_test_player();
+    _impl_.input_.create_test_player_ = create_test_player;
+  }
+  // @@protoc_insertion_point(field_set_allocated:InputPacket.create_test_player)
+}
 InputPacket::InputPacket(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
@@ -1847,6 +1902,9 @@ InputPacket::InputPacket(
         break;
       case kExecuteSkill:
         _impl_.input_.execute_skill_ = ::google::protobuf::Message::CopyConstruct<::ExecuteSkillMessage>(arena, *from._impl_.input_.execute_skill_);
+        break;
+      case kCreateTestPlayer:
+        _impl_.input_.create_test_player_ = ::google::protobuf::Message::CopyConstruct<::CreateTestPlayerMessage>(arena, *from._impl_.input_.create_test_player_);
         break;
   }
 
@@ -1904,6 +1962,14 @@ void InputPacket::clear_input() {
       }
       break;
     }
+    case kCreateTestPlayer: {
+      if (GetArena() == nullptr) {
+        delete _impl_.input_.create_test_player_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.input_.create_test_player_);
+      }
+      break;
+    }
     case INPUT_NOT_SET: {
       break;
     }
@@ -1948,16 +2014,16 @@ const ::google::protobuf::internal::ClassData* InputPacket::GetClassData() const
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 3, 3, 0, 2> InputPacket::_table_ = {
+const ::_pbi::TcParseTable<0, 4, 4, 0, 2> InputPacket::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    3, 0,  // max_field_number, fast_idx_mask
+    4, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967280,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    3,  // num_aux_entries
+    4,  // num_field_entries
+    4,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1979,10 +2045,14 @@ const ::_pbi::TcParseTable<0, 3, 3, 0, 2> InputPacket::_table_ = {
     // .ExecuteSkillMessage execute_skill = 3;
     {PROTOBUF_FIELD_OFFSET(InputPacket, _impl_.input_.execute_skill_), _Internal::kOneofCaseOffset + 0, 2,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .CreateTestPlayerMessage create_test_player = 4;
+    {PROTOBUF_FIELD_OFFSET(InputPacket, _impl_.input_.create_test_player_), _Internal::kOneofCaseOffset + 0, 3,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::MoveMessage>()},
     {::_pbi::TcParser::GetTable<::AttackMessage>()},
     {::_pbi::TcParser::GetTable<::ExecuteSkillMessage>()},
+    {::_pbi::TcParser::GetTable<::CreateTestPlayerMessage>()},
   }}, {{
   }},
 };
@@ -2032,6 +2102,12 @@ PROTOBUF_NOINLINE void InputPacket::Clear() {
                   stream);
               break;
             }
+            case kCreateTestPlayer: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  4, *this_._impl_.input_.create_test_player_, this_._impl_.input_.create_test_player_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
             default:
               break;
           }
@@ -2075,6 +2151,12 @@ PROTOBUF_NOINLINE void InputPacket::Clear() {
             case kExecuteSkill: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.input_.execute_skill_);
+              break;
+            }
+            // .CreateTestPlayerMessage create_test_player = 4;
+            case kCreateTestPlayer: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.input_.create_test_player_);
               break;
             }
             case INPUT_NOT_SET: {
@@ -2129,6 +2211,15 @@ void InputPacket::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
               ::google::protobuf::Message::CopyConstruct<::ExecuteSkillMessage>(arena, *from._impl_.input_.execute_skill_);
         } else {
           _this->_impl_.input_.execute_skill_->MergeFrom(from._internal_execute_skill());
+        }
+        break;
+      }
+      case kCreateTestPlayer: {
+        if (oneof_needs_init) {
+          _this->_impl_.input_.create_test_player_ =
+              ::google::protobuf::Message::CopyConstruct<::CreateTestPlayerMessage>(arena, *from._impl_.input_.create_test_player_);
+        } else {
+          _this->_impl_.input_.create_test_player_->MergeFrom(from._internal_create_test_player());
         }
         break;
       }
@@ -6206,6 +6297,245 @@ void CreatePlayerMessage::InternalSwap(CreatePlayerMessage* PROTOBUF_RESTRICT ot
 }
 
 ::google::protobuf::Metadata CreatePlayerMessage::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CreateTestPlayerMessage::_Internal {
+ public:
+};
+
+CreateTestPlayerMessage::CreateTestPlayerMessage(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CreateTestPlayerMessage)
+}
+CreateTestPlayerMessage::CreateTestPlayerMessage(
+    ::google::protobuf::Arena* arena, const CreateTestPlayerMessage& from)
+    : CreateTestPlayerMessage(arena) {
+  MergeFrom(from);
+}
+inline PROTOBUF_NDEBUG_INLINE CreateTestPlayerMessage::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void CreateTestPlayerMessage::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, x_),
+           0,
+           offsetof(Impl_, y_) -
+               offsetof(Impl_, x_) +
+               sizeof(Impl_::y_));
+}
+CreateTestPlayerMessage::~CreateTestPlayerMessage() {
+  // @@protoc_insertion_point(destructor:CreateTestPlayerMessage)
+  SharedDtor(*this);
+}
+inline void CreateTestPlayerMessage::SharedDtor(MessageLite& self) {
+  CreateTestPlayerMessage& this_ = static_cast<CreateTestPlayerMessage&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* CreateTestPlayerMessage::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) CreateTestPlayerMessage(arena);
+}
+constexpr auto CreateTestPlayerMessage::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(CreateTestPlayerMessage),
+                                            alignof(CreateTestPlayerMessage));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull CreateTestPlayerMessage::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_CreateTestPlayerMessage_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &CreateTestPlayerMessage::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<CreateTestPlayerMessage>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &CreateTestPlayerMessage::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<CreateTestPlayerMessage>(), &CreateTestPlayerMessage::ByteSizeLong,
+            &CreateTestPlayerMessage::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(CreateTestPlayerMessage, _impl_._cached_size_),
+        false,
+    },
+    &CreateTestPlayerMessage::kDescriptorMethods,
+    &descriptor_table_test_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* CreateTestPlayerMessage::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> CreateTestPlayerMessage::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::CreateTestPlayerMessage>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // float y = 2;
+    {::_pbi::TcParser::FastF32S1,
+     {21, 63, 0, PROTOBUF_FIELD_OFFSET(CreateTestPlayerMessage, _impl_.y_)}},
+    // float x = 1;
+    {::_pbi::TcParser::FastF32S1,
+     {13, 63, 0, PROTOBUF_FIELD_OFFSET(CreateTestPlayerMessage, _impl_.x_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // float x = 1;
+    {PROTOBUF_FIELD_OFFSET(CreateTestPlayerMessage, _impl_.x_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+    // float y = 2;
+    {PROTOBUF_FIELD_OFFSET(CreateTestPlayerMessage, _impl_.y_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kFloat)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+PROTOBUF_NOINLINE void CreateTestPlayerMessage::Clear() {
+// @@protoc_insertion_point(message_clear_start:CreateTestPlayerMessage)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.x_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.y_) -
+      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* CreateTestPlayerMessage::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const CreateTestPlayerMessage& this_ = static_cast<const CreateTestPlayerMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* CreateTestPlayerMessage::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const CreateTestPlayerMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:CreateTestPlayerMessage)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // float x = 1;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_x()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                1, this_._internal_x(), target);
+          }
+
+          // float y = 2;
+          if (::absl::bit_cast<::uint32_t>(this_._internal_y()) != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteFloatToArray(
+                2, this_._internal_y(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:CreateTestPlayerMessage)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t CreateTestPlayerMessage::ByteSizeLong(const MessageLite& base) {
+          const CreateTestPlayerMessage& this_ = static_cast<const CreateTestPlayerMessage&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t CreateTestPlayerMessage::ByteSizeLong() const {
+          const CreateTestPlayerMessage& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:CreateTestPlayerMessage)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // float x = 1;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_x()) != 0) {
+              total_size += 5;
+            }
+            // float y = 2;
+            if (::absl::bit_cast<::uint32_t>(this_._internal_y()) != 0) {
+              total_size += 5;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void CreateTestPlayerMessage::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<CreateTestPlayerMessage*>(&to_msg);
+  auto& from = static_cast<const CreateTestPlayerMessage&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CreateTestPlayerMessage)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (::absl::bit_cast<::uint32_t>(from._internal_x()) != 0) {
+    _this->_impl_.x_ = from._impl_.x_;
+  }
+  if (::absl::bit_cast<::uint32_t>(from._internal_y()) != 0) {
+    _this->_impl_.y_ = from._impl_.y_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CreateTestPlayerMessage::CopyFrom(const CreateTestPlayerMessage& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CreateTestPlayerMessage)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CreateTestPlayerMessage::InternalSwap(CreateTestPlayerMessage* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CreateTestPlayerMessage, _impl_.y_)
+      + sizeof(CreateTestPlayerMessage::_impl_.y_)
+      - PROTOBUF_FIELD_OFFSET(CreateTestPlayerMessage, _impl_.x_)>(
+          reinterpret_cast<char*>(&_impl_.x_),
+          reinterpret_cast<char*>(&other->_impl_.x_));
+}
+
+::google::protobuf::Metadata CreateTestPlayerMessage::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

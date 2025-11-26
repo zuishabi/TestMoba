@@ -3,6 +3,7 @@
 //
 
 #include "server.h"
+#include "objects/objects.h"
 
 void CustomServer::ProcessInput() {
     for (auto &p : playerMap) {
@@ -55,6 +56,11 @@ void CustomServer::ProcessInput() {
 
                 auto info = input.execute_skill();
                 skill->ExecuteSkill(0,{b2Vec2{info.pos_x(),info.pos_y()},info.rotate()});
+            }else if (input.has_create_test_player()) {
+                auto create = input.create_test_player();
+                TestPlayer::CreateTestPlayer(b2Vec2{create.x(),create.y()},
+                    (manager->groupType == GroupType::BLUE ? GroupType::RED : GroupType::RED)
+                    );
             }
 
             p.second->InputList.pop();

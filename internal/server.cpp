@@ -120,13 +120,13 @@ void CustomServer::CreatePlayer() {
         std::shared_ptr<Player> player;
         switch (t.heroID) {
             case 0:
-                player = std::make_shared<Barbarian>(t.client,id);
+                player = std::make_shared<Barbarian>(t.client,id,GroupType::BLUE);
                 break;
             case 1:
-                player = std::make_shared<Shooter>(t.client,id);
+                player = std::make_shared<Shooter>(t.client,id,GroupType::BLUE);
                 break;
             case 2:
-                player = std::make_shared<Magician>(t.client,id);
+                player = std::make_shared<Magician>(t.client,id,GroupType::BLUE);
                 break;
             default:
                 std::cout << "unknown hero id" << std::endl;
